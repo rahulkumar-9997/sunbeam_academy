@@ -21,14 +21,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set the working directory
 WORKDIR /var/www/html
 
-# Copy the Laravel project files
+# Copy the Laravel project files (excluding .env)
 COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
-
-# Generate Laravel application key and save it to .env
-RUN php artisan key:generate --force
 
 # Expose port 10000
 EXPOSE 10000
