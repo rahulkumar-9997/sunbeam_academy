@@ -30,3 +30,9 @@
 .hero-btns .thm-btn--stroke-white svg path{
     fill: var(--color-white);
 }
+.branches-div h4{
+    color: var(--color-white);
+    font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 25px;
+}
