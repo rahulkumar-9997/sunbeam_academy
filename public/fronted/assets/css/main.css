@@ -5905,7 +5905,8 @@ input[type=search]::-webkit-search-results-decoration {
         padding-right: 0; } }
   .sh-featuree_wrap .xb-item--icon {
     background: #d9293a;
-    margin-right: 15px;
+    /* margin-right: 15px; */
+    margin-bottom: 10px;
    }
     .sh-featuree_wrap .xb-item--icon.bg_blue {
       background: #2f76cf; }
@@ -7022,7 +7023,9 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
   .team-item .xb-item--name {
     font-size: 22px;
     font-weight: 700;
-    margin-bottom: 4px; }
+    margin-bottom: 4px;
+    color: var(--color-secondary);
+   }
     .team-item .xb-item--name a {
       color: currentColor; }
   .team-item .xb-item--desig {

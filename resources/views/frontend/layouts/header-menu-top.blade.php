@@ -24,9 +24,19 @@
                                     <li><a href="{{ url('/') }}">Deputy Directors Message</a></li>
                                 </ul>
                             </li>
-                            
+
+                            <li class="menu-item-has-children active">
+                                <a href="{{ url('/') }}">Branches</a>
+                                <ul class="submenu">
+                                    <li><a href="{{ url('/') }}">Sunbeam Academy Samneghat</a></li>
+                                    <li><a href="{{ url('/') }}">Sunbeam Academy Durgakund</a></li>
+                                    <li><a href="{{ url('/') }}">Sunbeam Academy Sarainandan</a></li>
+                                    <li><a href="{{ url('/') }}">Sunbeam Academy Knowledge Park</a></li>
+                                </ul>
+                            </li>
+
                             <li class="menu-item-has-children">
-                                <a href="#!">Life @ Sunbeam</a>
+                                <a href="#!">Life@Sunbeam</a>
                                 <ul class="submenu">
                                     <li><a href="{{ url('/') }}">Curriculum</a></li>
                                     <li><a href="{{ url('/') }}">Academic Support Programs</a></li>

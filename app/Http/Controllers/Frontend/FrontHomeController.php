@@ -15,8 +15,9 @@ class FrontHomeController extends Controller
 	    return view('frontend.index');
     }
     
-    public function aboutUs(){
-	    return view('frontend.pages.about-us');
+    public function aboutUs()
+    {
+        return "This is the About Us page.";
     }
     
     

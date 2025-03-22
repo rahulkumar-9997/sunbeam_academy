@@ -5,14 +5,14 @@
 @section('main-content')
 <div class="hero-btns">
     <div class="text-center branches-div">
-        <h4>Our Branches</h4>
+        <h4>Sunbeam Academy Branches</h4>
     </div>
     <div class="btns ul_li_center">
         <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Gurgakund
+            Samneghat
         </a>
         <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Samneghat
+            Durgakund
         </a>
         <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
             Sarainandan
@@ -23,7 +23,7 @@
     </div>
 </div>
 <!-- feature + about section start  -->
-<section class="about hs-about pt-115 pb-115 pos-rel home-box">
+<section class="about hs-about pt-115 pb-115 pos-rel home-box teacher-area">
     <div class="container">
         <div class="row mt-none-30">
             <div class="col-lg-3 mt-30">
@@ -57,7 +57,7 @@
                     <div class="xb-item--icon bg_green">
                         <img src="{{asset('fronted/assets/img/icon/customer-support.png')}}" alt="">
                     </div>
-                    <div class="xb-item--holder pr-15">
+                    <div class="xb-item--holder">
                         <h3 class="xb-item--title">Technology Perspective</h3>
                         <span class="xb-item--content">
                             Technology develops creative learning processes and helps retain the concept for a longer period of time. Online tools help explore more to acquaint knowledge.
@@ -68,9 +68,9 @@
             <div class="col-lg-3 mt-30">
                 <div class="xb-feature_wrap sh-featuree_wrap pos-rel ul_li">
                     <div class="xb-item--icon bg_yellow">
-                        <img src="{{asset('fronted/assets/img/icon/school-bag-1.png')}}" alt="">
+                        <img src="{{asset('fronted/assets/img/icon/customer-support.png')}}" alt="">
                     </div>
-                    <div class="xb-item--holder pr-15">
+                    <div class="xb-item--holder">
                         <h3 class="xb-item--title">Safe Environment</h3>
                         <span class="xb-item--content">We believe that a safe and caring learning environment facilitates proper learning. Our teachers maintain discipline which helps improve the quality of education for all learners.</span>
                     </div>
@@ -358,7 +358,7 @@
                                     <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#FDB714" />
                                 </svg></span>
                         </div>
-                        <span class="xb-item--profile">college profiles</span>
+                        <span class="xb-item--profile">No. of Current Students</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-30">
@@ -367,12 +367,12 @@
                             <img src="{{asset('fronted/assets/img/icon/stamp.png')}}" alt="">
                         </div>
                         <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">45Million+</h2>
+                            <h2 class="xb-item--number">150+</h2>
                             <span><svg width="266" height="57" viewBox="0 0 266 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#D9293A" />
                                 </svg></span>
                         </div>
-                        <span class="xb-item--profile">in scholarship value</span>
+                        <span class="xb-item--profile">No. of Teachers</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-30">
@@ -381,12 +381,12 @@
                             <img src="{{asset('fronted/assets/img/icon/counter-icon.png')}}" alt="">
                         </div>
                         <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">3Million+</h2>
+                            <h2 class="xb-item--number">400+</h2>
                             <span><svg width="265" height="57" viewBox="0 0 265 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.5132 11.796C12.4019 8.92931 15.0192 6.94812 18.0195 6.87104L257.583 0.716251C261.96 0.603807 265.364 4.49148 264.675 8.8151L257.94 51.1012C257.398 54.4992 254.468 57 251.027 57H6.99864C2.28284 57 -1.08381 52.4316 0.312534 47.9273L11.5132 11.796Z" fill="#2F76CF" />
                                 </svg></span>
                         </div>
-                        <span class="xb-item--profile">students registered / year</span>
+                        <span class="xb-item--profile">No. of Hostel Students</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-30">
@@ -395,12 +395,97 @@
                             <img src="{{asset('fronted/assets/img/icon/clock01.png')}}" alt="">
                         </div>
                         <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">26 Hours</h2>
+                            <h2 class="xb-item--number">5,000+</h2>
                             <span><svg width="266" height="57" viewBox="0 0 266 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#34D171" />
                                 </svg></span>
                         </div>
-                        <span class="xb-item--profile">of time savings</span>
+                        <span class="xb-item--profile">Strength of Alumni</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-50 team-member">
+        <div class="container">
+            <div class="section-title text-center mb-20">
+                <span class="sub-title">Our Honorable Team </span>
+                <h2 class="title">Our Team</h2>
+            </div>
+            <div class="row mt-none-30">
+                <div class="col-lg-4 col-md-6 mt-10">
+                    <div class="team-item">
+                        <div class="xb-item--img pos-rel">
+                            <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="Jagdeep Madhok">
+                            <div class="team-social">
+                                <ul class="xb-item--social list-unstyled">
+                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
+                                            </svg></a></li>
+                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                                </ul>
+                                <span class="plus"><i class="far fa-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="xb-item--info pt-15">
+                            <h3 class="xb-item--name">Jagdeep Madhok</h3>
+                            <span class="xb-item--desig">Secretary</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-10">
+                    <div class="team-item">
+                        <div class="xb-item--img pos-rel">
+                            <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="Poonam Madhok">
+                            <div class="team-social">
+                                <ul class="xb-item--social list-unstyled">
+                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
+                                            </svg></a></li>
+                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                                </ul>
+                                <span class="plus"><i class="far fa-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="xb-item--info pt-15">
+                            <h3 class="xb-item--name">Poonam Madhok</h3>
+                            <span class="xb-item--desig">Director</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-10">
+                    <div class="team-item">
+                        <div class="xb-item--img pos-rel">
+                            <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="Rohan Madhok">
+                            <div class="team-social">
+                                <ul class="xb-item--social list-unstyled">
+                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
+                                            </svg></a></li>
+                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                                </ul>
+                                <span class="plus"><i class="far fa-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="xb-item--info pt-15">
+                            <h3 class="xb-item--name">Rohan Madhok</h3>
+                            <span class="xb-item--desig">CEO</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="news-btn text-center mt-30 wow fadeInUp" data-wow-delay="400ms" data-wow-duration=".4s">
+                        <a class="thm-btn thm-btn--stroke-black hover-2" href="#">View all Team Member
+                            <span class="icon"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.4795 21C9.10959 21 7.81507 20.7539 6.59589 20.2617C5.37671 19.7695 4.30137 19.0962 3.36986 18.2417C2.43836 17.3872 1.67808 16.3857 1.08904 15.2373C0.486301 14.0752 0.123288 12.8311 0 11.5049V11.4639H8.56849V14.3145C8.56849 14.5742 8.66096 14.7998 8.84589 14.9912C9.03082 15.1826 9.25342 15.2783 9.5137 15.2783C9.65068 15.2783 9.7774 15.251 9.89384 15.1963C10.0103 15.1416 10.1096 15.0732 10.1918 14.9912L14.0137 11.1768C14.0959 11.0947 14.1644 10.9956 14.2192 10.8794C14.274 10.7632 14.3014 10.6367 14.3014 10.5C14.3014 10.3633 14.274 10.2368 14.2192 10.1206C14.1644 10.0044 14.0959 9.90527 14.0137 9.82324L10.1918 6.00879C10.1096 5.92676 10.0103 5.8584 9.89384 5.80371C9.7774 5.74902 9.65068 5.72168 9.5137 5.72168C9.25342 5.72168 9.0274 5.81738 8.83562 6.00879C8.64384 6.2002 8.54794 6.42578 8.54794 6.68555V9.53613H0C0.123288 8.19629 0.486301 6.94531 1.08904 5.7832C1.67808 4.62109 2.44178 3.61279 3.38014 2.7583C4.31849 1.90381 5.39041 1.23047 6.59589 0.738281C7.81507 0.246094 9.10959 0 10.4795 0C11.9315 0 13.2945 0.273439 14.5685 0.820312C15.8425 1.38086 16.9555 2.13623 17.9075 3.08643C18.8596 4.03662 19.6096 5.14746 20.1575 6.41895C20.7192 7.69043 21 9.05078 21 10.5C21 11.9492 20.7192 13.3096 20.1575 14.5811C19.6096 15.8662 18.8596 16.9839 17.9075 17.9341C16.9555 18.8843 15.8425 19.6328 14.5685 20.1797C13.2945 20.7266 11.9315 21 10.4795 21Z" fill="#161A2C" />
+                                </svg></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -410,6 +495,7 @@
         <img src="{{asset('fronted/assets/img/shape/angle-white.png')}}" alt="">
     </div>
 </section>
+
 <!-- fanfact + principal section end  -->
 
 <!-- testimonial section start  -->
@@ -559,7 +645,7 @@
             </div>
         </div>
     </div>
-    
+
 </section>
 <!-- cta section end  -->
 

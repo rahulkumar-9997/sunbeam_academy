@@ -36,3 +36,25 @@
     margin-bottom: 10px;
     line-height: 25px;
 }
+.sh-featuree_wrap.ul_li{
+    
+    display: inherit;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.teacher-area .sh-featuree_wrap .xb-item--holder {
+    width: 100%;
+}
+.team-member .team-item .xb-item--info {
+    border-bottom: 0px dashed #D9D9D9;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+}
+.team-member .team-item {
+    box-shadow: 0 22px 33px 0 rgb(63 104 94 / 9%);
+}
+.team-member .team-item:hover {
+    box-shadow: 0 22px 33px 0 rgba(63, 104, 94, 0.24);
+}
