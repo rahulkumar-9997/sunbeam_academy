@@ -27,8 +27,8 @@ COPY . .
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Generate Laravel application key
-RUN php artisan key:generate --show
+# Generate Laravel application key and save it to .env
+RUN php artisan key:generate --force
 
 # Expose port 10000
 EXPOSE 10000
