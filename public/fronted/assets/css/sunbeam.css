@@ -1,0 +1,32 @@
+.logohead{
+    height: 80px;
+}
+.xb-header{
+    padding: 8px 0;
+}
+.home-box .xb-feature_wrap{
+    height: 100%;
+}
+.logoheadbig{
+    width: 150px;
+    height: auto;
+    max-height: 148px;
+    background: #9f0880;
+    padding: 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+.hero-btns .thm-btn--stroke-white{
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+}
+.hero-btns .thm-btn--stroke-white:hover {
+    background: var(--color-primary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-heading);
+    border: 2px solid var(--color-secondary);
+}
+.hero-btns .thm-btn--stroke-white svg path{
+    fill: var(--color-white);
+}
