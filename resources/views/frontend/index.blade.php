@@ -1,725 +1,1001 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Samneghat - Best School in Varanasi')
+@section('title','Sunbeam Academy - Best School in Varanasi')
 @section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
-<div class="hero-btns">
-    <div class="text-center branches-div">
-        <h4>Sunbeam Academy Branches</h4>
-    </div>
-    <div class="btns ul_li_center">
-        <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Samneghat
-        </a>
-        <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Durgakund
-        </a>
-        <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Sarainandan
-        </a>
-        <a class="thm-btn thm-btn--stroke-white sec-btn" href="#">
-            Knowledge Park
-        </a>
+@include('frontend.layouts.banner-top')
+<!-- feature area -->
+<div class="feature-area home-feature fa-negative">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="feature-wrapper">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-item">
+                                <!-- <span class="count">01</span> -->
+                                <!--<div class="feature-icon">
+                                            <img src="assets/img/icon/scholarship.svg" alt="">
+                                        </div>-->
+                                <div class="branch-feature">
+                                    <h3>
+                                        Sunbeam Academy Samneghat
+                                    </h3>
+                                </div>
+                                <div class="feature-content">
+                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
+                                    <p>
+                                        Experience can make a huge difference in students’ lives.
+                                    </p>
+                                    <p>
+                                        <a href="tel:+919554958414">
+                                            +91 95549 58414
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@sunbeamacademy.com">
+                                            info@sunbeamacademy.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-item">
+                                <!-- <span class="count">02</span> -->
+                                <!-- <div class="feature-icon">
+                                            <img src="assets/img/icon/teacher.svg" alt="">
+                                        </div> -->
+                                <div class="branch-feature">
+                                    <h3>
+                                        Sunbeam Academy Durgakund
+                                    </h3>
+                                </div>
+                                <div class="feature-content">
+                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
+                                    <p>
+                                        Experience can make a huge difference in students’ lives.
+                                    </p>
+                                    <p>
+                                        <a href="tel:+919554958414">
+                                            +91 95549 58414
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@sunbeamacademy.com">
+                                            info@sunbeamacademy.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-item">
+                                <!-- <span class="count">03</span> -->
+                                <!-- <div class="feature-icon">
+                                            <img src="assets/img/icon/library.svg" alt="">
+                                        </div> -->
+                                <div class="branch-feature">
+                                    <h3>
+                                        Sunbeam Academy Sarainandan
+                                    </h3>
+                                </div>
+                                <div class="feature-content">
+                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
+                                    <p>
+                                        Experience can make a huge difference in students’ lives.
+                                    </p>
+                                    <p>
+                                        <a href="tel:+919554958414">
+                                            +91 95549 58414
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@sunbeamacademy.com">
+                                            info@sunbeamacademy.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="feature-item">
+                                <!-- <span class="count">04</span> -->
+                                <!-- <div class="feature-icon">
+                                            <img src="assets/img/icon/money.svg" alt="">
+                                        </div> -->
+                                <div class="branch-feature">
+                                    <h3>
+                                        Sunbeam Academy Knowledge Park
+                                    </h3>
+                                </div>
+                                <div class="feature-content">
+                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
+                                    <p>
+                                        Experience can make a huge difference in students’ lives.
+                                    </p>
+                                    <p>
+                                        <a href="tel:+919554958414">
+                                            +91 95549 58414
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@sunbeamacademy.com">
+                                            info@sunbeamacademy.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<!-- feature + about section start  -->
-<section class="about hs-about pt-115 pb-115 pos-rel home-box teacher-area">
+<!-- feature area end -->
+<!-- about area -->
+<div class="about-area py-120">
     <div class="container">
-        <div class="row mt-none-30">
-            <div class="col-lg-3 mt-30">
-                <div class="xb-feature_wrap sh-featuree_wrap pos-rel ul_li">
-                    <div class="xb-item--icon">
-                        <img src="{{asset('fronted/assets/img/icon/teacher-icon.png')}}" alt="">
-                    </div>
-                    <div class="xb-item--holder">
-                        <h3 class="xb-item--title">Experienced Teachers</h3>
-                        <span class="xb-item--content">
-                            Experience can make a huge difference in students’ lives. Our experienced teachers assist the children to develop and grow during a crucial period of their lives.
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mt-30">
-                <div class="xb-feature_wrap sh-featuree_wrap pos-rel ul_li">
-                    <div class="xb-item--icon bg_blue">
-                        <img src="{{asset('fronted/assets/img/icon/book-white.png')}}" alt="">
-                    </div>
-                    <div class="xb-item--holder">
-                        <h3 class="xb-item--title">Global Perspective</h3>
-                        <span class="xb-item--content">
-                            We aim at nurturing knowledgeable and active learners who develop global competence to live and work in today’s interconnected world.
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mt-30">
-                <div class="xb-feature_wrap sh-featuree_wrap pos-rel ul_li">
-                    <div class="xb-item--icon bg_green">
-                        <img src="{{asset('fronted/assets/img/icon/customer-support.png')}}" alt="">
-                    </div>
-                    <div class="xb-item--holder">
-                        <h3 class="xb-item--title">Technology Perspective</h3>
-                        <span class="xb-item--content">
-                            Technology develops creative learning processes and helps retain the concept for a longer period of time. Online tools help explore more to acquaint knowledge.
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 mt-30">
-                <div class="xb-feature_wrap sh-featuree_wrap pos-rel ul_li">
-                    <div class="xb-item--icon bg_yellow">
-                        <img src="{{asset('fronted/assets/img/icon/customer-support.png')}}" alt="">
-                    </div>
-                    <div class="xb-item--holder">
-                        <h3 class="xb-item--title">Safe Environment</h3>
-                        <span class="xb-item--content">We believe that a safe and caring learning environment facilitates proper learning. Our teachers maintain discipline which helps improve the quality of education for all learners.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center pt-100">
+        <div class="row g-4 align-items-center">
             <div class="col-lg-6">
-                <div class="hs-about_left mt-20">
-                    <div class="about-img wow skewIn">
-                        <img src="{{asset('fronted/assets/sunbeam-img/about-us.png')}}" alt="about us">
+                <div class="about-left wow fadeInLeft" data-wow-delay=".25s">
+                    <div class="about-img">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <img class="img-1" src="{{asset('fronted/assets/sunbeam-img/about/about-6.jpg')}}" alt="img">
+                                <div class="about-experience mt-4">
+                                    <div class="about-experience-icon">
+                                        <img src="{{asset('fronted/assets/img/icon/exchange-idea.svg')}}" alt="img">
+                                    </div>
+                                    <b class="text-start">30 Years Of <br> Quality Service</b>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.jpg')}}" alt="img">
+                                <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.jpg')}}" alt="img">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="hs-about-right ml-70 mt-20 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration=".6s">
-                    <div class="section-title mb-20">
-                        <span class="sub-title">about us</span>
-                        <h1 class="title">Welcome to Sunbeam Academy – Samneghat</h1>
-                        <p class="hs-content mt-25">
-                            Sunbeam Academy schools are considered to be one of the best schools in and around Varanasi where your child will explore all the areas of art, education, and much more. We make sure that your child receives the best of education from the best faculty at a reputed school in Varanasi so that he/she has a brighter future and will make this nation a better place for everyone with their knowledge.
-                        </p>
+                <div class="about-right wow fadeInRight" data-wow-delay=".25s">
+                    <div class="site-heading mb-3">
+                        <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> About Us</span>
+                        <h2 class="site-title">
+                            Welcome to <span>Sunbeam Academy</span> .
+                        </h2>
                     </div>
-                    <ul class="xb-item--list list-unstyled">
-                        <li>A strong school community.</li>
-                        <!-- <li>Available in three timezones.</li> -->
-                        <li>Student Leadership Initiatives.</li>
-                    </ul>
-                    <div class="xb-btn mt-35">
-                        <a class="thm-btn thm-btn--stroke-black hover-2" href="contact.html">Read More
-                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M22 4.84993V16.7399C22 17.7099 21.21 18.5999 20.24 18.7199L19.93 18.7599C18.29 18.9799 15.98 19.6599 14.12 20.4399C13.47 20.7099 12.75 20.2199 12.75 19.5099V5.59993C12.75 5.22993 12.96 4.88993 13.29 4.70993C15.12 3.71993 17.89 2.83993 19.77 2.67993H19.83C21.03 2.67993 22 3.64993 22 4.84993Z" fill="#170006"></path>
-                                    <path d="M10.71 4.70993C8.87999 3.71993 6.10999 2.83993 4.22999 2.67993H4.15999C2.95999 2.67993 1.98999 3.64993 1.98999 4.84993V16.7399C1.98999 17.7099 2.77999 18.5999 3.74999 18.7199L4.05999 18.7599C5.69999 18.9799 8.00999 19.6599 9.86999 20.4399C10.52 20.7099 11.24 20.2199 11.24 19.5099V5.59993C11.24 5.21993 11.04 4.88993 10.71 4.70993ZM4.99999 7.73993H7.24999C7.65999 7.73993 7.99999 8.07993 7.99999 8.48993C7.99999 8.90993 7.65999 9.23993 7.24999 9.23993H4.99999C4.58999 9.23993 4.24999 8.90993 4.24999 8.48993C4.24999 8.07993 4.58999 7.73993 4.99999 7.73993ZM7.99999 12.2399H4.99999C4.58999 12.2399 4.24999 11.9099 4.24999 11.4899C4.24999 11.0799 4.58999 10.7399 4.99999 10.7399H7.99999C8.40999 10.7399 8.74999 11.0799 8.74999 11.4899C8.74999 11.9099 8.40999 12.2399 7.99999 12.2399Z" fill="#170006"></path>
-                                </svg></span>
-                        </a>
+                    <p class="about-text">
+                        Sunbeam Academy schools are considered to be one of the best schools in and around Varanasi where your child will explore all the areas of art, education, and much more.
+                    </p>
+                    <div class="about-content">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="about-item">
+                                    <div class="about-item-icon">
+                                        <img src="{{asset('fronted/assets/img/icon/open-book.svg')}}" alt="">
+                                    </div>
+                                    <div class="about-item-content">
+                                        <h5>Education Services</h5>
+                                        <p>It is a long established fact that reader will to using content.</p>
+                                    </div>
+                                </div>
+                                <div class="about-item">
+                                    <div class="about-item-icon">
+                                        <img src="{{asset('fronted/assets/img/icon/global-education.svg')}}" alt="img">
+                                    </div>
+                                    <div class="about-item-content">
+                                        <h5>International Hubs</h5>
+                                        <p>It is a long established fact that reader will to using content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="about-quote">
+                                    <p>It is a long established fact that a reader will be distracted by the
+                                        content of
+                                        a page when looking at its reader for the long words layout.</p>
+                                    <i class="far fa-quote-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-bottom">
+                        <a href="#" class="theme-btn">Discover More<i
+                                class="fas fa-arrow-right-long"></i></a>
+                        <div class="about-phone">
+                            <div class="icon"><i class="fal fa-headset"></i></div>
+                            <div class="number">
+                                <span>Call Now</span>
+                                <h6><a href="tel:++919554958414">+91 95549 58414</a></h6>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="xb-shape">
-        <img src="{{asset('fronted/assets/img/shape/angle-shape01.png')}}" alt="">
-    </div>
-</section>
-<!-- feature + about section end  -->
-
-<!-- program section start  -->
-<!--<section class="program pt-115 pb-120">
+</div>
+<!-- about area end -->
+<!-- counter area -->
+<div class="counter-area pt-60 pb-60">
     <div class="container">
-        <div class="section-title text-center mb-30">
-            <span class="sub-title">Our academics offerings</span>
-            <h1 class="title">School Levels</h1>
-            <p>Our program from Kindergarten to Grade 8 is a comprehensive curriculum that makes our students innovators, & Leaders of promise.</p>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="counter-box">
+                    <div class="icon">
+                        <img src="{{asset('fronted/assets/img/icon/course.svg')}}" alt="">
+                    </div>
+                    <div>
+                        <span class="counter" data-count="+" data-to="4000" data-speed="3000">4000</span>
+                        <h6 class="title">+ No. of Current Students </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="counter-box">
+                    <div class="icon">
+                        <img src="{{asset('fronted/assets/img/icon/graduation.svg')}}" alt="">
+                    </div>
+                    <div>
+                        <span class="counter" data-count="+" data-to="150" data-speed="3000">150</span>
+                        <h6 class="title">+ No. of Teachers</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="counter-box">
+                    <div class="icon">
+                        <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="">
+                    </div>
+                    <div>
+                        <span class="counter" data-count="+" data-to="400" data-speed="3000">400</span>
+                        <h6 class="title">+ No. of Hostel Students</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="counter-box">
+                    <div class="icon">
+                        <img src="{{asset('fronted/assets/img/icon/award.svg')}}" alt="">
+                    </div>
+                    <div>
+                        <span class="counter" data-count="+" data-to="5000" data-speed="3000">5000</span>
+                        <h6 class="title">+ Strength of Alumni</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- counter area end -->
+<!-- course-area -->
+<div class="course-area pt-120 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Academics Offerings</span>
+                    <h2 class="site-title">School <span>Levels</span></h2>
+                    <p>
+                        Our program from Kindergarten to Grade 8 is a comprehensive curriculum that makes our students innovators, & Leaders of promise.
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg01.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">Technical Education..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program01.png')}}" alt="">
-                        </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="course-item wow fadeInUp" data-wow-delay=".25s">
+                    <div class="course-img">
+                        <span class="course-tag">
+                            <i class="far fa-bookmark"></i>
+                            Kindergarden
+                        </span>
+                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-kindergarten.jpg')}}" alt="img">
+                        <a href="#" class="btn"><i class="far fa-link"></i></a>
+                    </div>
+                    <div class="course-content">
+                        <!-- <div class="course-meta">
+                                    <span class="course-meta-left"><i class="far fa-book"></i> 10 Lessons</span>
+                                    <div class="course-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>(4.0)</span>
+                                    </div>
+                                </div> -->
+                        <h4 class="course-title">
+                            <a href="#">Kindergarden</a>
+                        </h4>
+                        <p class="course-text">
+                            We offer the best practices of modern pre-school education.
+                        </p>
+                        <!-- <div class="course-bottom">
+                                    <div class="course-bottom-left">
+                                        <span><i class="far fa-users"></i>75 Seats</span>
+                                        <span><i class="far fa-clock"></i>04 Years</span>
+                                    </div>
+                                    <span class="course-price">$750</span>
+                                </div> -->
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg02.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">Advanced Mathematics..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program02.png')}}" alt="">
-                        </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="course-item wow fadeInUp" data-wow-delay=".50s">
+                    <div class="course-img">
+                        <span class="course-tag"><i class="far fa-bookmark"></i> Primary</span>
+                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-primary-1.jpg')}}" alt="img">
+                        <a href="#" class="btn"><i class="far fa-link"></i></a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg03.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">Writing and Literature..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program03.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg04.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">Environmental Science..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program04.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg05.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">World Languages class..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program05.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="hs-program_inner">
-                    <div class="bg_img" data-background="{{asset('fronted/assets/img/program/hs-pro_bg06.png')}}">
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--title">drawing class..</h3>
-                            <div class="xb-item--link">
-                                <a href="course-single.html">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                        </svg></span></a>
-                            </div>
-                        </div>
-                        <div class="xb-item--img">
-                            <img src="{{asset('fronted/assets/img/program/hs-program06.png')}}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hs-pro-bottom ul_li_between mt-30">
-            <div class="xb-content mt-20">
-                <p>Discover dreams, and change the world! <br>
-                    Enjoy access to modern classrooms, cutting-edge laboratories.</p>
-            </div>
-            <div class="pro-btn mt-20">
-                <a class="thm-btn thm-btn--stroke-black hover-2" href="#!">view all programs
-                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 4.84993V16.7399C22 17.7099 21.21 18.5999 20.24 18.7199L19.93 18.7599C18.29 18.9799 15.98 19.6599 14.12 20.4399C13.47 20.7099 12.75 20.2199 12.75 19.5099V5.59993C12.75 5.22993 12.96 4.88993 13.29 4.70993C15.12 3.71993 17.89 2.83993 19.77 2.67993H19.83C21.03 2.67993 22 3.64993 22 4.84993Z" fill="#170006"></path>
-                            <path d="M10.71 4.70993C8.87999 3.71993 6.10999 2.83993 4.22999 2.67993H4.15999C2.95999 2.67993 1.98999 3.64993 1.98999 4.84993V16.7399C1.98999 17.7099 2.77999 18.5999 3.74999 18.7199L4.05999 18.7599C5.69999 18.9799 8.00999 19.6599 9.86999 20.4399C10.52 20.7099 11.24 20.2199 11.24 19.5099V5.59993C11.24 5.21993 11.04 4.88993 10.71 4.70993ZM4.99999 7.73993H7.24999C7.65999 7.73993 7.99999 8.07993 7.99999 8.48993C7.99999 8.90993 7.65999 9.23993 7.24999 9.23993H4.99999C4.58999 9.23993 4.24999 8.90993 4.24999 8.48993C4.24999 8.07993 4.58999 7.73993 4.99999 7.73993ZM7.99999 12.2399H4.99999C4.58999 12.2399 4.24999 11.9099 4.24999 11.4899C4.24999 11.0799 4.58999 10.7399 4.99999 10.7399H7.99999C8.40999 10.7399 8.74999 11.0799 8.74999 11.4899C8.74999 11.9099 8.40999 12.2399 7.99999 12.2399Z" fill="#170006"></path>
-                        </svg></span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>-->
-<!-- program section end  -->
-<!-- program section start  -->
-<section class="program pt-115 pb-120">
-    <div class="container">
-        <div class="pro-top ul_li_between mb-40">
-            <div class="section-title mb-20">
-                <span class="sub-title">Our academics offerings</span>
-                <h1 class="title">School Levels</h1>
-            </div>
-            <div class="pro-btn mb-20">
-                <a class="thm-btn thm-btn--stroke-black" href="courses.html">View All Classes
-                    <span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 4.84993V16.7399C22 17.7099 21.21 18.5999 20.24 18.7199L19.93 18.7599C18.29 18.9799 15.98 19.6599 14.12 20.4399C13.47 20.7099 12.75 20.2199 12.75 19.5099V5.59993C12.75 5.22993 12.96 4.88993 13.29 4.70993C15.12 3.71993 17.89 2.83993 19.77 2.67993H19.83C21.03 2.67993 22 3.64993 22 4.84993Z" fill="#170006" />
-                            <path d="M10.71 4.70993C8.87999 3.71993 6.10999 2.83993 4.22999 2.67993H4.15999C2.95999 2.67993 1.98999 3.64993 1.98999 4.84993V16.7399C1.98999 17.7099 2.77999 18.5999 3.74999 18.7199L4.05999 18.7599C5.69999 18.9799 8.00999 19.6599 9.86999 20.4399C10.52 20.7099 11.24 20.2199 11.24 19.5099V5.59993C11.24 5.21993 11.04 4.88993 10.71 4.70993ZM4.99999 7.73993H7.24999C7.65999 7.73993 7.99999 8.07993 7.99999 8.48993C7.99999 8.90993 7.65999 9.23993 7.24999 9.23993H4.99999C4.58999 9.23993 4.24999 8.90993 4.24999 8.48993C4.24999 8.07993 4.58999 7.73993 4.99999 7.73993ZM7.99999 12.2399H4.99999C4.58999 12.2399 4.24999 11.9099 4.24999 11.4899C4.24999 11.0799 4.58999 10.7399 4.99999 10.7399H7.99999C8.40999 10.7399 8.74999 11.0799 8.74999 11.4899C8.74999 11.9099 8.40999 12.2399 7.99999 12.2399Z" fill="#170006" />
-                        </svg>
-                    </span>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-none-60">
-            <div class="col-md-12">
-                <div class="mt-10">
-                    <p>Our program from Kindergarten to Grade 8 is a comprehensive curriculum that makes our students innovators, & Leaders of promise.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-60">
-                <div class="xb-program__wrapper">
-                    <div class="xb-item--img text-center">
-                        <a href="course-single.html">
-                            <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-kindergarten.jpg')}}" alt="Kindergarden">
-                        </a>
-                    </div>
-                    <div class="xb-item--holder">
-                        <h2 class="xb-item--title border-effect-2">
-                            <a href="course-single.html">Kindergarden</a>
-                        </h2>
-                        <div class="main-content">
-                            <p>We offer the best practices of modern pre-school education.</p>
-                        </div>
-                        <div class="xb-item--dep-btn">
-                            <a href="course-single.html">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-60">
-                <div class="xb-program__wrapper">
-                    <div class="xb-item--img text-center">
-                        <a href="course-single.html">
-                            <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-primary-1.jpg')}}" alt="Primary School">
-                        </a>
-                    </div>
-                    <div class="xb-item--holder">
-                        <h2 class="xb-item--title border-effect-2">
-                            <a href="course-single.html">Primary School</a>
-                        </h2>
-                        <div class="main-content">
-                            <p>A quick glance at our primary school program and facilities</p>
-                        </div>
-                        <div class="xb-item--dep-btn">
-                            <a href="course-single.html">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-60">
-                <div class="xb-program__wrapper">
-                    <div class="xb-item--img text-center">
-                        <a href="course-single.html">
-                            <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-secondary-1.jpg')}}" alt="Secondary School">
-                        </a>
-                    </div>
-                    <div class="xb-item--holder">
-                        <h2 class="xb-item--title border-effect-2">
-                            <a href="course-single.html">Secondary School</a>
-                        </h2>
-                        <div class="main-content">
-                            <p>Focuses on the all – around development of 11 to 14 year-olds.</p>
-                        </div>
-                        <div class="xb-item--dep-btn">
-                            <a href="course-single.html">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <div class="course-content">
 
+                        <h4 class="course-title">
+                            <a href="#">Primary School</a>
+                        </h4>
+                        <p class="course-text">
+                            A quick glance at our primary school program and facilities.
+                        </p>
 
-        </div>
-    </div>
-</section>
-<!-- program section end  -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="course-item wow fadeInUp" data-wow-delay=".75s">
+                    <div class="course-img">
+                        <span class="course-tag"><i class="far fa-bookmark"></i> Secondary </span>
+                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-secondary-1.jpg')}}" alt="img">
+                        <a href="#" class="btn"><i class="far fa-link"></i></a>
+                    </div>
+                    <div class="course-content">
 
-<!-- fanfact + principal section start  -->
-<section class="fanfact hs-fanfact_bg pt-120 pb-90 pos-rel">
-    <div class="container">
-        <div class="section-title text-center mb-60">
-            <span class="sub-title">Our achievements</span>
-            <h1 class="title">you can count on us</h1>
-        </div>
-        <div class="hs-fanfact_wrapper">
-            <div class="row mt-none-30">
-                <div class="col-lg-3 col-md-6 mt-30">
-                    <div class="hs-fanfact_inner text-center">
-                        <div class="xb-item--icon">
-                            <img src="{{asset('fronted/assets/img/icon/teacher-icon01.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">4,000+</h2>
-                            <span><svg width="266" height="57" viewBox="0 0 266 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#FDB714" />
-                                </svg></span>
-                        </div>
-                        <span class="xb-item--profile">No. of Current Students</span>
+                        <h4 class="course-title">
+                            <a href="#">Secondary School</a>
+                        </h4>
+                        <p class="course-text">
+                            Focuses on the all – around development of 11 to 14 year-olds.
+                        </p>
+
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-30">
-                    <div class="hs-fanfact_inner text-center">
-                        <div class="xb-item--icon">
-                            <img src="{{asset('fronted/assets/img/icon/stamp.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">150+</h2>
-                            <span><svg width="266" height="57" viewBox="0 0 266 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#D9293A" />
-                                </svg></span>
-                        </div>
-                        <span class="xb-item--profile">No. of Teachers</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-30">
-                    <div class="hs-fanfact_inner text-center">
-                        <div class="xb-item--icon">
-                            <img src="{{asset('fronted/assets/img/icon/counter-icon.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">400+</h2>
-                            <span><svg width="265" height="57" viewBox="0 0 265 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.5132 11.796C12.4019 8.92931 15.0192 6.94812 18.0195 6.87104L257.583 0.716251C261.96 0.603807 265.364 4.49148 264.675 8.8151L257.94 51.1012C257.398 54.4992 254.468 57 251.027 57H6.99864C2.28284 57 -1.08381 52.4316 0.312534 47.9273L11.5132 11.796Z" fill="#2F76CF" />
-                                </svg></span>
-                        </div>
-                        <span class="xb-item--profile">No. of Hostel Students</span>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-30">
-                    <div class="hs-fanfact_inner text-center">
-                        <div class="xb-item--icon">
-                            <img src="{{asset('fronted/assets/img/icon/clock01.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder pos-rel">
-                            <h2 class="xb-item--number">5,000+</h2>
-                            <span><svg width="266" height="57" viewBox="0 0 266 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.0132 11.796C12.9019 8.92931 15.5192 6.94812 18.5195 6.87104L258.083 0.716251C262.46 0.603807 265.864 4.49148 265.175 8.8151L258.44 51.1012C257.898 54.4992 254.968 57 251.527 57H7.49864C2.78284 57 -0.58381 52.4316 0.812534 47.9273L12.0132 11.796Z" fill="#34D171" />
-                                </svg></span>
-                        </div>
-                        <span class="xb-item--profile">Strength of Alumni</span>
-                    </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+                <div class="text-center">
+                    <a href="#" class="theme-btn mt-20">View All Classes
+                        <i class="fas fa-arrow-right-long"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pt-50 team-member">
+</div>
+<!-- course-area -->
+<!-- video-area -->
+<!--<div class="video-area">
         <div class="container">
-            <div class="section-title text-center mb-20">
-                <span class="sub-title">Our Honorable Team </span>
-                <h2 class="title">Our Team</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 wow fadeInLeft" data-wow-delay=".25s">
+                    <div class="site-heading mb-3">
+                        <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Latest Video</span>
+                        <h2 class="site-title">
+                            Let's Check Our <span>Latest</span> Video
+                        </h2>
+                    </div>
+                    <p class="about-text">
+                        There are many variations of passages available but the majority have suffered
+                        alteration in some form by injected humour look even slightly believable.
+                    </p>
+                    <a href="about.html" class="theme-btn mt-30">Learn More<i class="fas fa-arrow-right-long"></i></a>
+                </div>
+                <div class="col-lg-8 wow fadeInRight" data-wow-delay=".25s">
+                    <div class="video-content" style="background-image: url({{asset('fronted/assets/img/video/01.jpg')}});">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <div class="video-wrapper">
+                                    <a class="play-btn popup-youtube" href="https://www.youtube.com/watch?v=ckHzmP1evNU">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row mt-none-30">
-                <div class="col-lg-4 col-md-6 mt-10">
-                    <div class="team-item">
-                        <div class="xb-item--img pos-rel">
-                            <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="Jagdeep Madhok">
-                            <div class="team-social">
-                                <ul class="xb-item--social list-unstyled">
-                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
-                                            </svg></a></li>
-                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                </ul>
-                                <span class="plus"><i class="far fa-plus"></i></span>
-                            </div>
+        </div>
+    </div>-->
+<!-- video-area end -->
+<!-- team-area -->
+<div class="team-area pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Honorable Team </span>
+                    <h2 class="site-title">Meet With Our <span>Team</span></h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of
+                        a page when looking at its layout.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="team-item wow fadeInUp" data-wow-delay=".25s">
+                    <div class="team-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb">
+                    </div>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="team-content">
+                        <div class="team-bio">
+                            <h5><a href="#">Jagdeep Madhok</a></h5>
+                            <span>Secretary</span>
                         </div>
-                        <div class="xb-item--info pt-15">
-                            <h3 class="xb-item--name">Jagdeep Madhok</h3>
-                            <span class="xb-item--desig">Secretary</span>
-                        </div>
-
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-10">
-                    <div class="team-item">
-                        <div class="xb-item--img pos-rel">
-                            <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="Poonam Madhok">
-                            <div class="team-social">
-                                <ul class="xb-item--social list-unstyled">
-                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
-                                            </svg></a></li>
-                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                </ul>
-                                <span class="plus"><i class="far fa-plus"></i></span>
-                            </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="team-item wow fadeInUp" data-wow-delay=".50s">
+                    <div class="team-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb">
+                    </div>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="team-content">
+                        <div class="team-bio">
+                            <h5><a href="#">Poonam Madhok</a></h5>
+                            <span>Director</span>
                         </div>
-                        <div class="xb-item--info pt-15">
-                            <h3 class="xb-item--name">Poonam Madhok</h3>
-                            <span class="xb-item--desig">Director</span>
-                        </div>
-
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mt-10">
-                    <div class="team-item">
-                        <div class="xb-item--img pos-rel">
-                            <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="Rohan Madhok">
-                            <div class="team-social">
-                                <ul class="xb-item--social list-unstyled">
-                                    <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#!"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9.4893 6.77491L15.3176 0H13.9365L8.87577 5.88256L4.8338 0H0.171875L6.28412 8.89547L0.171875 16H1.55307L6.8973 9.78782L11.1659 16H15.8278L9.48896 6.77491H9.4893ZM7.59756 8.97384L6.97826 8.08805L2.05073 1.03974H4.17217L8.14874 6.72795L8.76804 7.61374L13.9371 15.0075H11.8157L7.59756 8.97418V8.97384Z" fill="#170006" />
-                                            </svg></a></li>
-                                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                                </ul>
-                                <span class="plus"><i class="far fa-plus"></i></span>
-                            </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="team-item wow fadeInUp" data-wow-delay=".75s">
+                    <div class="team-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb">
+                    </div>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="team-content">
+                        <div class="team-bio">
+                            <h5><a href="teacher-single.html">Rohan Madhok</a></h5>
+                            <span>CEO</span>
                         </div>
-                        <div class="xb-item--info pt-15">
-                            <h3 class="xb-item--name">Rohan Madhok</h3>
-                            <span class="xb-item--desig">CEO</span>
-                        </div>
-
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="news-btn text-center mt-30 wow fadeInUp" data-wow-delay="400ms" data-wow-duration=".4s">
-                        <a class="thm-btn thm-btn--stroke-black hover-2" href="#">View all Team Member
-                            <span class="icon"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10.4795 21C9.10959 21 7.81507 20.7539 6.59589 20.2617C5.37671 19.7695 4.30137 19.0962 3.36986 18.2417C2.43836 17.3872 1.67808 16.3857 1.08904 15.2373C0.486301 14.0752 0.123288 12.8311 0 11.5049V11.4639H8.56849V14.3145C8.56849 14.5742 8.66096 14.7998 8.84589 14.9912C9.03082 15.1826 9.25342 15.2783 9.5137 15.2783C9.65068 15.2783 9.7774 15.251 9.89384 15.1963C10.0103 15.1416 10.1096 15.0732 10.1918 14.9912L14.0137 11.1768C14.0959 11.0947 14.1644 10.9956 14.2192 10.8794C14.274 10.7632 14.3014 10.6367 14.3014 10.5C14.3014 10.3633 14.274 10.2368 14.2192 10.1206C14.1644 10.0044 14.0959 9.90527 14.0137 9.82324L10.1918 6.00879C10.1096 5.92676 10.0103 5.8584 9.89384 5.80371C9.7774 5.74902 9.65068 5.72168 9.5137 5.72168C9.25342 5.72168 9.0274 5.81738 8.83562 6.00879C8.64384 6.2002 8.54794 6.42578 8.54794 6.68555V9.53613H0C0.123288 8.19629 0.486301 6.94531 1.08904 5.7832C1.67808 4.62109 2.44178 3.61279 3.38014 2.7583C4.31849 1.90381 5.39041 1.23047 6.59589 0.738281C7.81507 0.246094 9.10959 0 10.4795 0C11.9315 0 13.2945 0.273439 14.5685 0.820312C15.8425 1.38086 16.9555 2.13623 17.9075 3.08643C18.8596 4.03662 19.6096 5.14746 20.1575 6.41895C20.7192 7.69043 21 9.05078 21 10.5C21 11.9492 20.7192 13.3096 20.1575 14.5811C19.6096 15.8662 18.8596 16.9839 17.9075 17.9341C16.9555 18.8843 15.8425 19.6328 14.5685 20.1797C13.2945 20.7266 11.9315 21 10.4795 21Z" fill="#161A2C" />
-                                </svg></span>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="team-item wow fadeInUp" data-wow-delay="1s">
+                    <div class="team-img">
+                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb">
+                    </div>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="team-content">
+                        <div class="team-bio">
+                            <h5><a href="teacher-single.html">K K Panda</a></h5>
+                            <span>Deputy Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- team-area end -->
+<!-- choose-area -->
+<div class="choose-area pt-80 pb-80">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="choose-content wow fadeInUp" data-wow-delay=".25s">
+                    <div class="choose-content-info">
+                        <div class="site-heading mb-0">
+                            <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Why Choose Us</span>
+                            <h2 class="site-title text-white mb-10">We Are Expert & <span>Do Our Best</span> For Your Goal</h2>
+                            <p class="text-white">
+                                It is a long established fact that a reader will be distracted by the readable
+                                content of a page when many desktop and web page editors looking at its
+                                layout.
+                            </p>
+                        </div>
+                        <div class="choose-content-wrap">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="choose-item">
+                                        <div class="choose-item-icon">
+                                            <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="img">
+                                        </div>
+                                        <div class="choose-item-info">
+                                            <h4>Expert Teachers</h4>
+                                            <p>There are many variation of the suffered.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="choose-item">
+                                        <div class="choose-item-icon">
+                                            <img src="{{asset('fronted/assets/img/icon/course-material.svg')}}" alt="img">
+                                        </div>
+                                        <div class="choose-item-info">
+                                            <h4>Courses Material</h4>
+                                            <p>There are many variation of the suffered.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="choose-item">
+                                        <div class="choose-item-icon">
+                                            <img src="{{asset('fronted/assets/img/icon/online-course.svg')}}" alt="img">
+                                        </div>
+                                        <div class="choose-item-info">
+                                            <h4>Online Courses</h4>
+                                            <p>There are many variation of the suffered.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="choose-item">
+                                        <div class="choose-item-icon">
+                                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="img">
+                                        </div>
+                                        <div class="choose-item-info">
+                                            <h4>Affordable Price</h4>
+                                            <p>There are many variation of the suffered.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="choose-img wow fadeInRight" data-wow-delay=".25s">
+                    <img src="{{asset('fronted/assets/sunbeam-img/why-choose-us.jpg')}}" alt="img">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- choose-area end -->
+<!-- gallery-area -->
+<div class="gallery-area py-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Gallery</span>
+                    <h2 class="site-title">Our Photo <span>Gallery</span></h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of
+                        a page when looking at its layout.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row popup-gallery">
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-1.jpg')}}" alt="img">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-1.jpg')}}">
+                            <i class="fal fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-2.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-2.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".50s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-3.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-3.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-4.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-4.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-5.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-5.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-6.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-6.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-7.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-7.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-8.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-8.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-9.jpg')}}" alt="">
+                    </div>
+                    <div class="gallery-content">
+                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-9.jpg')}}"><i
+                                class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- gallery-area end -->
+<!-- enroll area-->
+<div class="enroll-area pt-80 pb-80">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="enroll-left wow fadeInLeft" data-wow-delay=".25s">
+                        <div class="enroll-form">
+                            <div class="enroll-form-header">
+                                <h3>Start Your Enrollment</h3>
+                                <p>We are variations of passages the have suffered.</p>
+                            </div>
+                            <form action="#">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-select" name="service">
+                                        <option value="">Choose Course</option>
+                                        <option value="1">Art And Design</option>
+                                        <option value="2">Acting And Drama</option>
+                                        <option value="3">Accounting And Finance</option>
+                                        <option value="4">Biology And Conservation</option>
+                                        <option value="5">Science And Engineering</option>
+                                        <option value="6">Health Administration</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" placeholder="Type Message"
+                                        rows="4"></textarea>
+                                </div>
+                                <button class="theme-btn">Enroll Now<i class="fas fa-arrow-right-long"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="enroll-right wow fadeInUp" data-wow-delay=".25s">
+                        <div class="skill-content">
+                            <div class="site-heading mb-3">
+                                <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Skills</span>
+                                <h2 class="site-title text-white">
+                                    Explore Your <span>Creativity And Talent</span> With Us
+                                </h2>
+                            </div>
+                            <p class="text-white">
+                                There are many variations of passages available but the majority have suffered
+                                alteration in some form by injected humour randomised words which don't look even
+                                slightly believable. If you are going to use passage you need sure there anything
+                                embarrassing first true generator on the Internet.
+                            </p>
+                            <div class="skills-section">
+                                <div class="progress-box">
+                                    <h5>Our Students <span class="pull-right">85%</span></h5>
+                                    <div class="progress" data-value="85">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-box">
+                                    <h5>Our Teachers <span class="pull-right">65%</span></h5>
+                                    <div class="progress" data-value="65">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-box">
+                                    <h5>Our Courses <span class="pull-right">75%</span></h5>
+                                    <div class="progress" data-value="75">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="theme-btn mt-5">Learn More<i class="fas fa-arrow-right-long"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- enroll area end -->
+<!-- blog area -->
+<div class="blog-area home-blog py-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
+                    <h2 class="site-title">Latest News & <span>Blog</span></h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of
+                        a page when looking at its layout.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item wow fadeInUp" data-wow-delay=".25s">
+                    <!-- <div class="blog-date"><i class="fal fa-calendar-alt"></i> June 18, 2024</div> -->
+                    <div class="blog-item-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/blog/1.jpg')}}" alt="Thumb">
+                    </div>
+                    <div class="blog-item-info">
+                        <!--<div class="blog-item-meta">
+                                    <ul>
+                                        <li><a href="#"><i class="far fa-user-circle"></i> By Alicia Davis</a></li>
+                                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                                    </ul>
+                                </div>-->
+                        <h4 class="blog-title">
+                            <a href="#">There are many variations passage have suffered
+                                available.</a>
+                        </h4>
+                        <a class="theme-btn" href="#">Read More
+                            <i class="fas fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item wow fadeInUp" data-wow-delay=".50s">
+
+                    <div class="blog-item-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/blog/2.jpg')}}" alt="Thumb">
+                    </div>
+                    <div class="blog-item-info">
+
+                        <h4 class="blog-title">
+                            <a href="#">There are many variations passage have suffered
+                                available.</a>
+                        </h4>
+                        <a class="theme-btn" href="#">Read More
+                            <i class="fas fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item wow fadeInUp" data-wow-delay=".75s">
+
+                    <div class="blog-item-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/blog/3.jpg')}}" alt="Thumb">
+                    </div>
+                    <div class="blog-item-info">
+
+                        <h4 class="blog-title">
+                            <a href="#">There are many variations passage have suffered
+                                available.</a>
+                        </h4>
+                        <a class="theme-btn" href="#">Read More
+                            <i class="fas fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hs-fan_shape">
-        <img src="{{asset('fronted/assets/img/shape/angle-white.png')}}" alt="">
-    </div>
-</section>
-
-<!-- fanfact + principal section end  -->
-
-<!-- testimonial section start  -->
-<section class="testimonial  pt-120 pb-130">
-    <div class="section-title text-center mb-60">
-        <span class="sub-title">Memoirs of our Alumni</span>
-        <h1 class="title">why student love us</h1>
-    </div>
-    <div class="hs-testimonial-slider">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="hs-testimonial_wrapper">
-                    <div class="xb-item--inner">
-                        <div class="xb-item--rating ul_li mb-30">
-                            <span class="xb-item--number">4.0</span>
-                            <span class="xb-item--star">
-                                <img src="{{asset('fronted/assets/img/icon/rating01.png')}}" alt="">
-                            </span>
-                        </div>
-                        <p class="xb-item--content">"The quality of education and the supportive community at Edubost High School have truly helped me excel. The teachers are exceptional and care about student success."</p>
-                    </div>
-                    <div class="xb-item--author ul_li">
-                        <div class="xb-item--avater mr-10">
-                            <img src="{{asset('fronted/assets/img/testimonial/hs-tes-img03.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--name">James Michael</h3>
-                            <span class="xb-item--desig">James Michael</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="hs-testimonial_wrapper">
-                    <div class="xb-item--inner">
-                        <div class="xb-item--rating ul_li mb-30">
-                            <span class="xb-item--number">4.9</span>
-                            <span class="xb-item--star">
-                                <img src="{{asset('fronted/assets/img/icon/rating01.png')}}" alt="">
-                            </span>
-                        </div>
-                        <p class="xb-item--content">"The quality of education and the supportive community at Edubost High School have truly helped me excel. The teachers are exceptional and care about student success."</p>
-                    </div>
-                    <div class="xb-item--author ul_li">
-                        <div class="xb-item--avater mr-10">
-                            <img src="{{asset('fronted/assets/img/testimonial/hs-tes-img01.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--name">James Michael</h3>
-                            <span class="xb-item--desig">James Michael</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="hs-testimonial_wrapper">
-                    <div class="xb-item--inner">
-                        <div class="xb-item--rating ul_li mb-30">
-                            <span class="xb-item--number">4.7</span>
-                            <span class="xb-item--star">
-                                <img src="{{asset('fronted/assets/img/icon/rating01.png')}}" alt="">
-                            </span>
-                        </div>
-                        <p class="xb-item--content">"Edubost High School’s focus on career readiness and real-world learning has prepared me well for the future. The hands-on career programs have been invaluable."</p>
-                    </div>
-                    <div class="xb-item--author ul_li">
-                        <div class="xb-item--avater mr-10">
-                            <img src="{{asset('fronted/assets/img/testimonial/hs-tes-img02.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--name">Jennifer Lynn</h3>
-                            <span class="xb-item--desig">September 22, 2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="hs-testimonial_wrapper">
-                    <div class="xb-item--inner">
-                        <div class="xb-item--rating ul_li mb-30">
-                            <span class="xb-item--number">4.8</span>
-                            <span class="xb-item--star">
-                                <img src="{{asset('fronted/assets/img/icon/rating01.png')}}" alt="">
-                            </span>
-                        </div>
-                        <p class="xb-item--content">"After over a decade at Edubost High School, I’m continually to student success. The collaborative and innovative environment makes it a fantastic place to teach."</p>
-                    </div>
-                    <div class="xb-item--author ul_li">
-                        <div class="xb-item--avater mr-10">
-                            <img src="{{asset('fronted/assets/img/testimonial/hs-tes-img03.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--name">Michael Edward</h3>
-                            <span class="xb-item--desig">December 18, 2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="hs-testimonial_wrapper">
-                    <div class="xb-item--inner">
-                        <div class="xb-item--rating ul_li mb-30">
-                            <span class="xb-item--number">4.9</span>
-                            <span class="xb-item--star">
-                                <img src="{{asset('fronted/assets/img/icon/rating01.png')}}" alt="">
-                            </span>
-                        </div>
-                        <p class="xb-item--content">"Edubost High School provided my child with exceptional support and opportunities. The emphasis on both and personal development has been outstanding."</p>
-                    </div>
-                    <div class="xb-item--author ul_li">
-                        <div class="xb-item--avater mr-10">
-                            <img src="{{asset('fronted/assets/img/testimonial/hs-tes-img01.png')}}" alt="">
-                        </div>
-                        <div class="xb-item--holder">
-                            <h3 class="xb-item--name">Nicole Marie</h3>
-                            <span class="xb-item--desig">August 30, 2024</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- testimonial section end  -->
-
-<!-- cta section start  -->
-<section class="cta pos-rel bg_img z-1 pt-120 pb-120 mb-none-55">
-    <div class="hs-cta_bg bg_img" data-background="{{asset('fronted/assets/img/bg/cta-bg02.png')}}"></div>
+</div>
+<!-- blog area end -->
+<!-- testimonial area -->
+<div class="testimonial-area bg pt-80 pb-80">
     <div class="container">
-        <div class="hs-cta-inner pb-170">
-            <div class="section-title text-center mb-50">
-                <span class="sub-title">What makes us different?</span>
-                <h1 class="title">Why student’s love Sunbeam Academy Group</h1>
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline">
+                        <i class="far fa-book-open-reader"></i>
+                        Memoirs of our Alumni
+                    </span>
+                    <h2 class="site-title">Why student <span>Love Us</span></h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of
+                        a page when looking at its layout.</p>
+                </div>
             </div>
-            <ul class="xb-item--list list-unstyled ul_li">
-                <li><span><img src="{{asset('fronted/assets/img/icon/Check-icon.svg')}}" alt=""></span>Opportunities to socialise</li>
-                <li><span><img src="{{asset('fronted/assets/img/icon/Check-icon.svg')}}" alt=""></span>A flexible school</li>
-                <li><span><img src="{{asset('fronted/assets/img/icon/Check-icon.svg')}}" alt=""></span>Teacher-led education</li>
-            </ul>
-            <div class="text-center">
-                <p class="xb-item--content">We empower students to achieve their dreams through diverse programs, modern facilities, and a supportive community.</p>
+        </div>
+        <div class="testimonial-slider owl-carousel owl-theme">
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    </p>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>Anthony Nicoll</h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
             </div>
-            <div class="hs-btn text-center mt-30">
-                <a class="thm-btn thm-btn--two" href="#">apply now
-                    <span><img src="{{asset('fronted/assets/img/icon/learning01.png')}}" alt=""></span>
-                </a>
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    </p>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{asset('fronted/assets/img/testimonial/02.jpg')}}" alt="">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>Richard Lock</h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    </p>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{asset('fronted/assets/img/testimonial/03.jpg')}}" alt="">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>Randal Grand</h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    </p>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{asset('fronted/assets/img/testimonial/04.jpg')}}" alt="">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>Edward Miles</h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    </p>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{asset('fronted/assets/img/testimonial/05.jpg')}}" alt="">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>Ninal Gordon</h4>
+                        <p>Student</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
             </div>
         </div>
     </div>
-
-</section>
-<!-- cta section end  -->
-
-<!-- news section start  -->
-<section class="news news-bg">
-    <div class="container">
-        <div class="xb-news-top text-center mb-40">
-            <div class="section-title wow fadeInUp">
-                <span class="sub-title">Our academics news</span>
-                <h1 class="title">our latest news</h1>
-            </div>
-        </div>
-        <div class="row justify-content-center mt-none-30">
-            <div class="col-lg-4 col-md-6 mt-20">
-                <div class="news-wrap xb-news-left hs-news wow fadeInUp" data-wow-delay="100ms" data-wow-duration=".4s">
-                    <div class="xb-item--img pos-rel">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/1.jpg')}}" alt="blog">
-                        <a href="#!" class="div-link"></a>
-                    </div>
-                    <div class="xb-news-contant mt-25">
-
-                        <h3 class="xb-item--title mt-10 border-effect"><a href="#!">Exciting New Extracurricular Starting This Semester..</a></h3>
-                    </div>
-                    <div class="xb-link text-center mt-35">
-                        <a href="#!">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                </svg></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-20">
-                <div class="news-wrap xb-news-left hs-news wow fadeInUp" data-wow-delay="200ms" data-wow-duration=".4s">
-                    <div class="xb-item--img pos-rel">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/2.jpg')}}" alt="Blog">
-                        <a href="#!" class="div-link"></a>
-                    </div>
-                    <div class="xb-news-contant mt-25">
-
-                        <h3 class="xb-item--title mt-10 border-effect"><a href="#!">Student Achievement Awards Highlights Top Performers..</a></h3>
-                    </div>
-                    <div class="xb-link text-center mt-35">
-                        <a href="#!">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                </svg></span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-20">
-                <div class="news-wrap xb-news-left hs-news wow fadeInUp" data-wow-delay="300ms" data-wow-duration=".4s">
-                    <div class="xb-item--img pos-rel">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/3.jpg')}}" alt="blof">
-                        <a href="#!" class="div-link"></a>
-                    </div>
-                    <div class="xb-news-contant mt-25">
-
-                        <h3 class="xb-item--title mt-10 border-effect"><a href="#!">Annual Art Show Showcases Student Creativity and Talent..</a></h3>
-                    </div>
-                    <div class="xb-link text-center mt-35">
-                        <a href="#!">Read More <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM0 9H19V7H0V9Z" fill="white" />
-                                </svg></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="news-btn text-center mt-40 wow fadeInUp" data-wow-delay="400ms" data-wow-duration=".4s">
-            <a class="thm-btn thm-btn--stroke-black hover-2" href="#">More news
-                <span class="icon"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.4795 21C9.10959 21 7.81507 20.7539 6.59589 20.2617C5.37671 19.7695 4.30137 19.0962 3.36986 18.2417C2.43836 17.3872 1.67808 16.3857 1.08904 15.2373C0.486301 14.0752 0.123288 12.8311 0 11.5049V11.4639H8.56849V14.3145C8.56849 14.5742 8.66096 14.7998 8.84589 14.9912C9.03082 15.1826 9.25342 15.2783 9.5137 15.2783C9.65068 15.2783 9.7774 15.251 9.89384 15.1963C10.0103 15.1416 10.1096 15.0732 10.1918 14.9912L14.0137 11.1768C14.0959 11.0947 14.1644 10.9956 14.2192 10.8794C14.274 10.7632 14.3014 10.6367 14.3014 10.5C14.3014 10.3633 14.274 10.2368 14.2192 10.1206C14.1644 10.0044 14.0959 9.90527 14.0137 9.82324L10.1918 6.00879C10.1096 5.92676 10.0103 5.8584 9.89384 5.80371C9.7774 5.74902 9.65068 5.72168 9.5137 5.72168C9.25342 5.72168 9.0274 5.81738 8.83562 6.00879C8.64384 6.2002 8.54794 6.42578 8.54794 6.68555V9.53613H0C0.123288 8.19629 0.486301 6.94531 1.08904 5.7832C1.67808 4.62109 2.44178 3.61279 3.38014 2.7583C4.31849 1.90381 5.39041 1.23047 6.59589 0.738281C7.81507 0.246094 9.10959 0 10.4795 0C11.9315 0 13.2945 0.273439 14.5685 0.820312C15.8425 1.38086 16.9555 2.13623 17.9075 3.08643C18.8596 4.03662 19.6096 5.14746 20.1575 6.41895C20.7192 7.69043 21 9.05078 21 10.5C21 11.9492 20.7192 13.3096 20.1575 14.5811C19.6096 15.8662 18.8596 16.9839 17.9075 17.9341C16.9555 18.8843 15.8425 19.6328 14.5685 20.1797C13.2945 20.7266 11.9315 21 10.4795 21Z" fill="#161A2C" />
-                    </svg></span>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- news section end  -->
-
+</div>
+<!-- testimonial area end -->
 @endsection

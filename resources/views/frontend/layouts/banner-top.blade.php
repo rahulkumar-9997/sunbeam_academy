@@ -1,27 +1,87 @@
- <!-- hero section start  -->
- <section class="hero hero-style-three ul_li pos-rel" data-background="{{asset('fronted/assets/sunbeam-img/banner.jpg')}}">
-     <div class="container">
-         <div class="row align-items-center">
-             <div class="col-lg-6">
-                 <div class="hero__content-wrap">
-                     <div class="section-title clr-white pt-25">
-                         <span class="sub-title wow fadeInUp" data-wow-delay="0ms" data-wow-duration=".4s">Welcome to Sunbeam Academy Group - Samneghat</span>
-                         <h1 class="title mb-25 wow fadeInUp" data-wow-delay="200ms" data-wow-duration=".4s">The Smarter Way to Learn Anything</h1>
-                         <p class="content wow fadeInUp" data-wow-delay="400ms" data-wow-duration=".4s">Let a child become an independent learner who is morally strong and environmentally aware. Here at Sunbeam Academy, we prepare students of K-8 to enter into the world as change-makers, Leaders, and Innovators.</p>
-                     </div>
-                     <div class="hs-btn mt-35 wow fadeInUp" data-wow-delay="600ms" data-wow-duration=".4s">
-                         <a class="thm-btn thm-btn--two" href="contact.html">register now
-                             <span><img src="{{asset('fronted/assets/img/icon/learning01.png')}}" alt=""></span>
-                         </a>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-lg-6">
-                 <div class="hero-right">
-                     <img class="wow fadeInRight" data-wow-delay="200ms" data-wow-duration=".6s" src="{{asset('fronted/assets/sunbeam-img/banner-over.png')}}" alt="banner">
-                 </div>
-             </div>
-         </div>
-     </div>
- </section>
- <!-- hero section end  -->
+<!-- hero slider -->
+<div class="hero-section">
+    <div class="hero-slider owl-carousel owl-theme">
+        <div class="hero-single" style="background: url({{asset('fronted/assets/sunbeam-img/banner/banner-1.jpg')}})">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12 col-lg-7">
+                        <div class="hero-content">
+                            <h6 class="hero-sub-title" data-animation="fadeInDown" data-delay=".25s">
+                                <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
+                            </h6>
+                            <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
+                                The Smarter Way to Learn <span>Anything</span>
+                            </h1>
+                            <p data-animation="fadeInLeft" data-delay=".75s">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some repeat predefined chunks form
+                                injected humour.
+                            </p>
+                            <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
+                                <a href="#" class="theme-btn">About More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                                <a href="#" class="theme-btn theme-btn2">Learn More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-single" style="background: url({{asset('fronted/assets/sunbeam-img/banner/banner-4.jpg')}})">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12 col-lg-7">
+                        <div class="hero-content">
+                            <h6 class="hero-sub-title" data-animation="fadeInDown" data-delay=".25s">
+                                <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
+                            </h6>
+                            <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
+                                Start Your Beautiful And <span>Bright</span> Future
+                            </h1>
+                            <p data-animation="fadeInLeft" data-delay=".75s">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some repeat predefined chunks form
+                                injected humour.
+                            </p>
+                            <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
+                                <a href="#" class="theme-btn">About More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                                <a href="#" class="theme-btn theme-btn2">Learn More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-single" style="background: url({{asset('fronted/assets/sunbeam-img/banner/banner-3.jpg')}})">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12 col-lg-7">
+                        <div class="hero-content">
+                            <h6 class="hero-sub-title" data-animation="fadeInDown" data-delay=".25s">
+                                <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
+                            </h6>
+                            <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
+                                Start Your Beautiful And <span>Bright</span> Future
+                            </h1>
+                            <p data-animation="fadeInLeft" data-delay=".75s">
+                                There are many variations of passages orem psum available but the majority have
+                                suffered alteration in some repeat predefined chunks form
+                                injected humour.
+                            </p>
+                            <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
+                                <a href="#" class="theme-btn">About More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                                <a href="#" class="theme-btn theme-btn2">Learn More<i
+                                        class="fas fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- hero slider end -->

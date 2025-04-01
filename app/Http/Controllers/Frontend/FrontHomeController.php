@@ -17,9 +17,33 @@ class FrontHomeController extends Controller
     
     public function aboutUs()
     {
-        return "This is the About Us page.";
+        return view('frontend.pages.about.about-us');
+    }
+
+    public function foundersMessage()
+    {
+        return view('frontend.pages.about.founders-message');
+    }
+
+    public function ceoMessage()
+    {
+        return view('frontend.pages.about.ceo-message');
+    }
+
+    public function deputyDirectorMessage()
+    {
+        return view('frontend.pages.about.deputy-director-message');
+    }
+
+    public function curriculum()
+    {
+        return view('frontend.pages.life-at-sunbeam.curriculum');
     }
     
+    public function academicSupportPrograms()
+    {
+        return view('frontend.pages.life-at-sunbeam.academic-support-programs');
+    }
     
 
     

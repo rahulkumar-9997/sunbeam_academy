@@ -4,14 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontHomeController;
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
-Route::get('about-us', [App\Http\Controllers\Frontend\FrontHomeController::class, 'aboutUs'])->name('about-us');
 
-// use Illuminate\Support\Facades\Route;
+Route::prefix('about')->name('about.')->group(function () {
+    Route::get('/', [FrontHomeController::class, 'aboutUs'])->name('us');
+    Route::get('founder-message', [FrontHomeController::class, 'foundersMessage'])->name('founders-message');
+    Route::get('ceo-message', [FrontHomeController::class, 'ceoMessage'])->name('ceo-message');
+    Route::get('deputy-director-message', [FrontHomeController::class, 'deputyDirectorMessage'])->name('deputy-director-message');
+});
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::prefix('life-at-sunbeam')->name('life-at-sunbeam.')->group(function () {
+    Route::get('/curriculum', [FrontHomeController::class, 'curriculum'])->name('curriculum');
+    Route::get('/academic-support-programs', [FrontHomeController::class, 'academicSupportPrograms'])->name('academic-support-programs');
+    Route::get('/holistic-educational-approach', [FrontHomeController::class, 'holisticEducationalApproach'])->name('holistic-educational-approach');
+    Route::get('/hostels', [FrontHomeController::class, 'hostels'])->name('hostels');
+    Route::get('/rules-and-regulations', [FrontHomeController::class, 'rulesAndRegulations'])->name('rules-and-regulations');
+});
 
-// Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

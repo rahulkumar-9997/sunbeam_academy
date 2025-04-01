@@ -1,18 +1,15 @@
-<!doctype html>
-<html lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		@include('frontend.layouts.headcss')	
 	</head>
-    <body class="home-three">
+    <body>
+		@include('frontend.layouts.header-menu-top')
+		<main class="main">
+			@yield('main-content')
+		</main>
+		@include('frontend.layouts.footer')
 		@include('frontend.layouts.back-to-top')
-		<div class="body_wrap">
-			@include('frontend.layouts.header-menu-top')
-			<main>
-				@include('frontend.layouts.banner-top')
-				@yield('main-content')
-			</main>
-			@include('frontend.layouts.footer')
-		</div>
 		@include('frontend.layouts.footerjs')
 	</body>
 </html>
