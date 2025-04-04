@@ -20,6 +20,15 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.about-us');
     }
 
+    
+
+
+
+
+
+
+
+
     public function foundersMessage()
     {
         return view('frontend.pages.about.founders-message');
@@ -43,6 +52,11 @@ class FrontHomeController extends Controller
     public function academicSupportPrograms()
     {
         return view('frontend.pages.life-at-sunbeam.academic-support-programs');
+    }
+
+    public function holisticEducationalApproach()
+    {
+        return view('frontend.pages.life-at-sunbeam.holistic-educational-approach');
     }
     
 

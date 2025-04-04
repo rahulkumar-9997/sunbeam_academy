@@ -62,22 +62,8 @@
                  </div>
                  <div class="collapse navbar-collapse" id="main_nav">
                      <ul class="navbar-nav">
-                         <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
-                             <ul class="dropdown-menu fade-down">
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('about.us')}}">About Us</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('about.founders-message') }}">Founder's Message</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('about.ceo-message') }}">CEO Message</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('about.deputy-director-message') }}">Deputy Directors Message</a>
-                                </li>
-                             </ul>
+                        <li class="nav-item">
+                             <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
                          </li>
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Branches</a>
@@ -86,41 +72,67 @@
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Durgakund</a></li>
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Sarainandan</a></li>
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Knowledge Park</a></li>
+                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Ghazipur</a></li>
                              </ul>
                          </li>
                          <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Life@Sunbeam</a>
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Academics</a>
                              <ul class="dropdown-menu fade-down">
                                  <li>
                                     <a class="dropdown-item" href="{{ route('life-at-sunbeam.curriculum') }}">Curriculum</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.academic-support-programs') }}">Academic Support Programs</a>
+                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.academic-support-programs') }}">School Levels</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('life-at-sunbeam.holistic-educational-approach') }}">Holistic Educational Approach</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.hostels') }}">Hostels</a>
+                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.hostels') }}">Academic Support Programs</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.rules-and-regulations') }}">Rules & Regulations</a>
+                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.rules-and-regulations') }}"> Day Bording in-house Coaching</a>
                                 </li>
                              </ul>
                          </li>
-                         <li class="nav-item">
-                             <a class="nav-link" href="#">Classes</a>
-                         </li>
+                         
                          <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admission</a>
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admissions</a>
                              <ul class="dropdown-menu fade-down">
-                                 <li><a class="dropdown-item" href="#">Admission</a></li>
                                  <li><a class="dropdown-item" href="#">Book a Tour</a></li>
-                                 <li><a class="dropdown-item" href="#">Fee Rules</a></li>
+                                 <li><a class="dropdown-item" href="#">Fee Structure</a></li>
+                                 <li><a class="dropdown-item" href="#">Rules and Regulations</a></li>
                              </ul>
                          </li>
-                         <li class="nav-item">
-                             <a class="nav-link" href="#">Elite 11</a>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Schlorships</a>
+                             <ul class="dropdown-menu fade-down">
+                                 <li><a class="dropdown-item" href="#">Elite 11 </a></li>
+                                 <li><a class="dropdown-item" href="#">Sathee</a></li>
+                             </ul>
+                         </li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Life at Sunbeam</a>
+                             <ul class="dropdown-menu fade-down">
+                                 <li><a class="dropdown-item" href="#">Hobby Classes</a></li>
+                                 <li><a class="dropdown-item" href="#">School Cinema</a></li>
+                                 <li><a class="dropdown-item" href="#">STEM Labs</a></li>
+                                 <li><a class="dropdown-item" href="#">Early Learning Labs</a></li>
+                                 <li><a class="dropdown-item" href="#">Music Labs</a></li>
+                                 <li><a class="dropdown-item" href="#">Shooting Academy</a></li>
+                                 <li><a class="dropdown-item" href="#">Cricket Academy</a></li>
+                                 <li><a class="dropdown-item" href="#">Dramatics Sunbeam Radio</a></li>
+                             </ul>
+                         </li>
+                         <li class="nav-item dropdown">
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hostel</a>
+                             <ul class="dropdown-menu fade-down">
+                                 <li><a class="dropdown-item" href="#">Boys Hostel</a></li>
+                                 <li><a class="dropdown-item" href="#">Girls Hostel</a></li>
+                                 <li><a class="dropdown-item" href="#">Weekly Boarding</a></li>
+                                 <li><a class="dropdown-item" href="#">Rule and Regulations</a></li>
+                                 
+                             </ul>
                          </li>
                          <li class="nav-item">
                              <a class="nav-link" href="#">Contact</a>

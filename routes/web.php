@@ -4,13 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontHomeController;
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
-
-Route::prefix('about')->name('about.')->group(function () {
-    Route::get('/', [FrontHomeController::class, 'aboutUs'])->name('us');
-    Route::get('founder-message', [FrontHomeController::class, 'foundersMessage'])->name('founders-message');
-    Route::get('ceo-message', [FrontHomeController::class, 'ceoMessage'])->name('ceo-message');
-    Route::get('deputy-director-message', [FrontHomeController::class, 'deputyDirectorMessage'])->name('deputy-director-message');
-});
+Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');
 
 Route::prefix('life-at-sunbeam')->name('life-at-sunbeam.')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'curriculum'])->name('curriculum');

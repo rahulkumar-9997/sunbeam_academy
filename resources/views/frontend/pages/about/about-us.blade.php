@@ -4,13 +4,15 @@
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 <!-- breadcrumb -->
-<div class="site-breadcrumb bread-head">
+<!-- <div class="site-breadcrumb bread-head">
     <div class="container">
         <h2 class="breadcrumb-title">About Us</h2>
-        <!-- <ul class="breadcrumb-menu">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li class="active">About Us</li>
-        </ul> -->
+        
+    </div>
+</div> -->
+<div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
+    <div class="container">
+        <h2 class="breadcrumb-title">About Us</h2>
     </div>
 </div>
 <!-- breadcrumb end -->
@@ -50,7 +52,7 @@
 </div>
 <!-- about area -->
 <!-- mission vission area -->
-<div class="campus-tour pt-10 pb-80 bg">
+<div class="campus-tour pt-10 pb-40 bg">
     <div class="container">
         <div class="row mt-none-30">
             <div class="col-lg-6 mt-30">
@@ -75,7 +77,7 @@
                         <li class="li-flex">
                             <i class="fas fa-check-circle"></i>
                             <span>
-                            To fill the children’s hearts with compassion and sensibilities towards society and the Nation.
+                                To fill the children’s hearts with compassion and sensibilities towards society and the Nation.
                             </span>
                         </li>
                     </ul>
@@ -129,5 +131,64 @@
     </div>
 </div>
 <!-- mission vission area -->
-
+<!-- Spirit of Sunbeam Academy area -->
+<div class="course-area spirit-section pt-40 pb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <h2 class="site-title">Spirit of <span>Sunbeam Academy</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
+                    <a href="#">
+                        <div class="course-content">
+                            <h4 class="course-title">
+                                Unrelenting Integrity
+                            </h4>                        
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
+                    <a href="#">
+                        <div class="course-content">
+                            <h4 class="course-title">
+                                Unparalleled Studies
+                            </h4>                        
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
+                    <a href="#">
+                        <div class="course-content">
+                            <h4 class="course-title">
+                                Unrivaled Activities
+                            </h4>                        
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
+                    <a href="#">
+                        <div class="course-content">
+                            <h4 class="course-title">
+                                Undisputed Leadership
+                            </h4>                        
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Spirit of Sunbeam Academy area -->
 @endsection

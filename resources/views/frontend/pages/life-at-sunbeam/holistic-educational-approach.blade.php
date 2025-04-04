@@ -1,12 +1,12 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Academic Support Programs')
+@section('title','Sunbeam Academy - Holistic Educational Approach')
 @section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 <!-- breadcrumb -->
 <div class="site-breadcrumb bread-head">
     <div class="container">
-        <h2 class="breadcrumb-title">Academic Support Programs</h2>
+        <h2 class="breadcrumb-title">Holistic Educational Approach</h2>
         <!-- <ul class="breadcrumb-menu">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li class="active">About Us</li>
@@ -21,16 +21,12 @@
                 <div class="content-info wow fadeInUp" data-wow-delay=".25s">
                     <div class="site-heading mb-3">
                         <h2 class="site-title">
-                            Our Academic Support<span> Programs</span>
+                            Holistic <span> Educational Approach</span>
                         </h2>
                     </div>
                     <p class="content-text">
-                        A core component of holistic education is the Extra-Curricular and Co-Curricular activities that shape the development of students. They are instrumental in honing the talents and developing social skills, critical thinking and teamwork.
+                        Ours is a dynamic educational framework aimed at fostering all-round development of students through an integrated, holistic approach to learning. We emphasise on academic excellence, but also focus on other aspects of student growth including sports excellence, skills development, leadership skills, artistic skills and universal values taking learning beyond academics with equal focus on sports, skills and values.
                     </p>
-                    <p class="content-text mt-0">
-                        Our school has an array of Extra Curricular Activities and Co-Curricular Activities for the benefit of our students. It is mandatory for our students to participate in at least one activity under both categories. To instil a sense of belonging, camaraderie and brotherhood among students, many of these activities are held by grouping students into four Houses which encourages healthy competition, a hunger for winning and pride in accomplishments.
-                    </p>
-
                 </div>
             </div>
             <div class="col-lg-6">

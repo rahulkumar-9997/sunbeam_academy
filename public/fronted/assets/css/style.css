@@ -789,7 +789,7 @@ label {
   .container-md,
   .container-lg,
   .container-xl {
-    max-width: 1200px;
+    max-width: 1300px;
   }
 }
 
@@ -1036,7 +1036,7 @@ label {
 
 @media all and (min-width: 992px) {
   .navbar .nav-item .nav-link {
-    margin-right: 22px;
+    margin-right: 14px;
     padding: 30px 0 30px 0;
     font-size: 17px;
     font-weight: 600;
@@ -4629,13 +4629,13 @@ label {
   justify-content: center;
   text-align: center;
   background-repeat: no-repeat !important;
-  background-position: center !important;
+  background-position: top !important;
   background-size: cover !important;
   position: relative;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   z-index: 1;
-  background: linear-gradient(145deg, #e63f27d9 3.03%, #fda31bb8 27.62%, #116f5f 76.39%, #126f60e6 112.44%);
+  /* background: linear-gradient(145deg, #e63f27d9 3.03%, #fda31bb8 27.62%, #116f5f 76.39%, #126f60e6 112.44%); */
 }
 
 .site-breadcrumb::before {
@@ -4646,8 +4646,8 @@ label {
   top: 0;
   left: 0;
   background: var(--hero-overlay-color);
-  /* opacity: 0.65; */
-  opacity: 0;
+  opacity: 0.65;
+  /* opacity: 0; */
   z-index: -1;
 }
 
@@ -6478,7 +6478,7 @@ label {
 }
 .mission-vission-item .xb-item--title {
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
     color: #fff;
 }
 .mission-vission-item .xb-item--content {
@@ -6534,17 +6534,20 @@ label {
 .single-team .team-details h4{
   margin-bottom: 10px;
 }
-.curr-one-section,
-.curr-two-section,
-.curr-three-section,
-.curr-five-section{
+.curr-one-section p,
+.curr-two-section p,
+.curr-three-section p,
+.curr-five-section p,
+.academic-one-section p,
+.academic-two-section p,
+.academic-three-section p{
   text-align: justify;
 }
 .curr-two-section{
   background: linear-gradient(to bottom, #116f5f -18%, #f9f9f9 63%);
 }
 
-.curr-four-section{
+.curr-four-section, .academic-two-section{
   background: linear-gradient(to bottom, #116f5f -18%, #ffffca 63%);
 }
 .curr-four-section .site-title{
@@ -6552,6 +6555,16 @@ label {
 }
 .curr-four-section .content-list .li-flex{
     color: var(--color-dark);
+}
+.academic-two-section .content-text{
+    color: var(--color-dark);
+}
+.mission-vission-item {
+  transition: all 0.3s ease;
+}
+.mission-vission-item:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
 }
 
 
