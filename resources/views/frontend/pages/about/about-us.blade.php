@@ -143,50 +143,33 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-3">
-                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
-                    <a href="#">
-                        <div class="course-content">
-                            <h4 class="course-title">
-                                Unrelenting Integrity
-                            </h4>                        
-                        </div>
-                    </a>
+                <div class="whatnew-box">
+                    <p class="slider-title">Unrelenting Integrity</p>
+
+                    <a class="slider-btn" href="#" target="_blank" aria-label="Unrelenting Integrity">Read More</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
-                    <a href="#">
-                        <div class="course-content">
-                            <h4 class="course-title">
-                                Unparalleled Studies
-                            </h4>                        
-                        </div>
-                    </a>
+                <div class="whatnew-box">
+                    <p class="slider-title">Unparalleled Studies</p>
+
+                    <a class="slider-btn" href="#" target="_blank" aria-label="Unrelenting Integrity">Read More</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
-                    <a href="#">
-                        <div class="course-content">
-                            <h4 class="course-title">
-                                Unrivaled Activities
-                            </h4>                        
-                        </div>
-                    </a>
+                <div class="whatnew-box">
+                    <p class="slider-title">Unrivaled Activities</p>
+
+                    <a class="slider-btn" href="#" target="_blank" aria-label="Unrelenting Integrity">Read More</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="course-item spirit-section-item wow fadeInUp" data-wow-delay=".25s">
-                    <a href="#">
-                        <div class="course-content">
-                            <h4 class="course-title">
-                                Undisputed Leadership
-                            </h4>                        
-                        </div>
-                    </a>
+                <div class="whatnew-box">
+                    <p class="slider-title">Undisputed Leadership</p>
+
+                    <a class="slider-btn" href="#" target="_blank" aria-label="Undisputed Leadership">Read More</a>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

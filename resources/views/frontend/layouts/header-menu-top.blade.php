@@ -79,19 +79,19 @@
                              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Academics</a>
                              <ul class="dropdown-menu fade-down">
                                  <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.curriculum') }}">Curriculum</a>
+                                    <a class="dropdown-item" href="{{ route('curriculum') }}">Curriculum</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.academic-support-programs') }}">School Levels</a>
+                                    <a class="dropdown-item" href="{{ route('school-levels') }}">School Levels</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.holistic-educational-approach') }}">Holistic Educational Approach</a>
+                                    <a class="dropdown-item" href="{{ route('holistic-educational-approach') }}">Holistic Educational Approach</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.hostels') }}">Academic Support Programs</a>
+                                    <a class="dropdown-item" href="{{ route('academic-support-programs') }}">Academic Support Programs</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('life-at-sunbeam.rules-and-regulations') }}"> Day Bording in-house Coaching</a>
+                                    <a class="dropdown-item" href="{{ route('day-bording-in-house') }}"> Day Bording in-house Coaching</a>
                                 </li>
                              </ul>
                          </li>
@@ -99,9 +99,9 @@
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Admissions</a>
                              <ul class="dropdown-menu fade-down">
-                                 <li><a class="dropdown-item" href="#">Book a Tour</a></li>
-                                 <li><a class="dropdown-item" href="#">Fee Structure</a></li>
-                                 <li><a class="dropdown-item" href="#">Rules and Regulations</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('book-a-tour')}}">Book a Tour</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('fee-structure')}}">Fee Structure</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('rules-and-regulations')}}">Rules and Regulations</a></li>
                              </ul>
                          </li>
                          <li class="nav-item dropdown">

@@ -20,6 +20,46 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.about-us');
     }
 
+    public function academicsCurriculum()
+    {
+        return view('frontend.pages.academics.curriculum');
+    }
+
+    public function schoolLevels()
+    {
+        return view('frontend.pages.academics.school-levels');
+    }
+
+    public function holisticEducationalApproach()
+    {
+        return view('frontend.pages.academics.holistic-educational-approach');
+    }
+
+    public function academicSupportPrograms()
+    {
+        return view('frontend.pages.academics.academic-support-programs');
+    }
+
+    public function dayBordingHouse()
+    {
+        return view('frontend.pages.academics.day-bording-in-house-coaching');
+    }
+    
+
+    public function bookAtour()
+    {
+        return view('frontend.pages.admissions.book-a-tour');
+    }
+    
+    public function feeStructure()
+    {
+        return view('frontend.pages.admissions.fee-structure');
+    }
+    
+    public function rulesAndRegulations()
+    {
+        return view('frontend.pages.admissions.rules-and-regulations');
+    }
     
 
 
@@ -44,20 +84,11 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.deputy-director-message');
     }
 
-    public function curriculum()
-    {
-        return view('frontend.pages.life-at-sunbeam.curriculum');
-    }
     
-    public function academicSupportPrograms()
-    {
-        return view('frontend.pages.life-at-sunbeam.academic-support-programs');
-    }
+    
+    
 
-    public function holisticEducationalApproach()
-    {
-        return view('frontend.pages.life-at-sunbeam.holistic-educational-approach');
-    }
+   
     
 
     

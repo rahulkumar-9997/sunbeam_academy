@@ -644,7 +644,7 @@ label {
 ======================*/
 
 .site-heading {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 1;
 }
@@ -5268,7 +5268,7 @@ label {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: var(--theme-color);
+  background: var(--theme-color2);
   border-radius: 50px 50px 50px 0;
   transform: rotate(-8deg);
   z-index: -1;
@@ -5829,7 +5829,7 @@ label {
 
 .alumni-details .details-wrapper{
   border-top: 1px solid var(--border-info-color);
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .alumni-details .content-list li{
@@ -6544,17 +6544,54 @@ label {
   text-align: justify;
 }
 .curr-two-section{
-  background: linear-gradient(to bottom, #116f5f -18%, #f9f9f9 63%);
+  /* background: linear-gradient(to bottom, #116f5f -18%, #f9f9f9 63%); */
+  background:#116f5f url(../sunbeam-img/about/line-pattern-bg.png);
+}
+.curr-two-section.alumni .content-img::before{
+  display: none;
+}
+.curr-two-section .site-title{
+   color: var(--color-white);
+}
+.curr-two-section p{
+  color: var(--color-white);
 }
 
-.curr-four-section, .academic-two-section{
-  background: linear-gradient(to bottom, #116f5f -18%, #ffffca 63%);
+.curr-four-section{
+    position: relative;
+    background-image: url(../sunbeam-img/labs.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.curr-four-section::before {
+  content: "";
+  position: absolute;
+  background: var(--theme-color);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .7;
+  z-index: -1;
+}
+.curr-four-section h3{
+    color: var(--color-white);
+}
+.academic-two-section{
+  background: #fff1d4;
+}
+.academic-two-section.alumni .content-img::before{
+  display: none;
 }
 .curr-four-section .site-title{
   color: var(--color-white);
 }
 .curr-four-section .content-list .li-flex{
-    color: var(--color-dark);
+    color: var(--color-white);
 }
 .academic-two-section .content-text{
     color: var(--color-dark);
@@ -6566,5 +6603,194 @@ label {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transform: scale(1.02);
 }
+/*ABOUT US*/
+.whatnew-box {
+  margin: 0 auto;
+  /* max-width: 290px; */
+  max-width: 100%;
+  width: 100%;
+  min-height: 300px;
+  padding: 30px;
+  position: relative;
+  border-radius: 10px;
+  background: #ffffbb url(../sunbeam-img/about/line-pattern-bg.png);
+}
+.slider-title {
+  font-size: 30px;
+  color: #19232B;
+  text-align: left;
+  margin-top: 30px;
+  font-weight: 900;
+  line-height: 30px;
+  letter-spacing: normal;
+}
+.slider-btn {
+  font-size: 14px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  width: 200px;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  padding: 10px 20px;
+  background-color: transparent;
+  display: block;
+  z-index: 1;
+  border: 1px solid #000;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.slider-btn:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color:#ffffc3;
+  z-index: -1;
+}
+.slider-btn:hover:before {
+  width: 100%;
+}
+.slider-btn:hover {
+  border: 1px solid #000;
+  background-color: transparent;
+  color: #ffffff;
+}
+.tour-title h3 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  line-height: 30px;
+  position: relative;
+  color: var(--color-white);
+}
+.spirit-section .whatnew-box:hover{
+  background: linear-gradient(145deg, #fda31b 3.03%, #fda31b 27.62%, #116f5f 76.39%, #126f60 112.44%);
+}
+.spirit-section .whatnew-box:hover .slider-title{
+  color: var(--color-white);
+}
+.spirit-section .whatnew-box:hover .slider-btn{
+    border: 1px solid #000;
+    background-color: transparent;
+    color: #030303;
+}
+.spirit-section .whatnew-box:hover .slider-btn::before{
+  width: 100%;
+}
+.tour-details p{
+  color: var(--color-white);
+  text-align: justify;
+}
+
+@media (min-width: 1500px) and (max-width: 1742px) {
+  .step-img {
+    margin-right: -360px;
+    background:#fff;
+    padding-bottom: 0;
+  }
+  .step-img-left {
+    margin-left: -150px;
+    background:#fda31b;
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 1500px) and (max-width: 1875px) {
+  .step-img {
+    margin-right: -260px;
+    background:#fff;
+    padding-bottom: 0px;
+  }
+  .step-img-left {
+    margin-left: -150px;
+    background:#fda31b;
+    padding-bottom: 0px;
+  }
+}
+.step-img {
+  margin-right: -302px;
+  background:#fff;
+  padding-bottom: 0px;
+}
+.step-img-left {
+  margin-left: -150px;
+  background:#fda31b;
+  padding-bottom: 0px;
+}
+.fee-btn a{
+  color: var(--theme-color2);
+}
+.site-heading .fee-rule{
+    font-size: 30px;
+    color: var(--color-dark);
+    font-weight: 900;
+}
+.fee-rule span{
+  color: var(--theme-color2);
+}
+.fee-rules-area .slider-title{
+    font-size: 20px;
+    color: #19232B;
+    text-align: left;
+    margin-top: 20px;
+    line-height: 27px;
+    text-align: center;
+    font-weight: 600;
+}
+.fee-rules-area .whatnew-box{
+  min-height: 100%;
+  max-width: 100%;
+}
+.fee-rules-area .whatnew-box:hover{
+    background: linear-gradient(145deg, #fda31b 3.03%, #fda31b 27.62%, #116f5f 76.39%, #126f60 112.44%);
+
+}
+.fee-rules-area .whatnew-box:hover:hover .slider-title{
+  color: var(--color-white);
+}
+.pay-fee-time .content-list .li-flex {
+  color: var(--color-dark);
+}
+/* .tour-details-item{
+    margin: 0 auto;
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+    background: #ab6604 url(../sunbeam-img/about/line-pattern-bg.png);
+}
+.tour-details-item h3{
+    font-size: 40px;
+    margin-bottom: 18px;
+    color: var(--color-white);
+    font-weight: 900;
+}
+.tour-details-item p{
+  color: var(--color-white);
+  text-align: justify;
+} */
+
+
 
 
