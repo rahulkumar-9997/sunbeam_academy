@@ -19,8 +19,14 @@ Route::prefix('admissions')->group(function () {
     Route::get('/rules-and-regulations', [FrontHomeController::class, 'rulesAndRegulations'])->name('rules-and-regulations');
     
 });
+Route::prefix('schlorships')->group(function () {
+    Route::get('/elite-11', [FrontHomeController::class, 'elite11'])->name('elite-11');
+    Route::get('/sathee', [FrontHomeController::class, 'sathee'])->name('sathee');
+});
 
-
+Route::prefix('branches')->name('branches')->group(function () {
+    Route::get('/sunbeam-academy-samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+});
 
 Route::prefix('life-at-sunbeam')->name('life-at-sunbeam.')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'curriculum'])->name('curriculum');

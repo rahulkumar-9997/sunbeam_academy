@@ -60,6 +60,16 @@ class FrontHomeController extends Controller
     {
         return view('frontend.pages.admissions.rules-and-regulations');
     }
+
+    public function elite11()
+    {
+        return view('frontend.pages.schlorships.elite-11');
+    }
+
+    public function sathee()
+    {
+        return view('frontend.pages.schlorships.sathee');
+    }
     
 
 

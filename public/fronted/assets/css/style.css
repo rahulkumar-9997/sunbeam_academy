@@ -6770,6 +6770,14 @@ label {
 .pay-fee-time .content-list .li-flex {
   color: var(--color-dark);
 }
+
+.rule-guide-parent .content-list .li-flex {
+  color: var(--color-dark);
+}
+
+.rule-code-of-conduct .content-list .li-flex {
+  color: var(--color-dark);
+}
 /* .tour-details-item{
     margin: 0 auto;
     width: 100%;
