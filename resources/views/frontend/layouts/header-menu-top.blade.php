@@ -68,7 +68,7 @@
                          <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Branches</a>
                              <ul class="dropdown-menu fade-down">
-                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Samneghat</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('sunbeam-academy-samneghat') }}">Sunbeam Academy Samneghat</a></li>
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Durgakund</a></li>
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Sarainandan</a></li>
                                  <li><a class="dropdown-item" href="#">Sunbeam Academy Knowledge Park</a></li>
@@ -112,30 +112,29 @@
                              </ul>
                          </li>
                          <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Life at Sunbeam</a>
-                             <ul class="dropdown-menu fade-down">
-                                 <li><a class="dropdown-item" href="#">Hobby Classes</a></li>
-                                 <li><a class="dropdown-item" href="#">School Cinema</a></li>
-                                 <li><a class="dropdown-item" href="#">STEM Labs</a></li>
-                                 <li><a class="dropdown-item" href="#">Early Learning Labs</a></li>
-                                 <li><a class="dropdown-item" href="#">Music Labs</a></li>
-                                 <li><a class="dropdown-item" href="#">Shooting Academy</a></li>
-                                 <li><a class="dropdown-item" href="#">Cricket Academy</a></li>
-                                 <li><a class="dropdown-item" href="#">Dramatics Sunbeam Radio</a></li>
-                             </ul>
-                         </li>
-                         <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hostel</a>
-                             <ul class="dropdown-menu fade-down">
-                                 <li><a class="dropdown-item" href="#">Boys Hostel</a></li>
-                                 <li><a class="dropdown-item" href="#">Girls Hostel</a></li>
-                                 <li><a class="dropdown-item" href="#">Weekly Boarding</a></li>
-                                 <li><a class="dropdown-item" href="#">Rule and Regulations</a></li>
-                                 
-                             </ul>
-                         </li>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Life at Sunbeam</a>
+                            <ul class="dropdown-menu fade-down">
+                                <li><a class="dropdown-item" href="{{ route('life.hobby-classes') }}">Hobby Classes</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.school-cinema') }}">School Cinema</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.stem-labs') }}">STEM Labs</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.early-learning-labs') }}">Early Learning Labs</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.music-labs') }}">Music Labs</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.shooting-academy') }}">Shooting Academy</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.cricket-academy') }}">Cricket Academy</a></li>
+                                <li><a class="dropdown-item" href="{{ route('life.dramatics-radio') }}">Dramatics & Sunbeam Radio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hostel</a>
+                            <ul class="dropdown-menu fade-down">
+                                <li><a class="dropdown-item" href="{{ route('hostel.boys') }}">Boys Hostel</a></li>
+                                <li><a class="dropdown-item" href="{{ route('hostel.girls') }}">Girls Hostel</a></li>
+                                <li><a class="dropdown-item" href="{{ route('hostel.weekly-boarding') }}">Weekly Boarding</a></li>
+                                <li><a class="dropdown-item" href="{{ route('hostel.rules') }}">Rules and Regulations</a></li>
+                            </ul>
+                        </li>
                          <li class="nav-item">
-                             <a class="nav-link" href="#">Contact</a>
+                             <a class="nav-link" href="{{ route('contact-us') }}">Contact</a>
                          </li>
                      </ul>
                      <!--<div class="nav-right">

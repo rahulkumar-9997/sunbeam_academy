@@ -20,6 +20,10 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.about-us');
     }
 
+    public function sunbeamAcademySamneghat (){
+        return view('frontend.pages.branches.sunbeam-academy-samneghat');
+    }
+
     public function academicsCurriculum()
     {
         return view('frontend.pages.academics.curriculum');
@@ -69,6 +73,71 @@ class FrontHomeController extends Controller
     public function sathee()
     {
         return view('frontend.pages.schlorships.sathee');
+    }
+
+    public function hobbyClasses()
+    {
+        return view('frontend.pages.life-at-sunbeam.hobby-classes');
+    }
+
+    public function schoolCinema()
+    {
+        return view('frontend.pages.life-at-sunbeam.school-cinema');
+    }
+
+    public function stemLabs()
+    {
+        return view('frontend.pages.life-at-sunbeam.stem-labs');
+    }
+
+    public function earlyLearningLabs()
+    {
+        return view('frontend.pages.life-at-sunbeam.early-learning-labs');
+    }
+
+    public function musicLabs()
+    {
+        return view('frontend.pages.life-at-sunbeam.music-labs');
+    }
+
+    public function shootingAcademy()
+    {
+        return view('frontend.pages.life-at-sunbeam.shooting-academy');
+    }
+
+    public function cricketAcademy()
+    {
+        return view('frontend.pages.life-at-sunbeam.cricket-academy');
+    }
+
+    public function dramaticsRadio()
+    {
+        return view('frontend.pages.life-at-sunbeam.dramatics-radio');
+    }
+
+    public function boysHostel()
+    {
+        return view('frontend.pages.hostels.boys-hostel');
+    }
+
+    public function girlsHostel()
+    {
+        return view('frontend.pages.hostels.girls-hostel');
+    }
+
+    public function weeklyBoarding()
+    {
+        return view('frontend.pages.hostels.weekly-bording');
+    }
+
+    public function hostelRulesRegulations()
+    {
+        return view('frontend.pages.hostels.rules-and-regulations');
+    }
+
+    public function contactUs()
+    {
+        return view('frontend.pages.contact-us');
     }
     
 
