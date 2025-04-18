@@ -10,12 +10,10 @@
                                 <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
                             </h6>
                             <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                The Smarter Way to Learn <span>Anything</span>
+                                A Safe and  <span> Happy Place </span> to Grow!
                             </h1>
                             <p data-animation="fadeInLeft" data-delay=".75s">
-                                There are many variations of passages orem psum available but the majority have
-                                suffered alteration in some repeat predefined chunks form
-                                injected humour.
+                                Sunbeam Academy gives your child a safe and friendly space to learn, play, and grow with confidence.
                             </p>
                             <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                 <a href="#" class="theme-btn">About More<i
@@ -37,12 +35,10 @@
                                 <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
                             </h6>
                             <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                Start Your Beautiful And <span>Bright</span> Future
+                                Strong Start for a <span>Bright</span> Future
                             </h1>
                             <p data-animation="fadeInLeft" data-delay=".75s">
-                                There are many variations of passages orem psum available but the majority have
-                                suffered alteration in some repeat predefined chunks form
-                                injected humour.
+                            We help kids build strong skills in reading, writing, and thinking. Sunbeam Academy supports your child’s bright future.
                             </p>
                             <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                 <a href="#" class="theme-btn">About More<i
@@ -64,12 +60,10 @@
                                 <i class="far fa-book-open-reader"></i>Welcome To Sunbeam Academy!
                             </h6>
                             <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                Start Your Beautiful And <span>Bright</span> Future
+                                Every Child is <span>Special </span> Here !
                             </h1>
                             <p data-animation="fadeInLeft" data-delay=".75s">
-                                There are many variations of passages orem psum available but the majority have
-                                suffered alteration in some repeat predefined chunks form
-                                injected humour.
+                            At Sunbeam Academy, we care for every child and help them learn in their own way with love and support.
                             </p>
                             <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                 <a href="#" class="theme-btn">About More<i

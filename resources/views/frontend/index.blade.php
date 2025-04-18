@@ -5,13 +5,13 @@
 @section('main-content')
 @include('frontend.layouts.banner-top')
 <!-- feature area -->
-<div class="feature-area home-feature fa-negative">
+<div class="feature-area home-feature fa-negative home-branches">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-xl-12 col-lg-12">
                 <div class="feature-wrapper">
                     <div class="row">
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-xl-20">
                             <div class="feature-item">
                                 <!-- <span class="count">01</span> -->
                                 <!--<div class="feature-icon">
@@ -25,7 +25,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                        Experience can make a huge difference in students’ lives.
+                                    Young minds grow every day with care, creativity, and joyful learning all around.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-xl-20">
                             <div class="feature-item">
                                 <!-- <span class="count">02</span> -->
                                 <!-- <div class="feature-icon">
@@ -54,7 +54,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                        Experience can make a huge difference in students’ lives.
+                                    A perfect blend of strong values, fun learning, and happy, active classrooms.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-xl-20">
                             <div class="feature-item">
                                 <!-- <span class="count">03</span> -->
                                 <!-- <div class="feature-icon">
@@ -83,7 +83,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                        Experience can make a huge difference in students’ lives.
+                                    Confidence, kindness, and joyful learning come together to shape every child’s day.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-xl-20">
                             <div class="feature-item">
                                 <!-- <span class="count">04</span> -->
                                 <!-- <div class="feature-icon">
@@ -112,7 +112,36 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                        Experience can make a huge difference in students’ lives.
+                                    Curious minds become confident learners through playful and smart learning methods.
+                                    </p>
+                                    <p>
+                                        <a href="tel:+919554958414">
+                                            +91 95549 58414
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@sunbeamacademy.com">
+                                            info@sunbeamacademy.com
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-20">
+                            <div class="feature-item">
+                                <!-- <span class="count">04</span> -->
+                                <!-- <div class="feature-icon">
+                                            <img src="assets/img/icon/money.svg" alt="">
+                                        </div> -->
+                                <div class="branch-feature">
+                                    <h3>
+                                        Sunbeam Academy Ghazipur
+                                    </h3>
+                                </div>
+                                <div class="feature-content">
+                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
+                                    <p>
+                                    Every child begins their journey with love, care, and bright learning experiences.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -148,7 +177,7 @@
                                     <div class="about-experience-icon">
                                         <img src="{{asset('fronted/assets/img/icon/exchange-idea.svg')}}" alt="img">
                                     </div>
-                                    <b class="text-start">30 Years Of <br> Quality Service</b>
+                                    <b class="text-start">Driven by Dedication <br> Creating Impact with Care</b>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -168,7 +197,7 @@
                         </h2>
                     </div>
                     <p class="about-text">
-                        Sunbeam Academy schools are considered to be one of the best schools in and around Varanasi where your child will explore all the areas of art, education, and much more.
+                        At Sunbeam Academy, we lay the foundation for a bright future by providing quality education, strong values, and lots of opportunities for children to learn, grow, and dream big in a supportive atmosphere.
                     </p>
                     <div class="about-content">
                         <div class="row">
@@ -178,8 +207,8 @@
                                         <img src="{{asset('fronted/assets/img/icon/open-book.svg')}}" alt="">
                                     </div>
                                     <div class="about-item-content">
-                                        <h5>Education Services</h5>
-                                        <p>It is a long established fact that reader will to using content.</p>
+                                        <h5>Smart Learning</h5>
+                                        <p>Children learn with fun activities, stories, games, and projects that make every day exciting and easy to understand.</p>
                                     </div>
                                 </div>
                                 <div class="about-item">
@@ -187,23 +216,21 @@
                                         <img src="{{asset('fronted/assets/img/icon/global-education.svg')}}" alt="img">
                                     </div>
                                     <div class="about-item-content">
-                                        <h5>International Hubs</h5>
-                                        <p>It is a long established fact that reader will to using content.</p>
+                                        <h5>Personalized Attention</h5>
+                                        <p>Our teachers pay close attention to each child, making sure everyone gets the support they need to succeed.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="about-quote">
-                                    <p>It is a long established fact that a reader will be distracted by the
-                                        content of
-                                        a page when looking at its reader for the long words layout.</p>
+                                    <p>At Sunbeam Academy, we help your child become confident, kind, and ready for the future — all with a smile!</p>
                                     <i class="far fa-quote-right"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="about-bottom">
-                        <a href="#" class="theme-btn">Discover More<i
+                        <a href="{{ route('about-us') }}" class="theme-btn">Read More<i
                                 class="fas fa-arrow-right-long"></i></a>
                         <div class="about-phone">
                             <div class="icon"><i class="fal fa-headset"></i></div>
@@ -277,10 +304,10 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Academics Offerings</span>
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Academic  Offerings</span>
                     <h2 class="site-title">School <span>Levels</span></h2>
                     <p>
-                        Our program from Kindergarten to Grade 8 is a comprehensive curriculum that makes our students innovators, & Leaders of promise.
+                    Sunbeam Academy nurtures creativity and leadership, helping students build the skills they need to thrive and lead the future.
                     </p>
                 </div>
             </div>
@@ -414,9 +441,8 @@
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
                     <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Honorable Team </span>
-                    <h2 class="site-title">Meet With Our <span>Team</span></h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of
-                        a page when looking at its layout.</p>
+                    <h2 class="site-title">Meet Our <span>Team</span></h2>
+                    <p>Our team at Sunbeam Academy is committed to helping every student learn, grow, and succeed.</p>
                 </div>
             </div>
         </div>
@@ -509,12 +535,10 @@
                 <div class="choose-content wow fadeInUp" data-wow-delay=".25s">
                     <div class="choose-content-info">
                         <div class="site-heading mb-0">
-                            <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Why Choose Us</span>
-                            <h2 class="site-title text-white mb-10">We Are Expert & <span>Do Our Best</span> For Your Goal</h2>
+                            <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Why Choose Us ?</span>
+                            <h2 class="site-title text-white mb-10">Your success is <span>our mission !</span></h2>
                             <p class="text-white">
-                                It is a long established fact that a reader will be distracted by the readable
-                                content of a page when many desktop and web page editors looking at its
-                                layout.
+                            At Sunbeam Academy, we mix smart learning with care, so every student feels confident and ready for the future.
                             </p>
                         </div>
                         <div class="choose-content-wrap">
@@ -526,7 +550,7 @@
                                         </div>
                                         <div class="choose-item-info">
                                             <h4>Expert Teachers</h4>
-                                            <p>There are many variation of the suffered.</p>
+                                            <p>Our teachers aren’t just qualified — they care. They explain things in simple ways and are always ready to help.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -536,8 +560,8 @@
                                             <img src="{{asset('fronted/assets/img/icon/course-material.svg')}}" alt="img">
                                         </div>
                                         <div class="choose-item-info">
-                                            <h4>Courses Material</h4>
-                                            <p>There are many variation of the suffered.</p>
+                                            <h4>Course Material</h4>
+                                            <p>Well-planned notes, easy explanations, and practice work that really prepares you for exams.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -547,8 +571,8 @@
                                             <img src="{{asset('fronted/assets/img/icon/online-course.svg')}}" alt="img">
                                         </div>
                                         <div class="choose-item-info">
-                                            <h4>Online Courses</h4>
-                                            <p>There are many variation of the suffered.</p>
+                                            <h4>Personal Attention</h4>
+                                            <p>Every student matters to us. We guide you step-by-step and clear every doubt.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -558,8 +582,8 @@
                                             <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="img">
                                         </div>
                                         <div class="choose-item-info">
-                                            <h4>Affordable Price</h4>
-                                            <p>There are many variation of the suffered.</p>
+                                            <h4>Safe & Supportive Environment</h4>
+                                            <p>A place where you feel safe, respected, and motivated to do your best.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -581,12 +605,13 @@
 <div class="gallery-area py-120">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 mx-auto">
+            <div class="col-lg-8 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Gallery</span>
-                    <h2 class="site-title">Our Photo <span>Gallery</span></h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of
-                        a page when looking at its layout.</p>
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Moments</span>
+                    <h2 class="site-title">Snapshots of  <span>School Life</span></h2>
+                    <p>From classroom fun to stage performances, these photos capture the heart of Sunbeam Academy.
+                        <br>Have a look at the smiles, creativity, and memories we create every day!
+                    </p>
                 </div>
             </div>
         </div>
@@ -704,8 +729,8 @@
                     <div class="enroll-left wow fadeInLeft" data-wow-delay=".25s">
                         <div class="enroll-form">
                             <div class="enroll-form-header">
-                                <h3>Start Your Enrollment</h3>
-                                <p>We are variations of passages the have suffered.</p>
+                                <h3>Start Your Journey With Us</h3>
+                                <p>Join Sunbeam Academy – where learning begins with care and confidence.</p>
                             </div>
                             <form action="#">
                                 <div class="form-group">
@@ -742,36 +767,54 @@
                             <div class="site-heading mb-3">
                                 <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Skills</span>
                                 <h2 class="site-title text-white">
-                                    Explore Your <span>Creativity And Talent</span> With Us
+                                What Makes <span>Sunbeam Academy </span>Special
                                 </h2>
                             </div>
                             <p class="text-white">
-                                There are many variations of passages available but the majority have suffered
-                                alteration in some form by injected humour randomised words which don't look even
-                                slightly believable. If you are going to use passage you need sure there anything
-                                embarrassing first true generator on the Internet.
+                            We focus on every part of a child’s growth — from studies to skills, confidence to creativity. Here’s a glimpse of our strengths.
                             </p>
                             <div class="skills-section">
                                 <div class="progress-box">
-                                    <h5>Our Students <span class="pull-right">85%</span></h5>
+                                    <h5>
+                                        Student Happiness 
+                                        <span class="pull-right">90%</span>
+                                    </h5>
+                                    <p>
+                                        Our students love coming to school and feel supported.
+                                    </p>
+                                    <div class="progress" data-value="90">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-box">
+                                    <h5>Teacher Dedication  <span class="pull-right">95%</span></h5>
+                                    <p>
+                                        Caring, qualified, and passionate educators.
+                                    </p>
+                                    <div class="progress" data-value="95">
+                                        <div class="progress-bar" role="progressbar"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-box">
+                                    <h5>Creative Learning <span class="pull-right">85%</span></h5>
+                                    <p>
+                                        Hands-on activities, smart classes, and modern teaching.
+                                    </p>
                                     <div class="progress" data-value="85">
                                         <div class="progress-bar" role="progressbar"></div>
                                     </div>
                                 </div>
                                 <div class="progress-box">
-                                    <h5>Our Teachers <span class="pull-right">65%</span></h5>
-                                    <div class="progress" data-value="65">
-                                        <div class="progress-bar" role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="progress-box">
-                                    <h5>Our Courses <span class="pull-right">75%</span></h5>
-                                    <div class="progress" data-value="75">
+                                    <h5>Safe Environment  <span class="pull-right">100%</span></h5>
+                                    <p>
+                                        We ensure a happy and secure space for all children.
+                                    </p>
+                                    <div class="progress" data-value="100">
                                         <div class="progress-bar" role="progressbar"></div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="contact.html" class="theme-btn mt-5">Learn More<i class="fas fa-arrow-right-long"></i></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -787,9 +830,8 @@
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
                     <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
-                    <h2 class="site-title">Latest News & <span>Blog</span></h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of
-                        a page when looking at its layout.</p>
+                    <h2 class="site-title">Sunbeam Updates & <span>Highlights</span></h2>
+                    <p>Your one-stop corner for everything new and exciting at our school.</p>
                 </div>
             </div>
         </div>
@@ -808,8 +850,9 @@
                                     </ul>
                                 </div>-->
                         <h4 class="blog-title">
-                            <a href="#">There are many variations passage have suffered
-                                available.</a>
+                            <a href="#">
+                                Beyond the Books: Our Co-Curricular Activities in Action
+                            </a>
                         </h4>
                         <a class="theme-btn" href="#">Read More
                             <i class="fas fa-arrow-right-long"></i>
@@ -826,8 +869,9 @@
                     <div class="blog-item-info">
 
                         <h4 class="blog-title">
-                            <a href="#">There are many variations passage have suffered
-                                available.</a>
+                            <a href="#">
+                                Science Made Fun: Quiz Competitions That Sparked Curiosity
+                            </a>
                         </h4>
                         <a class="theme-btn" href="#">Read More
                             <i class="fas fa-arrow-right-long"></i>
@@ -844,8 +888,9 @@
                     <div class="blog-item-info">
 
                         <h4 class="blog-title">
-                            <a href="#">There are many variations passage have suffered
-                                available.</a>
+                            <a href="#">
+                                Unity in Diversity: Highlights from Our Inter-Branch Competitions
+                            </a>
                         </h4>
                         <a class="theme-btn" href="#">Read More
                             <i class="fas fa-arrow-right-long"></i>
@@ -865,11 +910,13 @@
                 <div class="site-heading text-center">
                     <span class="site-title-tagline">
                         <i class="far fa-book-open-reader"></i>
-                        Memoirs of our Alumni
+                        Hear From Our Community
                     </span>
-                    <h2 class="site-title">Why student <span>Love Us</span></h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of
-                        a page when looking at its layout.</p>
+                    <h2 class="site-title">What People  <span>Say About Us</span></h2>
+                    <p>From everyday activities to special events.
+                        It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>                        
+                    </p>
+                   
                 </div>
             </div>
         </div>
@@ -884,39 +931,16 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of ...
                     </p>
-                </div>
-                <div class="testimonial-content">
-                    <div class="testimonial-author-img">
-                        <img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="">
-                    </div>
-                    <div class="testimonial-author-info">
-                        <h4>Anthony Nicoll</h4>
-                        <p>Student</p>
-                    </div>
-                </div>
-                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-rate">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-quote">
-                    <p>
-                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-                    </p>
+                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal1">Read More</a>
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-author-img">
                         <img src="{{asset('fronted/assets/img/testimonial/02.jpg')}}" alt="">
                     </div>
                     <div class="testimonial-author-info">
-                        <h4>Richard Lock</h4>
+                        <h4>Sumit</h4>
                         <p>Student</p>
                     </div>
                 </div>
@@ -932,15 +956,17 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. 
                     </p>
+                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal2">Read More</a>
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-author-img">
                         <img src="{{asset('fronted/assets/img/testimonial/03.jpg')}}" alt="">
                     </div>
                     <div class="testimonial-author-info">
-                        <h4>Randal Grand</h4>
+                        <h4>Pramod kumar Seth
+                        </h4>
                         <p>Student</p>
                     </div>
                 </div>
@@ -956,46 +982,59 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
+                    I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch...
                     </p>
+                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal3">Read More</a>
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-author-img">
                         <img src="{{asset('fronted/assets/img/testimonial/04.jpg')}}" alt="">
                     </div>
                     <div class="testimonial-author-info">
-                        <h4>Edward Miles</h4>
+                        <h4>Aryaj singh</h4>
                         <p>Student</p>
                     </div>
                 </div>
                 <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
             </div>
-            <div class="testimonial-item">
-                <div class="testimonial-rate">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-quote">
-                    <p>
-                        There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-                    </p>
-                </div>
-                <div class="testimonial-content">
-                    <div class="testimonial-author-img">
-                        <img src="{{asset('fronted/assets/img/testimonial/05.jpg')}}" alt="">
-                    </div>
-                    <div class="testimonial-author-info">
-                        <h4>Ninal Gordon</h4>
-                        <p>Student</p>
-                    </div>
-                </div>
-                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-            </div>
+            
         </div>
     </div>
 </div>
 <!-- testimonial area end -->
+<div class="modal fade" id="modal1" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Testimonial - Sumit</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body">
+      Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of academics and co-curricular activities. Strict discipline is maintained. I had a great experience in a supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction a positive one.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modal2" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Testimonial - Pramod Kumar Seth</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body">
+      One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. The teachers are good, and the front office service is quick and efficient. Rachana, Ma’am is polite and cooperative. A great place for a child’s dynamic growth.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modal3" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Testimonial - Aryaj Singh</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body">
+      I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch education in a nurturing and supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction smooth and positive.
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="modal4" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Testimonial</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body">
+      This is one of those rare schools where a student not only unlocks his or her potential to stand on their own feet, but also becomes a better human being in the process.
+    </div>
+  </div></div>
+</div>  
 @endsection

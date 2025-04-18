@@ -668,7 +668,7 @@ label {
   font-weight: 800;
   text-transform: capitalize;
   /* font-size: 55px; */
-  font-size: 50px;
+  font-size: 46px;
   color:  var(--color-dark);
   margin-top: 10px;
   margin-bottom: 0;
@@ -1578,7 +1578,7 @@ label {
 
 .hero-single .hero-content .hero-title {
   color: var(--color-white);
-  font-size: 72px;
+  font-size: 60px;
   font-weight: 800;
   margin: 20px 0;
   text-transform: capitalize;
@@ -1838,8 +1838,11 @@ label {
   background: var(--color-white);
   border-radius: 50px;
   margin-bottom: 5px;
+  margin-right: 10px;
 }
-
+.about-img .text-start{
+  line-height: 21px;
+}
 .about-experience-icon img{
   width: 65px;
 }
@@ -1859,7 +1862,7 @@ label {
   position: relative;
   display: flex;
   gap: 12px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .about-item-icon {
@@ -2299,9 +2302,17 @@ label {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.col-xl-20 {
+  flex: 0 0 auto;
+  width: 20%;
+}
 
 .feature-content p{
   color: var(--color-dark);
+}
+.home-branches .feature-content p{
+  margin-bottom: 5px;
+  line-height: 25px;
 }
 
 @media all and (max-width: 1199px) {
@@ -3250,7 +3261,11 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+}
+.progress-box p{
+  color: var(--color-white);
+  margin-bottom: 10px;
 }
 
 .progress-box .progress {
@@ -6907,6 +6922,11 @@ label {
 }
 .brnche-campus .feature-item{
   height: 100%;
+}
+.read-more-tes{
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
 }
 /* .site-title::before {
   content: "";
