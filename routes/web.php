@@ -48,7 +48,7 @@ Route::prefix('hostel')->group(function() {
     Route::get('/rules-regulations', [FrontHomeController::class, 'hostelRulesRegulations'])->name('hostel.rules');
 });
 
-Route::get('/clear-cache', function () {
+Route::get('clear-cache', function () {
     Artisan::call('optimize:clear');
     return '✅ Cache cleared!';
 });
