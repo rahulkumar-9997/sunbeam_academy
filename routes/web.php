@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Frontend\FrontHomeController;
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
@@ -45,6 +46,11 @@ Route::prefix('hostel')->group(function() {
     Route::get('/girls-hostel', [FrontHomeController::class, 'girlsHostel'])->name('hostel.girls');
     Route::get('/weekly-boarding', [FrontHomeController::class, 'weeklyBoarding'])->name('hostel.weekly-boarding');
     Route::get('/rules-regulations', [FrontHomeController::class, 'hostelRulesRegulations'])->name('hostel.rules');
+});
+
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+    return '✅ Cache cleared!';
 });
 
 
