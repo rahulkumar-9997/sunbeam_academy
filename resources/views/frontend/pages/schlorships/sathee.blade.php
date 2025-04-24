@@ -39,30 +39,41 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="exam-details">
-                            <div class="details-right">
-                                <h3 class="mb-3">Application Details</h3>
-
-                                <ul class="content-list mt-2">
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="site-heading">
+                            <h2 class="site-title">Application  <span>Details</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="registration-process">
+                            <ul class="content-list mt-2">
+                                <li class="li-flex">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>
                                         Exam Date: 19th January 2025
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                </li>
+                                <li class="li-flex">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>
                                         Venue: Sunbeam Academy Knowledge Park, Baraipur, Mirzapur
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                </li>
+                                <li class="li-flex">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>
                                         Helpline: +91 9554958024
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                </li>
+                                <li class="li-flex">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>
                                         www.sunbeamacademy.com
-                                    </li>
-                                </ul>
-                            </div>
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -177,7 +188,7 @@
     </div>
 </div>
 
-<div class="course-area spirit-section pt-40 pb-40 why-participate">
+<div class="course-area spirit-section pt-40 pb-40 why-participate bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
@@ -189,54 +200,81 @@
                 </div>
             </div>
         </div>
-        <div class="feature-wrapper">
+        <div class="feature-wrapper price-wrapper">
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">01</span>
                         <div class="feature-icon">
-                            <img src="assets/img/icon/scholarship.svg" alt="">
+                            <img src="{{asset('fronted/assets/img/icon/scholarship.svg')}}" alt="">
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Scholarship Facility</h4>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h4 class="feature-title">Laptop</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">02</span>
                         <div class="feature-icon">
-                            <img src="assets/img/icon/teacher.svg" alt="">
+                            <img src="{{asset('fronted/assets/img/icon/teacher.svg')}}" alt="">
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Skilled Lecturers</h4>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h4 class="feature-title">Tablet</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">03</span>
                         <div class="feature-icon">
-                            <img src="assets/img/icon/library.svg" alt="">
+                            <img src="{{asset('fronted/assets/img/icon/library.svg')}}" alt="">
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Book Library Facility</h4>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h4 class="feature-title">Smartphone</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">04</span>
                         <div class="feature-icon">
-                            <img src="assets/img/icon/money.svg" alt="">
+                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="">
                         </div>
                         <div class="feature-content">
-                            <h4 class="feature-title">Affordable Price</h4>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h4 class="feature-title">Smart Watch</h4>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                    <div class="feature-item">
+                        <span class="count">05</span>
+                        <div class="feature-icon">
+                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Smart Watch</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                    <div class="feature-item">
+                        <span class="count">06</span>
+                        <div class="feature-icon">
+                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">6th–10th Earbuds & Gifts</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mt-3 text-center">
+                        <h5>
+                            Additional rewards like fee discounts and free uniforms!
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -244,5 +282,150 @@
     </div>
 </div>
 
+<div class="course-area spirit-section pt-40 pb-40 why-participate scholarship-benefits">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <h2 class="site-title">Scholarship <span>Benefits</span></h2>
+                    <p>
+                        Special Scholarships for Top Performers.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-4">
+                <div class="notice-item">
+                    <h4>
+                        <a href="#">
+                            Rank 1–5
+                        </a>
+                    </h4>
+                    <div class="notice-meta-old">
+                        <span>50% Off on School Fees</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="notice-item">
+                    <h4>
+                        <a href="#">Rank 6–10</a>
+                    </h4>
+                    <div class="notice-meta-old">
+                        <span>30% Off on School Fees</span>
 
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h5 class="mb-3">Additional Free School Uniform for deserving students.</h5>
+                    <h5>Scholarships are also available for other meritorious participants.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="course-area spirit-section pt-40 pb-40 why-participate exam-details-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center exam-heading">
+                    <h2 class="site-title">Exam <span>Details</span></h2>
+                    <p>
+                        Mark Your Calendar.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-3">
+                <div class="scholarship-item exam-item">
+                    <div class="scholarship-icon">
+                        <img src="{{asset('fronted/assets/img/icon/scholarship.svg')}}" alt="">
+                    </div>
+                    <h4>Test Date</h4>
+                    <p>
+                        Sunday, 19th January 2025
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="scholarship-item exam-item">
+                    <div class="scholarship-icon">
+                        <img src="{{asset('fronted/assets/img/icon/scholarship-2.svg')}}" alt="">
+                    </div>
+                    <h4>Time</h4>
+                    <p>
+                        11:30 AM – 12:30 PM
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="scholarship-item exam-item">
+                    <div class="scholarship-icon">
+                        <img src="{{asset('fronted/assets/img/icon/scholarship-3.svg')}}" alt="">
+                    </div>
+                    <h4>Venue</h4>
+                    <p>
+                        Sunbeam Academy Knowledge Park, Baraipur, Mirzapur
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="scholarship-item exam-item">
+                    <div class="scholarship-icon">
+                        <img src="{{asset('fronted/assets/img/icon/scholarship-3.svg')}}" alt="">
+                    </div>
+                    <h4>Contact</h4>
+                    <p>
+                        +91 9554958024
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="course-area spirit-section pt-40 pb-40 why-participate register-process">
+    <div class="container">
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="site-heading">
+                    <h2 class="site-title">How to <span>Register?</span></h2>
+                    <p>
+                        Simple Registration Process
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="registration-process">
+                    <ul class="content-list mt-2">
+                        <li class="li-flex">
+                            <i class="fas fa-check-circle"></i>
+                            <span>
+                                Scan the QR code or visit www.sunbeamacademy.com
+                            </span>
+                        </li>
+                        <li class="li-flex">
+                            <i class="fas fa-check-circle"></i>
+                            <span>
+                                Fill in your details and choose your class
+                            </span>
+                        </li>
+                        <li class="li-flex">
+                            <i class="fas fa-check-circle"></i>
+                            <span>
+                                Submit and receive confirmation
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

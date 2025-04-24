@@ -680,7 +680,7 @@ label {
 }
 
 .site-heading p {
-  margin-top: 15px;
+  margin-top: 3px;
 }
 
 .heading-divider {
@@ -6947,7 +6947,7 @@ label {
     width: 100%;
     min-height: 300px;
     position: relative;
-    border-radius: 10px;
+    border-radius: 0px;
     background: #116f5fd4 url(../sunbeam-img/about/line-pattern-bg.png);
 }
 .col-xl-16 {
@@ -6965,6 +6965,12 @@ label {
   position: relative;
   border-radius: 10px;
   background: #ffffbb url(../sunbeam-img/about/line-pattern-bg.png);
+}
+.whatnew-box-two:hover{
+  background: #126f60;
+}
+.whatnew-box-two:hover .sathee-box-price{
+  color:#fff;
 }
 .sathee-box-price {
     font-size: 18px;
@@ -6986,6 +6992,79 @@ label {
     position: relative;
     z-index: 1;
 }
+.col-md-20{
+    flex: 0 0 auto;
+    width: 16.66%;
+}
+.price-wrapper .feature-icon{
+    width: 60px;
+    height: 60px;
+    line-height: 48px;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 60px;
+    background: var(--theme-color);
+    margin-bottom: 25px;
+    box-shadow: 5px 5px 0 var(--theme-bg-light);
+    position: relative;
+    transition: var(--transition);
+}
 
+.price-wrapper .feature-icon img {
+    width: 30px;
+    filter: brightness(0) invert(1);
+}
+.price-wrapper .feature-item .count{
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    font-size: 35px;
+    font-weight: 800;
+    -webkit-text-stroke: 2px var(--theme-color);
+    -webkit-text-fill-color: transparent;
+}
+.price-wrapper .feature-content h4{
+    color: var(--color-dark);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+.price-wrapper .feature-item{
+  height: 100%;
+}
+.scholarship-benefits .notice-item{
+    border-color: #fda31b;
+    text-align: center;
+  
+}
+.notice-meta-old span{
+  font-size: 20px;
+}
+
+.exam-details-bottom{
+  background: #116f5f url(../sunbeam-img/about/line-pattern-bg.png) no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
+}
+.exam-item{
+  text-align: center;
+}
+.exam-item p{
+  color: #fff;
+}
+.exam-item h4{
+  color: #fff;
+}
+.exam-heading p{
+  color: #fff;
+}
+.registration-process .content-list .li-flex {
+  color: #000000;
+}
+.register-process .site-heading{
+  margin-bottom: 10px;
+}
 
 
