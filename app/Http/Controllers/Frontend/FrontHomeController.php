@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
@@ -138,6 +139,15 @@ class FrontHomeController extends Controller
     public function contactUs()
     {
         return view('frontend.pages.contact-us');
+    }
+
+    public function clearCache(){
+        try {
+            Artisan::call('optimize:clear');
+            return back()->with('success', 'All caches have been cleared successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Failed to clear caches. Please try again.');
+        }
     }
     
 
