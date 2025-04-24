@@ -141,11 +141,12 @@ class FrontHomeController extends Controller
         return view('frontend.pages.contact-us');
     }
 
-    public function clearCache(){
+    public function clearCache() {
         try {
             Artisan::call('optimize:clear');
             return back()->with('success', 'All caches have been cleared successfully.');
         } catch (\Exception $e) {
+            Log::error('Cache clear error: ' . $e->getMessage());
             return back()->with('error', 'Failed to clear caches. Please try again.');
         }
     }
