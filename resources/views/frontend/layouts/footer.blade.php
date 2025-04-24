@@ -132,7 +132,7 @@
 </footer>
 <!-- footer area end -->
 @if(session('success') || session('error'))
-<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1055;">
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1055;">
     <div class="toast align-items-center text-white {{ session('success') ? 'bg-success' : 'bg-danger' }} border-0 show" role="alert">
         <div class="d-flex">
             <div class="toast-body">
