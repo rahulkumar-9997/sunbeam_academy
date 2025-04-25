@@ -7066,5 +7066,16 @@ label {
 .register-process .site-heading{
     margin-bottom: 10px;
 }
+.qr-img{
+  margin-bottom: 10px;
+}
+.qr-img img{
+  border-radius: 10px;
+}
+.registration-process p{
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
 
 

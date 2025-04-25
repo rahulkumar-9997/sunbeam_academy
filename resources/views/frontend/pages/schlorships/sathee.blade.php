@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="department-download">
-                            <a href="#">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFa-uo3Np_Ea032d7yPWVvqxW5oU-uRZl8J8lMvB5FHeibfQ/closedform?pli=1" target="_blank">
                                 Register Now
                                 <i class="far fa-long-arrow-right"></i>
                             </a>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="department-download">
-                            <a href="#">
+                            <a href="{{ route('contact-us') }}">
                                 Know More
                                 <i class="far fa-long-arrow-right"></i>
                             </a>
@@ -70,7 +70,9 @@
                                 <li class="li-flex">
                                     <i class="fas fa-check-circle"></i>
                                     <span>
-                                        www.sunbeamacademy.com
+                                        <a href="{{ url('/') }}"> 
+                                            www.sunbeamacademy.com
+                                        </a>
                                     </span>
                                 </li>
                             </ul>
@@ -391,38 +393,34 @@
 
 <div class="course-area spirit-section pt-40 pb-40 why-participate register-process">
     <div class="container">
-
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="site-heading">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
                     <h2 class="site-title">How to <span>Register?</span></h2>
                     <p>
                         Simple Registration Process
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="row justify-content-md-center">
+            
             <div class="col-lg-6">
-                <div class="registration-process">
-                    <ul class="content-list mt-2">
-                        <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
-                            <span>
-                                Scan the QR code or visit www.sunbeamacademy.com
-                            </span>
-                        </li>
-                        <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
-                            <span>
-                                Fill in your details and choose your class
-                            </span>
-                        </li>
-                        <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
-                            <span>
-                                Submit and receive confirmation
-                            </span>
-                        </li>
-                    </ul>
+                <div class="registration-process text-center">
+                    <div class="qr-img">
+                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/register-qr.png')}}" alt="register">
+                    </div>
+                    <p>Scan the above QR code or visit 
+                        <a href="{{ url('/') }}"> 
+                            www.sunbeamacademy.com
+                        </a>
+                    </p>
+                    <p>
+                        Fill in your details and choose your class.
+                    </p>
+                    <p>
+                        Submit and receive confirmation.
+                    </p>
                 </div>
             </div>
         </div>
