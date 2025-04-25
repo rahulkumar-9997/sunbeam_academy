@@ -7077,5 +7077,8 @@ label {
   font-size: 20px;
   font-weight: 600;
 }
+.contact-area .contact-info{
+  height: 100%;
+}
 
 
