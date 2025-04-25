@@ -7018,10 +7018,10 @@ label {
 .price-wrapper .feature-item .count{
     position: absolute;
     right: 30px;
-    top: 0px;
-    font-size: 35px;
+    top: 6px;
+    font-size: 20px;
     font-weight: 800;
-    -webkit-text-stroke: 2px var(--theme-color);
+    -webkit-text-stroke: 1px var(--theme-color);
     -webkit-text-fill-color: transparent;
 }
 .price-wrapper .feature-content h4{
