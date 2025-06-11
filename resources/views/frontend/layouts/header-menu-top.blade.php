@@ -105,7 +105,7 @@
                              </ul>
                          </li>
                          <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Schlorships</a>
+                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Scholarships</a>
                              <ul class="dropdown-menu fade-down">
                                  <li><a class="dropdown-item" href="{{ route('elite-11')}}">Elite 11 </a></li>
                                  <li><a class="dropdown-item" href="{{ route('sathee')}}">Sathee</a></li>
