@@ -11,7 +11,7 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="feature-wrapper">
                     <div class="row">
-                        <div class="col-xl-20">
+                        <div class="col-lg-3">
                             <div class="feature-item">
                                 <!-- <span class="count">01</span> -->
                                 <!--<div class="feature-icon">
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-20">
+                        <div class="col-lg-3">
                             <div class="feature-item">
                                 <!-- <span class="count">02</span> -->
                                 <!-- <div class="feature-icon">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-20">
+                        <div class="col-lg-3">
                             <div class="feature-item">
                                 <!-- <span class="count">03</span> -->
                                 <!-- <div class="feature-icon">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-20">
+                        <div class="col-lg-3">
                             <div class="feature-item">
                                 <!-- <span class="count">04</span> -->
                                 <!-- <div class="feature-icon">
@@ -127,19 +127,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-20">
+                        <!-- <div class="col-xl-20">
                             <div class="feature-item">
-                                <!-- <span class="count">04</span> -->
-                                <!-- <div class="feature-icon">
-                                            <img src="assets/img/icon/money.svg" alt="">
-                                        </div> -->
+                               
                                 <div class="branch-feature">
                                     <h3>
                                         Sunbeam Academy Ghazipur
                                     </h3>
                                 </div>
                                 <div class="feature-content">
-                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
                                     Every child begins their journey with love, care, and bright learning experiences.
                                     </p>
@@ -155,7 +151,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -1038,3 +1034,36 @@
   </div></div>
 </div>  
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const noticeList = document.querySelector('.notice-list');
+    const pauseButton = document.querySelector('.notice-pause');
+    let isPaused = false;
+    function initScroll() {
+        noticeList.style.animation = 'none';
+        noticeList.offsetHeight;
+        noticeList.style.animation = 'scrollNotices 30s linear infinite';
+    }
+    pauseButton.addEventListener('click', function() {
+        isPaused = !isPaused;
+        
+        if (isPaused) {
+            noticeList.style.animationPlayState = 'paused';
+            pauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        } else {
+            noticeList.style.animationPlayState = 'running';
+            pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            initScroll(); 
+        }
+    });
+    initScroll();
+    setInterval(() => {
+        if (!isPaused) {
+            initScroll();
+        }
+    }, 60000);
+});
+</script>
+@endpush
