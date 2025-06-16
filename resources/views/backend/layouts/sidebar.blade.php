@@ -3,35 +3,20 @@
    <!-- Logo -->
    <div class="sidebar-logo active">
       <a href="{{ route('dashboard') }}" class="logo logo-normal">
-         <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+         <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
       </a>
       <a href="{{ route('dashboard') }}" class="logo logo-white">
-         <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+         <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
       </a>
       <a href="{{ route('dashboard')}}" class="logo-small">
-         <img src="{{asset('backend/assets/mac-img/fav-icon.png')}}" alt="Img">
+         <img src="{{asset('backend/assets/sunbeam-img/fav-icon.png')}}" alt="Img">
       </a>
       <!-- <a id="toggle_btn" href="javascript:void(0);">
          <i data-feather="chevrons-left" class="feather-16"></i>
       </a> -->
    </div>
    <!-- /Logo -->
-   <div class="modern-profile p-3 pb-0">
-      <div class="text-center rounded bg-light p-3 mb-4 user-profile">
-         <div class="avatar avatar-lg online mb-3">
-            <img src="{{asset('backend/assets/img/customer/customer15.jpg')}}" alt="Img" class="img-fluid rounded-circle">
-         </div>
-         <h6 class="fs-14 fw-bold mb-1">Adrian Herman</h6>
-         <p class="fs-12 mb-0">System Admin</p>
-      </div>
-      <div class="sidebar-nav mb-3">
-         <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified bg-transparent" role="tablist">
-            <li class="nav-item"><a class="nav-link active border-0" href="#">Menu</a></li>
-            <li class="nav-item"><a class="nav-link border-0" href="chat.html">Chats</a></li>
-            <li class="nav-item"><a class="nav-link border-0" href="email.html">Inbox</a></li>
-         </ul>
-      </div>
-   </div>
+   
    <div class="sidebar-header p-3 pb-0 pt-2">
       <div class="text-center rounded bg-light p-2 mb-4 sidebar-profile d-flex align-items-center">
          <div class="avatar avatar-md onlin">
@@ -85,26 +70,35 @@
                   <li class="submenu">
                      <a href="javascript:void(0);">
                         <i class="ti ti-brand-apple-arcade fs-16 me-2"></i>
-                        <span>Manage Pages</span>
+                        <span>Manage Branches</span>
                         <span class="menu-arrow"></span>
                      </a>
                      <ul>
-                        <li><a href="{{ route('pages.index') }}">All Pages</a></li>
-                        <li><a href="{{ route('pages.create') }}">Create Page</a></li>
+                        <li><a href="{{ route('branches') }}">Branches</a></li>
+                     </ul>
+                  </li>
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-files fs-16 me-2"></i>
+                        <span>Notice Board</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-notice-board') }}">Notice</a></li>
+                     </ul>
+                  </li>
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-files fs-16 me-2"></i>
+                        <span>Manage Classes</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-notice-board') }}">Notice</a></li>
                      </ul>
                   </li>
 
-                  <li class="submenu">
-                     <a href="javascript:void(0);">
-                        <i class="ti ti-layout-grid-add fs-16 me-2"></i>
-                        <span>Manage Menus</span>
-                        <span class="menu-arrow"></span>
-                     </a>
-                     <ul>
-                        <li><a href="{{ route('menus.index') }}">All Menus</a></li>
-                        <li><a href="{{ route('menus.create') }}">Create Menu</a></li>
-                     </ul>
-                  </li>
+                  
 
                </ul>
             </li>

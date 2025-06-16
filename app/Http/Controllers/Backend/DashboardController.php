@@ -2,17 +2,11 @@
 namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Page;
-use App\Models\Menu;
-use App\Models\MenuItems;
 use App\Models\VisitorTracking;
 class DashboardController extends Controller
 {
     public function index(){
         $data = [
-            'totalPages' => Page::count(),
-            'totalMenus' => Menu::count(),
-            'totalMenuItems' => MenuItems::count(),
             'visitorTracking' => VisitorTracking::count(),
         ];
         return view('backend.pages.dashboard.index',  compact('data'));

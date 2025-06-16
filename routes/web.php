@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\TrackVisitor;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\BrancheController;
+use App\Http\Controllers\Backend\NoticeBoardController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -19,7 +22,28 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/get-daily-visitors', [DashboardController::class, 'getDailyVisitors'])->name('get-daily-visitors');
+    Route::get('/clear-cache', [CacheController::class, 'clearCache'])->name('clear-cache');
+    Route::get('branches', [BrancheController::class, 'index'])->name('branches');
+    Route::get('branches-create', [BrancheController::class, 'create'])->name('branches.create');
+    Route::POST('branches-store', [BrancheController::class, 'store'])->name('branches.store');
+    Route::get('branches/{id}/edit', [BrancheController::class, 'edit'])->name('branches.edit');
+    Route::put('branches/{id}', [BrancheController::class, 'update'])->name('branches.update');
+    Route::delete('branches/{id}', [BrancheController::class, 'destroy'])->name('branches.destroy');
+    /*Notice Board */
+    // Notice Board CRUD routes
+    Route::get('notice-board', [NoticeBoardController::class, 'index'])->name('manage-notice-board');
+    Route::get('notice-board/create', [NoticeBoardController::class, 'create'])->name('notice-board.create');
+    Route::post('notice-board/store', [NoticeBoardController::class, 'store'])->name('notice-board.store');
+    Route::get('notice-board/{id}/edit', [NoticeBoardController::class, 'edit'])->name('notice-board.edit');
+    Route::put('notice-board/{id}/update', [NoticeBoardController::class, 'update'])->name('notice-board.update');
+    Route::delete('notice-board/{id}/delete', [NoticeBoardController::class, 'destroy'])->name('notice-board.destroy');
+    Route::post('notice-board/{id}/toggle-status', [NoticeBoardController::class, 'toggleStatus'])->name('notice-board.toggle-status');
 
+    /*Notice Board */
+});
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
 Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');

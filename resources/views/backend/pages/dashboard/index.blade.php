@@ -21,7 +21,7 @@
                     <div class="ms-2">
                         <p class="text-white mb-1">Total Pages</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">{{ $data['totalPages'] }}</h4>
+                            <h4 class="text-white">0</h4>
 
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                     <div class="ms-2">
                         <p class="text-white mb-1">Total Menu</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">{{ $data['totalMenus'] }}</h4>
+                            <h4 class="text-white">0</h4>
 
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="ms-2">
                         <p class="text-white mb-1">Total Menu Items</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">{{ $data['totalMenuItems'] }}</h4>
+                            <h4 class="text-white">0</h4>
 
                         </div>
                     </div>

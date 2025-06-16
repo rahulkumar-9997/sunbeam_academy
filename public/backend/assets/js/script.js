@@ -368,7 +368,7 @@ $(document).ready(function(){
 	});
 	if($('#summernote').length > 0) {
 		$('#summernote').summernote({
-		height: 500,  
+		height: 350,  
 		minHeight: null, 
 		maxHeight: null,
 		focus: false,
