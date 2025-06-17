@@ -1,6 +1,6 @@
 (function () {
     "use strict"
-
+    alert('ss');
     /* basic select2 */
     $('.select2').select2();
 

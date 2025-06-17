@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\BrancheController;
 use App\Http\Controllers\Backend\NoticeBoardController;
+use App\Http\Controllers\Backend\ClassesController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -41,8 +42,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('notice-board/{id}/update', [NoticeBoardController::class, 'update'])->name('notice-board.update');
     Route::delete('notice-board/{id}/delete', [NoticeBoardController::class, 'destroy'])->name('notice-board.destroy');
     Route::post('notice-board/{id}/toggle-status', [NoticeBoardController::class, 'toggleStatus'])->name('notice-board.toggle-status');
-
     /*Notice Board */
+    /*Classes */
+    Route::get('manage-classes', [ClassesController::class, 'index'])->name('manage-classes');
+    Route::get('manage-classes/create', [ClassesController::class, 'create'])->name('manage-classes.create');
+    Route::post('manage-classes/store', [ClassesController::class, 'store'])->name('manage-classes.store');
+    Route::get('manage-classes/{id}/edit', [ClassesController::class, 'edit'])->name('manage-classes.edit');
+    Route::put('manage-classes/{id}/update', [ClassesController::class, 'update'])->name('manage-classes.update');
+    Route::delete('manage-classes/{id}/delete', [ClassesController::class, 'destroy'])->name('manage-classes.destroy');
+    Route::post('manage-classes/{id}/toggle-status', [ClassesController::class, 'toggleStatus'])->name('manage-classes.toggle-status');
+    /*Classes */
 });
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');

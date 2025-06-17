@@ -4,13 +4,13 @@
       <!-- Logo -->
       <div class="header-left active">
          <a href="{{ route('dashboard') }}" class="logo logo-normal">
-            <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+            <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
          </a>
          <a href="{{ route('dashboard') }}" class="logo logo-white">
-            <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+            <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
          </a>
          <a href="{{ route('dashboard') }}" class="logo-small">
-            <img src="{{asset('backend/assets/mac-img/fav-icon.png')}}" alt="Img">
+            <img src="{{asset('backend/assets/sunbeam-img/fav-icon.png')}}" alt="Img">
          </a>
       </div>
       <!-- /Logo -->

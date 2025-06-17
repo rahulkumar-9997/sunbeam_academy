@@ -96,7 +96,7 @@ class BrancheController extends Controller
             'address' => $validated['address'] ?? null,
             'description' => $validated['description'] ?? null,
             'user_id' => Auth::check() ? Auth::user()->id : null,
-            'status' => $validated['status'] ?1 : 0,
+            'status' => $validated['status'] ? 1 : 0,
         ];
         
         $branch = Branch::create($data);

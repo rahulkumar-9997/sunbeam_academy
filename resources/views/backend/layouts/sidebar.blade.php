@@ -94,7 +94,7 @@
                         <span class="menu-arrow"></span>
                      </a>
                      <ul>
-                        <li><a href="{{ route('manage-notice-board') }}">Notice</a></li>
+                        <li><a href="{{ route('manage-classes') }}">Classes</a></li>
                      </ul>
                   </li>
 

@@ -41,4 +41,9 @@ class Branch extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function classes()
+    {
+        return $this->belongsToMany(ClassModel::class, 'classes_branche', 'branches_id', 'classes_id');
+    }
 }

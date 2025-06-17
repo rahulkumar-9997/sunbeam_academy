@@ -15,12 +15,13 @@
 <!-- Datetimepicker JS -->
 <script src="{{asset('backend/assets/js/moment.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+<!-- <script src="{{asset('backend/assets/js/custom-select2.js')}}" type="05a06b4335673ba1fd00c201-text/javascript"></script> -->
 <!-- Bootstrap Tagsinput JS -->
 <script src="{{asset('backend/assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
 <script src="{{asset('backend/assets/js/script.js')}}"></script>
 <script src="{{asset('backend/assets/plugins/toastr/toastify-js.js')}}"></script>
-<script src="{{asset('backend/assets/js/rocket-loader.min.js')}}" data-cf-settings="6420e90c5e02f67c34f41542-|49" defer></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script>
+<!-- <script src="{{asset('backend/assets/js/rocket-loader.min.js')}}" data-cf-settings="6420e90c5e02f67c34f41542-|49" defer></script> -->
+<!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script> -->
 @stack('scripts')
 
 @if(session()->has('success'))

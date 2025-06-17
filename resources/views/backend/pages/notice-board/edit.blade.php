@@ -106,7 +106,7 @@
                         @else
                         <div class="mt-2">
                             <strong>Current File:</strong>
-                            <a href="{{ asset('storage/notice/' . $notice_board_row->file) }}" target="_blank">View File</a>
+                            <a href="{{ asset('upload/notice/' . $notice_board_row->file) }}" target="_blank">View File</a>
                         </div>
                         @endif
 

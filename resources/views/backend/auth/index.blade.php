@@ -27,7 +27,7 @@
                             <div class="login-logo">
                                 <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="img">
                                 <a href="{{route('login')}}" class="login-logo logo-white">
-                                    <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+                                    <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
                                 </a>
                             </div>
                             <form action="{{route('login')}}" method="post">

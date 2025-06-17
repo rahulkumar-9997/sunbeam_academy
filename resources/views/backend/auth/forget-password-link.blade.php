@@ -25,9 +25,9 @@
                     <div class="col-lg-5 mx-auto">
                         <div class="login-content user-login">
                             <div class="login-logo">
-                                <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="img">
+                                <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="img">
                                 <a href="{{route('login')}}" class="login-logo logo-white">
-                                    <img src="{{asset('backend/assets/mac-img/mac-capital-logo.png')}}" alt="Img">
+                                    <img src="{{asset('backend/assets/sunbeam-img/sunbeam.png')}}" alt="Img">
                                 </a>
                             </div>
                             <div class="card w-100">

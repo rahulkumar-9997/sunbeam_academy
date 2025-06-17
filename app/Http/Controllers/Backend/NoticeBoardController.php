@@ -44,19 +44,23 @@ class NoticeBoardController extends Controller
             $data = $validator->validated();
             $fileName = null;
 
-           if ($request->hasFile('file')) {
+            if ($request->hasFile('file')) {
                 $file = $request->file('file');
                 $extension = $file->getClientOriginalExtension();
                 $safeTitle = preg_replace('/[^A-Za-z0-9_\-]/', '_', $data['title']);
                 $fileName = $safeTitle . '_' . uniqid() . '.' . $extension;
+                $publicDirectory = public_path('upload/notice');
+                if (!file_exists($publicDirectory)) {
+                    mkdir($publicDirectory, 0755, true);
+                }
                 if (in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'webp'])) {
                     $image = Image::make($file)->resize(1200, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     })->encode($extension, 75);
-                    Storage::disk('public')->put('notice/' . $fileName, (string) $image);
+                    $image->save($publicDirectory . '/' . $fileName);
                 } else {
-                    Storage::disk('public')->putFileAs('notice', $file, $fileName);
+                    $file->move($publicDirectory, $fileName);
                 }
             }
             NoticeBoard::create([
@@ -105,21 +109,26 @@ class NoticeBoardController extends Controller
             $notice = NoticeBoard::findOrFail($id);
             $fileName = $notice->file;
             if ($request->hasFile('file')) {
-                if ($notice->file && Storage::disk('public')->exists('notice/' . $notice->file)) {
-                    Storage::disk('public')->delete('notice/' . $notice->file);
+                if ($notice->file && file_exists(public_path('upload/notice/' . $notice->file))) {
+                    unlink(public_path('upload/notice/' . $notice->file));
                 }
                 $file = $request->file('file');
                 $extension = $file->getClientOriginalExtension();
                 $safeTitle = preg_replace('/[^A-Za-z0-9_\-]/', '_', $data['title']);
                 $fileName = $safeTitle . '_' . uniqid() . '.' . $extension;
+                
+                $publicDirectory = public_path('upload/notice');
+                if (!file_exists($publicDirectory)) {
+                    mkdir($publicDirectory, 0755, true);
+                }                
                 if (in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'webp'])) {
                     $image = Image::make($file)->resize(1200, null, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     })->encode($extension, 75);
-                    Storage::disk('public')->put('notice/' . $fileName, (string) $image);
+                    $image->save($publicDirectory . '/' . $fileName);
                 } else {
-                    Storage::disk('public')->putFileAs('notice', $file, $fileName);
+                    $file->move($publicDirectory, $fileName);
                 }
             }
             $notice->update([
@@ -144,8 +153,8 @@ class NoticeBoardController extends Controller
     {
         try {
             $notice = NoticeBoard::findOrFail($id);
-            if ($notice->file && Storage::disk('public')->exists('notice/' . $notice->file)) {
-                Storage::disk('public')->delete('notice/' . $notice->file);
+            if ($notice->file && file_exists(public_path('upload/notice/' . $notice->file))) {
+                unlink(public_path('upload/notice/' . $notice->file));
             }
             $notice->delete();
             return redirect()->route('manage-notice-board')->with('success', 'Notice deleted successfully.');
