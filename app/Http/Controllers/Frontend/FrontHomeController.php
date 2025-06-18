@@ -9,11 +9,26 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use App\Models\NoticeBoard;
+use App\Models\ClassModel;
 class FrontHomeController extends Controller
 {
     public function home(){
-        
-	    return view('frontend.index');
+        $today = Carbon::today()->toDateString();
+        $data['notices'] = NoticeBoard::where('status', 1)
+            ->where('start_date', '<=', $today)
+            ->where('end_date', '>=', $today)
+            ->orderBy('created_at', 'desc')
+            ->select('title', 'slug', 'notice_type', 'created_at')
+            ->get();
+        $data['classes'] = ClassModel::with(['branches'])
+            ->where('status', 1)
+            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->latest()
+            ->take(3)
+            ->get();
+        //return response()->json($notices);
+	    return view('frontend.index', compact('data'));
     }
     
     public function aboutUs()
@@ -174,6 +189,44 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.deputy-director-message');
     }
 
+    public function noticeList(){
+        $today = Carbon::today()->toDateString();
+        $data['notices'] = NoticeBoard::where('status', 1)
+            ->where('start_date', '<=', $today)
+            ->where('end_date', '>=', $today)
+            ->orderBy('created_at', 'desc')
+            ->select('title', 'slug', 'notice_type', 'created_at')
+            ->get();
+        //return response()->json($notices);
+	    return view('frontend.pages.notice-board.index', compact('data'));
+    }
+
+    public function noticeDetails(Request $request, $slug){
+        $today = Carbon::today()->toDateString();
+        $notice = NoticeBoard::where('status', 1)
+            ->where('slug', $slug)
+            ->firstOrFail();
+        //return response()->json($data['notices']);
+	    return view('frontend.pages.notice-board.show', compact('notice'));
+    }
+
+    public function classesList(Request $request){
+        $data['classes'] = ClassModel::with(['branches'])
+            ->where('status', 1)
+            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->latest()
+            ->get();
+	    return view('frontend.pages.classes.index', compact('data'));
+    }
+
+    public function classesDetails(Request $request, $slug){
+        $classes = ClassModel::with(['branches'])
+            ->where('status', 1)
+            ->where('slug', $slug)
+            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->firstOrFail();
+	    return view('frontend.pages.classes.show', compact('classes'));
+    }
     
     
     

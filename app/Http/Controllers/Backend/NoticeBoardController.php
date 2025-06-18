@@ -9,6 +9,7 @@ use App\Models\NoticeBoard;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+
 class NoticeBoardController extends Controller
 {
     public function index(){

@@ -77,56 +77,39 @@
             </div>
         </div>
     </div>
-    <div class="notice-board-wrapper">
-        <div class="notice-board-container">
-            <div class="notice-board-header">
-                <div class="notice-icon">
-                    <i class="fas fa-scroll"></i>
+    @if (!empty($data['notices']) && $data['notices']->count() > 0)
+        <div class="notice-board-wrapper">
+            <div class="notice-board-container">
+                <div class="notice-board-header">
+                    <div class="notice-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>Latest Announcements</h3>
+                    <div class="notice-controls">
+                        <button class="notice-pause"><i class="fas fa-pause"></i></button>
+                    </div>
                 </div>
-                <h3>Latest Announcements</h3>
-                <div class="notice-controls">
-                    <button class="notice-pause"><i class="fas fa-pause"></i></button>
+                <div class="notice-board-content">
+                    <ul class="notice-list">
+                        @foreach ($data['notices'] as $notice)
+                            <li class="notice-item">
+                                <a href="{{ route('notices.show', $notice->slug) }}">
+                                    <div class="notice-badge">{{ strtoupper($notice->notice_type) }}</div>
+                                    <div class="notice-text">
+                                        {{ $notice->title }}
+                                    </div>
+                                    <div class="notice-date">{{ $notice->created_at->format('d M Y') }}</div>
+                                </a>
+                            </li>
+                        @endforeach                    
+                    </ul>
                 </div>
-            </div>
-            <div class="notice-board-content">
-                <ul class="notice-list">
-                    <li class="notice-item">
-                        <div class="notice-badge">New</div>
-                        <div class="notice-text">Admission open for 2024-25 session. Register now!</div>
-                        <div class="notice-date">15 Jun 2024</div>
-                    </li>
-                    <li class="notice-item">
-                        <div class="notice-badge">Event</div>
-                        <div class="notice-text">Annual sports day will be held on 15th November</div>
-                        <div class="notice-date">10 Jun 2024</div>
-                    </li>
-                    <li class="notice-item">
-                        <div class="notice-badge">Meeting</div>
-                        <div class="notice-text">Parent-teacher meeting scheduled for 5th December</div>
-                        <div class="notice-date">5 Jun 2024</div>
-                    </li>
-                    <li class="notice-item">
-                        <div class="notice-badge">Holiday</div>
-                        <div class="notice-text">Summer vacation from 1st May to 15th June</div>
-                        <div class="notice-date">1 Jun 2024</div>
-                    </li>
-                    <li class="notice-item">
-                        <div class="notice-badge">Holiday</div>
-                        <div class="notice-text">School will remain closed on 2nd October for Gandhi Jayanti</div>
-                        <div class="notice-date">28 May 2024</div>
-                    </li>
-                    <li class="notice-item">
-                        <div class="notice-badge">Exam</div>
-                        <div class="notice-text">Mid-term examinations begin from 20th September</div>
-                        <div class="notice-date">25 May 2024</div>
-                    </li>
-                </ul>
-            </div>
-            <div class="notice-footer">
-                <a href="#" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+                <div class="notice-footer">
+                    <a href="{{ route('notices.index') }}" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 </div>
 
 <!-- hero slider end -->

@@ -57,6 +57,11 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
 Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
+Route::get('notices', [FrontHomeController::class, 'noticeList'])->name('notices.index');
+Route::get('notice/{slug}', [FrontHomeController::class, 'noticeDetails'])->name('notices.show');
+Route::get('classes', [FrontHomeController::class, 'classesList'])->name('classes.list');
+Route::get('classes/{slug}', [FrontHomeController::class, 'classesDetails'])->name('classes.details');
+
 Route::prefix('academics')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'academicsCurriculum'])->name('curriculum');
     Route::get('/school-levels', [FrontHomeController::class, 'schoolLevels'])->name('school-levels');

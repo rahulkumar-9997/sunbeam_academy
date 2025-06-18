@@ -25,7 +25,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                    Young minds grow every day with care, creativity, and joyful learning all around.
+                                        Young minds grow every day with care, creativity, and joyful learning all around.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -54,7 +54,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                    A perfect blend of strong values, fun learning, and happy, active classrooms.
+                                        A perfect blend of strong values, fun learning, and happy, active classrooms.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -83,7 +83,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                    Confidence, kindness, and joyful learning come together to shape every child’s day.
+                                        Confidence, kindness, and joyful learning come together to shape every child’s day.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -112,7 +112,7 @@
                                 <div class="feature-content">
                                     <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
                                     <p>
-                                    Curious minds become confident learners through playful and smart learning methods.
+                                        Curious minds become confident learners through playful and smart learning methods.
                                     </p>
                                     <p>
                                         <a href="tel:+919554958414">
@@ -295,99 +295,51 @@
 </div>
 <!-- counter area end -->
 <!-- course-area -->
+@if (!empty($data['classes']) && $data['classes']->count() > 0)
 <div class="course-area pt-120 pb-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Academic  Offerings</span>
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i>Our Academic Offerings</span>
                     <h2 class="site-title">School <span>Levels</span></h2>
                     <p>
-                    Sunbeam Academy nurtures creativity and leadership, helping students build the skills they need to thrive and lead the future.
+                        Sunbeam Academy nurtures creativity and leadership, helping students build the skills they need to thrive and lead the future.
                     </p>
                 </div>
             </div>
         </div>
         <div class="row">
+            @foreach($data['classes'] as $key => $class)
             <div class="col-md-6 col-lg-4">
-                <div class="course-item wow fadeInUp" data-wow-delay=".25s">
-                    <div class="course-img">
-                        <span class="course-tag">
-                            <i class="far fa-bookmark"></i>
-                            Kindergarden
-                        </span>
-                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-kindergarten.jpg')}}" alt="img">
-                        <a href="#" class="btn"><i class="far fa-link"></i></a>
-                    </div>
-                    <div class="course-content">
-                        <!-- <div class="course-meta">
-                                    <span class="course-meta-left"><i class="far fa-book"></i> 10 Lessons</span>
-                                    <div class="course-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <span>(4.0)</span>
-                                    </div>
-                                </div> -->
-                        <h4 class="course-title">
-                            <a href="#">Kindergarden</a>
-                        </h4>
-                        <p class="course-text">
-                            We offer the best practices of modern pre-school education.
-                        </p>
-                        <!-- <div class="course-bottom">
-                                    <div class="course-bottom-left">
-                                        <span><i class="far fa-users"></i>75 Seats</span>
-                                        <span><i class="far fa-clock"></i>04 Years</span>
-                                    </div>
-                                    <span class="course-price">$750</span>
-                                </div> -->
-                    </div>
+                <div class="course-item wow fadeInUp" data-wow-delay="{{ ($key+1)*0.25 }}s">
+                    <a href="{{ route('classes.details', $class->slug) }}">
+                        <div class="course-img">
+                            <span class="course-tag">
+                                <i class="far fa-bookmark"></i>
+                                {{ $class->title }}
+                            </span>
+                            @if($class->main_image)
+                            <img src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}">
+                            @else
+                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img">
+                            @endif
+                        </div>
+                        <div class="course-content">
+                            <h4 class="course-title">                                
+                                {{ $class->title }}
+                            </h4>
+                            <p class="course-text">
+                                {!! Str::limit(strip_tags($class->description), 100) !!}
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-item wow fadeInUp" data-wow-delay=".50s">
-                    <div class="course-img">
-                        <span class="course-tag"><i class="far fa-bookmark"></i> Primary</span>
-                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-primary-1.jpg')}}" alt="img">
-                        <a href="#" class="btn"><i class="far fa-link"></i></a>
-                    </div>
-                    <div class="course-content">
-
-                        <h4 class="course-title">
-                            <a href="#">Primary School</a>
-                        </h4>
-                        <p class="course-text">
-                            A quick glance at our primary school program and facilities.
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-item wow fadeInUp" data-wow-delay=".75s">
-                    <div class="course-img">
-                        <span class="course-tag"><i class="far fa-bookmark"></i> Secondary </span>
-                        <img src="{{asset('fronted/assets/sunbeam-img/school-level/school-level-secondary-1.jpg')}}" alt="img">
-                        <a href="#" class="btn"><i class="far fa-link"></i></a>
-                    </div>
-                    <div class="course-content">
-
-                        <h4 class="course-title">
-                            <a href="#">Secondary School</a>
-                        </h4>
-                        <p class="course-text">
-                            Focuses on the all – around development of 11 to 14 year-olds.
-                        </p>
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <div class="col-md-12 col-lg-12">
                 <div class="text-center">
-                    <a href="#" class="theme-btn mt-20">View All Classes
+                    <a href="{{ route('classes.list') }}" class="theme-btn mt-20">View All Classes
                         <i class="fas fa-arrow-right-long"></i>
                     </a>
                 </div>
@@ -395,6 +347,7 @@
         </div>
     </div>
 </div>
+@endif
 <!-- course-area -->
 <!-- video-area -->
 <!--<div class="video-area">
@@ -534,7 +487,7 @@
                             <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Why Choose Us ?</span>
                             <h2 class="site-title text-white mb-10">Your success is <span>our mission !</span></h2>
                             <p class="text-white">
-                            At Sunbeam Academy, we mix smart learning with care, so every student feels confident and ready for the future.
+                                At Sunbeam Academy, we mix smart learning with care, so every student feels confident and ready for the future.
                             </p>
                         </div>
                         <div class="choose-content-wrap">
@@ -604,7 +557,7 @@
             <div class="col-lg-8 mx-auto">
                 <div class="site-heading text-center">
                     <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Moments</span>
-                    <h2 class="site-title">Snapshots of  <span>School Life</span></h2>
+                    <h2 class="site-title">Snapshots of <span>School Life</span></h2>
                     <p>From classroom fun to stage performances, these photos capture the heart of Sunbeam Academy.
                         <br>Have a look at the smiles, creativity, and memories we create every day!
                     </p>
@@ -763,16 +716,16 @@
                             <div class="site-heading mb-3">
                                 <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Skills</span>
                                 <h2 class="site-title text-white">
-                                What Makes <span>Sunbeam Academy </span>Special
+                                    What Makes <span>Sunbeam Academy </span>Special
                                 </h2>
                             </div>
                             <p class="text-white">
-                            We focus on every part of a child’s growth — from studies to skills, confidence to creativity. Here’s a glimpse of our strengths.
+                                We focus on every part of a child’s growth — from studies to skills, confidence to creativity. Here’s a glimpse of our strengths.
                             </p>
                             <div class="skills-section">
                                 <div class="progress-box">
                                     <h5>
-                                        Student Happiness 
+                                        Student Happiness
                                         <span class="pull-right">90%</span>
                                     </h5>
                                     <p>
@@ -783,7 +736,7 @@
                                     </div>
                                 </div>
                                 <div class="progress-box">
-                                    <h5>Teacher Dedication  <span class="pull-right">95%</span></h5>
+                                    <h5>Teacher Dedication <span class="pull-right">95%</span></h5>
                                     <p>
                                         Caring, qualified, and passionate educators.
                                     </p>
@@ -801,7 +754,7 @@
                                     </div>
                                 </div>
                                 <div class="progress-box">
-                                    <h5>Safe Environment  <span class="pull-right">100%</span></h5>
+                                    <h5>Safe Environment <span class="pull-right">100%</span></h5>
                                     <p>
                                         We ensure a happy and secure space for all children.
                                     </p>
@@ -810,7 +763,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -908,11 +861,11 @@
                         <i class="far fa-book-open-reader"></i>
                         Hear From Our Community
                     </span>
-                    <h2 class="site-title">What People  <span>Say About Us</span></h2>
+                    <h2 class="site-title">What People <span>Say About Us</span></h2>
                     <p>From everyday activities to special events.
-                        It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>                        
+                        It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>
                     </p>
-                   
+
                 </div>
             </div>
         </div>
@@ -927,7 +880,7 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                    Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of ...
+                        Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of ...
                     </p>
                     <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal1">Read More</a>
                 </div>
@@ -952,7 +905,7 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                    One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. 
+                        One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent.
                     </p>
                     <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal2">Read More</a>
                 </div>
@@ -978,7 +931,7 @@
                 </div>
                 <div class="testimonial-quote">
                     <p>
-                    I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch...
+                        I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch...
                     </p>
                     <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal3">Read More</a>
                 </div>
@@ -993,77 +946,94 @@
                 </div>
                 <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
             </div>
-            
+
         </div>
     </div>
 </div>
 <!-- testimonial area end -->
 <div class="modal fade" id="modal1" tabindex="-1">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header"><h5 class="modal-title">Testimonial - Sumit</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-    <div class="modal-body">
-      Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of academics and co-curricular activities. Strict discipline is maintained. I had a great experience in a supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction a positive one.
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Testimonial - Sumit</h5><button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of academics and co-curricular activities. Strict discipline is maintained. I had a great experience in a supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction a positive one.
+            </div>
+        </div>
     </div>
-  </div></div>
 </div>
 
 <div class="modal fade" id="modal2" tabindex="-1">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header"><h5 class="modal-title">Testimonial - Pramod Kumar Seth</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-    <div class="modal-body">
-      One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. The teachers are good, and the front office service is quick and efficient. Rachana, Ma’am is polite and cooperative. A great place for a child’s dynamic growth.
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Testimonial - Pramod Kumar Seth</h5><button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. The teachers are good, and the front office service is quick and efficient. Rachana, Ma’am is polite and cooperative. A great place for a child’s dynamic growth.
+            </div>
+        </div>
     </div>
-  </div></div>
 </div>
 
 <div class="modal fade" id="modal3" tabindex="-1">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header"><h5 class="modal-title">Testimonial - Aryaj Singh</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-    <div class="modal-body">
-      I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch education in a nurturing and supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction smooth and positive.
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Testimonial - Aryaj Singh</h5><button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch education in a nurturing and supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction smooth and positive.
+            </div>
+        </div>
     </div>
-  </div></div>
 </div>
 
 <div class="modal fade" id="modal4" tabindex="-1">
-  <div class="modal-dialog"><div class="modal-content">
-    <div class="modal-header"><h5 class="modal-title">Testimonial</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
-    <div class="modal-body">
-      This is one of those rare schools where a student not only unlocks his or her potential to stand on their own feet, but also becomes a better human being in the process.
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Testimonial</h5><button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                This is one of those rare schools where a student not only unlocks his or her potential to stand on their own feet, but also becomes a better human being in the process.
+            </div>
+        </div>
     </div>
-  </div></div>
-</div>  
+</div>
 @endsection
 
 @push('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const noticeList = document.querySelector('.notice-list');
-    const pauseButton = document.querySelector('.notice-pause');
-    let isPaused = false;
-    function initScroll() {
-        noticeList.style.animation = 'none';
-        noticeList.offsetHeight;
-        noticeList.style.animation = 'scrollNotices 30s linear infinite';
-    }
-    pauseButton.addEventListener('click', function() {
-        isPaused = !isPaused;
-        
-        if (isPaused) {
-            noticeList.style.animationPlayState = 'paused';
-            pauseButton.innerHTML = '<i class="fas fa-play"></i>';
-        } else {
-            noticeList.style.animationPlayState = 'running';
-            pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-            initScroll(); 
+    document.addEventListener('DOMContentLoaded', function() {
+        const noticeList = document.querySelector('.notice-list');
+        const pauseButton = document.querySelector('.notice-pause');
+        let isPaused = false;
+
+        function initScroll() {
+            noticeList.style.animation = 'none';
+            noticeList.offsetHeight;
+            noticeList.style.animation = 'scrollNotices 30s linear infinite';
         }
+        pauseButton.addEventListener('click', function() {
+            isPaused = !isPaused;
+
+            if (isPaused) {
+                noticeList.style.animationPlayState = 'paused';
+                pauseButton.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                noticeList.style.animationPlayState = 'running';
+                pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+                initScroll();
+            }
+        });
+        initScroll();
+        setInterval(() => {
+            if (!isPaused) {
+                initScroll();
+            }
+        }, 60000);
     });
-    initScroll();
-    setInterval(() => {
-        if (!isPaused) {
-            initScroll();
-        }
-    }, 60000);
-});
 </script>
 @endpush

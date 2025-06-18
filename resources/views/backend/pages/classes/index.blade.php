@@ -39,7 +39,7 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                @if (!empty($classes) && $classes->count())
+                @if (!empty($classes) && $classes->count()>0)
                 <table class="table datatable">
                     <thead class="thead-light">
                         <tr>
