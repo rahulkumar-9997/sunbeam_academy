@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\BrancheController;
 use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\ClassesController;
+use App\Http\Controllers\Backend\BlogController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -52,6 +53,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('manage-classes/{id}/delete', [ClassesController::class, 'destroy'])->name('manage-classes.destroy');
     Route::post('manage-classes/{id}/toggle-status', [ClassesController::class, 'toggleStatus'])->name('manage-classes.toggle-status');
     /*Classes */
+    /**Blog route */
+    Route::get('manage-blog', [BlogController::class, 'index'])->name('manage-blog.index');
+    Route::get('manage-blog/create', [BlogController::class, 'create'])->name('manage-blog.create');
+    Route::post('manage-blog/store', [BlogController::class, 'store'])->name('manage-blog.store');
+    Route::get('manage-blog/{id}/edit', [BlogController::class, 'edit'])->name('manage-blog.edit');
+    Route::put('manage-blog/{id}/update', [BlogController::class, 'update'])->name('manage-blog.update');
+    Route::delete('manage-blog/{id}', [BlogController::class, 'destroy'])->name('manage-blog.destroy');
+
+    /**Blog route */
+    
 });
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');

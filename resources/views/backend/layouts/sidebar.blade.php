@@ -98,6 +98,17 @@
                      </ul>
                   </li>
 
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-wallpaper fs-16 me-2"></i>
+                        <span>Manage Blog</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-blog.index') }}">Blog</a></li>
+                     </ul>
+                  </li>
+
                   
 
                </ul>
