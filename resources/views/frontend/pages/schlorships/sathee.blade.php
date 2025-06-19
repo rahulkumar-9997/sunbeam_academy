@@ -190,7 +190,7 @@
     </div>
 </div>
 
-<div class="course-area spirit-section pt-40 pb-40 why-participate bg">
+<div class="course-area spirit-section pt-40 pb-40 why-participate bg price-rewards-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
@@ -203,8 +203,8 @@
             </div>
         </div>
         <div class="feature-wrapper price-wrapper">
-            <div class="row g-4">
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+            <div class="row">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 01</span>
                         <div class="feature-icon">
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 02</span>
                         <div class="feature-icon">
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 03</span>
                         <div class="feature-icon">
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 04</span>
                         <div class="feature-icon">
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 05</span>
                         <div class="feature-icon">
@@ -259,7 +259,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-20 mb-3 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
+                <div class="col-md-20 mb-2 mb-xl-0 col-6 pe-xl-0 ps-xl-2">
                     <div class="feature-item">
                         <span class="count">Rank 06</span>
                         <div class="feature-icon">

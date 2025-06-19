@@ -50,11 +50,7 @@
                      <img src="{{asset('fronted/assets/sunbeam-img/logo.png')}}" alt="logo">
                  </a>
                  <div class="mobile-menu-right">
-                     <div class="search-btn">
-                         <button type="button" class="nav-right-link search-box-outer">
-                             <i class="far fa-search"></i>
-                         </button>
-                     </div>
+                     
                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                          data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>

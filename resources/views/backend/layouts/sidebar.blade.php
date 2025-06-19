@@ -89,7 +89,7 @@
                   </li>
                   <li class="submenu">
                      <a href="javascript:void(0);">
-                        <i class="ti ti-files fs-16 me-2"></i>
+                        <i class="ti ti-note fs-16 me-2"></i>
                         <span>Manage Classes</span>
                         <span class="menu-arrow"></span>
                      </a>

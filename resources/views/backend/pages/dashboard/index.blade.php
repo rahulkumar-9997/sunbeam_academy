@@ -19,7 +19,7 @@
                         <i class="ti ti-file-text fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Pages</p>
+                        <p class="text-white mb-1">Total Branches</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
                             <h4 class="text-white">0</h4>
 
@@ -32,10 +32,10 @@
             <div class="card bg-secondary sale-widget flex-fill">
                 <div class="card-body d-flex align-items-center">
                     <span class="sale-icon bg-white text-secondary">
-                        <i class="ti ti-repeat fs-24"></i>
+                        <i class="ti ti-notification fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Menu</p>
+                        <p class="text-white mb-1">Total Active Notice</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
                             <h4 class="text-white">0</h4>
 
@@ -48,10 +48,42 @@
             <div class="card bg-teal sale-widget flex-fill">
                 <div class="card-body d-flex align-items-center">
                     <span class="sale-icon bg-white text-teal">
-                        <i class="ti ti-gift fs-24"></i>
+                        <i class="ti ti-notification fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Menu Items</p>
+                        <p class="text-white mb-1">Total Inactive Notice</p>
+                        <div class="d-inline-flex align-items-center flex-wrap gap-2">
+                            <h4 class="text-white">0</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="card bg-secondary sale-widget flex-fill">
+                <div class="card-body d-flex align-items-center">
+                    <span class="sale-icon bg-white text-teal">
+                        <i class="ti ti-note fs-24"></i>
+                    </span>
+                    <div class="ms-2">
+                        <p class="text-white mb-1">Total Active Classes</p>
+                        <div class="d-inline-flex align-items-center flex-wrap gap-2">
+                            <h4 class="text-white">0</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="card bg-teal sale-widget flex-fill">
+                <div class="card-body d-flex align-items-center">
+                    <span class="sale-icon bg-white text-teal">
+                        <i class="ti ti-note fs-24"></i>
+                    </span>
+                    <div class="ms-2">
+                        <p class="text-white mb-1">Total Inactive Classes</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
                             <h4 class="text-white">0</h4>
 

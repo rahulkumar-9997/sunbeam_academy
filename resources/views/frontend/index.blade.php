@@ -176,7 +176,7 @@
                                     <b class="text-start">Driven by Dedication <br> Creating Impact with Care</b>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mobile-center">
                                 <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.jpg')}}" alt="img">
                                 <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.jpg')}}" alt="img">
                             </div>

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="contact-content">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="contact-info">
                         <div class="contact-info-icon">
                             <i class="fal fa-map-location-dot"></i>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="contact-info">
                         <div class="contact-info-icon">
                             <i class="fal fa-phone-volume"></i>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="contact-info">
                         <div class="contact-info-icon">
                             <i class="fal fa-envelopes"></i>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <div class="contact-info">
                         <div class="contact-info-icon">
                             <i class="fal fa-alarm-clock"></i>

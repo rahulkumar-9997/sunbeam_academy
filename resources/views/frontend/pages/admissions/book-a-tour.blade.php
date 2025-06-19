@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<section class="steps-area p-relative" style="background-color: #116f5f;">
+<section class="steps-area p-relative first" style="background-color: #116f5f;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6">
@@ -55,7 +55,7 @@
 
     </div>
 </section>
-<section class="steps-area p-relative" style="background-color: #fda31b;">
+<section class="steps-area p-relative second" style="background-color: #fda31b;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-7">

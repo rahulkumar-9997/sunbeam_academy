@@ -11,7 +11,7 @@
 <div class="course-area fee-structure pt-40 pb-10">
     <div class="video-area">
         <div class="container">
-            <div class="row g-4">
+            <div class="row">
                 <div class="col-lg-4 d-flex align-items-center wow fadeInLeft" data-wow-delay=".25s">
                     <div class="site-heading mb-3">
                         <h2 class="site-title">
@@ -48,28 +48,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3 mb-2">
                 <div class="whatnew-box">
                     <p class="slider-title">
                         Fee counter time: 7.00 A.M to 4.00 P.M (except holiday announced periodically)
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3 mb-2">
                 <div class="whatnew-box">
                     <p class="slider-title">
                         A fee card is a must with updated records and duly verified by the parents.
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3 mb-2">
                 <div class="whatnew-box">
                     <p class="slider-title">
                         Pay fee on or before 15th of every month except May and June fee to be paid collectively before 15th May.
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3 mb-2">
                 <div class="whatnew-box">
                     <p class="slider-title">
                         Students can deposit fees only during break time or before & after school
