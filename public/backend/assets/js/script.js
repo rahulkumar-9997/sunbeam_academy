@@ -411,50 +411,51 @@ $(document).ready(function(){
 		});
 	}
 
-	if($('.editor_class_multiple').length > 0) {
-		$('.editor_class_multiple').summernote({
-		height: 200,  
-		minHeight: null, 
-		maxHeight: null,
-		focus: false,
+	// if($('.editor_class_multiple').length > 0) {
+	// 	$('.editor_class_multiple').summernote({
+	// 	height: 200,  
+	// 	minHeight: null, 
+	// 	maxHeight: null,
+	// 	focus: false,
 		
-		toolbar: [
-			['style', ['style']],
-			['font', ['bold', 'italic', 'underline', 'clear']],
-			['fontname', ['fontname']],
-			['para', ['ul', 'ol', 'paragraph']],
-			['height', ['height']],
-			['table', ['table']],
-			['insert', ['link', 'picture', 'video', 'hr']],
-			['view', ['fullscreen', 'codeview', 'help']]
-		],
-		 prettifyHtml: false,
-        codeviewFilter: true,
-        codeviewIframeFilter: true,
-        styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-        callbacks: {
-            onPaste: function(e) {
-                var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
-                var pastedData = clipboardData.getData('Text/html');
-                if (pastedData) {
-                    e.preventDefault();
-                    var tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = pastedData;
-                    var elementsWithStyle = tempDiv.querySelectorAll('[style]');
-                    elementsWithStyle.forEach(function(el) {
-                        el.removeAttribute('style');
-                    });
-                    var elementsWithClass = tempDiv.querySelectorAll('[class]');
-                    elementsWithClass.forEach(function(el) {
-                        el.removeAttribute('class');
-                    });
-                    document.execCommand('insertHTML', false, tempDiv.innerHTML);
-                }
-            }
-        }
+	// 	toolbar: [
+	// 		['style', ['style']],
+	// 		['font', ['bold', 'italic', 'underline', 'clear']],
+	// 		['fontname', ['fontname']],
+	// 		['para', ['ul', 'ol', 'paragraph']],
+	// 		['height', ['height']],
+	// 		['table', ['table']],
+	// 		['insert', ['link', 'picture', 'video', 'hr']],
+	// 		['view', ['fullscreen', 'codeview', 'help']]
+	// 	],
+	// 	 prettifyHtml: false,
+    //     codeviewFilter: true,
+    //     codeviewIframeFilter: true,
+    //     styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+    //     callbacks: {
+    //         onPaste: function(e) {
+    //             var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+    //             var pastedData = clipboardData.getData('Text/html');
+    //             if (pastedData) {
+    //                 e.preventDefault();
+    //                 var tempDiv = document.createElement('div');
+    //                 tempDiv.innerHTML = pastedData;
+    //                 var elementsWithStyle = tempDiv.querySelectorAll('[style]');
+    //                 elementsWithStyle.forEach(function(el) {
+    //                     el.removeAttribute('style');
+    //                 });
+    //                 var elementsWithClass = tempDiv.querySelectorAll('[class]');
+    //                 elementsWithClass.forEach(function(el) {
+    //                     el.removeAttribute('class');
+    //                 });
+    //                 document.execCommand('insertHTML', false, tempDiv.innerHTML);
+    //             }
+    //         }
+    //     }
 			
-		});
-	}
+	// 	});
+	// }
+
 	
 	// Summernote
 

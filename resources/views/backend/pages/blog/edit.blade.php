@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','Edit Class')
+@section('title','Edit Blog')
 @push('styles')
 <link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}">
 <!-- <link rel="stylesheet" href="{{asset('backend/assets/plugins/select2/css/select2.min.css')}}"> -->
@@ -9,12 +9,12 @@
     <div class="page-header">
         <div class="add-item d-flex">
             <div class="page-title">
-                <h4 class="fw-bold">Edit Class</h4>
+                <h4 class="fw-bold">Edit Blog</h4>
             </div>
         </div>
 
         <div class="page-btn">
-            <a href="{{ route('manage-classes') }}"
+            <a href="{{ route('manage-blog.index') }}"
                 data-bs-toggle="tooltip"
                 title="Back to Previous Page"
                 class="btn btn-secondary">
@@ -27,82 +27,145 @@
     <div class="card">
         <div class="card-header justify-content-between">
             <div class="card-title">
-                Edit Class Form
+                Edit Blog Form
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('manage-classes.update', ['id' => $classes_row->id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('manage-blog.update', $blog->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <!-- Basic Blog Info -->
+                    <div class="col-md-4 mb-3">
                         <label for="title" class="form-label">Title *</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title', $classes_row->title) }}">
-                        @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <input type="text" class="form-control @error('title') is-invalid @enderror"
+                            name="title" id="title" value="{{ old('title', $blog->title) }}">
+                        @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="heading_name" class="form-label">Heading Name *</label>
-                        <input type="text" class="form-control @error('heading_name') is-invalid @enderror" name="heading_name" id="heading_name" value="{{ old('heading_name', $classes_row->heading_name) }}">
-                        @error('heading_name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="main_image" class="form-label">Main Image *</label>                       
-                        <input type="file" class="form-control @error('main_image') is-invalid @enderror" name="main_image" id="main_image">
-                        @error('main_image')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        @if($classes_row->main_image)
-                            <img src="{{ asset('upload/classes/' . $classes_row->main_image) }}" width="100" class="mb-2">
+
+                    <div class="col-md-4 mb-3">
+                        <label for="main_image" class="form-label">Main Image</label>
+                        <input type="file" class="form-control @error('main_image') is-invalid @enderror"
+                            name="main_image" id="main_image">
+                        @error('main_image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        @if($blog->main_image)
+                        <div class="mt-2">
+                            <small>Current Image:</small>
+                            <img src="{{ asset('upload/blogs/' . $blog->main_image) }}"
+                                alt="Current Image" style="max-width: 100px; display: block;">
+                        </div>
                         @endif
                     </div>
-                    <div class="col-md-6 mb-3">
+
+                    <div class="col-md-4 mb-3">
                         <label for="branches" class="form-label">Select Branches *</label>
-                        <select class="form-control select2 @error('branches') is-invalid @enderror" multiple name="branches[]" id="branches">
-                            @foreach($branch_list as $branch)
-                            <option value="{{ $branch->id }}" {{ in_array($branch->id, old('branches', $classes_row->branches->pluck('id')->toArray())) ? 'selected' : '' }}>
+                        <select class="form-control select2 @error('branches') is-invalid @enderror" multiple
+                            name="branches[]" id="branches" data-placeholder="Select Branches">
+                            @foreach($branches as $branch)
+                            <option value="{{ $branch->id }}"
+                                {{ in_array($branch->id, old('branches', $selectedBranches)) ? 'selected' : '' }}>
                                 {{ $branch->name }}
                             </option>
                             @endforeach
                         </select>
-                        @error('branches')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                        @error('branches')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
                     </div>
-                </div>
-                <div class="row">
+
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
-                        <textarea id="summernote" name="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{ old('description', $classes_row->description) }}</textarea>
-                        @error('description')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <textarea id="summernote" name="description" rows="3"
+                            class="form-control @error('description') is-invalid @enderror">
+                        {{ old('description', $blog->description) }}
+                        </textarea>
+                        @error('description')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
+
                     <div class="mb-3 col-md-6">
                         <div class="form-check form-switch mt-4">
-                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status" {{ old('status', $classes_row->status) ? 'checked' : '' }}>
+                            <input class="form-check-input" value="1" type="checkbox" id="status"
+                                name="status" {{ old('status', $blog->status) ? 'checked' : '' }}>
                             <label class="form-check-label" for="status">Status</label>
                         </div>
                     </div>
                 </div>
+
+                <!-- Blog Paragraphs Section -->
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="bg-indigo pt-1 pb-1 rounded-2">
+                            <h4 class="text-center text-light mb-0">Blog Paragraphs</h4>
+                        </div>
+
+                        <table class="mb-0 blog-paragraph-table">
+                            <thead>
+                                <tr>
+                                    <th width="30%">Paragraph Title</th>
+                                    <th width="30%">Paragraph Image</th>
+                                    <th>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Paragraph Description</span>
+                                            <button type="button" class="btn btn-primary btn-sm add-more-blog-paragraphs">
+                                                Add More
+                                            </button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(old('paragraphs_title', $blog->paragraphs) as $index => $paragraph)
+                                <tr>
+                                    <input type="hidden" name="paragraphs_id[]"
+                                        value="{{ $paragraph instanceof App\Models\BlogParagraph ? $paragraph->id : '' }}">
+                                    <td>
+                                        <input type="text" name="paragraphs_title[]"
+                                            class="form-control @error(" paragraphs_title.$index") is-invalid @enderror"
+                                            value="{{ old("paragraphs_title.$index", $paragraph->paragraph_title ?? $paragraph['title'] ?? '') }}">
+                                        @error("paragraphs_title.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                    </td>
+                                    <td>
+                                        <input type="file" name="paragraphs_image_file[]"
+                                            class="form-control @error(" paragraphs_image_file.$index") is-invalid @enderror">
+                                        @error("paragraphs_image_file.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                                        @if(($paragraph instanceof App\Models\BlogParagraph && $paragraph->paragraph_image) ||
+                                        (is_array($paragraph) && isset($paragraph['image_preview'])))
+                                        <div class="mt-2">
+                                            <small>Current Image:</small>
+                                            <img src="{{ asset('upload/blogs/paragraphs/' . $paragraph->paragraph_image ?? $paragraph['image_preview']) }}"
+                                                style="max-width: 80px; display: block;">
+                                        </div>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <textarea name="paragraphs_description[]" rows="3"
+                                            class="form-control editor_class_multiple @error(" paragraphs_description.$index") is-invalid @enderror">
+                                        {{ old("paragraphs_description.$index", $paragraph->paragraph_description ?? $paragraph['description'] ?? '') }}
+                                        </textarea>
+                                        @if($index > 0)
+                                        <button type="button" class="btn btn-danger btn-sm remove-paragraph">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
+                                        @endif
+                                        @error("paragraphs_description.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="row mt-3">
                     <div class="col-lg-12">
-                        <div class="d-flex align-items-center justify-content-end mb-4 gap-2">
+                        <div class="d-flex justify-content-end gap-2">
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('manage-notice-board') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('manage-blog.index') }}" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -113,10 +176,84 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
+        initSummernote();
+        $('.add-more-blog-paragraphs').on('click', function() {
+            let newRow = `
+            <tr>
+                <td>
+                    <input type="text" name="paragraphs_title[]" class="form-control" placeholder="Enter Paragraph Title">
+                </td>
+                <td>
+                    <input type="file" name="paragraphs_image_file[]" class="form-control">
+                </td>
+                <td>
+                    <div>
+                        <textarea name="paragraphs_description[]" rows="3" class="form-control editor_class_multiple"></textarea>
+                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">
+                            <i class="ti ti-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+            $('.blog-paragraph-table tbody').append(newRow);
+            initSummernote();
+        });
+        $(document).on('click', '.remove-paragraph', function() {
+            $(this).closest('tr').find('.editor_class_multiple').summernote('destroy');
+            $(this).closest('tr').remove();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
         $('.select2').select2({
             placeholder: "Select Notice Type",
             width: '100%'
         });
     });
+
+    function initSummernote() {
+        $('.editor_class_multiple').not('.note-editor').summernote({
+            height: 150,
+            minHeight: null,
+            maxHeight: null,
+            focus: false,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video', 'hr']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ],
+            prettifyHtml: false,
+            codeviewFilter: true,
+            codeviewIframeFilter: true,
+            styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+            callbacks: {
+                onPaste: function(e) {
+                    var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+                    var pastedData = clipboardData.getData('Text/html');
+                    if (pastedData) {
+                        e.preventDefault();
+                        var tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = pastedData;
+                        var elementsWithStyle = tempDiv.querySelectorAll('[style]');
+                        elementsWithStyle.forEach(function(el) {
+                            el.removeAttribute('style');
+                        });
+                        var elementsWithClass = tempDiv.querySelectorAll('[class]');
+                        elementsWithClass.forEach(function(el) {
+                            el.removeAttribute('class');
+                        });
+                        document.execCommand('insertHTML', false, tempDiv.innerHTML);
+                    }
+                }
+            }
+        });
+    }
 </script>
 @endpush

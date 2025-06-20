@@ -30,4 +30,10 @@ class Blog extends Model
     {
         return $this->hasMany(BlogBranch::class);
     }
+
+    public function branchNames()
+    {
+        return $this->belongsToMany(Branch::class, 'blog_branches', 'blog_id', 'branches_id')
+                    ->withTimestamps();
+    }
 }

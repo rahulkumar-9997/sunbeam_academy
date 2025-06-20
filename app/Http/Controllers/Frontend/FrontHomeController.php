@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use App\Models\NoticeBoard;
 use App\Models\ClassModel;
+use App\Models\Branch;
 class FrontHomeController extends Controller
 {
     public function home(){
@@ -26,6 +27,10 @@ class FrontHomeController extends Controller
             ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
             ->latest()
             ->take(3)
+            ->get();
+        $data['branches'] = Branch::where('status', 1)
+            ->select('name', 'slug', 'description', 'phone_1', 'email_1')
+            ->take(4)
             ->get();
         //return response()->json($notices);
 	    return view('frontend.index', compact('data'));

@@ -62,7 +62,7 @@ class ClassesController extends Controller
                 'main_image'    => $imageFileName,
                 'description'   => $request->description,
                 'status'        => $request->has('status') ? 1 : 0,
-                'user_id'       => Auth::id(),
+                'user_id'       => Auth::check() ? Auth::user()->id : null,
             ]);
             $class->branches()->attach($request->branches);
             DB::commit();

@@ -39,59 +39,60 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                @if (!empty($classes) && $classes->count()>0)
+                @if (!empty($blogs) && $blogs->count()>0)
                 <table class="table datatable">
                     <thead class="thead-light">
-                        <tr>
-                            <th>#</th>
+                       <tr>
+                            <th width="5%">#</th>
                             <th>Title</th>
-                            <th>Heading</th>
-                            <th>Main Image</th>
+                            <th>Image</th>
                             <th>Branches</th>
-                            <th>User</th>
+                            <th>Paragraphs</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th width="15%">Actions</th>
                         </tr>
                     </thead>
-                    @foreach ($classes as $index => $class)
+                    @foreach ($blogs as $index => $blog)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $class->title }}</td>
-                        <td>{{ $class->heading_name }}</td>
+                        <td>{{ $blog->title }}</td>
                         <td>
-                            @if($class->main_image)
-                                <img src="{{ asset('upload/classes/' . $class->main_image) }}" alt="{{ $class->title }}" width="60">
+                            @if($blog->main_image)
+                            <img src="{{ asset('upload/blogs/' .$blog->main_image) }}" alt="{{ $blog->title }}" 
+                                 style="max-width: 80px; max-height: 60px;">
                             @else
-                                N/A
+                            <span class="text-muted">No Image</span>
                             @endif
                         </td>
                         <td>
-                            @foreach ($class->branches as $branch)
-                                <span class="badge bg-primary">{{ $branch->name }}</span>
+                            @foreach($blog->branchNames as $branch)
+                            <span class="badge bg-secondary me-1">{{ $branch->name }}</span><br>
                             @endforeach
                         </td>
-                        <td>{{ $class->user?->name ?? 'N/A' }}</td>
                         <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input toggle-status-classes" type="checkbox" 
-                                    {{ $class->status ? 'checked' : '' }}
-                                    data-url="{{ route('manage-classes.toggle-status', $class->id) }}">
-                            </div>
+                            <span class="badge bg-warning">{{ $blog->paragraphs_count }}</span>
+                        </td>
+                        <td>
+                            @if($blog->status)
+                            <span class="badge bg-success">Active</span>
+                            @else
+                            <span class="badge bg-danger">Inactive</span>
+                            @endif
                         </td>
                         <td>
                             <div class="edit-delete-action d-flex gap-2">
                                 <a
-                                    href="{{ route('manage-classes.edit', ['id' => $class->id]) }}"
+                                    href="{{ route('manage-blog.edit', ['id' => $blog->id]) }}"
                                     data-bs-toggle="tooltip"
-                                    title="Edit Notice"
+                                    title="Edit Blog"
                                     class="btn btn-sm btn-info">
                                     <i class="ti ti-edit"></i>
                                 </a>
 
-                                <form action="{{ route('manage-classes.destroy', ['id' => $class->id]) }}" method="POST">
+                                <form action="{{ route('manage-blog.destroy', ['id' => $blog->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $class->title }}">
+                                    <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $blog->title }}">
                                         <i class="ti ti-trash"></i>
                                     </button>
                                 </form>
@@ -135,61 +136,6 @@
                 }
             });
         });
-        /**Update status code */
-        $(document).off('change', '.toggle-status-classes').on('change', '.toggle-status-classes', function() {
-            $('#loader').show();
-            var checkbox = $(this);
-            var isChecked = checkbox.is(':checked');
-            var url = checkbox.data('url');
-            checkbox.prop('disabled', true);
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    checkbox.prop('disabled', false);
-                    if (response.status) {
-                        $('#loader').hide();
-                        Toastify({
-                            text: response.message,
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            className: "bg-success",
-                            close: true
-                        }).showToast();
-                    } else {
-                        $('#loader').hide();
-                        checkbox.prop('checked', !isChecked);
-                        Toastify({
-                            text: "Failed to update status.",
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            className: "bg-danger",
-                            close: true
-                        }).showToast();
-                    }
-                },
-                error: function() {
-                    checkbox.prop('disabled', false);
-                    checkbox.prop('checked', !isChecked);
-                    $('#loader').hide();
-                    Toastify({
-                        text: "Something went wrong.",
-                        duration: 3000,
-                        gravity: "top",
-                        position: "right",
-                        className: "bg-danger",
-                        close: true
-                    }).showToast();
-                }
-            });
-        });
-
-        /**Update status code */
     });
 </script>
 @endpush

@@ -4,160 +4,74 @@
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 @include('frontend.layouts.banner-top')
-<!-- feature area -->
-<div class="feature-area home-feature fa-negative home-branches">
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-xl-12 col-lg-12">
-                <div class="feature-wrapper">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="feature-item">
-                                <!-- <span class="count">01</span> -->
-                                <!--<div class="feature-icon">
-                                            <img src="assets/img/icon/scholarship.svg" alt="">
-                                        </div>-->
-                                <div class="branch-feature">
-                                    <h3>
-                                        Sunbeam Academy Samneghat
-                                    </h3>
-                                </div>
-                                <div class="feature-content">
-                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
-                                    <p>
-                                        Young minds grow every day with care, creativity, and joyful learning all around.
-                                    </p>
-                                    <p>
-                                        <a href="tel:+919554958414">
-                                            +91 95549 58414
+ @if (!empty($data['branches']) && $data['branches']->count() > 0)
+    <div class="feature-area home-feature fa-negative home-branches">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="feature-wrapper">
+                        <div class="row">
+                            @foreach ($data['branches'] as $branch)
+                                <div class="col-lg-3">
+                                    <div class="feature-item">
+                                        <a href="{{ url('branches/' . $branch->slug) }}">
+                                            <div class="branch-feature">
+                                                <h3>
+                                                    {{ $branch->name }}
+                                                </h3>
+                                            </div>
+                                            <div class="feature-content">
+                                                <p>
+                                                {!! Str::words(strip_tags($branch->description), 14, '...') !!}
+                                                </p>
+                                                <p>
+                                                    <a href="tel:+91{{ $branch->phone_1 }}">
+                                                        +91 {{ $branch->phone_1 }}
+                                                    </a>
+                                                </p>
+                                                <p>
+                                                    <a href="mailto:{{ $branch->email_1 }}">
+                                                        {{ $branch->email_1 }}
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </a>
-                                    </p>
-                                    <p>
-                                        <a href="mailto:info@sunbeamacademy.com">
-                                            info@sunbeamacademy.com
-                                        </a>
-                                    </p>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
+                            
+                            <!-- <div class="col-xl-20">
+                                <div class="feature-item">
+                                
+                                    <div class="branch-feature">
+                                        <h3>
+                                            Sunbeam Academy Ghazipur
+                                        </h3>
+                                    </div>
+                                    <div class="feature-content">
+                                        <p>
+                                        Every child begins their journey with love, care, and bright learning experiences.
+                                        </p>
+                                        <p>
+                                            <a href="tel:+919554958414">
+                                                +91 95549 58414
+                                            </a>
+                                        </p>
+                                        <p>
+                                            <a href="mailto:info@sunbeamacademy.com">
+                                                info@sunbeamacademy.com
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
-                        <div class="col-lg-3">
-                            <div class="feature-item">
-                                <!-- <span class="count">02</span> -->
-                                <!-- <div class="feature-icon">
-                                            <img src="assets/img/icon/teacher.svg" alt="">
-                                        </div> -->
-                                <div class="branch-feature">
-                                    <h3>
-                                        Sunbeam Academy Durgakund
-                                    </h3>
-                                </div>
-                                <div class="feature-content">
-                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
-                                    <p>
-                                        A perfect blend of strong values, fun learning, and happy, active classrooms.
-                                    </p>
-                                    <p>
-                                        <a href="tel:+919554958414">
-                                            +91 95549 58414
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="mailto:info@sunbeamacademy.com">
-                                            info@sunbeamacademy.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="feature-item">
-                                <!-- <span class="count">03</span> -->
-                                <!-- <div class="feature-icon">
-                                            <img src="assets/img/icon/library.svg" alt="">
-                                        </div> -->
-                                <div class="branch-feature">
-                                    <h3>
-                                        Sunbeam Academy Sarainandan
-                                    </h3>
-                                </div>
-                                <div class="feature-content">
-                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
-                                    <p>
-                                        Confidence, kindness, and joyful learning come together to shape every child’s day.
-                                    </p>
-                                    <p>
-                                        <a href="tel:+919554958414">
-                                            +91 95549 58414
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="mailto:info@sunbeamacademy.com">
-                                            info@sunbeamacademy.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="feature-item">
-                                <!-- <span class="count">04</span> -->
-                                <!-- <div class="feature-icon">
-                                            <img src="assets/img/icon/money.svg" alt="">
-                                        </div> -->
-                                <div class="branch-feature">
-                                    <h3>
-                                        Sunbeam Academy Knowledge Park
-                                    </h3>
-                                </div>
-                                <div class="feature-content">
-                                    <!-- <h4 class="feature-title">Experienced Teachers</h4> -->
-                                    <p>
-                                        Curious minds become confident learners through playful and smart learning methods.
-                                    </p>
-                                    <p>
-                                        <a href="tel:+919554958414">
-                                            +91 95549 58414
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="mailto:info@sunbeamacademy.com">
-                                            info@sunbeamacademy.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-xl-20">
-                            <div class="feature-item">
-                               
-                                <div class="branch-feature">
-                                    <h3>
-                                        Sunbeam Academy Ghazipur
-                                    </h3>
-                                </div>
-                                <div class="feature-content">
-                                    <p>
-                                    Every child begins their journey with love, care, and bright learning experiences.
-                                    </p>
-                                    <p>
-                                        <a href="tel:+919554958414">
-                                            +91 95549 58414
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="mailto:info@sunbeamacademy.com">
-                                            info@sunbeamacademy.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 <!-- feature area end -->
 <!-- about area -->
 <div class="about-area py-120">
