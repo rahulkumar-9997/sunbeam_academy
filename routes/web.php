@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\BrancheController;
 use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\ClassesController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\GalleryController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('branches/{id}/edit', [BrancheController::class, 'edit'])->name('branches.edit');
     Route::put('branches/{id}', [BrancheController::class, 'update'])->name('branches.update');
     Route::delete('branches/{id}', [BrancheController::class, 'destroy'])->name('branches.destroy');
+    Route::resource('manage-gallery', GalleryController::class)->names('manage-gallery');
     /*Notice Board */
     // Notice Board CRUD routes
     Route::get('notice-board', [NoticeBoardController::class, 'index'])->name('manage-notice-board');
