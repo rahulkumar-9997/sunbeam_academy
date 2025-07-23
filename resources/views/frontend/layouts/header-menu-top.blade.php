@@ -65,10 +65,10 @@
                              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Branches</a>
                              <ul class="dropdown-menu fade-down">
                                  <li><a class="dropdown-item" href="{{ route('sunbeam-academy-samneghat') }}">Sunbeam Academy Samneghat</a></li>
-                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Durgakund</a></li>
-                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Sarainandan</a></li>
-                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Knowledge Park</a></li>
-                                 <li><a class="dropdown-item" href="#">Sunbeam Academy Ghazipur</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('sunbeam-academy-durgakund') }}">Sunbeam Academy Durgakund</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('sunbeam-academy-sarainandan') }}">Sunbeam Academy Sarainandan</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('sunbeam-academy-knowledge-park')}}">Sunbeam Academy Knowledge Park</a></li>
+                                 <!-- <li><a class="dropdown-item" href="#">Sunbeam Academy Ghazipur</a></li> -->
                              </ul>
                          </li>
                          <li class="nav-item dropdown">

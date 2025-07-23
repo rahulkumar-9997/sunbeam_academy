@@ -18,8 +18,7 @@
                             <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                 <a href="#" class="theme-btn">About More<i
                                         class="fas fa-arrow-right-long"></i></a>
-                                <a href="#" class="theme-btn theme-btn2">Learn More<i
-                                        class="fas fa-arrow-right-long"></i></a>
+                                
                             </div>
                         </div>
                     </div>

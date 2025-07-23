@@ -1,0 +1,71 @@
+$(document).ready(function () {
+    $(document).off('submit', '#branchEnquiryForm').on('submit', '#branchEnquiryForm', function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var submitButton = form.find('button[type="submit"]');
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+        submitButton.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...');
+        var formData = new FormData(this);
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                submitButton.prop('disabled', false).html('Submit');
+                if (response.status === 'success') {
+                    form[0].reset();
+                    showNotificationAll('success!', response.message);
+                }
+            },
+            error: function (xhr) {
+                submitButton.prop('disabled', false).html('Submit');
+                var errors = xhr.responseJSON?.errors;
+                if (errors) {
+                    $.each(errors, function (key, value) {
+                        var inputField = $('#' + key);
+                        inputField.addClass('is-invalid');
+                        inputField.after('<div class="invalid-feedback">' + value[0] + '</div>');
+                    });
+                } else {
+                    showNotificationAll('error!', 'Something went wrong. Please try again later.');
+                }
+            }
+        });
+    });
+ });
+ 
+/* Function to show toast notifications (using Bootstrap 5 Toast) */
+function showNotificationAll(type, message) {
+    let toastContainer = document.querySelector('.toast-container');
+    if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.className = 'toast-container position-fixed top-0 start-50 translate-middle-x p-3';
+        toastContainer.style.zIndex = '1055';
+        document.body.appendChild(toastContainer);
+    }
+    const toastEl = document.createElement('div');
+    toastEl.className = `toast align-items-center text-white ${type === 'success' ? 'bg-success' : 'bg-danger'} border-0`;
+    toastEl.setAttribute('role', 'alert');
+    toastEl.setAttribute('aria-live', 'assertive');
+    toastEl.setAttribute('aria-atomic', 'true');
+    toastEl.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">
+                ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    `;
+    toastContainer.appendChild(toastEl);
+    const toast = new bootstrap.Toast(toastEl, {
+        autohide: true,
+        delay: 5000
+    });
+    toast.show();
+    toastEl.addEventListener('hidden.bs.toast', function() {
+        toastEl.remove();
+    });
+}

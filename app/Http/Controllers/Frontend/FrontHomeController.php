@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
+use App\Mail\BranchEnquiryMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\NoticeBoard;
 use App\Models\ClassModel;
 use App\Models\Branch;
+use App\Models\BranchEnquiry;
+
 class FrontHomeController extends Controller
 {
     public function home(){
@@ -42,7 +45,80 @@ class FrontHomeController extends Controller
     }
 
     public function sunbeamAcademySamneghat (){
-        return view('frontend.pages.branches.sunbeam-academy-samneghat');
+        try {
+            $branch = Branch::where('slug', 'sunbeam-academy-samneghat')->firstOrFail();
+            return view('frontend.pages.branches.sunbeam-academy-samneghat', compact('branch'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: sunbeam-academy-samneghat');
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function sunbeamAcademyDurgakund (){
+        try {
+            $branch = Branch::where('slug', 'sunbeam-academy-durgakund')->firstOrFail();
+            return view('frontend.pages.branches.sunbeam-academy-durgakund', compact('branch'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: sunbeam-academy-durgakund');
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function sunbeamAcademySarainandan (){
+        try {
+            $branch = Branch::where('slug', 'sunbeam-academy-sarainandan')->firstOrFail();
+            return view('frontend.pages.branches.sunbeam-academy-sarainandan', compact('branch'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: sunbeam-academy-sarainandan');
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function sunbeamAcademyKnowledgePark (){
+        try {
+            $branch = Branch::where('slug', 'sunbeam-academy-knowledge-park')->firstOrFail();
+            return view('frontend.pages.branches.sunbeam-academy-knowledge-park', compact('branch'));
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: sunbeam-academy-knowledge-park');
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function branchEnquirySubmitForm(Request $request){
+        $validator = Validator::make($request->all(), [
+            'branch_name' => 'required|string|max:255',
+            'enquiry_name' => 'required|string|max:255',
+            'enquiry_email' => 'nullable|email|max:255',
+            'enquiry_phone' => 'required|string|max:10',
+            'enquiry_message' => 'nullable|string|max:1000',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $validated = $validator->validated();
+        $data = [
+            'branch_name' => $validated['branch_name'],
+            'name' => $validated['enquiry_name'],
+            'email' => $validated['enquiry_email'],
+            'phone' => $validated['enquiry_phone'] ?? null,
+            'message' => $validated['enquiry_message'] ?? null,
+        ];
+        
+        $branchEnquiry = BranchEnquiry::create($data);
+        try {
+            Mail::to('info@sunbeamacademy.com')->send(new BranchEnquiryMail($data));
+        } catch (\Exception $e) {
+            Log::error('Failed to send enquiry email: '.$e->getMessage());
+        }        
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Your enquiry form submitted successfully. Our team will contact you soon.',
+        ]);
     }
 
     public function academicsCurriculum()

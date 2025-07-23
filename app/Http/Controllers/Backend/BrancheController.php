@@ -135,16 +135,14 @@ class BrancheController extends Controller
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" id="address" rows="2" name="address">
-                                '.trim($branch_row->address).'
+                            <textarea class="form-control" id="address" rows="2" name="address">'.trim($branch_row->address).'
                             </textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description *</label>
-                            <textarea class="form-control" id="description" rows="2" name="description">
-                            '.trim($branch_row->description).'
+                            <textarea class="form-control" id="description" rows="2" name="description">'.trim($branch_row->description).'
                             </textarea>
                         </div>
                     </div>

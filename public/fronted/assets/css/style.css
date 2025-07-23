@@ -6870,6 +6870,36 @@ label {
 }
 
 /*branches*/
+.hero1-section-area.durgakund-hero {
+  position: relative;
+  z-index: 1;
+  background-image: url(../sunbeam-img/branches/durgakund/durgakund.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0 130px;
+  overflow: hidden;
+}
+.hero1-section-area.sarainandan-hero {
+  position: relative;
+  z-index: 1;
+  background-image: url(../sunbeam-img/branches/sarainandan/sarainandan.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0 130px;
+  overflow: hidden;
+}
+.hero1-section-area.knowledge-park-hero {
+  position: relative;
+  z-index: 1;
+  background-image: url(../sunbeam-img/branches/knowledge-park/knowledge-park.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0 130px;
+  overflow: hidden;
+}
 .hero1-section-area {
   position: relative;
   z-index: 1;
@@ -7737,4 +7767,9 @@ ul.events-academ li {
   .price-rewards-section .price-wrapper .feature-icon{
       margin: auto;
   }
+}
+.branches-img-div img{
+    background: linear-gradient(145deg, #fda31b 3.03%, #fda31b 27.62%, #116f5f 76.39%, #126f60 112.44%);
+    border-radius: 50px 50px 50px 0;
+    padding: 5px;
 }

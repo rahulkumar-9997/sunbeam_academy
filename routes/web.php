@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CacheController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\BrancheController;
 use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\ClassesController;
@@ -28,6 +29,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/get-daily-visitors', [DashboardController::class, 'getDailyVisitors'])->name('get-daily-visitors');
     Route::get('/clear-cache', [CacheController::class, 'clearCache'])->name('clear-cache');
+    Route::resource('manage-banner', BannerController::class)->names('manage-banner');
     Route::get('branches', [BrancheController::class, 'index'])->name('branches');
     Route::get('branches-create', [BrancheController::class, 'create'])->name('branches.create');
     Route::POST('branches-store', [BrancheController::class, 'store'])->name('branches.store');
@@ -94,6 +96,10 @@ Route::prefix('schlorships')->group(function () {
 
 Route::prefix('branches')->group(function () {
     Route::get('/sunbeam-academy-samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+    Route::get('/sunbeam-academy-durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
+    Route::get('/sunbeam-academy-sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
+    Route::get('/sunbeam-academy-knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
+    Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
 });
 
 Route::prefix('life-at-sunbeam')->group(function() {

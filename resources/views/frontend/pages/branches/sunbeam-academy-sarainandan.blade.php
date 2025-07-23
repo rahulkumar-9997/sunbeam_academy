@@ -1,10 +1,10 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Samneghat')
+@section('title','Sunbeam Academy - Sarainandan')
 @section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 <!--===== HERO AREA STARTS =======-->
-<div class="hero1-section-area">
+<div class="hero1-section-area sarainandan-hero">
 	<div class="bg1">
 		<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/header-bg2.png')}}" alt="" class="header-bg1" />
 	</div>
@@ -14,7 +14,7 @@
 				<div class="hero1-header heading1 wow fadeInLeft" data-wow-delay=".25s">
 
 					<h1 class="text-anime-style-3">
-						Welcome to Sunbeam Academy <span>Samneghat.</span>
+						Welcome to Sunbeam Academy <span>Sarainandan.</span>
 					</h1>
 					<p data-aos="fade-left" data-aos-duration="900">
 						{!! $branch->address !!}
@@ -85,7 +85,7 @@
 			<div class="col-md-8">
 				<div class="team-details">
 					<h3>Principal’s</h3>
-					<strong>Dr. K.K. Panda</strong>
+					<strong>Mr. Sanjeev Kumar Jha</strong>
 					<p class="mt-3">
 						“Welcome to our Durgakund Campus! We take immense pride in fostering an environment where every child feels seen, supported, and inspired to achieve greatness. We look forward to partnering with you in your child’s educational journey.”
 					</p>
