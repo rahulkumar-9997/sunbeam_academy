@@ -42,7 +42,7 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                @if (!empty($banners) && $banners->count())
+                @if (!empty($banners) && $banners->count()>0)
                 <table class="table datatable">
                     <thead class="thead-light">
                         <tr>

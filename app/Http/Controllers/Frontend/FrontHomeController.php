@@ -14,6 +14,7 @@ use App\Models\NoticeBoard;
 use App\Models\ClassModel;
 use App\Models\Branch;
 use App\Models\BranchEnquiry;
+use App\Models\Banner;
 
 class FrontHomeController extends Controller
 {
@@ -35,7 +36,11 @@ class FrontHomeController extends Controller
             ->select('name', 'slug', 'description', 'phone_1', 'email_1')
             ->take(4)
             ->get();
-        //return response()->json($notices);
+        $data['banners'] = Banner::select('title', 'sub_title', 'short_content', 'desktop_img', 'mobile_img', 'about_more_link')
+            ->orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+        //return response()->json($data['banners']);
 	    return view('frontend.index', compact('data'));
     }
     
