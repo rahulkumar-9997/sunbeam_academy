@@ -27,7 +27,7 @@ class GalleryController extends Controller
         ])
         ->orderBy('sort_order')
         ->paginate(20);
-        //return response()->json($galleries);   
+        return response()->json($galleries);   
         return view('backend.pages.gallery.index', compact('albumList'));
     }
 
