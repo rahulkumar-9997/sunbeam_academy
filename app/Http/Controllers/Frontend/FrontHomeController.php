@@ -15,6 +15,7 @@ use App\Models\ClassModel;
 use App\Models\Branch;
 use App\Models\BranchEnquiry;
 use App\Models\Banner;
+use App\Models\Blog;
 
 class FrontHomeController extends Controller
 {
@@ -40,13 +41,40 @@ class FrontHomeController extends Controller
             ->orderBy('id', 'desc')
             ->take(3)
             ->get();
-        //return response()->json($data['banners']);
+
+        $data['blog'] = Blog::select('id', 'title', 'slug', 'main_image', 'created_at')
+            ->with(['branchNames'])
+            ->where('status', 1)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+        //return response()->json($data['blog']);
 	    return view('frontend.index', compact('data'));
     }
     
     public function aboutUs()
     {
         return view('frontend.pages.about.about-us');
+    }
+
+    public function blogList(){
+        $data['blog'] = Blog::select('id', 'title', 'slug', 'main_image', 'created_at')
+            ->with(['branchNames'])
+            ->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+        //return response()->json($data['blog']);
+	    return view('frontend.pages.blogs.blog-list', compact('data'));
+    }
+
+    public function blogDetails($slug) {
+        $blog = Blog::select('id', 'title', 'slug', 'description', 'main_image', 'created_at')
+            ->with(['paragraphs', 'branchNames'])
+            ->where('status', 1)
+            ->where('slug', $slug)
+            ->firstOrFail();
+        //return response()->json($blog);
+	    return view('frontend.pages.blogs.blog-details', compact('blog'));
     }
 
     public function sunbeamAcademySamneghat (){

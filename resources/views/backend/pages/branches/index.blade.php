@@ -88,13 +88,13 @@
                                             class="btn btn-sm btn-info">
                                             <i class="ti ti-edit"></i>
                                         </a>
-                                        <form action="{{ route('branches.destroy', ['id' => $branch->id]) }}" method="POST">
+                                        <!--<form action="{{ route('branches.destroy', ['id' => $branch->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger show_confirm" data-name="{{ $branch->name }}">
                                                 <i class="ti ti-trash"></i>
                                             </button>
-                                        </form>
+                                        </form>-->
                                     </div>
                                 </td>
                             </tr>

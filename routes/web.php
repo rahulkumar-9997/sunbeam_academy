@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\BrancheController;
 use App\Http\Controllers\Backend\NoticeBoardController;
 use App\Http\Controllers\Backend\ClassesController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\AlbumController;
 use App\Http\Controllers\Backend\GalleryController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
@@ -37,6 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('branches/{id}/edit', [BrancheController::class, 'edit'])->name('branches.edit');
     Route::put('branches/{id}', [BrancheController::class, 'update'])->name('branches.update');
     Route::delete('branches/{id}', [BrancheController::class, 'destroy'])->name('branches.destroy');
+    Route::resource('manage-album', AlbumController::class)->names('manage-album');
     Route::resource('manage-gallery', GalleryController::class)->names('manage-gallery');
     /*Notice Board */
     // Notice Board CRUD routes
@@ -76,6 +78,8 @@ Route::get('notices', [FrontHomeController::class, 'noticeList'])->name('notices
 Route::get('notice/{slug}', [FrontHomeController::class, 'noticeDetails'])->name('notices.show');
 Route::get('classes', [FrontHomeController::class, 'classesList'])->name('classes.list');
 Route::get('classes/{slug}', [FrontHomeController::class, 'classesDetails'])->name('classes.details');
+Route::get('blog', [FrontHomeController::class, 'blogList'])->name('blog');
+Route::get('blog/{slug}', [FrontHomeController::class, 'blogDetails'])->name('blog.details');
 
 Route::prefix('academics')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'academicsCurriculum'])->name('curriculum');

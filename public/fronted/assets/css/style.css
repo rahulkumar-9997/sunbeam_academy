@@ -2258,7 +2258,7 @@ label {
 }
 
 .fa-negative {
-  margin-top: -150px;
+  margin-top: -85px;
   margin-right: 20px;
 }
 
@@ -3639,8 +3639,9 @@ label {
 }
 
 .blog-details-title {
-  font-size: 34px;
-  color: var(--color-dark);
+  font-size: 28px;
+  line-height: 32px;
+  color: var(--theme-color2);
 }
 
 .blockqoute {
@@ -7773,3 +7774,104 @@ ul.events-academ li {
     border-radius: 50px 50px 50px 0;
     padding: 5px;
 }
+.site-breadcrumb .breadcrumb-subtitle{
+  color: var(--color-white);
+  margin-top: 10px;
+}
+.blog-list-p-item .blog-title{
+  margin-top: 22px;
+}
+.blog-de-content p,
+.paragraphs_description p,
+.paragraphs_description
+{
+  text-align: justify;
+  font-size: 18px;
+}
+.blog-de-content ul,
+.paragraphs_description ul{
+    position: relative;
+    list-style: none;
+    margin: 0px 0px 0px 10px;
+    padding: 0px;
+}
+
+.blog-de-content ul li,
+.paragraphs_description ul li {
+    position: relative;
+    line-height: 1.7em;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    text-align: justify;
+}
+
+.blog-de-content ul li:before,
+.paragraphs_description ul li:before
+ {
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 900;
+    font-size: 14px;
+    display: block;
+    vertical-align: middle;
+    position: absolute;
+    content: "\f054";
+    left: 0;
+    top: -1px;
+    color: #FDA31B;
+}
+.blog-de-content ul li p,
+.paragraphs_description ul li p{
+  margin-bottom: 0rem;
+}
+.blog-paragraphs {
+    background-color: #f8f8f8;
+    padding: 20px 10px 20px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.for-para-img{
+    margin-right: 10px;
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+.blg-param-img img{
+  border-radius: 10px;
+}
+h4.blog-para-title{
+  color: var(--theme-color2);
+  margin-bottom: 10px;
+}
+/* .blog-de-img {
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.blog-de-img:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 35%;
+}
+
+.blog-de-img .blog-thumb-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-de-img .blog-thumb-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+} */
+
+
+

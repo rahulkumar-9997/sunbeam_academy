@@ -4,7 +4,7 @@
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 @include('frontend.layouts.banner-top')
- @if (!empty($data['branches']) && $data['branches']->count() > 0)
+@if (!empty($data['branches']) && $data['branches']->count() > 0)
     <div class="feature-area home-feature fa-negative home-branches">
         <div class="container">
             <div class="row justify-content-md-center">
@@ -21,18 +21,14 @@
                                                 </h3>
                                             </div>
                                             <div class="feature-content">
-                                                <p>
+                                                <!-- <p>
                                                 {!! Str::words(strip_tags($branch->description), 14, '...') !!}
+                                                </p> -->
+                                                <p>
+                                                     +91 {{ $branch->phone_1 }}
                                                 </p>
                                                 <p>
-                                                    <a href="tel:+91{{ $branch->phone_1 }}">
-                                                        +91 {{ $branch->phone_1 }}
-                                                    </a>
-                                                </p>
-                                                <p>
-                                                    <a href="mailto:{{ $branch->email_1 }}">
-                                                        {{ $branch->email_1 }}
-                                                    </a>
+                                                    {{ $branch->email_1 }}
                                                 </p>
                                             </div>
                                         </a>
@@ -253,7 +249,7 @@
             @endforeach
             <div class="col-md-12 col-lg-12">
                 <div class="text-center">
-                    <a href="{{ route('classes.list') }}" class="theme-btn mt-20">View All Classes
+                    <a href="{{ route('classes.list') }}" class="theme-btn mt-10">View All Classes
                         <i class="fas fa-arrow-right-long"></i>
                     </a>
                 </div>
@@ -687,83 +683,60 @@
 </div>
 <!-- enroll area end -->
 <!-- blog area -->
-<div class="blog-area home-blog py-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">
-                <div class="site-heading text-center">
-                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
-                    <h2 class="site-title">Sunbeam Updates & <span>Highlights</span></h2>
-                    <p>Your one-stop corner for everything new and exciting at our school.</p>
+@if (!empty($data['blog']) && $data['blog']->count() > 0)
+    <div class="blog-area home-blog py-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="site-heading text-center">
+                        <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
+                        <h2 class="site-title">Sunbeam Updates & <span>Highlights</span></h2>
+                        <p>Your one-stop corner for everything new and exciting at our school.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".25s">
-                    <!-- <div class="blog-date"><i class="fal fa-calendar-alt"></i> June 18, 2024</div> -->
-                    <div class="blog-item-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/1.jpg')}}" alt="Thumb">
+            <div class="row">
+                @foreach($data['blog'] as $index => $item)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-item wow fadeInUp" data-wow-delay=".{{ ($index + 1) * 25 }}s">
+                            @if($item->created_at)
+                                <div class="blog-date">
+                                    <i class="fal fa-calendar-alt"></i>
+                                    {{ \Carbon\Carbon::parse($item->created_at)->format('F d, Y') }}
+                                </div>
+                            @endif
+
+                            <div class="blog-item-img">
+                                <a href="{{ route('blog.details', $item->slug) }}">
+                                    <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}">
+                                </a>
+                            </div>
+                            <div class="blog-item-info">
+                                <h4 class="blog-title">
+                                    <a href="{{ route('blog.details', $item->slug) }}">
+                                        {{ $item->title }}
+                                    </a>
+                                </h4>
+                                <a class="theme-btn" href="{{ route('blog.details', $item->slug) }}">
+                                    Read More
+                                    <i class="fas fa-arrow-right-long"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="blog-item-info">
-                        <!--<div class="blog-item-meta">
-                                    <ul>
-                                        <li><a href="#"><i class="far fa-user-circle"></i> By Alicia Davis</a></li>
-                                        <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                                    </ul>
-                                </div>-->
-                        <h4 class="blog-title">
-                            <a href="#">
-                                Beyond the Books: Our Co-Curricular Activities in Action
-                            </a>
-                        </h4>
-                        <a class="theme-btn" href="#">Read More
+                @endforeach
+                <div class="col-md-12 col-lg-12">
+                    <div class="text-center">
+                        <a href="{{ route('blog') }}" class="theme-btn mt-2">View All Blogs
                             <i class="fas fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".50s">
 
-                    <div class="blog-item-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/2.jpg')}}" alt="Thumb">
-                    </div>
-                    <div class="blog-item-info">
-
-                        <h4 class="blog-title">
-                            <a href="#">
-                                Science Made Fun: Quiz Competitions That Sparked Curiosity
-                            </a>
-                        </h4>
-                        <a class="theme-btn" href="#">Read More
-                            <i class="fas fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item wow fadeInUp" data-wow-delay=".75s">
-
-                    <div class="blog-item-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/blog/3.jpg')}}" alt="Thumb">
-                    </div>
-                    <div class="blog-item-info">
-
-                        <h4 class="blog-title">
-                            <a href="#">
-                                Unity in Diversity: Highlights from Our Inter-Branch Competitions
-                            </a>
-                        </h4>
-                        <a class="theme-btn" href="#">Read More
-                            <i class="fas fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 <!-- blog area end -->
 <!-- testimonial area -->
 <div class="testimonial-area bg pt-80 pb-80">
@@ -878,44 +851,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal2" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Testimonial - Pramod Kumar Seth</h5><button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent. The teachers are good, and the front office service is quick and efficient. Rachana, Ma’am is polite and cooperative. A great place for a child’s dynamic growth.
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal3" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Testimonial - Aryaj Singh</h5><button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch education in a nurturing and supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction smooth and positive.
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal4" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Testimonial</h5><button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                This is one of those rare schools where a student not only unlocks his or her potential to stand on their own feet, but also becomes a better human being in the process.
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 @push('scripts')

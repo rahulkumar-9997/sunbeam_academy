@@ -81,6 +81,18 @@
                      </ul>
                   </li>
 
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-brand-appgallery fs-16 me-2"></i>
+                        <span>Manage Gallery</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-album.index') }}">Album</a></li>
+                        <li><a href="{{ route('manage-gallery.index') }}">Gallery</a></li>
+                     </ul>
+                  </li>
+
                   
 
                </ul>

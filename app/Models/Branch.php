@@ -46,4 +46,12 @@ class Branch extends Model
     {
         return $this->belongsToMany(ClassModel::class, 'classes_branche', 'branches_id', 'classes_id');
     }
+    
+    /*If you also want to define the inverse relationship in Branch:*/
+    
+    public function albums()
+    {
+        return $this->belongsToMany(Album::class, 'album_branches', 'branch_id', 'album_id');
+    }
+    
 }
