@@ -16,7 +16,18 @@ use App\Models\Gallery;
 class GalleryController extends Controller
 {
     public function index(){
-        $albumList = Album::orderBy('id', 'desc')->get();
+        $galleries = Gallery::select('galleries.*')
+        ->with([
+            'album' => function($query) {
+                $query->select('id', 'title', 'image');
+            },
+            'album.branches' => function($query) {
+                $query->select('branches.id', 'branches.name');
+            }
+        ])
+        ->orderBy('sort_order')
+        ->paginate(20);
+        //return response()->json($galleries);   
         return view('backend.pages.gallery.index', compact('albumList'));
     }
 
