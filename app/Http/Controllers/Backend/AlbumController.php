@@ -101,7 +101,7 @@ class AlbumController extends Controller
             'album_title' => 'required|string|max:255|unique:albums,title',
             'branches' => 'required|array',
             'branches.*' => 'exists:branches,id',            
-            'album_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'album_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10240',
             'short_content' => 'nullable|string',
         ]);
         DB::beginTransaction();
@@ -248,7 +248,7 @@ class AlbumController extends Controller
             'album_title' => 'required|string|max:255|unique:albums,title,'.$id,
             'branches' => 'required|array',
             'branches.*' => 'exists:branches,id',            
-            'album_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'album_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10240',
             'short_content' => 'nullable|string',
         ]);
         DB::beginTransaction();

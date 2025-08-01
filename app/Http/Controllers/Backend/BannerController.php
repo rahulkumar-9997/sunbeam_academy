@@ -83,8 +83,8 @@ class BannerController extends Controller
             'banner_title' => 'required|string|max:255',
             'banner_sub_title' => 'required|string|max:255',
             'short_content' => 'nullable|string',
-            'desktop_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'desktop_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
+            'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
             'about_more_link' => 'nullable|url',
         ]);
 

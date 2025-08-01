@@ -90,7 +90,7 @@
                         <div class="notice-icon">
                             <i class="fas fa-scroll"></i>
                         </div>
-                        <h3>Latest Announcements</h3>
+                        <h3>Latest Notice</h3>
                         <div class="notice-controls">
                             <button class="notice-pause"><i class="fas fa-pause"></i></button>
                         </div>

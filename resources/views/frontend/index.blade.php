@@ -5,38 +5,38 @@
 @section('main-content')
 @include('frontend.layouts.banner-top')
 @if (!empty($data['branches']) && $data['branches']->count() > 0)
-    <div class="feature-area home-feature fa-negative home-branches">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="feature-wrapper">
-                        <div class="row">
-                            @foreach ($data['branches'] as $branch)
-                                <div class="col-lg-3">
-                                    <div class="feature-item">
-                                        <a href="{{ url('branches/' . $branch->slug) }}">
-                                            <div class="branch-feature">
-                                                <h3>
-                                                    {{ $branch->name }}
-                                                </h3>
-                                            </div>
-                                            <div class="feature-content">
-                                                <!-- <p>
+<div class="feature-area home-feature fa-negative home-branches">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-xl-12 col-lg-12">
+                <div class="feature-wrapper">
+                    <div class="row">
+                        @foreach ($data['branches'] as $branch)
+                        <div class="col-lg-3">
+                            <div class="feature-item">
+                                <a href="{{ url('branches/' . $branch->slug) }}">
+                                    <div class="branch-feature">
+                                        <h3>
+                                            {{ $branch->name }}
+                                        </h3>
+                                    </div>
+                                    <div class="feature-content">
+                                        <!-- <p>
                                                 {!! Str::words(strip_tags($branch->description), 14, '...') !!}
                                                 </p> -->
-                                                <p>
-                                                     +91 {{ $branch->phone_1 }}
-                                                </p>
-                                                <p>
-                                                    {{ $branch->email_1 }}
-                                                </p>
-                                            </div>
-                                        </a>
+                                        <p>
+                                            +91 {{ $branch->phone_1 }}
+                                        </p>
+                                        <p>
+                                            {{ $branch->email_1 }}
+                                        </p>
                                     </div>
-                                </div>
-                            @endforeach
-                            
-                            <!-- <div class="col-xl-20">
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
+
+                        <!-- <div class="col-xl-20">
                                 <div class="feature-item">
                                 
                                     <div class="branch-feature">
@@ -61,12 +61,12 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endif
 <!-- feature area end -->
 <!-- about area -->
@@ -236,7 +236,7 @@
                             @endif
                         </div>
                         <div class="course-content">
-                            <h4 class="course-title">                                
+                            <h4 class="course-title">
                                 {{ $class->title }}
                             </h4>
                             <p class="course-text">
@@ -461,6 +461,7 @@
 </div>
 <!-- choose-area end -->
 <!-- gallery-area -->
+@if (!empty($data['album']) && $data['album']->count() > 0)
 <div class="gallery-area py-120">
     <div class="container">
         <div class="row">
@@ -474,110 +475,53 @@
                 </div>
             </div>
         </div>
-        <div class="row popup-gallery">
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-1.jpg')}}" alt="img">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-1.jpg')}}">
-                            <i class="fal fa-plus"></i>
-                        </a>
-                    </div>
+        <div class="row popup-gallery display-gallery-data-by-ajax">
+            @foreach($data['album'] as $index => $item)
+            @php
+            $delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
+            @endphp
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
+                <div class="gallery-item home-album-item">
+                    <a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
+                        @if($item->image)
+                        <div class="gallery-img">
+                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid">
+                        </div>
+                        <div class="gal-album-title text-center">
+                            <h5>{{ $item->title }}</h5>
+                        </div>
+                        {{-- If no album image, check for gallery images --}}
+                        @elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
+                        <div class="gallery-img">
+                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid">
+                        </div>
+                        <div class="gal-album-title text-center">
+                            <h5>{{ $item->title }}</h5>
+                        </div>
+                        @else
+                        <div class="gallery-img">
+                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid">
+                        </div>
+                        <div class="gal-album-title text-center">
+                            <h5>{{ $item->title }}</h5>
+                        </div>
+                        @endif
+                        {{-- Show photo count if available --}}
+                        <!-- @if($item->galleries->count() > 0)
+                        <div class="gallery-content-count">
+                            <span class="badge bg-primary">
+                                {{ $item->galleries->count() }} {{ ($item->galleries->count() > 1) ? 'photos' : 'photo' }}
+                            </span>
+                        </div>
+                        @endif -->
+                    </a>
                 </div>
             </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-2.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-2.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".50s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-3.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-3.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-4.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-4.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-5.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-5.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-6.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-6.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-7.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-7.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-8.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-8.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-                <div class="gallery-item">
-                    <div class="gallery-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/gallery/gallery-9.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-content">
-                        <a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/gallery/gallery-9.jpg')}}"><i
-                                class="fal fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+@endif
 <!-- gallery-area end -->
 <!-- enroll area-->
 <div class="enroll-area pt-80 pb-80">
@@ -684,58 +628,58 @@
 <!-- enroll area end -->
 <!-- blog area -->
 @if (!empty($data['blog']) && $data['blog']->count() > 0)
-    <div class="blog-area home-blog py-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="site-heading text-center">
-                        <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
-                        <h2 class="site-title">Sunbeam Updates & <span>Highlights</span></h2>
-                        <p>Your one-stop corner for everything new and exciting at our school.</p>
-                    </div>
+<div class="blog-area home-blog py-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Our Blog</span>
+                    <h2 class="site-title">Sunbeam Updates & <span>Highlights</span></h2>
+                    <p>Your one-stop corner for everything new and exciting at our school.</p>
                 </div>
             </div>
-            <div class="row">
-                @foreach($data['blog'] as $index => $item)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-item wow fadeInUp" data-wow-delay=".{{ ($index + 1) * 25 }}s">
-                            @if($item->created_at)
-                                <div class="blog-date">
-                                    <i class="fal fa-calendar-alt"></i>
-                                    {{ \Carbon\Carbon::parse($item->created_at)->format('F d, Y') }}
-                                </div>
-                            @endif
-
-                            <div class="blog-item-img">
-                                <a href="{{ route('blog.details', $item->slug) }}">
-                                    <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}">
-                                </a>
-                            </div>
-                            <div class="blog-item-info">
-                                <h4 class="blog-title">
-                                    <a href="{{ route('blog.details', $item->slug) }}">
-                                        {{ $item->title }}
-                                    </a>
-                                </h4>
-                                <a class="theme-btn" href="{{ route('blog.details', $item->slug) }}">
-                                    Read More
-                                    <i class="fas fa-arrow-right-long"></i>
-                                </a>
-                            </div>
-                        </div>
+        </div>
+        <div class="row">
+            @foreach($data['blog'] as $index => $item)
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item wow fadeInUp" data-wow-delay=".{{ ($index + 1) * 25 }}s">
+                    @if($item->created_at)
+                    <div class="blog-date">
+                        <i class="fal fa-calendar-alt"></i>
+                        {{ \Carbon\Carbon::parse($item->created_at)->format('F d, Y') }}
                     </div>
-                @endforeach
-                <div class="col-md-12 col-lg-12">
-                    <div class="text-center">
-                        <a href="{{ route('blog') }}" class="theme-btn mt-2">View All Blogs
+                    @endif
+
+                    <div class="blog-item-img">
+                        <a href="{{ route('blog.details', $item->slug) }}">
+                            <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}">
+                        </a>
+                    </div>
+                    <div class="blog-item-info">
+                        <h4 class="blog-title">
+                            <a href="{{ route('blog.details', $item->slug) }}">
+                                {{ $item->title }}
+                            </a>
+                        </h4>
+                        <a class="theme-btn" href="{{ route('blog.details', $item->slug) }}">
+                            Read More
                             <i class="fas fa-arrow-right-long"></i>
                         </a>
                     </div>
                 </div>
-
             </div>
+            @endforeach
+            <div class="col-md-12 col-lg-12">
+                <div class="text-center">
+                    <a href="{{ route('blog') }}" class="theme-btn mt-2">View All Blogs
+                        <i class="fas fa-arrow-right-long"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 @endif
 <!-- blog area end -->
 <!-- testimonial area -->
@@ -854,6 +798,7 @@
 @endsection
 
 @push('scripts')
+<script src="{{asset('fronted/assets/js/pages/gallery-ajax.js')}}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const noticeList = document.querySelector('.notice-list');
@@ -884,5 +829,21 @@
             }
         }, 60000);
     });
+
+    // $(document).on('click', '.home-album-ajax', function(event) {
+    //     event.preventDefault();
+    //     var thisData = $(this);
+    //     var url = thisData.attr('href');        
+    //     $.ajax({
+    //         url: url,
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             if(response.status === 'success') {
+    //                 $('.display-gallery-data-by-ajax').html(response.galleryListData);
+    //             }
+    //         }
+    //     });
+    // });
 </script>
 @endpush

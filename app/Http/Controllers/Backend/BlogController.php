@@ -35,14 +35,14 @@ class BlogController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'title' => 'required|string|max:255',
-                'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'main_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
                 'branches' => 'required|array|min:1',
                 'branches.*' => 'exists:branches,id',
                 'description' => 'required|string',
                 'status' => 'boolean',
                 'paragraphs_title' => 'nullable|array|min:1',
                 'paragraphs_title.*' => 'nullable|string|max:255',
-                'paragraphs_image_file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'paragraphs_image_file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
                 'paragraphs_description.*' => 'nullable|string',
             ], [
                 'branches.required' => 'Please select at least one branch',
@@ -147,14 +147,14 @@ class BlogController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'title' => 'required|string|max:255',
-                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
                 'branches' => 'required|array|min:1',
                 'branches.*' => 'exists:branches,id',
                 'description' => 'required|string',
                 'status' => 'boolean',
                 'paragraphs_title' => 'nullable|array|min:1',
                 'paragraphs_title.*' => 'nullable|string|max:255',
-                'paragraphs_image_file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'paragraphs_image_file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:6144',
                 'paragraphs_description.*' => 'nullable|string',
             ], [
                 'branches.required' => 'Please select at least one branch',

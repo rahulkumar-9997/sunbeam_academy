@@ -52,11 +52,12 @@
                   <li class="submenu">
                      <a href="javascript:void(0);">
                         <i class="ti ti-files fs-16 me-2"></i>
-                        <span>Notice Board</span>
+                        <span>Notice Board & Announcements</span>
                         <span class="menu-arrow"></span>
                      </a>
                      <ul>
                         <li><a href="{{ route('manage-notice-board') }}">Notice</a></li>
+                        <li><a href="{{ route('manage-announcement.index') }}">Announcements</a></li>
                      </ul>
                   </li>
                   <li class="submenu">

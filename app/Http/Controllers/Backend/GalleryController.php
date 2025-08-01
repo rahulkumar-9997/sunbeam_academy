@@ -27,8 +27,8 @@ class GalleryController extends Controller
         ])
         ->orderBy('sort_order')
         ->paginate(20);
-        return response()->json($galleries);   
-        return view('backend.pages.gallery.index', compact('albumList'));
+        //return response()->json($galleries);   
+        return view('backend.pages.gallery.index', compact('galleries'));
     }
 
     public function create(){
@@ -41,7 +41,7 @@ class GalleryController extends Controller
         $request->validate([
             'album' => 'required|exists:albums,id',
             'gallery_image' => 'required|array|max:20',
-            'gallery_image.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+            'gallery_image.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:10240'
         ], [
             'gallery_image.max' => 'You can upload maximum 20 images at once',
             'gallery_image.required' => 'Please select at least one image',
@@ -84,6 +84,65 @@ class GalleryController extends Controller
                 }
             }
             return back()->withInput()->with('error', 'Failed to upload gallery: ' . $e->getMessage());
+        }
+    }
+
+    public function edit($id){
+        $albumList = Album::orderBy('id', 'desc')->get();
+        $galleryRow = Gallery::findOrFail($id); 
+        //return response()->json($albumList);      
+        return view('backend.pages.gallery.edit', compact('albumList', 'galleryRow'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'album' => 'required|exists:albums,id',
+            'gallery_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10240',
+        ]);
+        DB::beginTransaction();
+        try {
+            $gallery = Gallery::findOrFail($id);
+            $imageName = $gallery->image_file;
+            if ($request->hasFile('gallery_image')) {
+                $destinationPath = public_path('upload/album/gallery');
+                if ($imageName && File::exists($destinationPath.'/'.$imageName)) {
+                    File::delete($destinationPath.'/'.$imageName);
+                }
+                $album = Album::find($request->album);
+                $safeTitle = Str::slug($album->title ?? 'gallery');
+                $uniqueTimestamp = round(microtime(true) * 1000);
+                $imageName = $safeTitle.'-'.$uniqueTimestamp.'.webp';                
+                $image = Image::make($request->file('gallery_image'));
+                $image->encode('webp', 75);
+                $image->save($destinationPath.'/'.$imageName);
+            }
+            $gallery->update([
+                'album_id' => $request->album,
+                'image_file' => $imageName,
+            ]);
+            DB::commit();
+            return redirect()->route('manage-gallery.index')->with('success', 'Gallery image updated successfully!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withInput()->with('error', 'Failed to update gallery: '.$e->getMessage());
+        }
+    }
+
+    public function destroy($id){
+        DB::beginTransaction();
+        try {
+            $gallery = Gallery::findOrFail($id);
+            $imagePath = public_path('upload/album/gallery/'.$gallery->image_file);
+            if ($gallery->image_file && File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $gallery->delete();            
+            DB::commit();            
+            return redirect()->route('manage-gallery.index')->with('success', 'Gallery image deleted successfully!');
+            
+        } catch (\Exception $e) {
+            DB::rollBack();            
+            return back()->withInput()->with('error', 'Failed to delete gallery: '.$e->getMessage());
         }
     }
 }

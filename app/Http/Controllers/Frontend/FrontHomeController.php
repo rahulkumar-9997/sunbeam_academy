@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Frontend;
+
 use Illuminate\Http\Request;
 use App\Mail\BranchEnquiryMail;
 use Illuminate\Support\Facades\Mail;
@@ -16,10 +18,13 @@ use App\Models\Branch;
 use App\Models\BranchEnquiry;
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\Album;
+use App\Models\Gallery;
 
 class FrontHomeController extends Controller
 {
-    public function home(){
+    public function home()
+    {
         $today = Carbon::today()->toDateString();
         $data['notices'] = NoticeBoard::where('status', 1)
             ->where('start_date', '<=', $today)
@@ -48,36 +53,54 @@ class FrontHomeController extends Controller
             ->inRandomOrder()
             ->limit(3)
             ->get();
-        //return response()->json($data['blog']);
-	    return view('frontend.index', compact('data'));
+
+        $data['album'] = Album::whereHas('galleries', function ($query) {
+            $query->whereNotNull('image_file');
+        })
+            ->with([
+                'branches',
+                'galleries' => function ($query) {
+                    $query->whereNotNull('image_file')
+                        ->orderBy('sort_order');
+                }
+            ])
+            ->where('status', 1)
+            ->inRandomOrder()
+            ->limit(9)
+            ->get();
+        //return response()->json($data['album']);
+        return view('frontend.index', compact('data'));
     }
-    
+
     public function aboutUs()
     {
         return view('frontend.pages.about.about-us');
     }
 
-    public function blogList(){
+    public function blogList()
+    {
         $data['blog'] = Blog::select('id', 'title', 'slug', 'main_image', 'created_at')
             ->with(['branchNames'])
             ->where('status', 1)
             ->orderBy('id', 'desc')
             ->paginate(15);
         //return response()->json($data['blog']);
-	    return view('frontend.pages.blogs.blog-list', compact('data'));
+        return view('frontend.pages.blogs.blog-list', compact('data'));
     }
 
-    public function blogDetails($slug) {
+    public function blogDetails($slug)
+    {
         $blog = Blog::select('id', 'title', 'slug', 'description', 'main_image', 'created_at')
             ->with(['paragraphs', 'branchNames'])
             ->where('status', 1)
             ->where('slug', $slug)
             ->firstOrFail();
         //return response()->json($blog);
-	    return view('frontend.pages.blogs.blog-details', compact('blog'));
+        return view('frontend.pages.blogs.blog-details', compact('blog'));
     }
 
-    public function sunbeamAcademySamneghat (){
+    public function sunbeamAcademySamneghat()
+    {
         try {
             $branch = Branch::where('slug', 'sunbeam-academy-samneghat')->firstOrFail();
             return view('frontend.pages.branches.sunbeam-academy-samneghat', compact('branch'));
@@ -87,7 +110,8 @@ class FrontHomeController extends Controller
         }
     }
 
-    public function sunbeamAcademyDurgakund (){
+    public function sunbeamAcademyDurgakund()
+    {
         try {
             $branch = Branch::where('slug', 'sunbeam-academy-durgakund')->firstOrFail();
             return view('frontend.pages.branches.sunbeam-academy-durgakund', compact('branch'));
@@ -97,7 +121,8 @@ class FrontHomeController extends Controller
         }
     }
 
-    public function sunbeamAcademySarainandan (){
+    public function sunbeamAcademySarainandan()
+    {
         try {
             $branch = Branch::where('slug', 'sunbeam-academy-sarainandan')->firstOrFail();
             return view('frontend.pages.branches.sunbeam-academy-sarainandan', compact('branch'));
@@ -107,7 +132,8 @@ class FrontHomeController extends Controller
         }
     }
 
-    public function sunbeamAcademyKnowledgePark (){
+    public function sunbeamAcademyKnowledgePark()
+    {
         try {
             $branch = Branch::where('slug', 'sunbeam-academy-knowledge-park')->firstOrFail();
             return view('frontend.pages.branches.sunbeam-academy-knowledge-park', compact('branch'));
@@ -117,7 +143,8 @@ class FrontHomeController extends Controller
         }
     }
 
-    public function branchEnquirySubmitForm(Request $request){
+    public function branchEnquirySubmitForm(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'branch_name' => 'required|string|max:255',
             'enquiry_name' => 'required|string|max:255',
@@ -141,13 +168,13 @@ class FrontHomeController extends Controller
             'phone' => $validated['enquiry_phone'] ?? null,
             'message' => $validated['enquiry_message'] ?? null,
         ];
-        
+
         $branchEnquiry = BranchEnquiry::create($data);
         try {
             Mail::to('info@sunbeamacademy.com')->send(new BranchEnquiryMail($data));
         } catch (\Exception $e) {
-            Log::error('Failed to send enquiry email: '.$e->getMessage());
-        }        
+            Log::error('Failed to send enquiry email: ' . $e->getMessage());
+        }
         return response()->json([
             'status' => 'success',
             'message' => 'Your enquiry form submitted successfully. Our team will contact you soon.',
@@ -178,18 +205,18 @@ class FrontHomeController extends Controller
     {
         return view('frontend.pages.academics.day-bording-in-house-coaching');
     }
-    
+
 
     public function bookAtour()
     {
         return view('frontend.pages.admissions.book-a-tour');
     }
-    
+
     public function feeStructure()
     {
         return view('frontend.pages.admissions.fee-structure');
     }
-    
+
     public function rulesAndRegulations()
     {
         return view('frontend.pages.admissions.rules-and-regulations');
@@ -270,7 +297,8 @@ class FrontHomeController extends Controller
         return view('frontend.pages.contact-us');
     }
 
-    public function clearCache() {
+    public function clearCache()
+    {
         try {
             Artisan::call('optimize:clear');
             return back()->with('success', 'All caches have been cleared successfully.');
@@ -279,14 +307,6 @@ class FrontHomeController extends Controller
             return back()->with('error', 'Failed to clear caches. Please try again.');
         }
     }
-    
-
-
-
-
-
-
-
 
     public function foundersMessage()
     {
@@ -303,7 +323,8 @@ class FrontHomeController extends Controller
         return view('frontend.pages.about.deputy-director-message');
     }
 
-    public function noticeList(){
+    public function noticeList()
+    {
         $today = Carbon::today()->toDateString();
         $data['notices'] = NoticeBoard::where('status', 1)
             ->where('start_date', '<=', $today)
@@ -312,42 +333,126 @@ class FrontHomeController extends Controller
             ->select('title', 'slug', 'notice_type', 'created_at')
             ->get();
         //return response()->json($notices);
-	    return view('frontend.pages.notice-board.index', compact('data'));
+        return view('frontend.pages.notice-board.index', compact('data'));
     }
 
-    public function noticeDetails(Request $request, $slug){
+    public function noticeDetails(Request $request, $slug)
+    {
         $today = Carbon::today()->toDateString();
         $notice = NoticeBoard::where('status', 1)
             ->where('slug', $slug)
             ->firstOrFail();
         //return response()->json($data['notices']);
-	    return view('frontend.pages.notice-board.show', compact('notice'));
+        return view('frontend.pages.notice-board.show', compact('notice'));
     }
 
-    public function classesList(Request $request){
+    public function classesList(Request $request)
+    {
         $data['classes'] = ClassModel::with(['branches'])
             ->where('status', 1)
             ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
             ->latest()
             ->get();
-	    return view('frontend.pages.classes.index', compact('data'));
+        return view('frontend.pages.classes.index', compact('data'));
     }
 
-    public function classesDetails(Request $request, $slug){
+    public function classesDetails(Request $request, $slug)
+    {
         $classes = ClassModel::with(['branches'])
             ->where('status', 1)
             ->where('slug', $slug)
             ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
             ->firstOrFail();
-	    return view('frontend.pages.classes.show', compact('classes'));
+        return view('frontend.pages.classes.show', compact('classes'));
     }
-    
-    
-    
 
-   
-    
+    /*public function albumHomeAjax(Request $request, $id)
+    {
+        try {
+            $album = Album::findOrFail($id);       
+            $galleriesList = Gallery::select('galleries.*')
+                ->with([
+                    'album' => function($query) {
+                        $query->select('id', 'title', 'image');
+                    },
+                    'album.branches' => function($query) {
+                        $query->select('branches.id', 'branches.name');
+                    }
+                ])
+                ->where('album_id', $id)
+                ->orderBy('sort_order')
+                ->get();
+            if ($request->query('action') === 'frontend_data') {
+                $response = [
+                    'status' => 'success',
+                    'message' => 'Album created successfully!',
+                    'galleryListData' => view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList', 'album'))->render()
+                ];
+                return response()->json($response);
+            }
+            return view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList'));
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to load album: ' . $e->getMessage(),
+                'errors' => ['server' => ['Error processing request']]
+            ], 500);
+        }
+    } */
+    public function albumHomeAjax(Request $request, $id)
+    {
+        try {
+            if (!is_numeric($id)) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid album ID',
+                ], 400);
+            }
+            $album = Album::find($id);
+            if (!$album) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Album not found',
+                ], 404);
+            }
+            $galleriesList = Gallery::select('galleries.*')
+                ->with([
+                    'album' => function ($query) {
+                        $query->select('id', 'title', 'image');
+                    },
+                    'album.branches' => function ($query) {
+                        $query->select('branches.id', 'branches.name');
+                    }
+                ])
+                ->where('album_id', $id)
+                ->orderBy('sort_order')
+                ->get();
 
-    
-    
+            if ($request->query('action') === 'frontend_data') {
+                if ($galleriesList->isEmpty()) {
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => 'Album has no photos',
+                        'galleryListData' => view('frontend.pages.partials.ajax-home-album-empty', compact('album'))->render()
+                    ]);
+                }
+
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Album loaded successfully',
+                    'galleryListData' => view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList', 'album'))->render()
+                ]);
+            }
+
+            return view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList'));
+        } catch (\Exception $e) {
+            Log::error('Album load error: ' . $e->getMessage());
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to load album',
+                'errors' => ['server' => ['Error processing request']]
+            ], 500);
+        }
+    }
 }

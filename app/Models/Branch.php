@@ -53,5 +53,10 @@ class Branch extends Model
     {
         return $this->belongsToMany(Album::class, 'album_branches', 'branch_id', 'album_id');
     }
+    /**This relationship to  announcements*/
+    public function announcements()
+    {
+        return $this->belongsToMany(Announcement::class, 'announcements_branch', 'branch_id', 'announcement_id');
+    }
     
 }

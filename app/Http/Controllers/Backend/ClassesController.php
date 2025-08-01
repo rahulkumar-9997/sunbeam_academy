@@ -30,7 +30,7 @@ class ClassesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'heading_name' => 'required|string|max:255',
-            'main_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'main_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:6144',
             'description' => 'required|string',
             'branches' => 'required|array',
             'branches.*' => 'exists:branches,id',
@@ -89,7 +89,7 @@ class ClassesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'heading_name' => 'required|string|max:255',
-            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'description' => 'required|string',
             'branches' => 'required|array',
             'branches.*' => 'exists:branches,id',

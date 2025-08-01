@@ -143,3 +143,8 @@
     </div>
 </div>
 @endif
+
+<div id="loader" class="loader-wrapper" style="display: none;">
+   <span class="site-loader"> </span>
+   <h3 class="loader-content"> Loading . . . </h3>
+</div>

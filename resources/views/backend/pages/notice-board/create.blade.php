@@ -59,8 +59,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="notice_date_range" class="form-label">Notice Date Range *</label>
-                        <input type="text" class="form-control @error('start_date') is-invalid @enderror"
-                            name="notice_date_range" id="notice_date_range">
+                        <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="notice_date_range" id="notice_date_range">
                         <input type="hidden" id="start_date" name="start_date" value="{{ old('start_date') }}">
                         <input type="hidden" id="end_date" name="end_date" value="{{ old('end_date') }}">
                         @error('start_date')
