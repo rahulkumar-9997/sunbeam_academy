@@ -74,27 +74,29 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <!-- <span class="site-title-tagline">Announcement</span>                     -->
                     <h2 class="site-title"><span>Announcement</span></h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="owl-carousel announcement-carousel">
-                    @foreach ($data['announcementList'] as $announcement)                     
-                        <div class="item">
-                            <div class="announcement-item">
-                                <div class="announcement-img">
-                                    <a href="{{ asset('upload/announcement/' . $announcement->image) }}" class="popup-img">
-                                        <img src="{{ asset('upload/announcement/' . $announcement->image) }}">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach                    
+        <div class="row justify-content-md-center">
+            @foreach ($data['announcementList'] as $announcement)
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="announcement-item h-100">
+                    <div class="announcement-img-container">
+                        <a href="{{ asset('upload/announcement/' . $announcement->image) }}" class="popup-img d-block">
+                            <img src="{{ asset('upload/announcement/' . $announcement->image) }}" 
+                                 alt="{{ $announcement->title }}" 
+                                 class="announcement-image img-fluid">
+                        </a>
+                    </div>
+                    <!-- @if($announcement->title)
+                    <div class="announcement-caption p-3">
+                        <h5 class="text-center">{{ $announcement->title }}</h5>
+                    </div>
+                    @endif -->
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -714,62 +716,61 @@
 <!-- blog area end -->
 <!-- testimonial area -->
 @if(!empty($data['testimonialsList']) && $data['testimonialsList']->count() > 0)
-    <div class="testimonial-area bg pt-80 pb-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="site-heading text-center">
-                        <span class="site-title-tagline">
-                            <i class="far fa-book-open-reader"></i>
-                            Hear From Our Community
-                        </span>
-                        <h2 class="site-title">What People <span>Say About Us</span></h2>
-                        <p>From everyday activities to special events.
-                            It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>
-                        </p>
+<div class="testimonial-area bg pt-80 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline">
+                        <i class="far fa-book-open-reader"></i>
+                        Hear From Our Community
+                    </span>
+                    <h2 class="site-title">What People <span>Say About Us</span></h2>
+                    <p>From everyday activities to special events.
+                        It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>
+                    </p>
 
-                    </div>
                 </div>
             </div>
-            <div class="testimonial-slider owl-carousel owl-theme">
-                @foreach($data['testimonialsList'] as $testimonial)
-                    <div class="testimonial-item">
-                        <div class="testimonial-rate">
-                            @for($i = 0; $i < 5; $i++)
-                                <i class="fas fa-star"></i>
-                            @endfor
-                        </div>
-                        <div class="testimonial-quote">
-                            <p>
-                                {{ \Illuminate\Support\Str::limit(strip_tags($testimonial->content), 180) }}
-                            </p>
-                            <a href="javascript: void(0);" 
-                            class="btn btn-link read-more-tes" 
-                            data-ajax-testimonials-popup="true"
-                            data-size="lg" 
-                            data-title="{{ $testimonial->title }}" 
-                            data-url="{{ route('ajax.testimonial', $testimonial->id) }}" 
-                            data-bs-toggle="tooltip" 
-                            >
-                                Read More
-                            </a>
-                        </div>
-                        <div class="testimonial-content">
-                            <div class="testimonial-author-img">
-                                <img src="{{ asset('upload/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->title }}">
-                            </div>
-                            <div class="testimonial-author-info">
-                                <h4>{{ $testimonial->title }}</h4>
-                                <p>{{ $testimonial->type ?? 'Student' }}</p>
-                            </div>
-                        </div>
-                        <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-                    </div>
-                @endforeach
-            </div>
-
         </div>
+        <div class="testimonial-slider owl-carousel owl-theme">
+            @foreach($data['testimonialsList'] as $testimonial)
+            <div class="testimonial-item">
+                <div class="testimonial-rate">
+                    @for($i = 0; $i < 5; $i++)
+                        <i class="fas fa-star"></i>
+                        @endfor
+                </div>
+                <div class="testimonial-quote">
+                    <p>
+                        {{ \Illuminate\Support\Str::limit(strip_tags($testimonial->content), 180) }}
+                    </p>
+                    <a href="javascript: void(0);"
+                        class="btn btn-link read-more-tes"
+                        data-ajax-testimonials-popup="true"
+                        data-size="lg"
+                        data-title="{{ $testimonial->title }}"
+                        data-url="{{ route('ajax.testimonial', $testimonial->id) }}"
+                        data-bs-toggle="tooltip">
+                        Read More
+                    </a>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author-img">
+                        <img src="{{ asset('upload/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->title }}">
+                    </div>
+                    <div class="testimonial-author-info">
+                        <h4>{{ $testimonial->title }}</h4>
+                        <p>{{ $testimonial->type ?? 'Student' }}</p>
+                    </div>
+                </div>
+                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+            </div>
+            @endforeach
+        </div>
+
     </div>
+</div>
 @endif
 @include('frontend.layouts.common-modal');
 @endsection
@@ -806,4 +807,4 @@
         }, 60000);
     });
 
-@endpush
+    @endpush

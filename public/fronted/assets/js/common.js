@@ -36,32 +36,29 @@ $(document).ready(function () {
         });
     });
     /*Announcement carousel */
-    $(".announcement-carousel").owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayHoverPause: true,
-        autoplayTimeout: 3000,
-        smartSpeed: 500,
-        fluidSpeed: 500,
-        dragEndSpeed: 500,
-        navText: [
-            "<i class='fas fa-chevron-left'></i>",
-            "<i class='fas fa-chevron-right'></i>"
-        ],
-        responsive: {
-            0: {
-                items: 1
-            },
-            768: {
-                items: 2
-            },
-            992: {
-                items: 3
+    $(".announcement-carousel").each(function() {
+        var itemCount = $(this).data('item-count');        
+        $(this).owlCarousel({
+            loop: itemCount > 1,
+            margin: 20,
+            nav: itemCount > 1,
+            dots: false,
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 3000,
+            smartSpeed: 500,
+            fluidSpeed: 500,
+            dragEndSpeed: 500,
+            navText: [
+                "<i class='fas fa-chevron-left'></i>",
+                "<i class='fas fa-chevron-right'></i>"
+            ],
+            responsive: {
+                0: { items: 1 },
+                768: { items: Math.min(2, itemCount) },
+                992: { items: Math.min(3, itemCount) }
             }
-        }
+        });
     });
     /*Announcement carousel */
     /*Testimonials*/

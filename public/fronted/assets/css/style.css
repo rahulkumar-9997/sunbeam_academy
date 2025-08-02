@@ -8029,6 +8029,35 @@ h4.blog-para-title{
   background: #f4f0f0;
 }
 
+.announcement-img-container {
+    /* height: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.announcement-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.announcement-item {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.announcement-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 /* .blog-de-img {
   position: relative;
   background-color: #ffffff;
