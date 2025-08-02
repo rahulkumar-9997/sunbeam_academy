@@ -33,9 +33,9 @@
                              </li>
                          </ul>
 					</div>
-					<!-- <div class="btn-area1" data-aos="fade-left" data-aos-duration="1100">
-						<a href="#" class="theme-btn">Visit Website<i class="fas fa-arrow-right-long"></i></a>
-					</div> -->
+					<div class="btn-area-branch mt-4" data-aos="fade-left" data-aos-duration="1100">
+						<a href="{{ route('disclosure.branch', ['branchSlug' => $branch->slug]) }}" class="theme-btn">View Disclosure<i class="fas fa-arrow-right-long"></i></a>
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">

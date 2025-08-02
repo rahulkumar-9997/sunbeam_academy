@@ -89,6 +89,8 @@ Route::get('blog/{slug}', [FrontHomeController::class, 'blogDetails'])->name('bl
 Route::get('album-home/{id}', [FrontHomeController::class, 'albumHomeAjax'])->name('album.home');
 Route::get('ajax-testimonial/{id}', [FrontHomeController::class, 'AjaxTestimonials'])->name('ajax.testimonial');
 
+Route::get('disclosure/{branchSlug}', [FrontHomeController::class, 'disclosureListBranchWise'])->name('disclosure.branch');
+
 Route::prefix('academics')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'academicsCurriculum'])->name('curriculum');
     Route::get('/school-levels', [FrontHomeController::class, 'schoolLevels'])->name('school-levels');
