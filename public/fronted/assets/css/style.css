@@ -538,6 +538,9 @@ label {
 .py-120 {
   padding: 120px 0;
 }
+.py-80 {
+  padding: 80px 0;
+}
 
 .pt-120 {
   padding-top: 120px;
@@ -1650,35 +1653,85 @@ label {
 
 .hero-section {
   position: relative;
+  overflow: hidden;
 }
 
 .hero-single {
-  padding-top: 150px;
+  /* padding-top: 150px;
   padding-bottom: 240px;
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   position: relative;
+  display: flex;
+  align-items: center;
   z-index: 1;
+  /* min-height: 550px; */
+}
+.hero-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.hero-image-container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(11, 28, 57, 0.41);
+    z-index: 1;
 }
 
-.hero-single::before {
+
+/* .hero-single .hero-image-container::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   left: -0.5px;
   top: 0;
-  /* background: rgba(11, 28, 57, .7); */
   background: rgba(11 28 57 / 41%);
   z-index: -1;
+} */
+
+/* .hero-single .hero-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  height: 100%;
+} */
+ .hero-image {
+    width: 100%;
+    /* object-fit: cover;
+    object-position: center; */
 }
 
-.hero-single .hero-content {
-  height: 100%;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* padding: 40px 0; */
+    /* position: absolute; */
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    margin: auto;
+    height: 100vh;
+}
+.hero-content-sub{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .hero-single .hero-content .hero-title {
@@ -7961,6 +8014,21 @@ h4.blog-para-title{
     padding: 0px 0 20px 0;
     text-align: center;
 }
+.announcement-area{
+  padding-bottom: 10;
+  padding-top: 20px;
+}
+.testimonial-content p{
+  text-align: justify;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1E2833;
+  font-weight: 400;
+}
+#commanModel .modal-content{
+  background: #f4f0f0;
+}
+
 /* .blog-de-img {
   position: relative;
   background-color: #ffffff;

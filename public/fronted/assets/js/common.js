@@ -35,6 +35,61 @@ $(document).ready(function () {
             }
         });
     });
+    /*Announcement carousel */
+    $(".announcement-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 500,
+        fluidSpeed: 500,
+        dragEndSpeed: 500,
+        navText: [
+            "<i class='fas fa-chevron-left'></i>",
+            "<i class='fas fa-chevron-right'></i>"
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            }
+        }
+    });
+    /*Announcement carousel */
+    /*Testimonials*/
+    $(document).on('click', 'a[data-ajax-testimonials-popup="true"]', function () {
+        var title = $(this).data('title');
+        var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
+        var url = $(this).data('url');
+        var data = {
+            size: size,
+            url: url
+        };
+        $("#commanModel .modal-title").html(title);
+        $("#commanModel .modal-dialog").addClass('modal-' + size);
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            success: function (data) {
+                $('#commanModel .render-data').html(data.modalContent);
+                $("#commanModel").modal('show');                
+            },
+            error: function (data) {
+                data = data.responseJSON;
+            }
+        });
+    });
+    /*Testimonials*/
  });
  
 /* Function to show toast notifications (using Bootstrap 5 Toast) */

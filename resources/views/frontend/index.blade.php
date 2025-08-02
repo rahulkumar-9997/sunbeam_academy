@@ -68,9 +68,39 @@
     </div>
 </div>
 @endif
-<!-- feature area end -->
+@if (!empty($data['announcementList']) && $data['announcementList']->count() > 0)
+<div class="announcement-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <!-- <span class="site-title-tagline">Announcement</span>                     -->
+                    <h2 class="site-title"><span>Announcement</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel announcement-carousel">
+                    @foreach ($data['announcementList'] as $announcement)                     
+                        <div class="item">
+                            <div class="announcement-item">
+                                <div class="announcement-img">
+                                    <a href="{{ asset('upload/announcement/' . $announcement->image) }}" class="popup-img">
+                                        <img src="{{ asset('upload/announcement/' . $announcement->image) }}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 <!-- about area -->
-<div class="about-area py-120">
+<div class="about-area py-80">
     <div class="container">
         <div class="row g-4 align-items-center">
             <div class="col-lg-6">
@@ -683,120 +713,66 @@
 @endif
 <!-- blog area end -->
 <!-- testimonial area -->
-<div class="testimonial-area bg pt-80 pb-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">
-                <div class="site-heading text-center">
-                    <span class="site-title-tagline">
-                        <i class="far fa-book-open-reader"></i>
-                        Hear From Our Community
-                    </span>
-                    <h2 class="site-title">What People <span>Say About Us</span></h2>
-                    <p>From everyday activities to special events.
-                        It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>
-                    </p>
+@if(!empty($data['testimonialsList']) && $data['testimonialsList']->count() > 0)
+    <div class="testimonial-area bg pt-80 pb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="site-heading text-center">
+                        <span class="site-title-tagline">
+                            <i class="far fa-book-open-reader"></i>
+                            Hear From Our Community
+                        </span>
+                        <h2 class="site-title">What People <span>Say About Us</span></h2>
+                        <p>From everyday activities to special events.
+                            It is a long established fact that visuals speak louder than words and offer a deeper connection to our journey.</p>
+                        </p>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="testimonial-slider owl-carousel owl-theme">
-            <div class="testimonial-item">
-                <div class="testimonial-rate">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-quote">
-                    <p>
-                        Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of ...
-                    </p>
-                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal1">Read More</a>
-                </div>
-                <div class="testimonial-content">
-                    <div class="testimonial-author-img">
-                        <img src="{{asset('fronted/assets/img/testimonial/02.jpg')}}" alt="">
+            <div class="testimonial-slider owl-carousel owl-theme">
+                @foreach($data['testimonialsList'] as $testimonial)
+                    <div class="testimonial-item">
+                        <div class="testimonial-rate">
+                            @for($i = 0; $i < 5; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>
+                                {{ \Illuminate\Support\Str::limit(strip_tags($testimonial->content), 180) }}
+                            </p>
+                            <a href="javascript: void(0);" 
+                            class="btn btn-link read-more-tes" 
+                            data-ajax-testimonials-popup="true"
+                            data-size="lg" 
+                            data-title="{{ $testimonial->title }}" 
+                            data-url="{{ route('ajax.testimonial', $testimonial->id) }}" 
+                            data-bs-toggle="tooltip" 
+                            >
+                                Read More
+                            </a>
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-author-img">
+                                <img src="{{ asset('upload/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->title }}">
+                            </div>
+                            <div class="testimonial-author-info">
+                                <h4>{{ $testimonial->title }}</h4>
+                                <p>{{ $testimonial->type ?? 'Student' }}</p>
+                            </div>
+                        </div>
+                        <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
                     </div>
-                    <div class="testimonial-author-info">
-                        <h4>Sumit</h4>
-                        <p>Student</p>
-                    </div>
-                </div>
-                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-rate">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-quote">
-                    <p>
-                        One of the most trusted schools in Varanasi. My nephew, Bhavy Seth (V-B), is studying here. The facilities, transport, security, and infrastructure are excellent.
-                    </p>
-                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal2">Read More</a>
-                </div>
-                <div class="testimonial-content">
-                    <div class="testimonial-author-img">
-                        <img src="{{asset('fronted/assets/img/testimonial/03.jpg')}}" alt="">
-                    </div>
-                    <div class="testimonial-author-info">
-                        <h4>Pramod kumar Seth
-                        </h4>
-                        <p>Student</p>
-                    </div>
-                </div>
-                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-rate">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="testimonial-quote">
-                    <p>
-                        I am truly impressed with this school and the positive impact it has had on the children. It’s clear that the school is committed to providing top-notch...
-                    </p>
-                    <a href="javascript: void(0);" class="btn btn-link read-more-tes" data-bs-toggle="modal" data-bs-target="#modal3">Read More</a>
-                </div>
-                <div class="testimonial-content">
-                    <div class="testimonial-author-img">
-                        <img src="{{asset('fronted/assets/img/testimonial/04.jpg')}}" alt="">
-                    </div>
-                    <div class="testimonial-author-info">
-                        <h4>Aryaj singh</h4>
-                        <p>Student</p>
-                    </div>
-                </div>
-                <span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+                @endforeach
             </div>
 
         </div>
     </div>
-</div>
-<!-- testimonial area end -->
-<div class="modal fade" id="modal1" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Testimonial - Sumit</h5><button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                Every dream gets wings at this school. Every talent is nurtured and given a platform. It’s the best school, with a perfect combination of academics and co-curricular activities. Strict discipline is maintained. I had a great experience in a supportive environment. A special mention to Rachana Ma’am at the front desk—her quick problem resolution and excellent service have made every interaction a positive one.
-            </div>
-        </div>
-    </div>
-</div>
-
+@endif
+@include('frontend.layouts.common-modal');
 @endsection
-
 @push('scripts')
 <script src="{{asset('fronted/assets/js/pages/gallery-ajax.js')}}"></script>
 <script>
@@ -830,20 +806,4 @@
         }, 60000);
     });
 
-    // $(document).on('click', '.home-album-ajax', function(event) {
-    //     event.preventDefault();
-    //     var thisData = $(this);
-    //     var url = thisData.attr('href');        
-    //     $.ajax({
-    //         url: url,
-    //         type: 'GET',
-    //         dataType: 'json',
-    //         success: function(response) {
-    //             if(response.status === 'success') {
-    //                 $('.display-gallery-data-by-ajax').html(response.galleryListData);
-    //             }
-    //         }
-    //     });
-    // });
-</script>
 @endpush

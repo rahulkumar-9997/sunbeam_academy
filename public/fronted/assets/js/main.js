@@ -56,7 +56,10 @@ Version         : 1.0
         margin: 0,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplayTimeout: 5000,
+        autoplayTimeout: 3000,
+        smartSpeed: 500,
+        fluidSpeed: 500,
+        dragEndSpeed: 500,
         items: 1,
         navText: [
             "<i class='far fa-long-arrow-left'></i>",

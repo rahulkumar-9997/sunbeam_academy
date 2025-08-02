@@ -73,6 +73,11 @@
                                 <td>
                                     <div class="edit-delete-action d-flex gap-2">
                                         <a
+                                            href="{{ route('manage-disclosure.index', ['branch_id' => $branch->id]) }}"
+                                            class="btn btn-sm btn-pink">
+                                            <i class="ti ti-file"></i> Manage Disclosure
+                                        </a>
+                                        <a
                                             href="{{ route('manage-gallery.index', ['branch_id' => $branch->id]) }}"
                                             class="btn btn-sm btn-purple">
                                             <i class="ti ti-file"></i> Manage Gallery

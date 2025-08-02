@@ -58,5 +58,17 @@ class Branch extends Model
     {
         return $this->belongsToMany(Announcement::class, 'announcements_branch', 'branch_id', 'announcement_id');
     }
+    /* This relationship to  Disclosures*/
+    public function disclosures()
+    {
+        return $this->belongsToMany(Disclosure::class, 'disclosure_branch');
+    }
+
+    /* This relationship to  Testimonials*/
+    public function testimonials()
+    {
+        return $this->belongsToMany(Testimonial::class, 'testimonials_branch', 'branch_id', 'testimonials_id');
+    }
+
     
 }

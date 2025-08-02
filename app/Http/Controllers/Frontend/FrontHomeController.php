@@ -20,6 +20,8 @@ use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Album;
 use App\Models\Gallery;
+use App\Models\Announcement;
+use App\Models\Testimonial;
 
 class FrontHomeController extends Controller
 {
@@ -68,7 +70,17 @@ class FrontHomeController extends Controller
             ->inRandomOrder()
             ->limit(9)
             ->get();
-        //return response()->json($data['album']);
+        $data['announcementList'] = Announcement::with('branches')
+            ->where('status', 1)
+            ->take(6)
+            ->get();
+
+        $data['testimonialsList'] = Testimonial::with(['branches:id,name'])
+            ->where('status', 1)
+            ->take(8)
+            ->get(['id', 'title', 'slug', 'type', 'image', 'content']);
+
+        //return response()->json($data['testimonialsList']);
         return view('frontend.index', compact('data'));
     }
 
@@ -366,39 +378,7 @@ class FrontHomeController extends Controller
         return view('frontend.pages.classes.show', compact('classes'));
     }
 
-    /*public function albumHomeAjax(Request $request, $id)
-    {
-        try {
-            $album = Album::findOrFail($id);       
-            $galleriesList = Gallery::select('galleries.*')
-                ->with([
-                    'album' => function($query) {
-                        $query->select('id', 'title', 'image');
-                    },
-                    'album.branches' => function($query) {
-                        $query->select('branches.id', 'branches.name');
-                    }
-                ])
-                ->where('album_id', $id)
-                ->orderBy('sort_order')
-                ->get();
-            if ($request->query('action') === 'frontend_data') {
-                $response = [
-                    'status' => 'success',
-                    'message' => 'Album created successfully!',
-                    'galleryListData' => view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList', 'album'))->render()
-                ];
-                return response()->json($response);
-            }
-            return view('frontend.pages.partials.ajax-home-album-gallery', compact('galleriesList'));
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Failed to load album: ' . $e->getMessage(),
-                'errors' => ['server' => ['Error processing request']]
-            ], 500);
-        }
-    } */
+    
     public function albumHomeAjax(Request $request, $id)
     {
         try {
@@ -455,4 +435,39 @@ class FrontHomeController extends Controller
             ], 500);
         }
     }
+
+    public function AjaxTestimonials(Request $request, $id){
+        $testimonial = Testimonial::with('branches')->findOrFail($id);
+        $modalContent = '
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center mb-3 mb-md-0">
+                        <img src="' . asset('upload/testimonials/' . $testimonial->image) . '" 
+                            class="img-fluid rounded" 
+                            alt="' .$testimonial->title.'">
+                    </div>
+                    <div class="col-md-7">                        
+                        <div class="testimonial-content mb-3">
+                        <p> ' . $testimonial->content . '</p>
+                        </div>';       
+                        if ($testimonial->branches->count()) {
+                            $modalContent .= '<div class="mt-2"><strong>Branches:</strong><br>';
+                            foreach ($testimonial->branches as $branch) {
+                                $modalContent .= '<span class="badge bg-info me-1 mb-1">' . e($branch->name) . '</span>';
+                            }
+                            $modalContent .= '</div>';
+                        }
+
+                        $modalContent .= '
+                    </div>
+                </div>
+            </div>';
+
+        return response()->json([
+            'message' => 'Modal content generated',
+            'modalContent' => $modalContent,
+        ]);
+    }
+
+
 }

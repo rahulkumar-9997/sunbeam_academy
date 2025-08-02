@@ -47,6 +47,8 @@
                      </a>
                      <ul>
                         <li><a href="{{ route('branches') }}">Branches</a></li>
+                        <li><a href="{{ route('manage-disclosure.index') }}">Disclosure</a></li>
+                        <li><a href="{{ route('manage-testimonials.index') }}">Testimonials</a></li>
                      </ul>
                   </li>
                   <li class="submenu">
