@@ -87,6 +87,37 @@ $(document).ready(function () {
         });
     });
     /*Testimonials*/
+    /*Alumni modal */
+    $(document).on('click', 'a[data-ajax-alumni-popup="true"]', function () {
+        var $link = $(this);
+        var title = $(this).data('title');
+        var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
+        var url = $(this).data('url');
+        var data = {
+            size: size,
+            url: url
+        };
+        $("#commanModel .modal-title").html(title);
+        $("#commanModel .modal-dialog").addClass('modal-' + size);
+        $link.addClass('disabled').html(`
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+            `);
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: data,
+            success: function (data) {
+                $('#commanModel .render-data').html(data.modalContent);
+                $link.removeClass('disabled').html('Read More <i class="fas fa-arrow-right-long"></i>');
+                $("#commanModel").modal('show');                
+            },
+            error: function (data) {
+                data = data.responseJSON;
+                $link.removeClass('disabled').html('Read More <i class="fas fa-arrow-right-long"></i>');
+            }
+        });
+    });
+    /*Alumni modal */
  });
  
 /* Function to show toast notifications (using Bootstrap 5 Toast) */

@@ -22,7 +22,7 @@ use App\Models\Album;
 use App\Models\Gallery;
 use App\Models\Announcement;
 use App\Models\Testimonial;
-use App\Models\DisclosureBranch;
+use App\Models\OurAlumni;
 
 class FrontHomeController extends Controller
 {
@@ -139,7 +139,10 @@ class FrontHomeController extends Controller
                 ->inRandomOrder()
                 ->limit(9)
                 ->get();
-            //return response()->json($data['album']);
+            $data['alumniList'] = OurAlumni::where('status', 1)
+            ->where('branch_id', $branch->id)
+            ->orderBy('id', 'desc')->get();
+            //return response()->json($data['alumniList']);
             return view('frontend.pages.branches.sunbeam-academy-samneghat', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             Log::error('Branch not found for slug: sunbeam-academy-samneghat');
@@ -175,6 +178,9 @@ class FrontHomeController extends Controller
                 ->inRandomOrder()
                 ->limit(9)
                 ->get();
+            $data['alumniList'] = OurAlumni::where('status', 1)
+                ->where('branch_id', $branch->id)
+                ->orderBy('id', 'desc')->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-durgakund', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -211,6 +217,9 @@ class FrontHomeController extends Controller
                 ->inRandomOrder()
                 ->limit(9)
                 ->get();
+            $data['alumniList'] = OurAlumni::where('status', 1)
+            ->where('branch_id', $branch->id)
+            ->orderBy('id', 'desc')->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-sarainandan', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -246,6 +255,9 @@ class FrontHomeController extends Controller
                 ->inRandomOrder()
                 ->limit(9)
                 ->get();
+            $data['alumniList'] = OurAlumni::where('status', 1)
+            ->where('branch_id', $branch->id)
+            ->orderBy('id', 'desc')->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-knowledge-park', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -559,7 +571,7 @@ class FrontHomeController extends Controller
                     </div>
                     <div class="col-md-7">                        
                         <div class="testimonial-content mb-3">
-                        <p> ' . $testimonial->content . '</p>
+                        <p> ' .  nl2br(e($testimonial->content)) . '</p>
                         </div>';       
                         if ($testimonial->branches->count()) {
                             $modalContent .= '<div class="mt-2"><strong>Branches:</strong><br>';
@@ -591,6 +603,50 @@ class FrontHomeController extends Controller
         //return response()->json($branchDisclosure);
         return view('frontend.pages.disclosure.list', [
             'branchDisclosure' => $branchDisclosure
+        ]);
+    }
+
+    public function alumniDetails($slug)
+    {
+        $alumni = OurAlumni::with('branch')->where('slug', $slug)->first();        
+        if (!$alumni) {
+            return response()->json([
+                'message' => 'Alumni not found',
+                'modalContent' => '<div class="alert alert-danger">Alumni not found</div>'
+            ], 404);
+        }
+        $imagePath = $alumni->profile_pic ? asset('upload/alumni/' . $alumni->profile_pic) : asset('fronted/assets/img/testimonial/01.jpg');
+
+        $modalContent = '
+        <div class="modal-body">
+            <div class="row align-items-center">
+                <div class="col-md-5 text-center mb-3 mb-md-0">
+                    <img src="' . $imagePath . '" 
+                        class="img-fluid rounded" 
+                        alt="' . e($alumni->title) . '"
+                        style="max-height: 300px; object-fit: cover;">
+                </div>
+                <div class="col-md-7">                        
+                    <h3 class="mb-3">' . e($alumni->title) . '</h3>                    
+                    <div class="testimonial-content mb-3">
+                        <p>' . nl2br(e($alumni->content)) . '</p>
+                    </div>';
+                    
+        if ($alumni->branch) {
+            $modalContent .= '
+            <div class="mt-2">
+                <span class="badge bg-info me-1 mb-1">' . $alumni->branch->name. '</span>
+            </div>';
+        }
+
+        $modalContent .= '
+                </div>
+            </div>
+        </div>';
+
+        return response()->json([
+            'message' => 'Modal content generated',
+            'modalContent' => $modalContent,
         ]);
     }
 

@@ -97,7 +97,7 @@
                   </li>                  
                   <li class="submenu">
                      <a href="javascript:void(0);">
-                        <i class="ti ti-brand-appgallery fs-16 me-2"></i>
+                        <i class="ti ti-cash-banknote fs-16 me-2"></i>
                         <span>Manage Testimonials</span>
                         <span class="menu-arrow"></span>
                      </a>
@@ -107,12 +107,22 @@
                   </li>
                   <li class="submenu">
                      <a href="javascript:void(0);">
-                        <i class="ti ti-brand-appgallery fs-16 me-2"></i>
+                        <i class="ti ti-military-award fs-16 me-2"></i>
                         <span>Manage Our Alumni</span>
                         <span class="menu-arrow"></span>
                      </a>
                      <ul>
                         <li><a href="{{ route('manage-our-alumni.index') }}">Our Alumni</a></li>
+                     </ul>
+                  </li> 
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-gift-card fs-16 me-2"></i>
+                        <span>Manage Achievers </span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-achievers.index') }}">Achievers</a></li>
                      </ul>
                   </li>               
 

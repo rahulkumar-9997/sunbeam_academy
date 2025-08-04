@@ -807,4 +807,4 @@
         }, 60000);
     });
 </script>
-@endpush
+@data

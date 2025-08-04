@@ -289,7 +289,8 @@
 		</div>
 	</div>
 </div>
-<!-- testimonial area -->
+<!-- alumni area -->
+@if (!empty($data['alumniList']) && $data['alumniList']->count() > 0)
 <div class="testimonial-area ts-bg pt-30 pb-80 branches-alumni">
 	<div class="container">
 		<div class="row">
@@ -304,99 +305,45 @@
 			</div>
 		</div>
 		<div class="testimonial-slider owl-carousel owl-theme">
-			<div class="testimonial-item">
-				<div class="testimonial-quote">
-					<p>
-						There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-					</p>
-				</div>
-				<div class="testimonial-content">
-					<div class="testimonial-author-img">
-						<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="">
+			@foreach($data['alumniList'] as $alumni)
+				<div class="testimonial-item">
+					<div class="testimonial-quote">
+						<p>
+							{{ $alumni->content ? Str::limit($alumni->content, 150) : 'No content available' }}
+						</p>
 					</div>
-					<div class="testimonial-author-info">
-						<h4>Anthony Nicoll</h4>
-						<p>Student</p>
+					<div class="read-more-alumni text-center">
+						<a href="javascript:;"
+						 	class="theme-btn"
+						 	data-ajax-alumni-popup="true"
+							data-size="lg"
+							data-title="{{ $alumni->title }}"
+							data-url="{{ route('alumni.details', ['slug' => $alumni->slug]) }}"
+						 >Read More
+                        <i class="fas fa-arrow-right-long"></i>
+                    </a>
 					</div>
-				</div>
-				<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-			</div>
-			<div class="testimonial-item">
-
-				<div class="testimonial-quote">
-					<p>
-						There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-					</p>
-				</div>
-				<div class="testimonial-content">
-					<div class="testimonial-author-img">
-						<img src="{{asset('fronted/assets/img/testimonial/02.jpg')}}" alt="">
+					<div class="testimonial-content">
+						<div class="testimonial-author-img">
+							@if($alumni->profile_pic)
+								<img src="{{ asset('upload/alumni/' . $alumni->profile_pic) }}" alt="{{ $alumni->title }}">
+							@else
+								<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="{{ $alumni->title }}">
+							@endif
+						</div>
+						<div class="testimonial-author-info">
+							<h4>{{ $alumni->title }}</h4>
+							<p>Student</p>
+						</div>
 					</div>
-					<div class="testimonial-author-info">
-						<h4>Richard Lock</h4>
-						<p>Student</p>
-					</div>
+					<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
 				</div>
-				<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-			</div>
-			<div class="testimonial-item">
-
-				<div class="testimonial-quote">
-					<p>
-						There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-					</p>
-				</div>
-				<div class="testimonial-content">
-					<div class="testimonial-author-img">
-						<img src="{{asset('fronted/assets/img/testimonial/03.jpg')}}" alt="">
-					</div>
-					<div class="testimonial-author-info">
-						<h4>Randal Grand</h4>
-						<p>Student</p>
-					</div>
-				</div>
-				<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-			</div>
-			<div class="testimonial-item">
-
-				<div class="testimonial-quote">
-					<p>
-						There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-					</p>
-				</div>
-				<div class="testimonial-content">
-					<div class="testimonial-author-img">
-						<img src="{{asset('fronted/assets/img/testimonial/04.jpg')}}" alt="">
-					</div>
-					<div class="testimonial-author-info">
-						<h4>Edward Miles</h4>
-						<p>Student</p>
-					</div>
-				</div>
-				<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-			</div>
-			<div class="testimonial-item">
-
-				<div class="testimonial-quote">
-					<p>
-						There are many variations of tend to repeat chunks some all form necessary injected for the going are humour words.
-					</p>
-				</div>
-				<div class="testimonial-content">
-					<div class="testimonial-author-img">
-						<img src="{{asset('fronted/assets/img/testimonial/05.jpg')}}" alt="">
-					</div>
-					<div class="testimonial-author-info">
-						<h4>Ninal Gordon</h4>
-						<p>Student</p>
-					</div>
-				</div>
-				<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
-			</div>
+			@endforeach
 		</div>
 	</div>
 </div>
-<!-- testimonial area end -->
+@endif
+<!-- alumni area end -->
 @if (!empty($data['album']) && $data['album']->count() > 0)
 	<div class="gallery-area pt-30 pb-80 branches-gallery">
 		<div class="container">
@@ -518,6 +465,7 @@
 		</div>
 	</div>
 </div>
+@include('frontend.layouts.common-modal');
 @endsection
 @push('scripts')
 <script src="{{asset('fronted/assets/js/pages/gallery-ajax.js')}}"></script>

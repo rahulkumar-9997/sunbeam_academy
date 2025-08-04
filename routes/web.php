@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AlbumController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\OurAlumniController;
+use App\Http\Controllers\Backend\AchieversController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manage-disclosure', DisclosureController::class)->names('manage-disclosure');
     Route::resource('manage-testimonials', TestimonialController::class)->names('manage-testimonials');
     Route::resource('manage-our-alumni', OurAlumniController::class)->names('manage-our-alumni');
+     Route::resource('manage-achievers', AchieversController::class)->names('manage-achievers');
     /*Notice Board */
     // Notice Board CRUD routes
     Route::get('notice-board', [NoticeBoardController::class, 'index'])->name('manage-notice-board');
@@ -93,6 +95,7 @@ Route::get('album-home/{id}', [FrontHomeController::class, 'albumHomeAjax'])->na
 Route::get('ajax-testimonial/{id}', [FrontHomeController::class, 'AjaxTestimonials'])->name('ajax.testimonial');
 
 Route::get('disclosure/{branchSlug}', [FrontHomeController::class, 'disclosureListBranchWise'])->name('disclosure.branch');
+Route::get('alumni/{slug}', [FrontHomeController::class, 'alumniDetails'])->name('alumni.details');
 
 Route::prefix('academics')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'academicsCurriculum'])->name('curriculum');
