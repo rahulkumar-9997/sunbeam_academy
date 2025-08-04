@@ -48,7 +48,7 @@
                      <ul>
                         <li><a href="{{ route('branches') }}">Branches</a></li>
                         <li><a href="{{ route('manage-disclosure.index') }}">Disclosure</a></li>
-                        <li><a href="{{ route('manage-testimonials.index') }}">Testimonials</a></li>
+                        
                      </ul>
                   </li>
                   <li class="submenu">
@@ -94,9 +94,27 @@
                         <li><a href="{{ route('manage-album.index') }}">Album</a></li>
                         <li><a href="{{ route('manage-gallery.index') }}">Gallery</a></li>
                      </ul>
+                  </li>                  
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-brand-appgallery fs-16 me-2"></i>
+                        <span>Manage Testimonials</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-testimonials.index') }}">Testimonials</a></li>
+                     </ul>
                   </li>
-
-                  
+                  <li class="submenu">
+                     <a href="javascript:void(0);">
+                        <i class="ti ti-brand-appgallery fs-16 me-2"></i>
+                        <span>Manage Our Alumni</span>
+                        <span class="menu-arrow"></span>
+                     </a>
+                     <ul>
+                        <li><a href="{{ route('manage-our-alumni.index') }}">Our Alumni</a></li>
+                     </ul>
+                  </li>               
 
                </ul>
             </li>

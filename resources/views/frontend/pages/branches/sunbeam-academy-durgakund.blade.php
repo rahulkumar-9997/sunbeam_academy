@@ -65,41 +65,75 @@
 		</div>
 	</div>
 </div>
-<!--===== HERO AREA ENDS =======-->
-<!--Principal Message-->
 <div class="team-single pt-30 pb-40 branches-p-message">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
+		<div class="row justify-content-md-center align-items-center">
+			<div class="col-lg-6">
+				<div class="site-heading">
 					<h2 class="site-title">Principal’s <span>Message </span></h2>
 				</div>
-			</div>
-		</div>
-		<div class="row align-items-center">
-			<div class="col-md-4">
-				<div class="team-single-img text-center branches-img-div">
-					<img src="{{asset('fronted/assets/sunbeam-img/noperson-female.png')}}" class="" alt="principal">
-				</div>
-			</div>
-			<div class="col-md-8">
 				<div class="team-details">
-					<h3>Principal’s</h3>
-					<strong>Mrs. Sangita Paul</strong>
-					<p class="mt-3">
-						“Welcome to our Durgakund Campus! We take immense pride in fostering an environment where every child feels seen, supported, and inspired to achieve greatness. We look forward to partnering with you in your child’s educational journey.”
-					</p>
-					<p>— Principal</p>
+					<div class="row align-items-center">
+						<div class="col-md-4">
+							<div class="team-single-img text-center branches-img-div">
+								<img src="{{asset('fronted/assets/sunbeam-img/noperson-female.png')}}" class="" alt="principal">
+							</div>
+						</div>
 
-					<div class="team-details-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+						<div class="col-md-8">
+							<h3>Principal’s</h3>
+							<strong>Mrs. Sangita Paul</strong>
+							<p class="mt-3">
+								“Welcome to our Durgakund Campus! We take immense pride in fostering an environment where every child feels seen, supported, and inspired to achieve greatness. We look forward to partnering with you in your child’s educational journey.”
+							</p>
+							<p>— Principal</p>
+
+							<div class="team-details-social">
+								<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			@if(!empty($data['notices']) && $data['notices']->count() > 0)
+			<div class="col-lg-6">
+				<div class="site-heading">
+					<h2 class="site-title">Latest<span> Notice</span></h2>
+				</div>
+				<div class="notice-list-branch">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="br-notice-head"></div>
+							<div class="notice-card">
+								<ul>
+									@foreach ($data['notices'] as $notice)
+										<li class="view-report-notice">
+											<a href="{{ route('notices.show', $notice->slug) }}">
+												<div class="notice-badge">
+													{{ strtoupper($notice->notice_type) }}
+												</div>
+												<div class="notice-text">
+													{{ $notice->title }}
+												</div>
+												<div class="notice-date">
+													{{ $notice->created_at->format('d M Y') }}
+												</div>
+											</a>
+										</li>
+									@endforeach
+								</ul>
+							</div>
+							<div class="br-notice-foot">
+								<a href="{{ route('notices.index', $branch->slug) }}" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endif
 		</div>
 	</div>
 </div>
-<!--Principal Message-->
 <div class="feature-area pt-30 pb-30 brnche-campus">
 	<div class="container">
 		<div class="row">
@@ -171,11 +205,11 @@
 		<div class="row align-items-center">
 			<div class="col-lg-6 col-md-6">
 				<div class="tour-title wow fadeInLeft   animated" data-animation="fadeInLeft" data-delay=".4s" style="visibility: visible; animation-name: fadeInLeft;">
-					<h3>Sunbeam Academy Samneghat</h3>
+					<h3>Sunbeam Academy Durgakund</h3>
 				</div>
 				<div class="tour-details">
 					<p>
-						Sunbeam Academy – Samneghat is known for its commitment to academic excellence, holistic development, and innovative learning environments. With over a decade of nurturing young minds, our campus stands as a beacon of progressive education in the region.
+						Sunbeam Academy – durgakund is known for its commitment to academic excellence, holistic development, and innovative learning environments. With over a decade of nurturing young minds, our campus stands as a beacon of progressive education in the region.
 					</p>
 				</div>
 			</div>
@@ -188,87 +222,7 @@
 
 	</div>
 </section>
-<div class="team-area2 pb-10 pt-40">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
-					<span class="site-title-tagline"><i class="far fa-book-open-reader"></i> Sunbeam Academy Teachers</span>
-					<h2 class="site-title">Meet Our <span>Educators</span></h2>
-					<p>
-						Our dedicated team of educators brings passion, experience, and a commitment to continuous learning. Each faculty member is carefully selected not only for their academic excellence but also for their ability to inspire and nurture students.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-3">
-				<div class="team-item wow fadeInUp" data-wow-delay=".25s">
-					<div class="team-img">
-						<img src="{{asset('fronted/assets/img/team/05.jpg')}}" alt="thumb">
-					</div>
-					<div class="team-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-					<div class="team-content">
-						<div class="team-bio">
-							<h5><a href="teacher-single.html">Angela T. Vigil</a></h5>
-							<span>Associate Professor</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3">
-				<div class="team-item wow fadeInUp" data-wow-delay=".50s">
-					<div class="team-img">
-						<img src="{{asset('fronted/assets/img/team/06.jpg')}}" alt="thumb">
-					</div>
-					<div class="team-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-					<div class="team-content">
-						<div class="team-bio">
-							<h5><a href="teacher-single.html">Frank A. Mitchell</a></h5>
-							<span>Associate Professor</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3">
-				<div class="team-item wow fadeInUp" data-wow-delay=".75s">
-					<div class="team-img">
-						<img src="{{asset('fronted/assets/img/team/07.jpg')}}" alt="thumb">
-					</div>
-					<div class="team-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-					<div class="team-content">
-						<div class="team-bio">
-							<h5><a href="teacher-single.html">Susan D. Lunsford</a></h5>
-							<span>CEO &amp; Founder</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3">
-				<div class="team-item wow fadeInUp" data-wow-delay="1s">
-					<div class="team-img">
-						<img src="{{asset('fronted/assets/img/team/08.jpg')}}" alt="thumb">
-					</div>
-					<div class="team-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-					<div class="team-content">
-						<div class="team-bio">
-							<h5><a href="teacher-single.html">Dennis A. Pruitt</a></h5>
-							<span>Associate Professor</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 <div class="blog-area pb-40 pt-10 branches-achievers bg">
 	<div class="container">
 		<div class="row">
@@ -442,93 +396,63 @@
 	</div>
 </div>
 <!-- testimonial area end -->
-<!-- gallery-area -->
-<div class="gallery-area pt-30 pb-80 branches-gallery">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
-					<h2 class="site-title">Gall<span>ery</span></h2>
-				</div>
-			</div>
-		</div>
-		<div class="row popup-gallery">
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/1.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/1.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".50s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/2.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/2.png')}}"><i
-								class="fal fa-plus"></i></a>
+@if (!empty($data['album']) && $data['album']->count() > 0)
+	<div class="gallery-area pt-30 pb-80 branches-gallery">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mx-auto">
+					<div class="site-heading text-center">
+						<h2 class="site-title">Gall<span>ery</span></h2>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/3.png')}}" alt="">
+			<div class="row popup-gallery display-gallery-data-by-ajax">
+				@foreach($data['album'] as $index => $item)
+					@php
+						$delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
+					@endphp
+					<div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
+						<div class="gallery-item home-album-item">
+							<a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
+								@if($item->image)
+								<div class="gallery-img">
+									<img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								{{-- If no album image, check for gallery images --}}
+								@elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
+								<div class="gallery-img">
+									<img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								@else
+								<div class="gallery-img">
+									<img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								@endif
+								{{-- Show photo count if available --}}
+								<!-- @if($item->galleries->count() > 0)
+								<div class="gallery-content-count">
+									<span class="badge bg-primary">
+										{{ $item->galleries->count() }} {{ ($item->galleries->count() > 1) ? 'photos' : 'photo' }}
+									</span>
+								</div>
+								@endif -->
+							</a>
+						</div>
 					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/3.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/4.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/4.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/5.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/5.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/6.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/6.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
-</div>
-<!-- gallery-area end -->
+@endif
 <div class="blog-area pb-60 pt-40 branches-achievers bg branches-con-dire">
 	<div class="container">
 		<div class="row">
@@ -594,3 +518,6 @@
 	</div>
 </div>
 @endsection
+@push('scripts')
+<script src="{{asset('fronted/assets/js/pages/gallery-ajax.js')}}"></script>
+@endpush

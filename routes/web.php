@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\ClassesController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\AlbumController;
 use App\Http\Controllers\Backend\GalleryController;
+use App\Http\Controllers\Backend\OurAlumniController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
 
@@ -46,6 +47,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manage-announcement', AnnouncementController::class)->names('manage-announcement');
     Route::resource('manage-disclosure', DisclosureController::class)->names('manage-disclosure');
     Route::resource('manage-testimonials', TestimonialController::class)->names('manage-testimonials');
+    Route::resource('manage-our-alumni', OurAlumniController::class)->names('manage-our-alumni');
     /*Notice Board */
     // Notice Board CRUD routes
     Route::get('notice-board', [NoticeBoardController::class, 'index'])->name('manage-notice-board');
@@ -80,7 +82,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
 Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
-Route::get('notices', [FrontHomeController::class, 'noticeList'])->name('notices.index');
+Route::get('notices/{branch?}', [FrontHomeController::class, 'noticeList'])
+    ->name('notices.index');/**Handle both default and branch-specific notices */
 Route::get('notice/{slug}', [FrontHomeController::class, 'noticeDetails'])->name('notices.show');
 Route::get('classes', [FrontHomeController::class, 'classesList'])->name('classes.list');
 Route::get('classes/{slug}', [FrontHomeController::class, 'classesDetails'])->name('classes.details');

@@ -43,8 +43,20 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="notice_type" class="form-label">Select Branch *</label>
+                        <select class="form-select @error('branch') is-invalid @enderror" name="branch" id="branch">
+                            <option value="">Select a Branch</option>
+                            @foreach ($branches as $branch)
+                                <option value="{{ $branch->id }}" {{ $branch->id == $notice_board_row->branch_id ? 'selected' : '' }}>{{ $branch->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('branch')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="notice_type" class="form-label">Notice Type *</label>
                         <select class="form-select @error('notice_type') is-invalid @enderror" name="notice_type" id="notice_type">
                             <option value="">Select</option>

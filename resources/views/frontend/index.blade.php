@@ -806,5 +806,5 @@
             }
         }, 60000);
     });
-
-    @endpush
+</script>
+@endpush

@@ -9,23 +9,26 @@ use App\Models\NoticeBoard;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Branch;
 
 class NoticeBoardController extends Controller
 {
     public function index(){
-        $notice_board = NoticeBoard::with('user')->latest()->get();
-        // return response()->json($notice_board);
+        $notice_board = NoticeBoard::with('user', 'branch')->latest()->get();
+        //return response()->json($notice_board);
         return view('backend.pages.notice-board.index', compact('notice_board'));
     }
 
     public function create(){
-        return view('backend.pages.notice-board.create');
+        $branches = Branch::get();
+        return view('backend.pages.notice-board.create', compact('branches'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
+            'branch' => 'required|exists:branches,id',
             'notice_type' => 'required',
             'description' => 'required|string',
             'start_date' => 'required|date|after_or_equal:today',
@@ -74,6 +77,7 @@ class NoticeBoardController extends Controller
                 'file' => $fileName,
                 'status' => $request->has('status') ? 1 : 0,
                 'user_id' => Auth::check() ? Auth::user()->id : null,
+                'branch_id' => $data['branch'],
             ]);
 
             return redirect()->route('manage-notice-board')->with('success', 'Notice added successfully.');
@@ -86,17 +90,19 @@ class NoticeBoardController extends Controller
     
     public function edit(Request $request, $id)
     {
+        $branches = Branch::get();
         $notice_board_row = NoticeBoard::findOrFail($id);
-        return view('backend.pages.notice-board.edit', compact('notice_board_row'));
+        return view('backend.pages.notice-board.edit', compact('notice_board_row', 'branches'));
     }
 
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
+            'branch' => 'required|exists:branches,id',
             'notice_type' => 'required',
             'description' => 'required|string',
-            'start_date' => 'required|date|after_or_equal:today',
+            'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'page_link' => 'nullable|url',
             'file' => 'nullable|file|mimes:jpeg,png,jpg,pdf,webp|max:5120',
@@ -142,6 +148,7 @@ class NoticeBoardController extends Controller
                 'file' => $fileName,
                 'status' => $request->has('status') ? 1 : 0,
                 'user_id' => Auth::check() ? Auth::id() : $notice->user_id,
+                'branch_id' => $data['branch'],
             ]);
 
             return redirect()->route('manage-notice-board')->with('success', 'Notice updated successfully.');

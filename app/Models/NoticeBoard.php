@@ -17,6 +17,7 @@ class NoticeBoard extends Model
         'file',
         'page_link',
         'status',
+        'branch_id'
     ];
 
     protected static function boot()
@@ -38,5 +39,10 @@ class NoticeBoard extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

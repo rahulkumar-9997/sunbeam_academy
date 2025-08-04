@@ -21,17 +21,17 @@
 					</p>
 					<div class="branches-head-con">
 						<ul>
-                            
-                             <li>
-                                 <a href="mailto:{{ $branch->email_1 }}">
-                                     <i class="far fa-envelopes"></i>
-                                     {{ $branch->email_1 }}
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="tel:+91{{ $branch->phone_1 }}"><i class="far fa-phone-volume"></i> +91 {{ $branch->phone_1 }}</a>
-                             </li>
-                         </ul>
+
+							<li>
+								<a href="mailto:{{ $branch->email_1 }}">
+									<i class="far fa-envelopes"></i>
+									{{ $branch->email_1 }}
+								</a>
+							</li>
+							<li>
+								<a href="tel:+91{{ $branch->phone_1 }}"><i class="far fa-phone-volume"></i> +91 {{ $branch->phone_1 }}</a>
+							</li>
+						</ul>
 					</div>
 					<div class="btn-area-branch mt-4" data-aos="fade-left" data-aos-duration="1100">
 						<a href="{{ route('disclosure.branch', ['branchSlug' => $branch->slug]) }}" class="theme-btn">View Disclosure<i class="fas fa-arrow-right-long"></i></a>
@@ -65,37 +65,72 @@
 		</div>
 	</div>
 </div>
-<!--===== HERO AREA ENDS =======-->
-<!--Principal Message-->
 <div class="team-single pt-30 pb-40 branches-p-message">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
+		<div class="row justify-content-md-center align-items-center">
+			<div class="col-lg-6">
+				<div class="site-heading">
 					<h2 class="site-title">Principal’s <span>Message </span></h2>
 				</div>
-			</div>
-		</div>
-		<div class="row align-items-center">
-			<div class="col-md-4">
-				<div class="team-single-img text-center branches-img-div">
-					<img src="{{asset('fronted/assets/sunbeam-img/noperson-male.png')}}" class="" alt="principal">
-				</div>
-			</div>
-			<div class="col-md-8">
 				<div class="team-details">
-					<h3>Principal’s</h3>
-					<strong>Dr. K.K. Panda</strong>
-					<p class="mt-3">
-						“Welcome to our Durgakund Campus! We take immense pride in fostering an environment where every child feels seen, supported, and inspired to achieve greatness. We look forward to partnering with you in your child’s educational journey.”
-					</p>
-					<p>— Principal</p>
+					<div class="row align-items-center">
+						<div class="col-md-4">
+							<div class="team-single-img text-center branches-img-div">
+								<img src="{{asset('fronted/assets/sunbeam-img/noperson-male.png')}}" class="" alt="principal">
+							</div>
+						</div>
 
-					<div class="team-details-social">
-						<a href="#"><i class="fab fa-linkedin-in"></i></a>
+						<div class="col-md-8">
+							<h3>Principal’s</h3>
+							<strong>Dr. K.K. Panda</strong>
+							<p class="mt-3">
+								“Welcome to our Durgakund Campus! We take immense pride in fostering an environment where every child feels seen, supported, and inspired to achieve greatness. We look forward to partnering with you in your child’s educational journey.”
+							</p>
+							<p>— Principal</p>
+
+							<div class="team-details-social">
+								<a href="#"><i class="fab fa-linkedin-in"></i></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			@if(!empty($data['notices']) && $data['notices']->count() > 0)
+			<div class="col-lg-6">
+				<div class="site-heading">
+					<h2 class="site-title">Latest<span> Notice</span></h2>
+				</div>
+				<div class="notice-list-branch">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="br-notice-head"></div>
+							<div class="notice-card">
+								<ul>
+									@foreach ($data['notices'] as $notice)
+										<li class="view-report-notice">
+											<a href="{{ route('notices.show', $notice->slug) }}">
+												<div class="notice-badge">
+													{{ strtoupper($notice->notice_type) }}
+												</div>
+												<div class="notice-text">
+													{{ $notice->title }}
+												</div>
+												<div class="notice-date">
+													{{ $notice->created_at->format('d M Y') }}
+												</div>
+											</a>
+										</li>
+									@endforeach
+								</ul>
+							</div>
+							<div class="br-notice-foot">
+								<a href="{{ route('notices.index', $branch->slug) }}" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endif
 		</div>
 	</div>
 </div>
@@ -188,7 +223,7 @@
 
 	</div>
 </section>
-<div class="team-area2 pb-10 pt-40">
+<!--<div class="team-area2 pb-10 pt-40">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 mx-auto">
@@ -268,7 +303,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>-->
 <div class="blog-area pb-40 pt-10 branches-achievers bg">
 	<div class="container">
 		<div class="row">
@@ -443,91 +478,63 @@
 </div>
 <!-- testimonial area end -->
 <!-- gallery-area -->
-<div class="gallery-area pt-30 pb-80 branches-gallery">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
-					<h2 class="site-title">Gall<span>ery</span></h2>
-				</div>
-			</div>
-		</div>
-		<div class="row popup-gallery">
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".25s">
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/1.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/1.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".50s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/2.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/2.png')}}"><i
-								class="fal fa-plus"></i></a>
+@if (!empty($data['album']) && $data['album']->count() > 0)
+	<div class="gallery-area pt-30 pb-80 branches-gallery">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mx-auto">
+					<div class="site-heading text-center">
+						<h2 class="site-title">Gall<span>ery</span></h2>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/3.png')}}" alt="">
+			<div class="row popup-gallery display-gallery-data-by-ajax">
+				@foreach($data['album'] as $index => $item)
+					@php
+						$delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
+					@endphp
+					<div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
+						<div class="gallery-item home-album-item">
+							<a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
+								@if($item->image)
+								<div class="gallery-img">
+									<img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								{{-- If no album image, check for gallery images --}}
+								@elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
+								<div class="gallery-img">
+									<img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								@else
+								<div class="gallery-img">
+									<img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid">
+								</div>
+								<div class="gal-album-title text-center">
+									<h5>{{ $item->title }}</h5>
+								</div>
+								@endif
+								{{-- Show photo count if available --}}
+								<!-- @if($item->galleries->count() > 0)
+								<div class="gallery-content-count">
+									<span class="badge bg-primary">
+										{{ $item->galleries->count() }} {{ ($item->galleries->count() > 1) ? 'photos' : 'photo' }}
+									</span>
+								</div>
+								@endif -->
+							</a>
+						</div>
 					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/3.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/4.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/4.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/5.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/5.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 wow fadeInUp" data-wow-delay=".75s">
-
-				<div class="gallery-item">
-					<div class="gallery-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/6.png')}}" alt="">
-					</div>
-					<div class="gallery-content">
-						<a class="popup-img gallery-link" href="{{asset('fronted/assets/sunbeam-img/branches/samneghat/gallery/6.png')}}"><i
-								class="fal fa-plus"></i></a>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
-</div>
+@endif
 <!-- gallery-area end -->
 <div class="blog-area pb-60 pt-40 branches-achievers bg branches-con-dire">
 	<div class="container">
@@ -594,3 +601,6 @@
 	</div>
 </div>
 @endsection
+@push('scripts')
+<script src="{{asset('fronted/assets/js/pages/gallery-ajax.js')}}"></script>
+@endpush

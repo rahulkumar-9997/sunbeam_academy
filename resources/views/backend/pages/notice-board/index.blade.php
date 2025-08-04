@@ -45,7 +45,7 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>User Name</th>
+                            <th>Branch Name</th>
                             <th>Notice Type</th>
                             <th>Notice Date Range</th>
                             <th>Status</th>
@@ -56,7 +56,7 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $notice_board_row->title }}</td>
-                        <td>{{ $notice_board_row->user->name ?? 'N/A' }}</td>
+                        <td>{{ $notice_board_row->branch->name ?? 'No Branch Assigned' }}</td>
                         <td>{{ ucfirst(str_replace('_', ' ', $notice_board_row->notice_type)) }}</td>
                         <td>
                             {{ \Carbon\Carbon::parse($notice_board_row->start_date)->format('d M Y') }} -
