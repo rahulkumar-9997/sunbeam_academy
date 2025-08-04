@@ -22,7 +22,6 @@ class OurAlumniController extends Controller
     }
 
     public function create(Request $request){
-        $action = $request->input('action');
         $branches = Branch::where('status', 1)->get();
         $branchOptions = '';
         foreach ($branches as $branch) {

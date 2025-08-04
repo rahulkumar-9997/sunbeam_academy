@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 @section('title','Achievers List')
 @push('styles')
-
+<link rel="stylesheet" href="{{asset('backend/assets/plugins/summernote/summernote-bs4.min.css')}}">
 @endpush
 @section('main-content')
 <div class="content">
@@ -16,7 +16,7 @@
                 data-ajax-achievers-add-popup="true"
                 data-size="lg" 
                 data-title="Add new Achievers" 
-                data-url="{{ route('manage-our-alumni.create') }}" 
+                data-url="{{ route('manage-achievers.create') }}" 
                 data-bs-toggle="tooltip" 
                 title="Add new Achievers"  
                 class="btn btn-primary">

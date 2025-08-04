@@ -6,7 +6,7 @@ $.ajaxSetup({
 
 var site_url = $('meta[name="base-url"]').attr('content');
 $(document).ready(function () {
-    $(document).on('click', 'a[data-ajax-alumni-add-popup="true"]', function () {
+    $(document).on('click', 'a[data-ajax-achievers-add-popup="true"]', function () {
         var title = $(this).data('title');
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var action = ($(this).data('action') == '') ? '' : $(this).data('action');
@@ -25,7 +25,11 @@ $(document).ready(function () {
             data: data,
             success: function (data) {
                 $('#commanModel .render-data').html(data.form);
-                $("#commanModel").modal('show');               
+                $("#commanModel").modal('show');
+                $('#commanModel').on('shown.bs.modal', function() {
+                    initSummernoteEditor();
+                    $(this).off('shown.bs.modal');
+                });               
             },
             error: function (data) {
                 data = data.responseJSON;
@@ -229,5 +233,52 @@ $(document).ready(function () {
     });
 
 });
+
+function initSummernoteEditor() {
+    $('.editor_class_multiple').each(function() {
+        if (!$(this).hasClass('note-editor') && !$(this).siblings('.note-editor').length) {
+            $(this).summernote({
+                height: 150,
+                minHeight: null,
+                maxHeight: null,
+                focus: false,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video', 'hr']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                prettifyHtml: true,
+                codeviewFilter: true,
+                codeviewIframeFilter: true,
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+                callbacks: {
+                    onPaste: function(e) {
+                        var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+                        var pastedData = clipboardData.getData('Text/html');
+                        if (pastedData) {
+                            e.preventDefault();
+                            var tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = pastedData;
+                            var elementsWithStyle = tempDiv.querySelectorAll('[style]');
+                            elementsWithStyle.forEach(function(el) {
+                                el.removeAttribute('style');
+                            });
+                            var elementsWithClass = tempDiv.querySelectorAll('[class]');
+                            elementsWithClass.forEach(function(el) {
+                                el.removeAttribute('class');
+                            });
+                            document.execCommand('insertHTML', false, tempDiv.innerHTML);
+                        }
+                    }
+                }
+            });
+        }
+    });
+}
 
 
