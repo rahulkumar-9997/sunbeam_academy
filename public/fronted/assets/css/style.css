@@ -8176,6 +8176,9 @@ h4.blog-para-title{
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 50px;
 }
+.branches-achievers-list .blog-item-img{
+  overflow: inherit;
+}
 /*disclosure*/
 
 /* .blog-de-img {

@@ -224,124 +224,116 @@
 	</div>
 </section>
 
-<div class="blog-area pb-40 pt-10 branches-achievers bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
-					<h2 class="site-title">Achie<span>vers</span></h2>
-					<p>
-						Sunbeam Academy Durgakund takes pride in its students who have excelled in academics, arts, and sports—both nationally and internationally.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-4">
-				<div class="blog-item wow fadeInUp" data-wow-delay=".25s">
-					<div class="blog-item-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/pratyaksha-agarwal.png')}}" alt="Thumb">
-					</div>
-					<div class="blog-item-info">
-						<h4 class="blog-title">
-							<a href="#"> Sneha Kumari (97.6%) Commerce</a>
-						</h4>
+@if (!empty($data['achieversList']) && $data['achieversList']->count() > 0)
+	<div class="blog-area pb-40 pt-10 branches-achievers bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mx-auto">
+					<div class="site-heading text-center">
+						<h2 class="site-title">Achie<span>vers</span></h2>
 						<p>
-							There are many variations passage have suffered available.
+							Sunbeam Academy Durgakund takes pride in its students who have excelled in academics, arts, and sports—both nationally and internationally.
 						</p>
-						<a class="theme-btn" href="#">Read More<i class="fas fa-arrow-right-long"></i></a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="blog-item wow fadeInUp" data-wow-delay=".25s">
-					<div class="blog-item-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png')}}" alt="Thumb">
+			<div class="row">
+				@foreach($data['achieversList'] as $achiever)
+					<div class="col-md-6 col-lg-4">
+						<div class="blog-item wow fadeInUp" data-wow-delay=".25s">
+							<div class="blog-item-img">
+								@if($achiever->profile_pic)
+									<img src="{{ asset('upload/achievers/' . $achiever->profile_pic) }}" alt="{{ $achiever->title }}">
+								@else
+									<img src="{{ asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png') }}" alt="Default Image">
+								@endif
+							</div>
+							<div class="blog-item-info">
+								<h4 class="blog-title">
+									<a href="{{ route('achievers.details', ['slug' => $achiever->slug]) }}">
+										{{ $achiever->title }}								
+									</a>
+								</h4>
+								@if($achiever->short_content)
+									<p>							
+										{{ Str::limit($achiever->short_content, 100) }}
+									</p>
+								@endif
+								<a class="theme-btn" href="{{ route('achievers.details', ['slug' => $achiever->slug]) }}">
+									Read More 
+									<i class="fas fa-arrow-right-long"></i>
+								</a>
+							</div>
+						</div>
 					</div>
-					<div class="blog-item-info">
-						<h4 class="blog-title">
-							<a href="#"> Sneha Kumari (97.6%) Commerce</a>
-						</h4>
-						<p>
-							There are many variations passage have suffered available.
-						</p>
-						<a class="theme-btn" href="#">Read More<i class="fas fa-arrow-right-long"></i></a>
+				@endforeach
+				@if($data['achieversList']->count() > 3)
+					<div class="col-md-12 col-lg-12">
+						<div class="text-center">
+							<a href="{{ route('achievers') }}" class="theme-btn mt-10">View All Achievers
+								<i class="fas fa-arrow-right-long"></i>
+							</a>
+						</div>
 					</div>
-				</div>
+				@endif
 			</div>
-			<div class="col-md-6 col-lg-4">
-				<div class="blog-item wow fadeInUp" data-wow-delay=".25s">
-					<div class="blog-item-img">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/sneha-kumari.png')}}" alt="Thumb">
-					</div>
-					<div class="blog-item-info">
-						<h4 class="blog-title">
-							<a href="#">Pratyaksha Agarwal (95.8%)</a>
-						</h4>
-						<p>
-							There are many variations passage have suffered available.
-						</p>
-						<a class="theme-btn" href="#">Read More<i class="fas fa-arrow-right-long"></i></a>
-					</div>
-				</div>
-			</div>
-
 		</div>
 	</div>
-</div>
+@endif
+
 <!-- alumni area -->
 @if (!empty($data['alumniList']) && $data['alumniList']->count() > 0)
-<div class="testimonial-area ts-bg pt-30 pb-80 branches-alumni">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<div class="site-heading text-center">
+	<div class="testimonial-area ts-bg pt-30 pb-80 branches-alumni">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mx-auto">
+					<div class="site-heading text-center">
 
-					<h2 class="site-title text-white">Our<span> Alumni</span></h2>
-					<p class="text-white">
-						Our alumni are shaping the world in remarkable ways — from top universities to successful careers across industries.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="testimonial-slider owl-carousel owl-theme">
-			@foreach($data['alumniList'] as $alumni)
-				<div class="testimonial-item">
-					<div class="testimonial-quote">
-						<p>
-							{{ $alumni->content ? Str::limit($alumni->content, 150) : 'No content available' }}
+						<h2 class="site-title text-white">Our<span> Alumni</span></h2>
+						<p class="text-white">
+							Our alumni are shaping the world in remarkable ways — from top universities to successful careers across industries.
 						</p>
 					</div>
-					<div class="read-more-alumni text-center">
-						<a href="javascript:;"
-						 	class="theme-btn"
-						 	data-ajax-alumni-popup="true"
-							data-size="lg"
-							data-title="{{ $alumni->title }}"
-							data-url="{{ route('alumni.details', ['slug' => $alumni->slug]) }}"
-						 >Read More
-                        <i class="fas fa-arrow-right-long"></i>
-                    </a>
-					</div>
-					<div class="testimonial-content">
-						<div class="testimonial-author-img">
-							@if($alumni->profile_pic)
-								<img src="{{ asset('upload/alumni/' . $alumni->profile_pic) }}" alt="{{ $alumni->title }}">
-							@else
-								<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="{{ $alumni->title }}">
-							@endif
-						</div>
-						<div class="testimonial-author-info">
-							<h4>{{ $alumni->title }}</h4>
-							<p>Student</p>
-						</div>
-					</div>
-					<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
 				</div>
-			@endforeach
+			</div>
+			<div class="testimonial-slider owl-carousel owl-theme">
+				@foreach($data['alumniList'] as $alumni)
+					<div class="testimonial-item">
+						<div class="testimonial-quote">
+							<p>
+								{{ $alumni->content ? Str::limit($alumni->content, 150) : 'No content available' }}
+							</p>
+						</div>
+						<div class="read-more-alumni text-center">
+							<a href="javascript:;"
+								class="theme-btn"
+								data-ajax-alumni-popup="true"
+								data-size="lg"
+								data-title="{{ $alumni->title }}"
+								data-url="{{ route('alumni.details', ['slug' => $alumni->slug]) }}"
+							>Read More
+							<i class="fas fa-arrow-right-long"></i>
+						</a>
+						</div>
+						<div class="testimonial-content">
+							<div class="testimonial-author-img">
+								@if($alumni->profile_pic)
+									<img src="{{ asset('upload/alumni/' . $alumni->profile_pic) }}" alt="{{ $alumni->title }}">
+								@else
+									<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="{{ $alumni->title }}">
+								@endif
+							</div>
+							<div class="testimonial-author-info">
+								<h4>{{ $alumni->title }}</h4>
+								<p>Student</p>
+							</div>
+						</div>
+						<span class="testimonial-quote-icon"><i class="far fa-quote-right"></i></span>
+					</div>
+				@endforeach
+			</div>
 		</div>
 	</div>
-</div>
 @endif
 <!-- alumni area end -->
 @if (!empty($data['album']) && $data['album']->count() > 0)

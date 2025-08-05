@@ -96,6 +96,8 @@ Route::get('ajax-testimonial/{id}', [FrontHomeController::class, 'AjaxTestimonia
 
 Route::get('disclosure/{branchSlug}', [FrontHomeController::class, 'disclosureListBranchWise'])->name('disclosure.branch');
 Route::get('alumni/{slug}', [FrontHomeController::class, 'alumniDetails'])->name('alumni.details');
+Route::get('achievers', [FrontHomeController::class, 'achieversList'])->name('achievers');
+Route::get('achievers/{slug}', [FrontHomeController::class, 'achieversDetails'])->name('achievers.details');
 
 Route::prefix('academics')->group(function () {
     Route::get('/curriculum', [FrontHomeController::class, 'academicsCurriculum'])->name('curriculum');

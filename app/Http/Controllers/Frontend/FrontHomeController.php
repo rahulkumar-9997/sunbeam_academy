@@ -23,6 +23,7 @@ use App\Models\Gallery;
 use App\Models\Announcement;
 use App\Models\Testimonial;
 use App\Models\OurAlumni;
+use App\Models\Achievers;
 
 class FrontHomeController extends Controller
 {
@@ -140,9 +141,16 @@ class FrontHomeController extends Controller
                 ->limit(9)
                 ->get();
             $data['alumniList'] = OurAlumni::where('status', 1)
-            ->where('branch_id', $branch->id)
-            ->orderBy('id', 'desc')->get();
-            //return response()->json($data['alumniList']);
+                ->where('branch_id', $branch->id)
+                ->take(6)
+                ->orderBy('id', 'desc')
+                ->get();
+            
+            $data['achieversList'] = Achievers::where('branch_id', $branch->id)
+                ->orderBy('id', 'desc')
+                ->take(3)
+                ->get();
+            //return response()->json($data['achieversList']);
             return view('frontend.pages.branches.sunbeam-academy-samneghat', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             Log::error('Branch not found for slug: sunbeam-academy-samneghat');
@@ -180,7 +188,14 @@ class FrontHomeController extends Controller
                 ->get();
             $data['alumniList'] = OurAlumni::where('status', 1)
                 ->where('branch_id', $branch->id)
-                ->orderBy('id', 'desc')->get();
+                ->take(6)
+                ->orderBy('id', 'desc')
+                ->get();
+
+            $data['achieversList'] = Achievers::where('branch_id', $branch->id)
+                ->orderBy('id', 'desc')
+                ->take(3)
+                ->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-durgakund', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -218,8 +233,15 @@ class FrontHomeController extends Controller
                 ->limit(9)
                 ->get();
             $data['alumniList'] = OurAlumni::where('status', 1)
-            ->where('branch_id', $branch->id)
-            ->orderBy('id', 'desc')->get();
+                ->where('branch_id', $branch->id)
+                ->take(6)
+                ->orderBy('id', 'desc')
+                ->get();
+
+            $data['achieversList'] = Achievers::where('branch_id', $branch->id)
+                ->orderBy('id', 'desc')
+                ->take(3)
+                ->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-sarainandan', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -256,8 +278,15 @@ class FrontHomeController extends Controller
                 ->limit(9)
                 ->get();
             $data['alumniList'] = OurAlumni::where('status', 1)
-            ->where('branch_id', $branch->id)
-            ->orderBy('id', 'desc')->get();
+                ->where('branch_id', $branch->id)
+                ->take(6)
+                ->orderBy('id', 'desc')
+                ->get();
+
+            $data['achieversList'] = Achievers::where('branch_id', $branch->id)
+                ->orderBy('id', 'desc')
+                ->take(3)
+                ->get();
             //return response()->json($data['album']);
             return view('frontend.pages.branches.sunbeam-academy-knowledge-park', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
@@ -606,8 +635,7 @@ class FrontHomeController extends Controller
         ]);
     }
 
-    public function alumniDetails($slug)
-    {
+    public function alumniDetails($slug){
         $alumni = OurAlumni::with('branch')->where('slug', $slug)->first();        
         if (!$alumni) {
             return response()->json([
@@ -638,7 +666,6 @@ class FrontHomeController extends Controller
                 <span class="badge bg-info me-1 mb-1">' . $alumni->branch->name. '</span>
             </div>';
         }
-
         $modalContent .= '
                 </div>
             </div>
@@ -648,6 +675,20 @@ class FrontHomeController extends Controller
             'message' => 'Modal content generated',
             'modalContent' => $modalContent,
         ]);
+    }
+
+    public function achieversList(){
+        $data['achieversList'] = Achievers::with('branch')->orderBy('id', 'desc')->paginate(15);
+        return view('frontend.pages.achievers.achievers-list', compact('data'));
+    }
+
+    public function achieversDetails($slug){
+        $achieversDetail = Achievers::select('id', 'title', 'slug', 'profile_pic', 'short_content', 'long_content')
+            ->with(['branch'])
+            ->where('status', 1)
+            ->where('slug', $slug)
+            ->firstOrFail();
+        return view('frontend.pages.achievers.achievers-details', compact('achieversDetail'));
     }
 
 

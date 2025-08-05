@@ -9,7 +9,6 @@
         <div class="mb-3">
             <h1 class="mb-1">Welcome, {{auth()->user()->name ?? ''}}</h1>
         </div>
-
     </div>
     <div class="row">
         <div class="col-xl-3 col-sm-6 col-12 d-flex">
@@ -21,7 +20,9 @@
                     <div class="ms-2">
                         <p class="text-white mb-1">Total Branches</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">0</h4>
+                            <h4 class="text-white">
+                                {{ $data['totalBranch'] }}
+                            </h4>
 
                         </div>
                     </div>
@@ -35,9 +36,9 @@
                         <i class="ti ti-notification fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Active Notice</p>
+                        <p class="text-white mb-1">Total Blog</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">0</h4>
+                            <h4 class="text-white">{{ $data['totalBlog'] }}</h4>
 
                         </div>
                     </div>
@@ -51,9 +52,9 @@
                         <i class="ti ti-notification fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Inactive Notice</p>
+                        <p class="text-white mb-1">Total Album</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">0</h4>
+                            <h4 class="text-white">{{ $data['totalAlbum'] }}</h4>
 
                         </div>
                     </div>
@@ -67,9 +68,9 @@
                         <i class="ti ti-note fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Active Classes</p>
+                        <p class="text-white mb-1">Total Alumni</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">0</h4>
+                            <h4 class="text-white">{{ $data['totalAlumni'] }}</h4>
 
                         </div>
                     </div>
@@ -77,15 +78,15 @@
             </div>
         </div>
         <div class="col-xl-3 col-sm-6 col-12 d-flex">
-            <div class="card bg-teal sale-widget flex-fill">
+            <div class="card bg-purple sale-widget flex-fill">
                 <div class="card-body d-flex align-items-center">
                     <span class="sale-icon bg-white text-teal">
                         <i class="ti ti-note fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Inactive Classes</p>
+                        <p class="text-white mb-1">Total Achievers</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">0</h4>
+                            <h4 class="text-white">{{ $data['totalAchievers'] }}</h4>
 
                         </div>
                     </div>
@@ -100,9 +101,57 @@
                         <i class="ti ti-brand-pocket fs-24"></i>
                     </span>
                     <div class="ms-2">
-                        <p class="text-white mb-1">Total Visitor</p>
+                        <p class="text-white mb-1">Total Class</p>
                         <div class="d-inline-flex align-items-center flex-wrap gap-2">
-                            <h4 class="text-white">{{ $data['visitorTracking'] }}</h4>
+                            <h4 class="text-white">{{ $data['totalClass'] }}</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="card bg-pink sale-widget flex-fill">
+                <div class="card-body d-flex align-items-center">
+                    <span class="sale-icon bg-white text-info">
+                        <i class="ti ti-brand-pocket fs-24"></i>
+                    </span>
+                    <div class="ms-2">
+                        <p class="text-white mb-1">Total Disclosure</p>
+                        <div class="d-inline-flex align-items-center flex-wrap gap-2">
+                            <h4 class="text-white">{{ $data['totalDisclosure'] }}</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="card bg-primary-gradient sale-widget flex-fill">
+                <div class="card-body d-flex align-items-center">
+                    <span class="sale-icon bg-white text-info">
+                        <i class="ti ti-brand-pocket fs-24"></i>
+                    </span>
+                    <div class="ms-2">
+                        <p class="text-white mb-1">Total Notice Board</p>
+                        <div class="d-inline-flex align-items-center flex-wrap gap-2">
+                            <h4 class="text-white">{{ $data['totalNoticeBoard'] }}</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12 d-flex">
+            <div class="card bg-orange sale-widget flex-fill">
+                <div class="card-body d-flex align-items-center">
+                    <span class="sale-icon bg-white text-info">
+                        <i class="ti ti-brand-pocket fs-24"></i>
+                    </span>
+                    <div class="ms-2">
+                        <p class="text-white mb-1">Total Announcement</p>
+                        <div class="d-inline-flex align-items-center flex-wrap gap-2">
+                            <h4 class="text-white">{{ $data['totalAnnouncement'] }}</h4>
 
                         </div>
                     </div>

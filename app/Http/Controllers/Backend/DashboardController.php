@@ -3,17 +3,37 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\VisitorTracking;
+use App\Models\Blog;
+use App\Models\Branch;
+use App\Models\Album;
+use App\Models\OurAlumni;
+use App\Models\Achievers;
+use App\Models\ClassModel;
+use App\Models\Disclosure;
+use App\Models\NoticeBoard;
+use App\Models\Announcement;
+
 class DashboardController extends Controller
 {
     public function index(){
-        $data = [
+        $data = 
+        [
+            'visitorTracking' => VisitorTracking::count(),
+            'totalBlog' => Blog::count(),
+            'totalBranch' => Branch::count(),
+            'totalAlbum' => Album::count(),
+            'totalAlumni' => OurAlumni::count(),
+            'totalAchievers' => Achievers::count(),
+            'totalClass' => ClassModel::count(),
+            'totalDisclosure' => Disclosure::count(),
+            'totalNoticeBoard' => NoticeBoard::count(),
+            'totalAnnouncement' => Announcement::count(),
             'visitorTracking' => VisitorTracking::count(),
         ];
         return view('backend.pages.dashboard.index',  compact('data'));
     }
 
-    public function getDailyVisitors(Request $request)
-    {
+    public function getDailyVisitors(Request $request){
         $days = $request->input('days', 30);
         $endDate = now();
         $startDate = now()->subDays($days);        
