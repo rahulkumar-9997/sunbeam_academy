@@ -1,6 +1,7 @@
 <!-- hero slider -->
 @if (!empty($data['banners']) && $data['banners']->count()>0)
-    <div class="hero-section">
+    
+    <div class="hero-section mobile-hero">
         <div class="hero-slider owl-carousel owl-theme">
             @foreach($data['banners'] as $banner)
                 <div class="hero-single">

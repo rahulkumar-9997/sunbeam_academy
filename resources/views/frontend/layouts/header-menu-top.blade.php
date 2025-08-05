@@ -56,7 +56,7 @@
                          <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
                      </button>
                  </div>
-                 <div class="collapse navbar-collapse" id="main_nav">
+                 <div class="collapse navbar-collapse mobile-menu-dis" id="main_nav">
                      <ul class="navbar-nav">
                         <li class="nav-item">
                              <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
