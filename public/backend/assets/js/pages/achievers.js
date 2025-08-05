@@ -37,7 +37,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).off('submit', '#alumniAddForm').on('submit', '#alumniAddForm', function (event) {
+    $(document).off('submit', '#achieversAddForm').on('submit', '#achieversAddForm', function (event) {
         event.preventDefault();
         var form = $(this);
         var submitButton = form.find('button[type="submit"]');
@@ -55,7 +55,7 @@ $(document).ready(function () {
                 submitButton.prop('disabled', false);
                 submitButton.html('Save changes');
                 if (response.status === 'success') {                    
-                    $('.display-alumni-list-html').html(response.ourAlumniListData);
+                    $('.display-achievers-list-html').html(response.ourAchieversListData);
                     feather.replace();
                     form[0].reset();
                     $('#commanModel').modal('hide');
@@ -102,7 +102,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', 'a[data-ajax-edit-alumni="true"]', function () {
+    $(document).on('click', 'a[data-ajax-edit-achiever="true"]', function () {
         var title = $(this).data('title');
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var url = $(this).data('url');
@@ -120,6 +120,10 @@ $(document).ready(function () {
             success: function (data) {
                 $('#commanModel .render-data').html(data.form);
                 $("#commanModel").modal('show');
+                $('#commanModel').on('shown.bs.modal', function() {
+                    initSummernoteEditor();
+                    $(this).off('shown.bs.modal');
+                });  
             },
             error: function (data) {
                 data = data.responseJSON;
@@ -127,7 +131,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).off('submit', '#alumniEditForm').on('submit', '#alumniEditForm', function (event) {
+    $(document).off('submit', '#achieversEditForm').on('submit', '#achieversEditForm', function (event) {
         event.preventDefault();
         var form = $(this);
         var submitButton = form.find('button[type="submit"]');
@@ -145,7 +149,7 @@ $(document).ready(function () {
                 submitButton.prop('disabled', false);
                 submitButton.html('Save changes');
                 if (response.status === 'success') {                    
-                    $('.display-alumni-list-html').html(response.ourAlumniListData);
+                    $('.display-achievers-list-html').html(response.ourAchieversListData);
                     feather.replace();
                     form[0].reset();
                     $('#commanModel').modal('hide');
@@ -203,7 +207,7 @@ $(document).ready(function () {
                     },
                     success: function (response) {
                         if (response.status === 'success') {
-                            $('.display-alumni-list-html').html(response.ourAlumniListData);
+                            $('.display-achievers-list-html').html(response.ourAchieversListData);
                             feather.replace();
                             Toastify({
                                 text: response.message,

@@ -14,7 +14,7 @@
         <div class="page-btn">
              <a  href="javascript:void(0)" 
                 data-ajax-achievers-add-popup="true"
-                data-size="lg" 
+                data-size="xl" 
                 data-title="Add new Achievers" 
                 data-url="{{ route('manage-achievers.create') }}" 
                 data-bs-toggle="tooltip" 
@@ -30,9 +30,9 @@
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
-                <div class="display-alumni-list-html">
+                <div class="display-achievers-list-html">
                     @if(isset($achieversList) && $achieversList->count() > 0)
-                        @include('backend.pages.achievers.partials.alumni-list', ['achieversList' => $achieversList])
+                        @include('backend.pages.achievers.partials.achievers-list', ['achieversList' => $achieversList])
                     @endif
                 </div>
             </div>
