@@ -567,32 +567,7 @@
                                 <h3>Start Your Journey With Us</h3>
                                 <p>Join Sunbeam Academy – where learning begins with care and confidence.</p>
                             </div>
-                            <form action="#">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control"
-                                        placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control"
-                                        placeholder="Email Address">
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-select" name="service">
-                                        <option value="">Choose Course</option>
-                                        <option value="1">Art And Design</option>
-                                        <option value="2">Acting And Drama</option>
-                                        <option value="3">Accounting And Finance</option>
-                                        <option value="4">Biology And Conservation</option>
-                                        <option value="5">Science And Engineering</option>
-                                        <option value="6">Health Administration</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control" placeholder="Type Message"
-                                        rows="4"></textarea>
-                                </div>
-                                <button class="theme-btn">Enroll Now<i class="fas fa-arrow-right-long"></i></button>
-                            </form>
+                            @include('frontend.pages.common.branches-enquiry-form')
                         </div>
                     </div>
                 </div>

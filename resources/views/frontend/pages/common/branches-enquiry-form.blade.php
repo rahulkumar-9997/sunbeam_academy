@@ -1,6 +1,10 @@
 <form method="post" action="{{ route('enquiry.submit') }}" id="branchEnquiryForm" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="branch_name" value="{{ $branch->name }}">
+    @isset($branch)
+        <input type="hidden" name="branch_name" value="{{ $branch->name }}">
+    @else
+        <input type="hidden" name="branch_name" value="General Enquiry">
+    @endisset
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">

@@ -340,7 +340,12 @@ class FrontHomeController extends Controller
 
     public function schoolLevels()
     {
-        return view('frontend.pages.academics.school-levels');
+        $data['classes'] = ClassModel::with(['branches'])
+            ->where('status', 1)
+            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->orderBy('id', 'desc')
+            ->paginate(15);
+        return view('frontend.pages.academics.school-levels', compact('data'));
     }
 
     public function holisticEducationalApproach()
