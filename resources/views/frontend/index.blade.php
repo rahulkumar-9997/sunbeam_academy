@@ -188,7 +188,7 @@
 <div class="counter-area pt-60 pb-60">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
                         <img src="{{asset('fronted/assets/img/icon/course.svg')}}" alt="">
@@ -199,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
                         <img src="{{asset('fronted/assets/img/icon/graduation.svg')}}" alt="">
@@ -210,7 +210,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
                         <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="">
@@ -221,7 +221,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
                         <img src="{{asset('fronted/assets/img/icon/award.svg')}}" alt="">
@@ -326,7 +326,7 @@
     </div>-->
 <!-- video-area end -->
 <!-- team-area -->
-<div class="team-area pb-60">
+<div class="team-area pb-60 team-meet-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
@@ -338,7 +338,7 @@
             </div>
         </div>
         <div class="row justify-content-md-center">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".25s">
                     <div class="team-img">
                         <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb">
@@ -357,7 +357,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".50s">
                     <div class="team-img">
                         <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb">
@@ -376,7 +376,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".75s">
                     <div class="team-img">
                         <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb">
@@ -395,7 +395,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay="1s">
                     <div class="team-img">
                         <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb">

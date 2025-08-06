@@ -65,7 +65,25 @@
 		</div>
 	</div>
 </div>
-<div class="team-single pt-30 pb-40 branches-p-message">
+<div class="branch-content-section pt-50 pb-10 branch-content">
+	<div class="container">
+		<div class="row justify-content-md-center align-items-center">			
+			<div class="col-lg-12">
+				<div class="branchtitle-section">
+					<h6 class="btitle text-center">
+						<span> Sunbeam Samne Ghat</span> Nurturing Learning</span> With <span>Strong Values</span>
+					</h6>					
+				</div>
+				<div class="branchdetails">
+					<p>
+						Sunbeam Academy Samne Ghat offers a nurturing environment where academic excellence is combined with strong ethical values and personal growth. Recognized among the best CBSE schools in Varanasi, this branch focuses on the complete development of students — intellectually, emotionally, and socially. The school follows a value-driven approach that helps children build confidence, character, and a strong academic foundation. Parents in and around Samne Ghat trust Sunbeam for its experienced faculty, English-medium curriculum, co-curricular exposure, and focus on discipline. If you are looking for a well-balanced, future-ready education for your child, Sunbeam Samne Ghat is a name you can count on.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="team-single pt-20 pb-40 branches-p-message">
 	<div class="container">
 		<div class="row justify-content-md-center align-items-center">
 			<div class="col-lg-6">

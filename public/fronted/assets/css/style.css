@@ -3053,7 +3053,21 @@ label {
 
 @media all and (max-width: 991px) {
   .counter-area .counter-box {
-    margin: 40px 0;
+    margin: 15px 0;
+  }
+  .counter-box .counter{
+    font-size: 35px;
+  }
+  .team-meet-section .team-bio h5{
+    font-size: 18px;
+  }
+  .team-meet-section .team-item{
+    padding: 10px;
+  }
+  .team-meet-section .team-bio span{
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 20px;
   }
 }
 
@@ -7617,6 +7631,7 @@ label {
       margin-top: 20px;
       transform: none;
       animation: unset;
+      padding: 0px 15px 0px 15px;
   }
 
   .notice-board-container {
@@ -7787,7 +7802,17 @@ ul.events-academ li {
     font-size: 27px;
   }
   p.about-text{
-    text-align: justify;
+    text-align: center;
+  }
+  .course-details,
+  .blog-details .blog-de-content p
+  {
+    text-align: center;
+  }
+  .blog-details-title{
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
   }
   .enroll-form-header h3{
     font-size: 25px;
@@ -8181,6 +8206,19 @@ h4.blog-para-title{
 .branches-achievers-list .blog-item-img{
   overflow: inherit;
 }
+.branchtitle-section .btitle{ 
+    font-weight: 800;
+    text-transform: capitalize;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+.btitle span{
+  color: var(--theme-color2);
+}
+.branchdetails p{
+  text-align: center;
+}
 /*hero responsive in mobile*/
 /* Mobile View (Below 991px) */
 @media all and (max-width: 991px) {
@@ -8225,21 +8263,17 @@ h4.blog-para-title{
     letter-spacing: 2px !important;
   }
 }
-
-/* Smaller Mobile Devices (Below 767px) */
 @media all and (max-width: 767px) {
   .hero-image-container {
     height: auto;
   }
+  .branchtitle-section .btitle{ 
+      font-size: 25px;
+      line-height: 30px
+  }
 }
-/*hero responsive in mobile*/
-
-/* ==================== */
-/* Mobile Menu Fixes */
-/* ==================== */
 
 @media all and (max-width: 991px) {
-  /* Fix navbar collapse positioning */
   .navbar-collapse {
     position: absolute;
     top: 100%;
@@ -8278,6 +8312,12 @@ h4.blog-para-title{
   .branches-p-message .site-title{
       font-size: 25px;
       line-height: 30px;
+      text-align: center;
+  }
+  .team-details,
+  .tour-details p,
+  .hero1-section-area{
+    text-align: center;
   }
   .pr-card .card-desc-bx {
       padding: 10px;

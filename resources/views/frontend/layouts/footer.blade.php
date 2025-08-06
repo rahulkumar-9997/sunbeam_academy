@@ -47,19 +47,38 @@
                          <h4 class="footer-widget-title">Quick Links</h4>
                          <ul class="footer-list">
 
-                             <li><a href="#">
+                             <li>
+                                 <a href="{{ route('about-us') }}">
                                      <i class="fas fa-caret-right"></i>
-                                     About Us</a>
+                                     About Us
+                                 </a>
                              </li>
-                             <li><a href="#">
+                             <li>
+                                 <a href="{{ route('contact-us') }}">
                                      <i class="fas fa-caret-right"></i>
-                                     Contact Us</a>
+                                     Contact Us
+                                 </a>
                              </li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i> CEO's Message</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i> Rules & Regulations</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>From Founder</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i> Privacy policy</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Terms & Condition</a></li>
+
+                             <li>
+                                 <a href="{{ route('rules-and-regulations')}}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Rules & Regulations
+                                 </a>
+                             </li>
+
+                             <li>
+                                 <a href="#">
+                                     <i class="fas fa-caret-right"></i>
+                                     Privacy policy
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="#">
+                                     <i class="fas fa-caret-right"></i>
+                                     Terms & Condition
+                                 </a>
+                             </li>
                          </ul>
                      </div>
                  </div>
@@ -69,29 +88,51 @@
                              For Users
                          </h4>
                          <ul class="footer-list">
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Curriculum</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Hostels</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Classes</a></li>
+                             <li>
+                                 <a href="{{ route('curriculum') }}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Curriculum
+                                 </a>
+                             </li>
+                             <li><a href="{{ route('hostel.boys') }}"><i class="fas fa-caret-right"></i>Hostels</a></li>
+                             <li><a href="{{ route('classes.list') }}"><i class="fas fa-caret-right"></i>Classes</a></li>
                              <li><a href="#"><i class="fas fa-caret-right"></i>Admissions</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Elite 11</a></li>
+                             <li><a href="{{ route('fee-structure')}}"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
+                             <li><a href="{{ route('elite-11')}}"><i class="fas fa-caret-right"></i>Elite 11</a></li>
                          </ul>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-3">
                      <div class="footer-widget-box list">
-                         <h4 class="footer-widget-title">Newsletter</h4>
-                         <div class="footer-newsletter">
-                             <p>Subscribe Our Newsletter To Get Latest Update And News</p>
-                             <div class="subscribe-form">
-                                 <form action="#">
-                                     <input type="email" class="form-control" placeholder="Your Email">
-                                     <button class="theme-btn" type="submit">
-                                         Subscribe Now <i class="far fa-paper-plane"></i>
-                                     </button>
-                                 </form>
-                             </div>
-                         </div>
+                         <h4 class="footer-widget-title">
+                             Branches
+                         </h4>
+                         <ul class="footer-list">
+                             <li>
+                                 <a href="{{ route('sunbeam-academy-samneghat') }}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Sunbeam Academy Samneghat
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="{ route('sunbeam-academy-durgakund') }}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Sunbeam Academy Durgakund
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="{{ route('sunbeam-academy-sarainandan') }}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Sunbeam Academy Sarainandan
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="{{ route('sunbeam-academy-knowledge-park')}}">
+                                     <i class="fas fa-caret-right"></i>
+                                     Sunbeam Academy Knowledge Park
+                                 </a>
+                             </li>
+                         </ul>
                      </div>
                  </div>
              </div>
@@ -129,22 +170,22 @@
              </div>
          </div>
      </div>
-</footer>
-<!-- footer area end -->
-@if(session('success') || session('error'))
-<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1055;">
-    <div class="toast align-items-center text-white {{ session('success') ? 'bg-success' : 'bg-danger' }} border-0 show" role="alert">
-        <div class="d-flex">
-            <div class="toast-body">
-                {{ session('success') ?? session('error') }}
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-    </div>
-</div>
-@endif
+ </footer>
+ <!-- footer area end -->
+ @if(session('success') || session('error'))
+ <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 1055;">
+     <div class="toast align-items-center text-white {{ session('success') ? 'bg-success' : 'bg-danger' }} border-0 show" role="alert">
+         <div class="d-flex">
+             <div class="toast-body">
+                 {{ session('success') ?? session('error') }}
+             </div>
+             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+         </div>
+     </div>
+ </div>
+ @endif
 
-<div id="loader" class="loader-wrapper" style="display: none;">
-   <span class="site-loader"> </span>
-   <h3 class="loader-content"> Loading . . . </h3>
-</div>
+ <div id="loader" class="loader-wrapper" style="display: none;">
+     <span class="site-loader"> </span>
+     <h3 class="loader-content"> Loading . . . </h3>
+ </div>

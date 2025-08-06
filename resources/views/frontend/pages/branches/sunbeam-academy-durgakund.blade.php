@@ -65,6 +65,25 @@
 		</div>
 	</div>
 </div>
+<div class="branch-content-section pt-50 pb-10 branch-content">
+	<div class="container">
+		<div class="row justify-content-md-center align-items-center">			
+			<div class="col-lg-12">
+				<div class="branchtitle-section">
+					<h6 class="btitle text-center">
+						<span> Sunbeam Durga Kund</span> building character through</span> <span>quality education</span>
+					</h6>					
+				</div>
+				<div class="branchdetails">
+					<p>
+						Sunbeam Academy Durga Kund is known for its strong academic foundation, disciplined environment, and focus on value-based learning. The school provides a supportive space where children are guided to think clearly, express confidently, and grow with integrity. The CBSE curriculum is taught through interactive and engaging methods that build knowledge, skills, and character. With equal emphasis on studies and life skills, this branch prepares students for success both inside and outside the classroom. For families in the Durga Kund area looking for quality education in a balanced setup, Sunbeam stands out as a reliable option.
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="team-single pt-30 pb-40 branches-p-message">
 	<div class="container">
 		<div class="row justify-content-md-center align-items-center">

@@ -66,6 +66,24 @@
 	</div>
 </div>
 <!--===== HERO AREA ENDS =======-->
+<div class="branch-content-section pt-50 pb-10 branch-content">
+	<div class="container">
+		<div class="row justify-content-md-center align-items-center">			
+			<div class="col-lg-12">
+				<div class="branchtitle-section">
+					<h6 class="btitle text-center">
+						<span>Sunbeam Knowledge Park  </span>shaping bright minds with </span> <span>modern learning</span>
+					</h6>					
+				</div>
+				<div class="branchdetails">
+					<p>
+						Sunbeam Academy Knowledge Park offers a forward-thinking learning environment where academic success is balanced with personal development. The school follows a CBSE curriculum that builds critical thinking, ethical understanding, and communication skills. With well-equipped classrooms, digital tools, and a child-centered approach, this branch helps students prepare for future challenges with confidence. The focus here is not just on marks but on making every child capable of learning, leading, and adapting. Families in and around Knowledge Park value this branch for its modern facilities and focus on shaping responsible, capable learners.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="team-single pt-30 pb-40 branches-p-message">
 	<div class="container">
 		<div class="row justify-content-md-center align-items-center">

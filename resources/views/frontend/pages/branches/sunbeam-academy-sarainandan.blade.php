@@ -66,6 +66,25 @@
 	</div>
 </div>
 <!--===== HERO AREA ENDS =======-->
+<div class="branch-content-section pt-50 pb-10 branch-content">
+	<div class="container">
+		<div class="row justify-content-md-center align-items-center">			
+			<div class="col-lg-12">
+				<div class="branchtitle-section">
+					<h6 class="btitle text-center">
+						<span>Sunbeam Sarainandan </span> focused learning with</span> <span>personal attention</span>
+					</h6>					
+				</div>
+				<div class="branchdetails">
+					<p>
+						Sunbeam Academy Sarainandan focuses on individual attention and moral education, helping children build a solid academic and personal foundation. The school offers a blend of structured learning, activity-based classes, and remedial support to ensure every child feels confident and capable. With a nurturing environment that supports learning at every stage, this branch helps children grow intellectually and emotionally. Parents in the Sarainandan locality choose Sunbeam for its consistent approach, caring staff, and emphasis on strong values, making it an ideal place for early and sustained growth.
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="team-single pt-30 pb-40 branches-p-message">
 	<div class="container">
 		<div class="row justify-content-md-center align-items-center">
