@@ -45,7 +45,7 @@
                             </div>-->
                             <div class="blog-details">
                                 <div class="blog-de-content">
-                                    {!! $blog->description !!}
+                                    {!! clean_html_content($blog->description) !!}
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                         {{ $paragraph->paragraph_title}}
                                     </h4>
                                     <div class="paragraphs_description">
-                                        {!! $paragraph->paragraph_description !!}
+                                        {!! clean_html_content($paragraph->paragraph_description) !!}
                                     </div>
                                 </div>
                             </div>

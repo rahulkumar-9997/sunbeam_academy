@@ -25,7 +25,7 @@
                                 {{ $classes->heading_name }}
                             </h3>
                             <div class="classess_content">
-                                {!! $classes->description !!}
+                                {!! clean_html_content($classes->description) !!}
                             </div>
                         </div>
                     </div>
