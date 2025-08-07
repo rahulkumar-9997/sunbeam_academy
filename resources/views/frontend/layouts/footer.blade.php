@@ -59,6 +59,12 @@
                                      Contact Us
                                  </a>
                              </li>
+                             <li>
+                                 <a href="{{ route('blog') }}">
+                                    <i class="fas fa-caret-right"></i>
+                                    Blog
+                                 </a>
+                             </li>
 
                              <li>
                                  <a href="{{ route('rules-and-regulations')}}">
