@@ -57,7 +57,7 @@
                         @endif
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md- mb-3">
                         <label for="branches" class="form-label">Select Branches *</label>
                         <select class="form-control select2 @error('branches') is-invalid @enderror" multiple
                             name="branches[]" id="branches" data-placeholder="Select Branches">

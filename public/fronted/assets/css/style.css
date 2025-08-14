@@ -5624,7 +5624,7 @@ label {
 
 .notice-item {
   padding: 25px 25px;
-  border-radius: 40px 40px 40px 0;
+  border-radius: 5px;
   margin-bottom: 10px;
   border: 2px solid transparent;
   background: var(--theme-bg-light);
@@ -7540,7 +7540,7 @@ label {
 }
 
 .notice-item {
-  padding: 10px 15px;
+  padding: 5px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.3s;
   position: relative;
@@ -7565,16 +7565,23 @@ label {
 }
 
 .notice-text {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #333;
-  padding-right: 50px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #19232B;
+    padding-right: 50px;
 }
 
-.notice-date {
-  font-size: 11px;
-  color: #888;
-  margin-top: 5px;
+.notice-branch {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    background: rgba(74, 111, 220, 0.1);
+    color: #116f5f;
+    vertical-align: baseline;
+    border-radius: .25rem;
 }
 
 .notice-footer {
@@ -7796,6 +7803,24 @@ ul.events-academ li {
     font-size: 15px;
     color: #ffffff;
     line-height: 18px;
+}
+.notice-content a{
+    font-size: 14px;
+    color: var(--color-white);
+    padding: 12px 12px;
+    transition: var(--transition);
+    position: relative;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    border: none;
+    background: var(--theme-color2);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+    line-height: 20px;
 }
 .notice-content p{
   margin-bottom: 10px;
@@ -8225,10 +8250,10 @@ h4.blog-para-title{
     align-items: center;
 }
 .notice-card ul li.view-report-notice a .notice-text {
-    color: #333;
+    color:#19232B;
     font-size: 17px;
     line-height: 23px;
-    font-weight: 400;
+    font-weight: 600;
     
 }
 .br-notice-foot{

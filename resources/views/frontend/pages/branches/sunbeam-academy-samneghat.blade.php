@@ -127,11 +127,11 @@
 									@foreach ($data['notices'] as $notice)
 									<li class="view-report-notice">
 										<a href="{{ route('notices.show', $notice->slug) }}">
-											<div class="notice-badge">
+											
+											<div class="notice-text">
+												{{ $notice->title }} <div class="badge bg-primary notice-type">
 												{{ strtoupper($notice->notice_type) }}
 											</div>
-											<div class="notice-text">
-												{{ $notice->title }}
 											</div>
 											<div class="notice-date">
 												{{ $notice->created_at->format('d M Y') }}

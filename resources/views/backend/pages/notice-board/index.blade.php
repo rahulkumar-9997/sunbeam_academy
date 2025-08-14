@@ -24,9 +24,7 @@
                 Add New Notice
             </a>
         </div>
-
     </div>
-
     <!-- /product list -->
     <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
@@ -56,7 +54,11 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $notice_board_row->title }}</td>
-                        <td>{{ $notice_board_row->branch->name ?? 'No Branch Assigned' }}</td>
+                        <td>
+                            @foreach($notice_board_row->branches as $branch)
+                            <span class="badge bg-secondary me-1">{{ $branch->name }}</span><br>
+                            @endforeach
+                        </td>
                         <td>{{ ucfirst(str_replace('_', ' ', $notice_board_row->notice_type)) }}</td>
                         <td>
                             {{ \Carbon\Carbon::parse($notice_board_row->start_date)->format('d M Y') }} -

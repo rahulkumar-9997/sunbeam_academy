@@ -29,10 +29,24 @@
                                         </a>
                                         <h5 class="noticeh5">
                                             <span class="start-end-date">
-                                                {{ \Carbon\Carbon::parse($notice->start_date)->format('D, d M Y') }}, 
-                                                {{ \Carbon\Carbon::parse($notice->end_date)->format('d M Y') }}
+                                                {{ \Carbon\Carbon::parse($notice->created_at)->format('D, d M Y') }}
+                                               
                                             </span>
+                                            <!-- <span class="start-end-date">
+                                                {{ \Carbon\Carbon::parse($notice->start_date)->format('D, d M Y') }}
+                                                , 
+                                                {{ \Carbon\Carbon::parse($notice->end_date)->format('d M Y') }}
+                                            </span> -->
                                         <h5>
+                                        @if($notice->branches->count()>0)
+                                        <div class="notice-list mt-2">
+                                            @foreach ($notice->branches as $branch)
+                                                <div class="notice-branch">
+                                                    {{ $branch->name }}
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
 

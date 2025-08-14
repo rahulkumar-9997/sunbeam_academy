@@ -9,6 +9,7 @@ class NoticeBoard extends Model
     protected $table = 'notice_boards';
     protected $fillable = [
         'title',
+        'page_heading',
         'slug',
         'notice_type',
         'description',
@@ -16,8 +17,7 @@ class NoticeBoard extends Model
         'end_date',
         'file',
         'page_link',
-        'status',
-        'branch_id'
+        'status'
     ];
 
     protected static function boot()
@@ -41,8 +41,15 @@ class NoticeBoard extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function branch()
+    public function branches()
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsToMany(Branch::class, 'notice_board_branch', 'notice_board_id', 'branch_id');
     }
+
+    public function noticeImages()
+    {
+        return $this->hasMany(NoticeBoardImages::class, 'notice_board_id');
+    }
+
+   
 }

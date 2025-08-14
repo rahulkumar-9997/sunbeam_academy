@@ -30,11 +30,12 @@ class FrontHomeController extends Controller
     public function home()
     {
         $today = Carbon::today()->toDateString();
-        $data['notices'] = NoticeBoard::where('status', 1)
+        $data['notices'] = NoticeBoard::with('branches')
+            ->where('status', 1)
             ->where('start_date', '<=', $today)
             ->where('end_date', '>=', $today)
             ->orderBy('created_at', 'desc')
-            ->select('title', 'slug', 'notice_type', 'created_at')
+            ->select('id', 'title', 'slug', 'notice_type', 'created_at') // include id
             ->get();
         $data['classes'] = ClassModel::with(['branches'])
             ->where('status', 1)
@@ -82,7 +83,7 @@ class FrontHomeController extends Controller
             ->take(8)
             ->get(['id', 'title', 'slug', 'type', 'image', 'content']);
 
-        //return response()->json($data['testimonialsList']);
+        //return response()->json($data['notices']);
         return view('frontend.index', compact('data'));
     }
 
@@ -119,12 +120,15 @@ class FrontHomeController extends Controller
             $today = Carbon::today()->toDateString();
             $branch = Branch::where('slug', 'sunbeam-academy-samneghat')->firstOrFail();
             $branchSlug = $branch->slug;
-            $data['notices'] = NoticeBoard::where('status', 1)
+            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
+                    $query->where('slug', $branchSlug);
+            })
+                ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
-                ->where('branch_id', $branch->id)
+                ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('title', 'slug', 'notice_type', 'created_at')
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
                 ->get();
 
             $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
@@ -165,12 +169,15 @@ class FrontHomeController extends Controller
             $today = Carbon::today()->toDateString();
             $branch = Branch::where('slug', 'sunbeam-academy-durgakund')->firstOrFail();
             $branchSlug = $branch->slug;
-            $data['notices'] = NoticeBoard::where('status', 1)
+            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
+                    $query->where('slug', $branchSlug);
+            })
+                ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
-                ->where('branch_id', $branch->id)
+                ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('title', 'slug', 'notice_type', 'created_at')
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
                 ->get();
 
             $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
@@ -211,12 +218,15 @@ class FrontHomeController extends Controller
             $today = Carbon::today()->toDateString();
             $branch = Branch::where('slug', 'sunbeam-academy-sarainandan')->firstOrFail();
             $branchSlug = $branch->slug;
-            $data['notices'] = NoticeBoard::where('status', 1)
+            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
+                    $query->where('slug', $branchSlug);
+            })
+                ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
-                ->where('branch_id', $branch->id)
+                ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('title', 'slug', 'notice_type', 'created_at')
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
                 ->get();
 
             $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
@@ -256,12 +266,15 @@ class FrontHomeController extends Controller
             $today = Carbon::today()->toDateString();
             $branch = Branch::where('slug', 'sunbeam-academy-knowledge-park')->firstOrFail();
             $branchSlug = $branch->slug;
-            $data['notices'] = NoticeBoard::where('status', 1)
+            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
+                    $query->where('slug', $branchSlug);
+            })
+                ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
-                ->where('branch_id', $branch->id)
+                ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('title', 'slug', 'notice_type', 'created_at')
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
                 ->get();
 
             $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
@@ -486,32 +499,37 @@ class FrontHomeController extends Controller
         if ($branch) 
         {
             $branch = Branch::where('slug', $branch)->firstOrFail();
-            $data['notices'] = NoticeBoard::where('status', 1)
+            $branchSlug = $branch->slug;
+            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use       ($branchSlug) {
+                $query->where('slug', $branchSlug);
+            })
+                ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
-                ->where('branch_id', $branch->id)
+                ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('title', 'slug', 'notice_type', 'created_at')
-                ->get();        
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
+                ->get();  
             return view('frontend.pages.notice-board.index', compact('data'));
         }       
-        $data['notices'] = NoticeBoard::where('status', 1)
+        $data['notices'] = NoticeBoard::with('branches')
+            ->where('status', 1)
             ->where('start_date', '<=', $today)
             ->where('end_date', '>=', $today)
             ->orderBy('created_at', 'desc')
-            ->select('title', 'slug', 'notice_type', 'created_at')
+            ->select('id', 'title', 'slug', 'notice_type', 'created_at')
             ->get();
-        //return response()->json($notices);
+        //return response()->json($data['notices']);
         return view('frontend.pages.notice-board.index', compact('data'));
     }
 
     public function noticeDetails(Request $request, $slug)
     {
         $today = Carbon::today()->toDateString();
-        $notice = NoticeBoard::where('status', 1)
+        $notice = NoticeBoard::with('branches', 'noticeImages')->where('status', 1)
             ->where('slug', $slug)
             ->firstOrFail();
-        //return response()->json($data['notices']);
+        //return response()->json($notice);
         return view('frontend.pages.notice-board.show', compact('notice'));
     }
 

@@ -43,18 +43,29 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="notice_type" class="form-label">Select Branch *</label>
-                        <select class="form-select @error('branch') is-invalid @enderror" name="branch" id="branch">
-                            <option value="">Select a Branch</option>
-                            @foreach ($branches as $branch)
-                                <option value="{{ $branch->id }}">{{ $branch->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('branch')
+                    <div class="col-md-6 mb-3">
+                        <label for="page_heading" class="form-label">Page Heading</label>
+                        <input type="text" class="form-control @error('page_heading') is-invalid @enderror"
+                            name="page_heading" id="page_heading" value="{{ old('page_heading') }}">
+                        @error('page_heading')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="branches" class="form-label">Select Branches *</label>
+                        <select class="form-control select2 @error('branches') is-invalid @enderror" multiple
+                            name="branches[]" id="branches" data-placeholder="Select Branches">
+                            @foreach($branches as $branch)
+                            <option value="{{ $branch->id }}"
+                                {{ in_array($branch->id, old('branches', [])) ? 'selected' : '' }}>
+                                {{ $branch->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        @error('branches')
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+                    </div>                   
                     <div class="col-md-3 mb-3">
                         <label for="notice_type" class="form-label">Notice Type *</label>
                         <select class="form-select @error('notice_type') is-invalid @enderror" name="notice_type" id="notice_type">
@@ -69,7 +80,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="notice_date_range" class="form-label">Notice Date Range *</label>
                         <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="notice_date_range" id="notice_date_range">
                         <input type="hidden" id="start_date" name="start_date" value="{{ old('start_date') }}">
@@ -78,13 +89,41 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="page_link" class="form-label">Page Link (optional)</label>
                         <input type="url" class="form-control @error('page_link') is-invalid @enderror"
                             name="page_link" placeholder="https://example.com/page" id="page_link" value="{{ old('page_link') }}">
                         @error('page_link')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                    </div>
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="pdf_file" class="form-label">Upload PDF File</label>
+                        <input type="file" name="pdf_file" class="form-control @error('pdf_file') is-invalid @enderror"
+                            accept=".pdf" id="pdf_file">
+                        @error('pdf_file')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div id="filePreview" class="mt-2"></div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="image_file" class="form-label">
+                            Upload Additional Images (Multiple Select Limit 20 Files)
+                        </label>
+                        <input type="file" name="image_file[]" class="form-control @error('image_file') is-invalid @enderror"
+                            accept="image/*" id="image_file" multiple>
+                        @error('image_file')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div id="filePreview" class="mt-2"></div>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <div class="form-check form-switch mt-4">
+                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status"
+                                {{ old('status', true) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="status">Status</label>
+                        </div>
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
@@ -93,22 +132,6 @@
                         @error('description')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="fileInput" class="form-label">Upload File (Image or PDF)</label>
-                        <input type="file" name="file" class="form-control @error('file') is-invalid @enderror"
-                            accept="image/*,.pdf" id="fileInput">
-                        @error('file')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <div id="filePreview" class="mt-2"></div>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <div class="form-check form-switch mt-4">
-                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status"
-                                {{ old('status', true) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="status">Status</label>
-                        </div>
                     </div>
                     
                 </div>
@@ -134,16 +157,21 @@
 <script src="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <script>
     $(function() {
+        let startDate = moment();
+        let endDate = moment().add(6, 'months');
         $('#notice_date_range').daterangepicker({
             opens: 'left',
-            autoUpdateInput: false,
+            startDate: startDate,
+            endDate: endDate,
             minDate: moment(),
-            /* Disable past dates*/
             locale: {
                 format: 'YYYY-MM-DD',
                 cancelLabel: 'Clear'
             }
         });
+        $('#notice_date_range').val(startDate.format('YYYY-MM-DD') + ' to ' + endDate.format('YYYY-MM-DD'));
+        $('#start_date').val(startDate.format('YYYY-MM-DD'));
+        $('#end_date').val(endDate.format('YYYY-MM-DD'));
 
         $('#notice_date_range').on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format('YYYY-MM-DD') + ' to ' + picker.endDate.format('YYYY-MM-DD'));
@@ -157,27 +185,16 @@
             $('#end_date').val('');
         });
     });
+
 </script>
 <script>
-    document.getElementById('fileInput').addEventListener('change', function() {
-        const file = this.files[0];
-        const preview = document.getElementById('filePreview');
-        preview.innerHTML = '';
-
-        if (!file) return;
-
-        if (file.type.startsWith('image/')) {
-            const img = document.createElement('img');
-            img.src = URL.createObjectURL(file);
-            img.className = 'img-thumbnail';
-            img.style.maxWidth = '200px';
-            preview.appendChild(img);
-        } else if (file.type === 'application/pdf') {
-            preview.innerHTML = `<p>📄 PDF File Selected: <strong>${file.name}</strong></p>`;
-        } else {
-            preview.innerHTML = `<p class="text-danger">Unsupported file type.</p>`;
-        }
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Select Branches",
+            width: '100%'
+        });
     });
+    
 </script>
 
 @endpush

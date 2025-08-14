@@ -70,5 +70,10 @@ class Branch extends Model
         return $this->belongsToMany(Testimonial::class, 'testimonials_branch', 'branch_id', 'testimonials_id');
     }
 
+    public function noticeBoards()
+    {
+        return $this->belongsToMany(NoticeBoard::class, 'notice_board_branch', 'branch_id', 'notice_board_id');
+    }
+
     
 }

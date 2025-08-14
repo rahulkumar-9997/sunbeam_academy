@@ -32,49 +32,56 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('notice-board.update', ['id' => $notice_board_row->id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('notice-board.update', $notice_board_row->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="title" class="form-label">Title *</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title', $notice_board_row->title) }}">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror"
+                            name="title" id="title" value="{{ old('title', $notice_board_row->title) }}">
                         @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="notice_type" class="form-label">Select Branch *</label>
-                        <select class="form-select @error('branch') is-invalid @enderror" name="branch" id="branch">
-                            <option value="">Select a Branch</option>
-                            @foreach ($branches as $branch)
-                                <option value="{{ $branch->id }}" {{ $branch->id == $notice_board_row->branch_id ? 'selected' : '' }}>{{ $branch->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('branch')
+                    <div class="col-md-6 mb-3">
+                        <label for="page_heading" class="form-label">Page Heading</label>
+                        <input type="text" class="form-control @error('page_heading') is-invalid @enderror"
+                            name="page_heading" id="page_heading" value="{{ old('page_heading', $notice_board_row->page_heading) }}">
+                        @error('page_heading')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
+                    <div class="col-md-3 mb-3">
+                        <label for="branches" class="form-label">Select Branches *</label>
+                        <select class="form-control select2 @error('branches') is-invalid @enderror" multiple
+                            name="branches[]" id="branches" data-placeholder="Select Branches">
+                            @foreach($branches as $branch)
+                            <option value="{{ $branch->id }}"
+                                {{ in_array($branch->id, old('branches', $selectedBranches)) ? 'selected' : '' }}>
+                                {{ $branch->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        @error('branches')
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="col-md-3 mb-3">
                         <label for="notice_type" class="form-label">Notice Type *</label>
                         <select class="form-select @error('notice_type') is-invalid @enderror" name="notice_type" id="notice_type">
                             <option value="">Select</option>
-                            @php
-                            $types = ['holiday' => 'Holiday', 'exam' => 'Exam', 'parent_meeting' => 'Parent Meeting', 'event' => 'Event', 'other' => 'Other'];
-                            @endphp
-                            @foreach ($types as $key => $label)
-                            <option value="{{ $key }}" {{ old('notice_type', $notice_board_row->notice_type) == $key ? 'selected' : '' }}>
-                                {{ $label }}
-                            </option>
-                            @endforeach
+                            <option value="holiday" {{ old('notice_type', $notice_board_row->notice_type) == 'holiday' ? 'selected' : '' }}>Holiday</option>
+                            <option value="exam" {{ old('notice_type', $notice_board_row->notice_type) == 'exam' ? 'selected' : '' }}>Exam</option>
+                            <option value="parent_meeting" {{ old('notice_type', $notice_board_row->notice_type) == 'parent_meeting' ? 'selected' : '' }}>Parent Meeting</option>
+                            <option value="event" {{ old('notice_type', $notice_board_row->notice_type) == 'event' ? 'selected' : '' }}>Event</option>
+                            <option value="other" {{ old('notice_type', $notice_board_row->notice_type) == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
                         @error('notice_type')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="notice_date_range" class="form-label">Notice Date Range *</label>
                         <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="notice_date_range" id="notice_date_range"
                             value="{{ old('notice_date_range', $notice_board_row->start_date . ' - ' . $notice_board_row->end_date) }}">
@@ -84,17 +91,71 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="page_link" class="form-label">Page Link (optional)</label>
                         <input type="url" class="form-control @error('page_link') is-invalid @enderror"
-                            name="page_link" id="page_link" placeholder="https://example.com/page"
+                            name="page_link" placeholder="https://example.com/page" id="page_link"
                             value="{{ old('page_link', $notice_board_row->page_link) }}">
                         @error('page_link')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
+                    <div class="col-md-4 mb-3">
+                        <label for="pdf_file" class="form-label">Upload PDF File</label>
+                        <input type="file" name="pdf_file" class="form-control @error('pdf_file') is-invalid @enderror"
+                            accept=".pdf" id="pdf_file">
+                        @error('pdf_file')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        @if($notice_board_row->file)
+                        <div class="mt-2">
+                            <a href="{{ asset('upload/notice/' . $notice_board_row->file) }}" target="_blank" class="btn btn-sm btn-info">
+                                View Current PDF
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="confirmDeleteFile()">
+                                Remove PDF
+                            </button>
+                            <input type="hidden" name="remove_pdf_file" id="remove_pdf_file" value="0">
+                        </div>
+                        @endif
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="image_file" class="form-label">Upload Additional Images (Multiple Select Limit 20 Files)</label>
+                        <input type="file" name="image_file[]" class="form-control @error('image_file') is-invalid @enderror"
+                            accept="image/*" id="image_file" multiple>
+                        @error('image_file')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="mb-3 col-md-4">
+                        <div class="form-check form-switch mt-4">
+                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status"
+                                {{ old('status', $notice_board_row->status) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="status">Status</label>
+                        </div>
+                    </div>
+                    @if($notice_board_row->noticeImages->count() > 0)
+                    <div class="col-lg-12">
+                        <div class="mt-3">
+                            <h6>Current Images:</h6>
+                            <div class="row">
+                                @foreach($notice_board_row->noticeImages as $image)
+                                <div class="col-md-2 mb-2 position-relative">
+                                    <img src="{{ asset('upload/notice/' . $image->file) }}" class="img-thumbnail" style="height: 100%; width: 100%; object-fit: contain;">
+                                    <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0" 
+                                        onclick="deleteImage(event, {{ $image->id }})">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <input type="hidden" name="existing_images[]" value="{{ $image->id }}">
+                                </div>
+                                @endforeach
+                                <div id="deleted-images-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
                         <textarea id="summernote" name="description" rows="3"
@@ -103,36 +164,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label for="fileInput" class="form-label">Upload File (Image or PDF)</label>
-                        <input type="file" name="file" class="form-control @error('file') is-invalid @enderror"
-                            accept="image/*,.pdf" id="fileInput">
-                        @error('file')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        @if ($notice_board_row->file && in_array(strtolower(pathinfo($notice_board_row->file, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png', 'webp']))
-                        <div class="mt-2">
-                            <img src="{{ asset('storage/notice/' . $notice_board_row->file) }}" alt="Notice Image" class="img-fluid" style="max-height: 200px;">
-                        </div>
-                        @else
-                        <div class="mt-2">
-                            <strong>Current File:</strong>
-                            <a href="{{ asset('upload/notice/' . $notice_board_row->file) }}" target="_blank">View File</a>
-                        </div>
-                        @endif
-
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <div class="form-check form-switch mt-4">
-                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status"
-                                {{ old('status', $notice_board_row->status) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="status">Status</label>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="d-flex align-items-center justify-content-end mb-4 gap-2">
@@ -142,10 +174,7 @@
                     </div>
                 </div>
             </form>
-
-
         </div>
-
     </div>
 </div>
 <!-- Modal -->
@@ -156,16 +185,21 @@
 <script src="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <script>
     $(function() {
+        let startDate = moment();
+        let endDate = moment().add(6, 'months');
         $('#notice_date_range').daterangepicker({
             opens: 'left',
-            autoUpdateInput: false,
+            startDate: startDate,
+            endDate: endDate,
             minDate: moment(),
-            /* Disable past dates*/
             locale: {
                 format: 'YYYY-MM-DD',
                 cancelLabel: 'Clear'
             }
         });
+        $('#notice_date_range').val(startDate.format('YYYY-MM-DD') + ' to ' + endDate.format('YYYY-MM-DD'));
+        $('#start_date').val(startDate.format('YYYY-MM-DD'));
+        $('#end_date').val(endDate.format('YYYY-MM-DD'));
 
         $('#notice_date_range').on('apply.daterangepicker', function(ev, picker) {
             $(this).val(picker.startDate.format('YYYY-MM-DD') + ' to ' + picker.endDate.format('YYYY-MM-DD'));
@@ -181,25 +215,30 @@
     });
 </script>
 <script>
-    document.getElementById('fileInput').addEventListener('change', function() {
-        const file = this.files[0];
-        const preview = document.getElementById('filePreview');
-        preview.innerHTML = '';
-
-        if (!file) return;
-
-        if (file.type.startsWith('image/')) {
-            const img = document.createElement('img');
-            img.src = URL.createObjectURL(file);
-            img.className = 'img-thumbnail';
-            img.style.maxWidth = '200px';
-            preview.appendChild(img);
-        } else if (file.type === 'application/pdf') {
-            preview.innerHTML = `<p>📄 PDF File Selected: <strong>${file.name}</strong></p>`;
-        } else {
-            preview.innerHTML = `<p class="text-danger">Unsupported file type.</p>`;
-        }
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Select Branches",
+            width: '100%'
+        });
     });
+    function confirmDeleteFile() {
+        if (confirm('Are you sure you want to remove the PDF file?')) {
+            document.getElementById('remove_pdf_file').value = '1';
+            document.querySelector('a.btn-info').style.display = 'none';
+            document.querySelector('button.btn-danger').style.display = 'none';
+        }
+    }
+
+    function deleteImage(event, imageId) {
+        if (confirm('Are you sure you want to delete this image?')) {
+            event.target.closest('.col-md-2').style.display = 'none';
+            const deleteInput = document.createElement('input');
+            deleteInput.type = 'hidden';
+            deleteInput.name = 'deleted_images[]';
+            deleteInput.value = imageId;
+            document.getElementById('deleted-images-container').appendChild(deleteInput);
+        }
+    }
 </script>
 
 @endpush

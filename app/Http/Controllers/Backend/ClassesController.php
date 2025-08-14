@@ -21,7 +21,7 @@ class ClassesController extends Controller
     }
 
     public function create(){
-        $branches = Branch::get();
+        $branches = Branch::where('status', 1)->get();
         return view('backend.pages.classes.create', compact('branches'));
     }
 
@@ -79,7 +79,7 @@ class ClassesController extends Controller
 
     public function edit(Request $request, $id)
     {
-        $branch_list = Branch::get();
+        $branch_list = Branch::where('status', 1)->get();
         $classes_row = ClassModel::with(['branches'])->findOrFail($id); 
         return view('backend.pages.classes.edit', compact('classes_row', 'branch_list'));
     }

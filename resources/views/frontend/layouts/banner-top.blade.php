@@ -61,7 +61,13 @@
                                         <div class="notice-text">
                                             {{ $notice->title }}
                                         </div>
-                                        <div class="notice-date">{{ $notice->created_at->format('d M Y') }}</div>
+                                        @if($notice->branches->count()>0)
+                                            @foreach ($notice->branches as $branch)
+                                                <div class="notice-branch">
+                                                    {{ $branch->name }}
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </a>
                                 </li>
                             @endforeach                    

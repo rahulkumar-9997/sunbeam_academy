@@ -25,7 +25,7 @@ class BlogController extends Controller
     }
 
     public function create(){
-        $branches = Branch::get();
+        $branches = Branch::where('status', 1)->get();
         return view('backend.pages.blog.create', compact('branches'));
     }
 
@@ -135,7 +135,7 @@ class BlogController extends Controller
     public function edit(Request $request, $id)
     {
         $blog = Blog::with(['branches', 'paragraphs'])->findOrFail($id);
-        $branches = Branch::all();
+        $branches = Branch::where('status', 1)->get();
         /*Get selected branch id */
         $selectedBranches = $blog->branches->pluck('branches_id')->toArray();    
         return view('backend.pages.blog.edit', compact('branches', 'blog', 'selectedBranches'));
