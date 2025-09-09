@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Mac Capital">
     <meta name="robots" content="index, follow">
-    <title>Mac Capital :: Reset Password</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/assets/mac-img/fav-icon.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('backend/assets/mac-img/fav-icon.png')}}">
+    <title>Sunbeam Academy :: Reset Password</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/assets/sunbeam-img/fav-icon.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('backend/assets/sunbeam-img/fav-icon.png')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/all.min.css')}}">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="my-4 d-flex justify-content-center align-items-center copyright-text">
-                            <p>Copyright &copy; {{ date('Y') }} Mac Capital</p>
+                            <p>Copyright &copy; {{ date('Y') }} Sunbeam Academy</p>
                         </div>
                     </div>
                 </div>
