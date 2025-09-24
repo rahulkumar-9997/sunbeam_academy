@@ -10,3 +10,30 @@ function clean_html_content($html)
         '/(<br\s*\/?>\s*){2,}/i'            // remove repeated <br><br>
     ], '', $html);
 }
+
+if (!function_exists('branch_urls')) {
+    function branch_urls() {
+        return [
+            'samneghat' => [
+                'name' => 'Sunbeam Academy Samneghat',
+                'url' => 'https://sunbeamacademysmn.com/',
+                'slug' => 'sunbeam-academy-samneghat'
+            ],
+            'durgakund' => [
+                'name' => 'Sunbeam Academy Durgakund',
+                'url' => 'https://sunbeamacademydkd.com/',
+                'slug' => 'sunbeam-academy-durgakund'
+            ],
+            'sarainandan' => [
+                'name' => 'Sunbeam Academy Sarainandan', 
+                'url' => 'https://sunbeamacademysrn.com/',
+                'slug' => 'sunbeam-academy-sarainandan'
+            ],
+            'knowledge-park' => [
+                'name' => 'Sunbeam Academy Knowledge Park',
+                'url' => 'https://sunbeamacademykp.com/',
+                'slug' => 'sunbeam-academy-knowledge-park'
+            ]
+        ];
+    }
+}

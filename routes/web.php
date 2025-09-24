@@ -113,16 +113,25 @@ Route::prefix('admissions')->group(function () {
     Route::get('/rules-and-regulations', [FrontHomeController::class, 'rulesAndRegulations'])->name('rules-and-regulations');
     
 });
+
 Route::prefix('schlorships')->group(function () {
     Route::get('/elite-11', [FrontHomeController::class, 'elite11'])->name('elite-11');
     Route::get('/sathee', [FrontHomeController::class, 'sathee'])->name('sathee');
 });
 
+// Route::prefix('branches')->group(function () {
+//     Route::get('/sunbeam-academy-samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+//     Route::get('/sunbeam-academy-durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
+//     Route::get('/sunbeam-academy-sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
+//     Route::get('/sunbeam-academy-knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
+//     Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
+// });
+
 Route::prefix('branches')->group(function () {
-    Route::get('/sunbeam-academy-samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
-    Route::get('/sunbeam-academy-durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
-    Route::get('/sunbeam-academy-sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
-    Route::get('/sunbeam-academy-knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
+    Route::get('/sunbeam/academy/samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+    Route::get('/sunbeam/academy/durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
+    Route::get('/sunbeam/academy/sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
+    Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
     Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
 });
 

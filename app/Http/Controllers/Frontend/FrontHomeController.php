@@ -113,7 +113,7 @@ class FrontHomeController extends Controller
         //return response()->json($blog);
         return view('frontend.pages.blogs.blog-details', compact('blog'));
     }
-
+    /*
     public function sunbeamAcademySamneghat()
     {
         try {
@@ -149,7 +149,7 @@ class FrontHomeController extends Controller
                 ->take(6)
                 ->orderBy('id', 'desc')
                 ->get();
-            
+
             $data['achieversList'] = Achievers::where('branch_id', $branch->id)
                 ->orderBy('id', 'desc')
                 ->take(3)
@@ -304,6 +304,133 @@ class FrontHomeController extends Controller
             return view('frontend.pages.branches.sunbeam-academy-knowledge-park', compact('branch', 'data'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             Log::error('Branch not found for slug: sunbeam-academy-knowledge-park');
+            abort(404, 'Branch not found');
+        }
+    }
+    */
+
+    private $branchDomainMapping = [
+        'sunbeamacademysmn.com' => 'sunbeam-academy-samneghat',
+        'sunbeamacademydkd.com' => 'sunbeam-academy-durgakund',
+        'sunbeamacademysrn.com' => 'sunbeam-academy-sarainandan',
+        'sunbeamacademykp.com' => 'sunbeam-academy-knowledge-park',
+    ];
+
+    private function getBranchData($branchSlug)
+    {
+        $today = Carbon::today()->toDateString();
+        $branch = Branch::where('slug', $branchSlug)->firstOrFail();
+        
+        $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
+                $query->where('slug', $branchSlug);
+        })
+            ->where('status', 1)
+            ->where('start_date', '<=', $today)
+            ->where('end_date', '>=', $today)
+            ->with('branches')
+            ->orderBy('created_at', 'desc')
+            ->select('id', 'title', 'slug', 'notice_type', 'created_at')
+            ->get();
+
+        $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
+                $query->where('slug', $branchSlug);
+            })
+            ->whereHas('galleries', function ($query) {
+                $query->whereNotNull('image_file');
+            })
+            ->with(['branches'])
+            ->where('status', 1)
+            ->inRandomOrder()
+            ->limit(9)
+            ->get();
+
+        $data['alumniList'] = OurAlumni::where('status', 1)
+            ->where('branch_id', $branch->id)
+            ->take(6)
+            ->orderBy('id', 'desc')
+            ->get();
+        
+        $data['achieversList'] = Achievers::where('branch_id', $branch->id)
+            ->orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+
+        return compact('branch', 'data');
+    }
+
+    public function sunbeamAcademySamneghat(Request $request)
+    {
+        $currentHost = $request->getHost();
+        $branchSlug = 'sunbeam-academy-samneghat';
+        
+        // If accessing via branch domain, show branch-specific template
+        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.branch-domain-template', $branchData);
+        }
+        
+        // If accessing via main domain, show main domain template
+        try {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.sunbeam-academy-samneghat', $branchData);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: ' . $branchSlug);
+            abort(404, 'Branch not found');
+        }
+    }
+
+    // Keep your other methods exactly as they were, but add the domain detection logic
+    public function sunbeamAcademyDurgakund(Request $request)
+    {
+        $currentHost = $request->getHost();
+        $branchSlug = 'sunbeam-academy-durgakund';
+        
+        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.branch-domain-template', $branchData);
+        }        
+        try {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.sunbeam-academy-durgakund', $branchData);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: ' . $branchSlug);
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function sunbeamAcademySarainandan(Request $request)
+    {
+        $currentHost = $request->getHost();
+        $branchSlug = 'sunbeam-academy-sarainandan';        
+        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.branch-domain-template', $branchData);
+        }
+        
+        try {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.sunbeam-academy-sarainandan', $branchData);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: ' . $branchSlug);
+            abort(404, 'Branch not found');
+        }
+    }
+
+    public function sunbeamAcademyKnowledgePark(Request $request)
+    {
+        $currentHost = $request->getHost();
+        $branchSlug = 'sunbeam-academy-knowledge-park';
+        
+        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.branch-domain-template', $branchData);
+        }
+        
+        try {
+            $branchData = $this->getBranchData($branchSlug);
+            return view('frontend.pages.branches.sunbeam-academy-knowledge-park', $branchData);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Log::error('Branch not found for slug: ' . $branchSlug);
             abort(404, 'Branch not found');
         }
     }
@@ -496,11 +623,10 @@ class FrontHomeController extends Controller
     public function noticeList(Request $request, $branch = null)
     {
         $today = Carbon::today()->toDateString();
-        if ($branch) 
-        {
+        if ($branch) {
             $branch = Branch::where('slug', $branch)->firstOrFail();
             $branchSlug = $branch->slug;
-            $data['notices'] = NoticeBoard::whereHas('branches', function($query) use       ($branchSlug) {
+            $data['notices'] = NoticeBoard::whereHas('branches', function ($query) use ($branchSlug) {
                 $query->where('slug', $branchSlug);
             })
                 ->where('status', 1)
@@ -509,9 +635,9 @@ class FrontHomeController extends Controller
                 ->with('branches')
                 ->orderBy('created_at', 'desc')
                 ->select('id', 'title', 'slug', 'notice_type', 'created_at')
-                ->get();  
+                ->get();
             return view('frontend.pages.notice-board.index', compact('data'));
-        }       
+        }
         $data['notices'] = NoticeBoard::with('branches')
             ->where('status', 1)
             ->where('start_date', '<=', $today)
@@ -553,7 +679,7 @@ class FrontHomeController extends Controller
         return view('frontend.pages.classes.show', compact('classes'));
     }
 
-    
+
     public function albumHomeAjax(Request $request, $id)
     {
         try {
@@ -611,7 +737,8 @@ class FrontHomeController extends Controller
         }
     }
 
-    public function AjaxTestimonials(Request $request, $id){
+    public function AjaxTestimonials(Request $request, $id)
+    {
         $testimonial = Testimonial::with('branches')->findOrFail($id);
         $modalContent = '
             <div class="modal-body">
@@ -619,21 +746,21 @@ class FrontHomeController extends Controller
                     <div class="col-md-5 text-center mb-3 mb-md-0">
                         <img src="' . asset('upload/testimonials/' . $testimonial->image) . '" 
                             class="img-fluid rounded" 
-                            alt="' .$testimonial->title.'">
+                            alt="' . $testimonial->title . '">
                     </div>
                     <div class="col-md-7">                        
                         <div class="testimonial-content mb-3">
                         <p> ' .  nl2br(e($testimonial->content)) . '</p>
-                        </div>';       
-                        if ($testimonial->branches->count()) {
-                            $modalContent .= '<div class="mt-2"><strong>Branches:</strong><br>';
-                            foreach ($testimonial->branches as $branch) {
-                                $modalContent .= '<span class="badge bg-info me-1 mb-1">' . e($branch->name) . '</span>';
-                            }
-                            $modalContent .= '</div>';
-                        }
+                        </div>';
+        if ($testimonial->branches->count()) {
+            $modalContent .= '<div class="mt-2"><strong>Branches:</strong><br>';
+            foreach ($testimonial->branches as $branch) {
+                $modalContent .= '<span class="badge bg-info me-1 mb-1">' . e($branch->name) . '</span>';
+            }
+            $modalContent .= '</div>';
+        }
 
-                        $modalContent .= '
+        $modalContent .= '
                     </div>
                 </div>
             </div>';
@@ -644,11 +771,12 @@ class FrontHomeController extends Controller
         ]);
     }
 
-    
-    public function disclosureListBranchWise($branchSlug){
+
+    public function disclosureListBranchWise($branchSlug)
+    {
         $branchDisclosure = Branch::with('disclosures')
-                    ->where('slug', $branchSlug)
-                    ->first();
+            ->where('slug', $branchSlug)
+            ->first();
         if (!$branchDisclosure) {
             abort(404, 'Branch not found');
         }
@@ -658,8 +786,9 @@ class FrontHomeController extends Controller
         ]);
     }
 
-    public function alumniDetails($slug){
-        $alumni = OurAlumni::with('branch')->where('slug', $slug)->first();        
+    public function alumniDetails($slug)
+    {
+        $alumni = OurAlumni::with('branch')->where('slug', $slug)->first();
         if (!$alumni) {
             return response()->json([
                 'message' => 'Alumni not found',
@@ -682,11 +811,11 @@ class FrontHomeController extends Controller
                     <div class="testimonial-content mb-3">
                         <p>' . nl2br(e($alumni->content)) . '</p>
                     </div>';
-                    
+
         if ($alumni->branch) {
             $modalContent .= '
             <div class="mt-2">
-                <span class="badge bg-info me-1 mb-1">' . $alumni->branch->name. '</span>
+                <span class="badge bg-info me-1 mb-1">' . $alumni->branch->name . '</span>
             </div>';
         }
         $modalContent .= '
@@ -700,12 +829,14 @@ class FrontHomeController extends Controller
         ]);
     }
 
-    public function achieversList(){
+    public function achieversList()
+    {
         $data['achieversList'] = Achievers::with('branch')->orderBy('id', 'desc')->paginate(15);
         return view('frontend.pages.achievers.achievers-list', compact('data'));
     }
 
-    public function achieversDetails($slug){
+    public function achieversDetails($slug)
+    {
         $achieversDetail = Achievers::select('id', 'title', 'slug', 'profile_pic', 'short_content', 'long_content')
             ->with(['branch'])
             ->where('status', 1)
@@ -713,6 +844,4 @@ class FrontHomeController extends Controller
             ->firstOrFail();
         return view('frontend.pages.achievers.achievers-details', compact('achieversDetail'));
     }
-
-
 }

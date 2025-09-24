@@ -11,6 +11,7 @@ class Branch extends Model
         'name',
         'status',
         'slug',
+        'domain',
         'description',
         'phone_1',
         'email_1',
