@@ -8,23 +8,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BranchDomainRedirectMiddleware
 {
-    private $branchDomainMapping = [
-        'sunbeamacademysmn.com' => 'sunbeam-academy-samneghat',
-        'sunbeamacademydkd.com' => 'sunbeam-academy-durgakund',
-        'sunbeamacademysrn.com' => 'sunbeam-academy-sarainandan', 
-        'sunbeamacademykp.com' => 'sunbeam-academy-knowledge-park',
+   private $branchDomainMapping = [
+        'sunbeamacademy.inforbit.in' => 'https://sunbeamacademysmn.inforbit.in/', 
+        'sunbeamacademydkd.com' => 'https://sunbeamacademydkd.com/',
+        'sunbeamacademysrn.com' => 'https://sunbeamacademysrn.com/',
+        'sunbeamacademykp.com' => 'https://sunbeamacademykp.com/',
     ];
 
     public function handle(Request $request, Closure $next): Response
     {
-        $currentHost = $request->getHost();
-        if (array_key_exists($currentHost, $this->branchDomainMapping) && $request->path() === '/') {
-            $branchRoute = $this->branchDomainMapping[$currentHost];
-            $mainDomain = 'https://sunbeamacademy.com';
-            
-            return redirect()->away($mainDomain . '/branches/' . str_replace('-', '/', $branchRoute));
+        if ($request->getHost() === 'sunbeamacademy.inforbit.in' && $request->path() === '/') {
+            return $next($request);
         }
-        
         return $next($request);
     }
+
 }

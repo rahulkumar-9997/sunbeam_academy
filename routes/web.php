@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/get-daily-visitors', [DashboardController::class, 'getDailyVisitors'])->name('get-daily-visitors');
     Route::get('/clear-cache', [CacheController::class, 'clearCache'])->name('clear-cache');
@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manage-disclosure', DisclosureController::class)->names('manage-disclosure');
     Route::resource('manage-testimonials', TestimonialController::class)->names('manage-testimonials');
     Route::resource('manage-our-alumni', OurAlumniController::class)->names('manage-our-alumni');
-     Route::resource('manage-achievers', AchieversController::class)->names('manage-achievers');
+    Route::resource('manage-achievers', AchieversController::class)->names('manage-achievers');
     /*Notice Board */
     // Notice Board CRUD routes
     Route::get('notice-board', [NoticeBoardController::class, 'index'])->name('manage-notice-board');
@@ -78,14 +78,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('manage-blog/{id}', [BlogController::class, 'destroy'])->name('manage-blog.destroy');
 
     /**Blog route */
-    
 });
 
-Route::get('/', [FrontHomeController::class, 'home'])->name('home');
+
 Route::get('about-us', [FrontHomeController::class, 'aboutUs'])->name('about-us');
 Route::get('contact-us', [FrontHomeController::class, 'contactUs'])->name('contact-us');
 Route::get('notices/{branch?}', [FrontHomeController::class, 'noticeList'])
-    ->name('notices.index');/**Handle both default and branch-specific notices */
+    ->name('notices.index');
+/**Handle both default and branch-specific notices */
 Route::get('notice/{slug}', [FrontHomeController::class, 'noticeDetails'])->name('notices.show');
 Route::get('classes', [FrontHomeController::class, 'classesList'])->name('classes.list');
 Route::get('classes/{slug}', [FrontHomeController::class, 'classesDetails'])->name('classes.details');
@@ -111,7 +111,6 @@ Route::prefix('admissions')->group(function () {
     Route::get('/book-a-tour', [FrontHomeController::class, 'bookAtour'])->name('book-a-tour');
     Route::get('/fee-structure', [FrontHomeController::class, 'feeStructure'])->name('fee-structure');
     Route::get('/rules-and-regulations', [FrontHomeController::class, 'rulesAndRegulations'])->name('rules-and-regulations');
-    
 });
 
 Route::prefix('schlorships')->group(function () {
@@ -127,15 +126,30 @@ Route::prefix('schlorships')->group(function () {
 //     Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
 // });
 
-Route::prefix('branches')->group(function () {
-    Route::get('/sunbeam/academy/samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
-    Route::get('/sunbeam/academy/durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
-    Route::get('/sunbeam/academy/sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
-    Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
-    Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
+// Route::prefix('branches')->group(function () {
+//     Route::get('/sunbeam/academy/samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+//     Route::get('/sunbeam/academy/durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
+//     Route::get('/sunbeam/academy/sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
+//     Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
+//     
+// });
+Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
+Route::domain('sunbeamacademysmn.inforbit.in')->group(function () {
+    Route::get('/', [FrontHomeController::class, 'sunbeamAcademySamneghat']);
+});
+Route::domain('sunbeamacademydkd.com')->group(function () {
+    Route::get('/', [FrontHomeController::class, 'sunbeamAcademyDurgakund']);
+});
+Route::domain('sunbeamacademysrn.com')->group(function () {
+    Route::get('/', [FrontHomeController::class, 'sunbeamAcademySarainandan']);
+});
+Route::domain('sunbeamacademykp.com')->group(function () {
+    Route::get('/', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark']);
 });
 
-Route::prefix('life-at-sunbeam')->group(function() {
+Route::get('/', [FrontHomeController::class, 'home'])->name('home');
+
+Route::prefix('life-at-sunbeam')->group(function () {
     Route::get('/hobby-classes', [FrontHomeController::class, 'hobbyClasses'])->name('life.hobby-classes');
     Route::get('/school-cinema', [FrontHomeController::class, 'schoolCinema'])->name('life.school-cinema');
     Route::get('/stem-labs', [FrontHomeController::class, 'stemLabs'])->name('life.stem-labs');
@@ -146,14 +160,10 @@ Route::prefix('life-at-sunbeam')->group(function() {
     Route::get('/dramatics-radio', [FrontHomeController::class, 'dramaticsRadio'])->name('life.dramatics-radio');
 });
 
-Route::prefix('hostel')->group(function() {
+Route::prefix('hostel')->group(function () {
     Route::get('/boys-hostel', [FrontHomeController::class, 'boysHostel'])->name('hostel.boys');
     Route::get('/girls-hostel', [FrontHomeController::class, 'girlsHostel'])->name('hostel.girls');
     Route::get('/weekly-boarding', [FrontHomeController::class, 'weeklyBoarding'])->name('hostel.weekly-boarding');
     Route::get('/rules-regulations', [FrontHomeController::class, 'hostelRulesRegulations'])->name('hostel.rules');
 });
 Route::get('clear-cache', [FrontHomeController::class, 'clearCache'])->name('clear-cache');
-
-
-
-

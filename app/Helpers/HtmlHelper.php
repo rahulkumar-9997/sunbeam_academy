@@ -16,7 +16,7 @@ if (!function_exists('branch_urls')) {
         return [
             'samneghat' => [
                 'name' => 'Sunbeam Academy Samneghat',
-                'url' => 'https://sunbeamacademysmn.com/',
+                'url' => 'https://sunbeamacademysmn.inforbit.in/',
                 'slug' => 'sunbeam-academy-samneghat'
             ],
             'durgakund' => [

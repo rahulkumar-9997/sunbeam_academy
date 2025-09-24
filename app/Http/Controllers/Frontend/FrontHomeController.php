@@ -309,20 +309,13 @@ class FrontHomeController extends Controller
     }
     */
 
-    private $branchDomainMapping = [
-        'sunbeamacademysmn.com' => 'sunbeam-academy-samneghat',
-        'sunbeamacademydkd.com' => 'sunbeam-academy-durgakund',
-        'sunbeamacademysrn.com' => 'sunbeam-academy-sarainandan',
-        'sunbeamacademykp.com' => 'sunbeam-academy-knowledge-park',
-    ];
-
     private function getBranchData($branchSlug)
     {
         $today = Carbon::today()->toDateString();
         $branch = Branch::where('slug', $branchSlug)->firstOrFail();
-        
-        $data['notices'] = NoticeBoard::whereHas('branches', function($query) use ($branchSlug) {
-                $query->where('slug', $branchSlug);
+
+        $data['notices'] = NoticeBoard::whereHas('branches', function ($query) use ($branchSlug) {
+            $query->where('slug', $branchSlug);
         })
             ->where('status', 1)
             ->where('start_date', '<=', $today)
@@ -332,9 +325,9 @@ class FrontHomeController extends Controller
             ->select('id', 'title', 'slug', 'notice_type', 'created_at')
             ->get();
 
-        $data['album'] = Album::whereHas('branches', function($query) use ($branchSlug) {
-                $query->where('slug', $branchSlug);
-            })
+        $data['album'] = Album::whereHas('branches', function ($query) use ($branchSlug) {
+            $query->where('slug', $branchSlug);
+        })
             ->whereHas('galleries', function ($query) {
                 $query->whereNotNull('image_file');
             })
@@ -349,7 +342,7 @@ class FrontHomeController extends Controller
             ->take(6)
             ->orderBy('id', 'desc')
             ->get();
-        
+
         $data['achieversList'] = Achievers::where('branch_id', $branch->id)
             ->orderBy('id', 'desc')
             ->take(3)
@@ -358,79 +351,45 @@ class FrontHomeController extends Controller
         return compact('branch', 'data');
     }
 
-    public function sunbeamAcademySamneghat(Request $request)
+    public function sunbeamAcademySamneghat()
     {
-        $currentHost = $request->getHost();
-        $branchSlug = 'sunbeam-academy-samneghat';
-        
-        // If accessing via branch domain, show branch-specific template
-        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
-            $branchData = $this->getBranchData($branchSlug);
-            return view('frontend.pages.branches.branch-domain-template', $branchData);
-        }
-        
-        // If accessing via main domain, show main domain template
         try {
-            $branchData = $this->getBranchData($branchSlug);
+            $branchData = $this->getBranchData('sunbeam-academy-samneghat');
             return view('frontend.pages.branches.sunbeam-academy-samneghat', $branchData);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            Log::error('Branch not found for slug: ' . $branchSlug);
-            abort(404, 'Branch not found');
+            Log::error('Branch not found: sunbeam-academy-samneghat');
         }
     }
 
-    // Keep your other methods exactly as they were, but add the domain detection logic
-    public function sunbeamAcademyDurgakund(Request $request)
+    public function sunbeamAcademyDurgakund()
     {
-        $currentHost = $request->getHost();
-        $branchSlug = 'sunbeam-academy-durgakund';
-        
-        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
-            $branchData = $this->getBranchData($branchSlug);
-            return view('frontend.pages.branches.branch-domain-template', $branchData);
-        }        
         try {
-            $branchData = $this->getBranchData($branchSlug);
+            $branchData = $this->getBranchData('sunbeam-academy-durgakund');
             return view('frontend.pages.branches.sunbeam-academy-durgakund', $branchData);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            Log::error('Branch not found for slug: ' . $branchSlug);
+            Log::error('Branch not found: sunbeam-academy-durgakund');
             abort(404, 'Branch not found');
         }
     }
 
-    public function sunbeamAcademySarainandan(Request $request)
+    public function sunbeamAcademySarainandan()
     {
-        $currentHost = $request->getHost();
-        $branchSlug = 'sunbeam-academy-sarainandan';        
-        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
-            $branchData = $this->getBranchData($branchSlug);
-            return view('frontend.pages.branches.branch-domain-template', $branchData);
-        }
-        
         try {
-            $branchData = $this->getBranchData($branchSlug);
+            $branchData = $this->getBranchData('sunbeam-academy-sarainandan');
             return view('frontend.pages.branches.sunbeam-academy-sarainandan', $branchData);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            Log::error('Branch not found for slug: ' . $branchSlug);
+            Log::error('Branch not found: sunbeam-academy-sarainandan');
             abort(404, 'Branch not found');
         }
     }
 
-    public function sunbeamAcademyKnowledgePark(Request $request)
+    public function sunbeamAcademyKnowledgePark()
     {
-        $currentHost = $request->getHost();
-        $branchSlug = 'sunbeam-academy-knowledge-park';
-        
-        if (array_key_exists($currentHost, $this->branchDomainMapping)) {
-            $branchData = $this->getBranchData($branchSlug);
-            return view('frontend.pages.branches.branch-domain-template', $branchData);
-        }
-        
         try {
-            $branchData = $this->getBranchData($branchSlug);
+            $branchData = $this->getBranchData('sunbeam-academy-knowledge-park');
             return view('frontend.pages.branches.sunbeam-academy-knowledge-park', $branchData);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            Log::error('Branch not found for slug: ' . $branchSlug);
+            Log::error('Branch not found: sunbeam-academy-knowledge-park');
             abort(404, 'Branch not found');
         }
     }

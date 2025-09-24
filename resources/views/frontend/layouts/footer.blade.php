@@ -1,4 +1,7 @@
- <!-- footer area -->
+ @php
+    $mainDomain = env('MAIN_DOMAIN', 'https://sunbeamacademy.inforbit.in');
+@endphp
+
  <footer class="footer-area">
      <div class="footer-shape">
          <img src="{{asset('fronted/assets/img/shape/03.png')}}" alt="shape">
@@ -42,105 +45,47 @@
                          </ul>
                      </div>
                  </div>
-                 <div class="col-md-6 col-lg-2">
+                <div class="col-md-6 col-lg-2">
                      <div class="footer-widget-box list">
                          <h4 class="footer-widget-title">Quick Links</h4>
                          <ul class="footer-list">
-
-                             <li>
-                                 <a href="{{ route('about-us') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     About Us
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="{{ route('contact-us') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Contact Us
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="{{ route('blog') }}">
-                                    <i class="fas fa-caret-right"></i>
-                                    Blog
-                                 </a>
-                             </li>
-
-                             <li>
-                                 <a href="{{ route('rules-and-regulations')}}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Rules & Regulations
-                                 </a>
-                             </li>
-
-                             <li>
-                                 <a href="#">
-                                     <i class="fas fa-caret-right"></i>
-                                     Privacy policy
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#">
-                                     <i class="fas fa-caret-right"></i>
-                                     Terms & Condition
-                                 </a>
-                             </li>
+                             <li><a href="{{ $mainDomain }}/about-us"><i class="fas fa-caret-right"></i>About Us</a></li>
+                             <li><a href="{{ $mainDomain }}/contact-us"><i class="fas fa-caret-right"></i>Contact Us</a></li>
+                             <li><a href="{{ $mainDomain }}/blog"><i class="fas fa-caret-right"></i>Blog</a></li>
+                             <li><a href="{{ $mainDomain }}/admissions/rules-and-regulations"><i class="fas fa-caret-right"></i>Rules & Regulations</a></li>
+                             <li><a href="#"><i class="fas fa-caret-right"></i>Privacy policy</a></li>
+                             <li><a href="#"><i class="fas fa-caret-right"></i>Terms & Condition</a></li>
                          </ul>
                      </div>
                  </div>
+
                  <div class="col-md-6 col-lg-2">
                      <div class="footer-widget-box list">
-                         <h4 class="footer-widget-title">
-                             For Users
-                         </h4>
+                         <h4 class="footer-widget-title">For Users</h4>
                          <ul class="footer-list">
-                             <li>
-                                 <a href="{{ route('curriculum') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Curriculum
-                                 </a>
-                             </li>
-                             <li><a href="{{ route('hostel.boys') }}"><i class="fas fa-caret-right"></i>Hostels</a></li>
-                             <li><a href="{{ route('classes.list') }}"><i class="fas fa-caret-right"></i>Classes</a></li>
+                             <li><a href="{{ $mainDomain }}/academics/curriculum"><i class="fas fa-caret-right"></i>Curriculum</a></li>
+                             <li><a href="{{ $mainDomain }}/hostel/boys-hostel"><i class="fas fa-caret-right"></i>Hostels</a></li>
+                             <li><a href="{{ $mainDomain }}/classes"><i class="fas fa-caret-right"></i>Classes</a></li>
                              <li><a href="#"><i class="fas fa-caret-right"></i>Admissions</a></li>
-                             <li><a href="{{ route('fee-structure')}}"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
-                             <li><a href="{{ route('elite-11')}}"><i class="fas fa-caret-right"></i>Elite 11</a></li>
+                             <li><a href="{{ $mainDomain }}/admissions/fee-structure"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
+                             <li><a href="{{ $mainDomain }}/schlorships/elite-11"><i class="fas fa-caret-right"></i>Elite 11</a></li>
                          </ul>
                      </div>
                  </div>
+
                  <div class="col-md-6 col-lg-3">
                      <div class="footer-widget-box list">
-                         <h4 class="footer-widget-title">
-                             Branches
-                         </h4>
-                         <ul class="footer-list">
-                             <li>
-                                 <a href="{{ route('sunbeam-academy-samneghat') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Sunbeam Academy Samneghat
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="{ route('sunbeam-academy-durgakund') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Sunbeam Academy Durgakund
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="{{ route('sunbeam-academy-sarainandan') }}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Sunbeam Academy Sarainandan
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="{{ route('sunbeam-academy-knowledge-park')}}">
-                                     <i class="fas fa-caret-right"></i>
-                                     Sunbeam Academy Knowledge Park
-                                 </a>
-                             </li>
+                         <h4 class="footer-widget-title">Branches</h4>
+                         <ul class="footer-list">                             
+                            @foreach(branch_urls() as $branch)
+                            <li>
+                                <a href="{{ $branch['url'] }}" target="_blank">{{ $branch['name'] }}</a>
+                            </li> 
+                            @endforeach
                          </ul>
                      </div>
                  </div>
+
              </div>
          </div>
      </div>
