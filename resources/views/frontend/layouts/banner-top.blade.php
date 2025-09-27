@@ -6,7 +6,18 @@
             @foreach($data['banners'] as $banner)
                 <div class="hero-single">
                     <div class="hero-image-container">
-                        <img src="{{ asset('upload/banner/' . $banner->desktop_img) }}" alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" class="hero-image" width="100%">
+                        <img src="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }}" 
+                        srcset="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }} 412w,
+                                {{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }} 824w,
+                                {{ url('/images/banner/' . $banner->desktop_img . '?w=1361&h=681&q=85') }} 1361w"
+                        sizes="(max-width: 768px) 100vw,
+                                (max-width: 1200px) 80vw,
+                                412px"
+                        alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
+                        class="hero-image" 
+                        loading="eager"
+                        width="412" 
+                        height="206">
                     </div>
                     <div class="container">
                         <div class="row align-items-center">

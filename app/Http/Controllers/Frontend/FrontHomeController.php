@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use App\Models\NoticeBoard;
@@ -27,6 +28,39 @@ use App\Models\Achievers;
 
 class FrontHomeController extends Controller
 {
+    public function resizeImage(Request $request, $folder, $image)
+    {
+        $imagePath = public_path("upload/{$folder}/{$image}");
+        if (!file_exists($imagePath)) {
+            abort(404);
+        }
+        $width = $request->get('w', null);
+        $height = $request->get('h', null);
+        $quality = $request->get('q', 85);
+        if (!$width && !$height) {
+            return response()->file($imagePath);
+        }
+        $img = Image::make($imagePath);
+        if ($width && $height) {
+            $img->resize($width, $height, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+        } elseif ($width) {
+            $img->resize($width, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+        } elseif ($height) {
+            $img->resize(null, $height, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+        }
+        $img->encode('webp', $quality);
+        return $img->response('webp');
+    }
+
     public function home()
     {
         $today = Carbon::today()->toDateString();

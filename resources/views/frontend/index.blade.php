@@ -4,6 +4,9 @@
 @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
 @section('main-content')
 @include('frontend.layouts.banner-top')
+@php
+    $branches = branch_urls();
+@endphp
 @if (!empty($data['branches']) && $data['branches']->count() > 0)
 <div class="feature-area home-feature fa-negative home-branches">
     <div class="container">
@@ -12,18 +15,18 @@
                 <div class="feature-wrapper">
                     <div class="row">
                         @foreach ($data['branches'] as $branch)
+                        @php
+                            $branchData = collect($branches)->firstWhere('slug', $branch->slug);
+                        @endphp
                         <div class="col-lg-3">
                             <div class="feature-item">
-                                <a href="{{ url('branches/' . $branch->slug) }}">
+                                <a href="{{ $branchData['url'] }}">
                                     <div class="branch-feature">
                                         <h3>
                                             {{ $branch->name }}
                                         </h3>
                                     </div>
                                     <div class="feature-content">
-                                        <!-- <p>
-                                                {!! Str::words(strip_tags($branch->description), 14, '...') !!}
-                                                </p> -->
                                         <p>
                                             +91 {{ $branch->phone_1 }}
                                         </p>
@@ -34,33 +37,7 @@
                                 </a>
                             </div>
                         </div>
-                        @endforeach
-
-                        <!-- <div class="col-xl-20">
-                                <div class="feature-item">
-                                
-                                    <div class="branch-feature">
-                                        <h3>
-                                            Sunbeam Academy Ghazipur
-                                        </h3>
-                                    </div>
-                                    <div class="feature-content">
-                                        <p>
-                                        Every child begins their journey with love, care, and bright learning experiences.
-                                        </p>
-                                        <p>
-                                            <a href="tel:+919554958414">
-                                                +91 95549 58414
-                                            </a>
-                                        </p>
-                                        <p>
-                                            <a href="mailto:info@sunbeamacademy.com">
-                                                info@sunbeamacademy.com
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div> -->
+                        @endforeach                        
                     </div>
                 </div>
             </div>
@@ -84,16 +61,20 @@
                 <div class="announcement-item h-100">
                     <div class="announcement-img-container">
                         <a href="{{ asset('upload/announcement/' . $announcement->image) }}" class="popup-img d-block">
-                            <img src="{{ asset('upload/announcement/' . $announcement->image) }}" 
+                            <img src="{{ url('/images/announcement/' . $announcement->image . '?w=400&h=400&q=85') }}" 
+                                 srcset="{{ url('/images/announcement/' . $announcement->image . '?w=400&h=400&q=85') }} 400w,
+                                         {{ url('/images/announcement/' . $announcement->image . '?w=200&h=133&q=85') }} 200w,
+                                         {{ url('/images/announcement/' . $announcement->image . '?w=366&h=244&q=85') }} 366w"
+                                 sizes="(max-width: 576px) calc(100vw - 30px),
+                                        (max-width: 768px) calc(50vw - 30px),
+                                        400px"
                                  alt="{{ $announcement->title }}" 
-                                 class="announcement-image img-fluid">
+                                 class="announcement-image img-fluid" 
+                                 loading="lazy"
+                                 width="400" 
+                                 height="400">
                         </a>
                     </div>
-                    <!-- @if($announcement->title)
-                    <div class="announcement-caption p-3">
-                        <h5 class="text-center">{{ $announcement->title }}</h5>
-                    </div>
-                    @endif -->
                 </div>
             </div>
             @endforeach
@@ -110,17 +91,17 @@
                     <div class="about-img">
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <img class="img-1" src="{{asset('fronted/assets/sunbeam-img/about/about-6.jpg')}}" alt="img">
+                                <img class="img-1" src="{{asset('fronted/assets/sunbeam-img/about/about-6.jpg')}}" alt="img" loading="lazy">
                                 <div class="about-experience mt-4">
                                     <div class="about-experience-icon">
-                                        <img src="{{asset('fronted/assets/img/icon/exchange-idea.svg')}}" alt="img">
+                                        <img src="{{asset('fronted/assets/img/icon/exchange-idea.svg')}}" alt="img" loading="lazy">
                                     </div>
                                     <b class="text-start">Driven by Dedication <br> Creating Impact with Care</b>
                                 </div>
                             </div>
                             <div class="col-md-6 mobile-center">
-                                <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.jpg')}}" alt="img">
-                                <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.jpg')}}" alt="img">
+                                <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.jpg')}}" alt="img" loading="lazy">
+                                <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.jpg')}}" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -142,7 +123,7 @@
                             <div class="col-md-7">
                                 <div class="about-item">
                                     <div class="about-item-icon">
-                                        <img src="{{asset('fronted/assets/img/icon/open-book.svg')}}" alt="">
+                                        <img src="{{asset('fronted/assets/img/icon/open-book.svg')}}" alt="book" loading="lazy">
                                     </div>
                                     <div class="about-item-content">
                                         <h5>Smart Learning</h5>
@@ -151,7 +132,7 @@
                                 </div>
                                 <div class="about-item">
                                     <div class="about-item-icon">
-                                        <img src="{{asset('fronted/assets/img/icon/global-education.svg')}}" alt="img">
+                                        <img src="{{asset('fronted/assets/img/icon/global-education.svg')}}" alt="img" loading="lazy">
                                     </div>
                                     <div class="about-item-content">
                                         <h5>Personalized Attention</h5>
@@ -191,7 +172,7 @@
             <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
-                        <img src="{{asset('fronted/assets/img/icon/course.svg')}}" alt="">
+                        <img src="{{asset('fronted/assets/img/icon/course.svg')}}" alt="course" loading="lazy">
                     </div>
                     <div>
                         <span class="counter" data-count="+" data-to="4000" data-speed="3000">4000</span>
@@ -202,7 +183,7 @@
             <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
-                        <img src="{{asset('fronted/assets/img/icon/graduation.svg')}}" alt="">
+                        <img src="{{asset('fronted/assets/img/icon/graduation.svg')}}" alt="graduation" loading="lazy">
                     </div>
                     <div>
                         <span class="counter" data-count="+" data-to="150" data-speed="3000">150</span>
@@ -213,7 +194,7 @@
             <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
-                        <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="">
+                        <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="teacher" loading="lazy">
                     </div>
                     <div>
                         <span class="counter" data-count="+" data-to="400" data-speed="3000">400</span>
@@ -224,7 +205,7 @@
             <div class="col-lg-3 col-sm-6 col-6">
                 <div class="counter-box">
                     <div class="icon">
-                        <img src="{{asset('fronted/assets/img/icon/award.svg')}}" alt="">
+                        <img src="{{asset('fronted/assets/img/icon/award.svg')}}" alt="awards" loading="lazy">
                     </div>
                     <div>
                         <span class="counter" data-count="+" data-to="5000" data-speed="3000">5000</span>
@@ -263,10 +244,21 @@
                             </span>
                         </div>
                         <div class="course-img image-file">
-                            @if($class->main_image)                            
-                                <img src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}">                                
+                            @if($class->main_image)           
+                                <img src="{{ url('/images/classes/' . $class->main_image . '?w=400&h=400&q=85') }}" 
+                                 srcset="{{ url('/images/classes/' . $class->main_image . '?w=400&h=400&q=85') }} 400w,
+                                {{ url('/images/classes/' . $class->main_image . '?w=200&h=133&q=85') }} 200w,
+                                {{ url('/images/classes/' . $class->main_image . '?w=366&h=244&q=85') }} 366w"
+                                 sizes="(max-width: 576px) calc(100vw - 30px),
+                                        (max-width: 768px) calc(50vw - 30px),
+                                        400px"
+                                 alt="{{ $class->title }}" 
+                                 class="classes-image img-fluid" 
+                                 loading="lazy"
+                                 width="400" 
+                                 height="400">
                             @else
-                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img">
+                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img" loading="lazy">
                             @endif                    
                         </div>
                         <div class="course-content">
@@ -343,7 +335,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".25s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb" loading="lazy">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -362,7 +354,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".50s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb" loading="lazy">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -381,7 +373,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".75s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb" loading="lazy">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -400,7 +392,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay="1s">
                     <div class="team-img">
-                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb">
+                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb" loading="lazy">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -439,7 +431,7 @@
                                 <div class="col-md-6">
                                     <div class="choose-item">
                                         <div class="choose-item-icon">
-                                            <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="img">
+                                            <img src="{{asset('fronted/assets/img/icon/teacher-2.svg')}}" alt="img" loading="lazy">
                                         </div>
                                         <div class="choose-item-info">
                                             <h4>Expert Teachers</h4>
@@ -450,7 +442,7 @@
                                 <div class="col-md-6">
                                     <div class="choose-item">
                                         <div class="choose-item-icon">
-                                            <img src="{{asset('fronted/assets/img/icon/course-material.svg')}}" alt="img">
+                                            <img src="{{asset('fronted/assets/img/icon/course-material.svg')}}" alt="img" loading="lazy">
                                         </div>
                                         <div class="choose-item-info">
                                             <h4>Course Material</h4>
@@ -461,7 +453,7 @@
                                 <div class="col-md-6">
                                     <div class="choose-item">
                                         <div class="choose-item-icon">
-                                            <img src="{{asset('fronted/assets/img/icon/online-course.svg')}}" alt="img">
+                                            <img src="{{asset('fronted/assets/img/icon/online-course.svg')}}" alt="img" loading="lazy">
                                         </div>
                                         <div class="choose-item-info">
                                             <h4>Personal Attention</h4>
@@ -472,7 +464,7 @@
                                 <div class="col-md-6">
                                     <div class="choose-item">
                                         <div class="choose-item-icon">
-                                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="img">
+                                            <img src="{{asset('fronted/assets/img/icon/money.svg')}}" alt="img" loading="lazy">
                                         </div>
                                         <div class="choose-item-info">
                                             <h4>Safe & Supportive Environment</h4>
@@ -487,7 +479,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="choose-img wow fadeInRight" data-wow-delay=".25s">
-                    <img src="{{asset('fronted/assets/sunbeam-img/why-choose-us.jpg')}}" alt="img">
+                    <img src="{{asset('fronted/assets/sunbeam-img/why-choose-us.jpg')}}" alt="img" loading="lazy">
                 </div>
             </div>
         </div>
@@ -519,7 +511,7 @@
                     <a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
                         @if($item->image)
                         <div class="gallery-img">
-                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid">
+                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
@@ -527,14 +519,14 @@
                         {{-- If no album image, check for gallery images --}}
                         @elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
                         <div class="gallery-img">
-                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid">
+                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
                         </div>
                         @else
                         <div class="gallery-img">
-                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid">
+                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
@@ -661,7 +653,7 @@
 
                     <div class="blog-item-img">
                         <a href="{{ route('blog.details', $item->slug) }}">
-                            <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}">
+                            <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}" loading="lazy">
                         </a>
                     </div>
                     <div class="blog-item-info">
@@ -734,7 +726,7 @@
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-author-img">
-                        <img src="{{ asset('upload/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->title }}">
+                        <img src="{{ asset('upload/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->title }}" loading="lazy">
                     </div>
                     <div class="testimonial-author-info">
                         <h4>{{ $testimonial->title }}</h4>

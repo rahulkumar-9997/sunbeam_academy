@@ -63,7 +63,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Branches</a>
                             <ul class="dropdown-menu fade-down">
-                                @foreach(branch_urls() as $branch) <li><a class="dropdown-item" href="{{ $branch['url'] }}" target="_blank">{{ $branch['name'] }}</a></li> @endforeach
+                                @foreach(branch_urls() as $branch)
+                                <li><a class="dropdown-item" href="{{ $branch['url'] }}" target="_blank">{{ $branch['name'] }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

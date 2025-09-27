@@ -151,6 +151,8 @@ Route::domain('www.sunbeamacademykp.com')->group(function () {
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
 Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
+Route::get('/images/{folder}/{image}', [FrontHomeController::class, 'resizeImage']);
+
 Route::prefix('life-at-sunbeam')->group(function () {
     Route::get('/hobby-classes', [FrontHomeController::class, 'hobbyClasses'])->name('life.hobby-classes');
     Route::get('/school-cinema', [FrontHomeController::class, 'schoolCinema'])->name('life.school-cinema');
