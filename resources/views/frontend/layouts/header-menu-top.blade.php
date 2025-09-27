@@ -42,7 +42,7 @@
     </div>
     <div class="main-navigation">
         @php
-        $mainDomain = env('MAIN_DOMAIN', 'https://sunbeamacademy.inforbit.in');
+        $mainDomain = env('MAIN_DOMAIN', 'https://sunbeamacademy.com');
         @endphp
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">

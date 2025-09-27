@@ -1,5 +1,5 @@
  @php
-    $mainDomain = env('MAIN_DOMAIN', 'https://sunbeamacademy.inforbit.in');
+    $mainDomain = env('MAIN_DOMAIN', 'https://sunbeamacademy.com');
 @endphp
 
  <footer class="footer-area">

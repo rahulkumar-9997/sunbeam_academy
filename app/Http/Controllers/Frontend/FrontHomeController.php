@@ -311,6 +311,7 @@ class FrontHomeController extends Controller
 
     private function getBranchData($branchSlug)
     {
+		Log::info('Current Domain: ' . request()->getHost());
         $today = Carbon::today()->toDateString();
         $branch = Branch::where('slug', $branchSlug)->firstOrFail();
 

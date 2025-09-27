@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $(document).off('submit', '#branchEnquiryForm').on('submit', '#branchEnquiryForm', function (event) {
         event.preventDefault();
         var form = $(this);
@@ -118,6 +118,15 @@ $(document).ready(function () {
         });
     });
     /*Alumni modal */
+
+     $(window).on('load', function () {
+        var $container = $('.grid-services-image');
+        $container.imagesLoaded(function () {
+            $container.isotope({
+                filter: '*'
+            });
+        });
+    });
  });
  
 /* Function to show toast notifications (using Bootstrap 5 Toast) */

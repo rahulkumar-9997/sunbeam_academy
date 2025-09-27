@@ -51,14 +51,14 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                         </div>
                         @if($notice->noticeImages->count()>0)
                             <div class="notice_additional_image">
-                                <div class="row popup-gallery">
+                                <div class="row popup-gallery grid-services-image">
                                     @foreach ($notice->noticeImages as $index => $image)
                                     @php
                                         $delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
                                     @endphp
                                     <div class="col-md-3 wow fadeInUp" data-wow-delay="{{ $delay }}">
                                         <div class="gallery-item">
-                                            <div class="gallery-img image-file">
+                                            <div class="gallery-img">
                                                 <img src="{{ asset('upload/notice/'.$image->file) }}" alt="{{ $image->title }}">
                                             </div>
                                             <div class="gallery-content">

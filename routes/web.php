@@ -133,22 +133,24 @@ Route::prefix('schlorships')->group(function () {
 //     Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
 //     
 // });
-Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
-Route::domain('sunbeamacademysmn.inforbit.in')->group(function () {
+Route::get('/check-domain', function (\Illuminate\Http\Request $request) {
+    return 'Host: ' . $request->getHost();
+});
+Route::domain('www.sunbeamacademysmn.com')->group(function () {
     Route::get('/', [FrontHomeController::class, 'sunbeamAcademySamneghat']);
 });
-Route::domain('sunbeamacademydkd.com')->group(function () {
+Route::domain('www.sunbeamacademydkd.com')->group(function () {
     Route::get('/', [FrontHomeController::class, 'sunbeamAcademyDurgakund']);
 });
-Route::domain('sunbeamacademysrn.com')->group(function () {
+Route::domain('www.sunbeamacademysrn.com')->group(function () {
     Route::get('/', [FrontHomeController::class, 'sunbeamAcademySarainandan']);
 });
-Route::domain('sunbeamacademykp.com')->group(function () {
+Route::domain('www.sunbeamacademykp.com')->group(function () {
     Route::get('/', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark']);
 });
 
 Route::get('/', [FrontHomeController::class, 'home'])->name('home');
-
+Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
 Route::prefix('life-at-sunbeam')->group(function () {
     Route::get('/hobby-classes', [FrontHomeController::class, 'hobbyClasses'])->name('life.hobby-classes');
     Route::get('/school-cinema', [FrontHomeController::class, 'schoolCinema'])->name('life.school-cinema');
