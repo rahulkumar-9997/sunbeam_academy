@@ -44,7 +44,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="content-img wow fadeInRight" data-wow-delay=".25s">
-                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="about us">
+                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="about us" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -83,10 +83,10 @@
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
-                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape1.png')}}" alt="img">
+                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape1.png')}}" alt="img" loading="lazy" decoding="async">
                         </div>
                         <div class="shape shape--2">
-                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape2.png')}}" alt="img">
+                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape2.png')}}" alt="img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -119,10 +119,10 @@
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
-                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape1.png')}}" alt="img">
+                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape1.png')}}" alt="img" loading="lazy" decoding="async">
                         </div>
                         <div class="shape shape--2">
-                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape2.png')}}" alt="img">
+                            <img src="{{asset('fronted/assets/sunbeam-img/about/vm_shape2.png')}}" alt="img" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>

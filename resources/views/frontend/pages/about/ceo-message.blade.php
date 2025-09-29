@@ -20,7 +20,7 @@
         <div class="row align-items-center">
             <div class="col-md-4">
                 <div class="team-single-img">
-                    <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="CEO - Message">
+                    <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="CEO - Message" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="col-md-8">

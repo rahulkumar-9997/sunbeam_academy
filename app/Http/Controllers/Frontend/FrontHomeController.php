@@ -410,8 +410,11 @@ class FrontHomeController extends Controller
     public function sunbeamAcademySarainandan()
     {
         try {
+            return redirect()->away('https://sunbeamacademykp.com/');
             $branchData = $this->getBranchData('sunbeam-academy-sarainandan');
-            return view('frontend.pages.branches.sunbeam-academy-sarainandan', $branchData);
+            if ($branchData) {
+                return redirect()->away('https://sunbeamacademykp.com/');
+            }
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             Log::error('Branch not found: sunbeam-academy-sarainandan');
             abort(404, 'Branch not found');

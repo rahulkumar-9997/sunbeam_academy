@@ -59,7 +59,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
                                     <div class="col-md-3 wow fadeInUp" data-wow-delay="{{ $delay }}">
                                         <div class="gallery-item">
                                             <div class="gallery-img">
-                                                <img src="{{ asset('upload/notice/'.$image->file) }}" alt="{{ $image->title }}">
+                                                <img loading="lazy" decoding="async"  src="{{ asset('upload/notice/'.$image->file) }}" alt="{{ $image->title }}">
                                             </div>
                                             <div class="gallery-content">
                                                 <a class="popup-img gallery-link" href="{{ asset('upload/notice/'.$image->file) }}">

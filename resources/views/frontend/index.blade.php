@@ -335,7 +335,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".25s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb" loading="lazy">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/secretary-1.jpg')}}" alt="thumb" loading="lazy" width="340" height="400">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -354,7 +354,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".50s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb" loading="lazy">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/director-1.jpg')}}" alt="thumb" loading="lazy" width="340" height="400">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -373,7 +373,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay=".75s">
                     <div class="team-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb" loading="lazy">
+                        <img src="{{asset('fronted/assets/sunbeam-img/team/ceo-1.jpg')}}" alt="thumb" loading="lazy" width="340" height="400">
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -392,7 +392,7 @@
             <div class="col-md-6 col-lg-4 col-6">
                 <div class="team-item wow fadeInUp" data-wow-delay="1s">
                     <div class="team-img">
-                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb" loading="lazy">
+                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb" loading="lazy" width="340" height="400" >
                     </div>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -511,7 +511,7 @@
                     <a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
                         @if($item->image)
                         <div class="gallery-img">
-                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
+                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
@@ -519,14 +519,14 @@
                         {{-- If no album image, check for gallery images --}}
                         @elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
                         <div class="gallery-img">
-                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
+                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
                         </div>
                         @else
                         <div class="gallery-img">
-                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy">
+                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>

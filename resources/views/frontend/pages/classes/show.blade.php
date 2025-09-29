@@ -15,9 +15,9 @@
                     <div class="course-details">
                         <div class="course-details-img mb-30">
                             @if($classes->main_image)
-                                <img src="{{ asset('upload/classes/'.$classes->main_image) }}" alt="{{ $classes->title }}" class="w-100">
+                                <img loading="lazy" decoding="async"  src="{{ asset('upload/classes/'.$classes->main_image) }}" alt="{{ $classes->title }}" class="w-100">
                             @else
-                                <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img" class="w-100">
+                                <img loading="lazy" decoding="async"  src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img" class="w-100">
                             @endif
                         </div>
                         <div class="course-details">

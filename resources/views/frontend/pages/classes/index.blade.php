@@ -24,9 +24,9 @@
                         </div>
                         <div class="course-img image-file">
                             @if($class->main_image)                            
-                                <img src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}">                                
+                                <img loading="lazy" decoding="async"  loading="lazy" decoding="async"  loading="lazy" decoding="async"  src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}">                                
                             @else
-                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img">
+                            <img loading="lazy" decoding="async"  loading="lazy" decoding="async"  loading="lazy" decoding="async"  src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img">
                             @endif                    
                         </div>
                         <div class="course-content">

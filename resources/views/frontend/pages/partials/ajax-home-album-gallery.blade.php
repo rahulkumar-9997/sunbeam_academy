@@ -18,7 +18,7 @@
         <div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
             <div class="gallery-item">
                 <div class="gallery-img">
-                    <img src="{{ asset('upload/album/gallery/'.$gallery->image_file) }}" alt="img">
+                    <img loading="lazy" decoding="async"  src="{{ asset('upload/album/gallery/'.$gallery->image_file) }}" alt="img">
                 </div>
                 <div class="gallery-content">
                     <a class="popup-img gallery-link" href="{{ asset('upload/album/gallery/'.$gallery->image_file) }}">

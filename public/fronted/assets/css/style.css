@@ -1,12 +1,4 @@
 /*=====================================================
-Template Name   : Eduka
-Description     : School, College, University And Courses HTML5 Template
-Author          : LunarTemp
-Version         : 1.0
-=======================================================*/
-
-
-/*=====================================================
 Table of contents
 =======================================================
 
@@ -773,7 +765,7 @@ label {
   font-weight: 800;
   text-transform: capitalize;
   /* font-size: 55px; */
-  font-size: 46px;
+  font-size: 35px;
   color: var(--color-dark);
   margin-top: 10px;
   margin-bottom: 0;
@@ -4396,6 +4388,7 @@ label {
   overflow: hidden;
 }
 
+
 .team-item {
   position: relative;
   background: var(--color-white);
@@ -4426,7 +4419,12 @@ label {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
-
+.team-img img {
+    aspect-ratio: 3/4;  
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 .team-bio span {
   font-size: 14px;
   font-weight: 600;

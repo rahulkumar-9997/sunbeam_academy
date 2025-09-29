@@ -20,9 +20,9 @@
                                     {{ $achiever->branch->name }}
                                 </span>   
 								@if($achiever->profile_pic)
-									<img src="{{ asset('upload/achievers/' . $achiever->profile_pic) }}" alt="{{ $achiever->title }}">
+									<img src="{{ asset('upload/achievers/' . $achiever->profile_pic) }}" alt="{{ $achiever->title }}" loading="lazy" decoding="async">
 								@else
-									<img src="{{ asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png') }}" alt="Default Image">
+									<img src="{{ asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png') }}" alt="Default Image" loading="lazy" decoding="async">
 								@endif
 							</div>
 							<div class="blog-item-info">

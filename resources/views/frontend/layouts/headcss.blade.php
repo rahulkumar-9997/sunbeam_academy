@@ -5,13 +5,17 @@
 <meta name="author" content="Sunbeam Academy">
 <meta name="description" content="@yield('description')">
 <meta name="keywords" content="@yield('keywords')">
-<meta name="csrf-token" content="{{ csrf_token() }}">
 @yield('meta')
 <title>@yield('title')</title>
 <link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/animate.min.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}">
+<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}"> -->
+<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}"> -->
+<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/animate.min.css')}}"> -->
+<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}"> -->
+<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}" as="style">
+<link rel="preload" href="{{ asset('fronted/assets/css/style.css') }}" as="style">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/assets/css/style.css')}}">

@@ -6,7 +6,7 @@
 <!--===== HERO AREA STARTS =======-->
 <div class="hero1-section-area durgakund-hero">
 	<div class="bg1">
-		<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/header-bg2.png')}}" alt="" class="header-bg1" />
+		<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/header-bg2.png')}}" alt="" class="header-bg1" loading="lazy" decoding="async"/>
 	</div>
 	<div class="container">
 		<div class="row align-items-center">
@@ -95,7 +95,7 @@
 					<div class="row align-items-center">
 						<div class="col-md-4">
 							<div class="team-single-img text-center branches-img-div">
-								<img src="{{asset('fronted/assets/sunbeam-img/noperson-female.png')}}" class="" alt="principal">
+								<img src="{{asset('fronted/assets/sunbeam-img/noperson-female.png')}}" class="" alt="principal" loading="lazy" decoding="async">
 							</div>
 						</div>
 
@@ -169,7 +169,7 @@
 				<div class="feature-item wow fadeInUp" data-wow-delay=".25s">
 					<span class="count">01</span>
 					<div class="feature-icon">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/established.png')}}" alt="icon">
+						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/established.png')}}" alt="icon" loading="lazy" decoding="async">
 					</div>
 					<div class="feature-content">
 						<h4 class="feature-title">Established in 2010</h4>
@@ -181,7 +181,7 @@
 				<div class="feature-item active wow fadeInDown" data-wow-delay=".25s">
 					<span class="count">02</span>
 					<div class="feature-icon">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/grades.png')}}" alt="icon">
+						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/grades.png')}}" alt="icon" loading="lazy" decoding="async">
 					</div>
 					<div class="feature-content">
 						<h4 class="feature-title">Grades K–12</h4>
@@ -194,7 +194,7 @@
 				<div class="feature-item wow fadeInUp" data-wow-delay=".25s">
 					<span class="count">03</span>
 					<div class="feature-icon">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/40-classrooms.png')}}" alt="icon">
+						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/40-classrooms.png')}}" alt="icon" loading="lazy" decoding="async">
 					</div>
 					<div class="feature-content">
 						<h4 class="feature-title">40+ Classrooms with Smart Tech</h4>
@@ -207,7 +207,7 @@
 				<div class="feature-item wow fadeInDown" data-wow-delay=".25s">
 					<span class="count">04</span>
 					<div class="feature-icon">
-						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/award-winning-faculty.png')}}" alt="icon">
+						<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/icon/award-winning-faculty.png')}}" alt="icon" loading="lazy" decoding="async">
 					</div>
 					<div class="feature-content">
 						<h4 class="feature-title">Award-winning faculty and academic programs</h4>
@@ -234,7 +234,7 @@
 			</div>
 			<div class="col-lg-6 col-md-6">
 				<div class="step-img wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
-					<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/samneghat.jpg')}}" alt="class image" class="w100">
+					<img src="{{asset('fronted/assets/sunbeam-img/branches/samneghat/samneghat.jpg')}}" alt="class image" class="w100" loading="lazy" decoding="async">
 				</div>
 			</div>
 		</div>
@@ -261,9 +261,9 @@
 						<div class="blog-item wow fadeInUp" data-wow-delay=".25s">
 							<div class="blog-item-img">
 								@if($achiever->profile_pic)
-									<img src="{{ asset('upload/achievers/' . $achiever->profile_pic) }}" alt="{{ $achiever->title }}">
+									<img src="{{ asset('upload/achievers/' . $achiever->profile_pic) }}" alt="{{ $achiever->title }}" loading="lazy" decoding="async">
 								@else
-									<img src="{{ asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png') }}" alt="Default Image">
+									<img src="{{ asset('fronted/assets/sunbeam-img/branches/samneghat/achievers/samiksha-mishita-mahi.png') }}" alt="Default Image" loading="lazy" decoding="async">
 								@endif
 							</div>
 							<div class="blog-item-info">
@@ -335,9 +335,9 @@
 					<div class="testimonial-content">
 						<div class="testimonial-author-img">
 							@if($alumni->profile_pic)
-								<img src="{{ asset('upload/alumni/' . $alumni->profile_pic) }}" alt="{{ $alumni->title }}">
+								<img src="{{ asset('upload/alumni/' . $alumni->profile_pic) }}" alt="{{ $alumni->title }}" loading="lazy" decoding="async">
 							@else
-								<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="{{ $alumni->title }}">
+								<img src="{{asset('fronted/assets/img/testimonial/01.jpg')}}" alt="{{ $alumni->title }}" loading="lazy" decoding="async">
 							@endif
 						</div>
 						<div class="testimonial-author-info">
@@ -373,7 +373,7 @@
 							<a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
 								@if($item->image)
 								<div class="gallery-img">
-									<img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid">
+									<img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
 								</div>
 								<div class="gal-album-title text-center">
 									<h5>{{ $item->title }}</h5>
@@ -381,14 +381,14 @@
 								{{-- If no album image, check for gallery images --}}
 								@elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
 								<div class="gallery-img">
-									<img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid">
+									<img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
 								</div>
 								<div class="gal-album-title text-center">
 									<h5>{{ $item->title }}</h5>
 								</div>
 								@else
 								<div class="gallery-img">
-									<img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid">
+									<img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
 								</div>
 								<div class="gal-album-title text-center">
 									<h5>{{ $item->title }}</h5>

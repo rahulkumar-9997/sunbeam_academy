@@ -24,7 +24,7 @@
 
                             <div class="blog-item-img">
                                 <a href="{{ route('blog.details', $item->slug) }}">
-                                    <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}">
+                                    <img src="{{ asset('upload/blogs/' . $item->main_image) }}" alt="{{ $item->title }}" loading="lazy" decoding="async">
                                 </a>
                             </div>
                             <div class="blog-item-info">

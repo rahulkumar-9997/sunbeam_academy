@@ -26,7 +26,7 @@
                         @if($blog->main_image)
                         <div class="blog-de-img">
                             <div class="blog-thumb-img">
-                                <img src="{{ asset('upload/blogs/' . $blog->main_image) }}" alt="{{ $blog->title }}" class="w-100">
+                                <img src="{{ asset('upload/blogs/' . $blog->main_image) }}" alt="{{ $blog->title }}" class="w-100" loading="lazy" decoding="async">
                             </div>
                         </div>
                         @endif
@@ -60,7 +60,7 @@
                                     @if($paragraph->paragraph_image)
                                         <div class="col-lg-4 for-para-img">
                                             <div class="blg-param-img">
-                                            <img src="{{ asset('upload/blogs/paragraphs/' . $paragraph->paragraph_image) }}" alt="{{ $paragraph->paragraph_title}}" class="w-100">
+                                            <img src="{{ asset('upload/blogs/paragraphs/' . $paragraph->paragraph_image) }}" alt="{{ $paragraph->paragraph_title}}" class="w-100" loading="lazy" decoding="async">
                                             </div>
                                         </div>
                                     @endif

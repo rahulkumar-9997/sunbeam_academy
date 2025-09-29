@@ -22,9 +22,9 @@
                                 {{ $class->title }}
                             </span>
                             @if($class->main_image)
-                            <img src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}">
+                            <img src="{{ asset('upload/classes/'.$class->main_image) }}" alt="{{ $class->title }}" loading="lazy" decoding="async">
                             @else
-                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img">
+                            <img src="{{ asset('fronted/assets/sunbeam-img/school-level/default-class.jpg') }}" alt="img" loading="lazy" decoding="async">
                             @endif
                         </div>
                         <div class="course-content">

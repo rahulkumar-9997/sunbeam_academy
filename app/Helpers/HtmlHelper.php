@@ -31,7 +31,7 @@ if (!function_exists('branch_urls')) {
             ],
             'knowledge-park' => [
                 'name' => 'Sunbeam Academy Knowledge Park',
-                'url' => 'https://www.sunbeamacademykp.com/',
+                'url' => 'https://sunbeamacademykp.com/',
                 'slug' => 'sunbeam-academy-knowledge-park'
             ]
         ];

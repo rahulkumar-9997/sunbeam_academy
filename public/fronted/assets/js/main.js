@@ -54,7 +54,7 @@ Version         : 1.0
         nav: true,
         dots: false,
         margin: 0,
-        autoplay: false,
+        autoplay: true,
         autoplayHoverPause: true,
         autoplayTimeout: 3000,
         smartSpeed: 500,

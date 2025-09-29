@@ -128,7 +128,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="content-img wow fadeInRight" data-wow-delay=".25s">
-                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="about us">
+                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="about us" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

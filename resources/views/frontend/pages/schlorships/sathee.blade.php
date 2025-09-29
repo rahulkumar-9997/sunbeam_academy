@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="content-img  wow fadeInRight" data-wow-delay=".25s">
-                                <img src="{{asset('fronted/assets/sunbeam-img/sathee/sathee-about.jpg')}}" alt="about us">
+                                <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/sathee-about.jpg')}}" alt="about us">
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/price.svg')}}" alt="Price">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/price.svg')}}" alt="Price">
                         </div>
                         <p class="sathee-box-price">Prize Pool of ₹1 Crore+</p>
                     </div>
@@ -140,7 +140,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/recognize.svg')}}" alt="Recognize">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/recognize.svg')}}" alt="Recognize">
                         </div>
                         <p class="sathee-box-price">Recognize Your Talent</p>
                     </div>
@@ -150,7 +150,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/laptops.svg')}}" alt="Laptops">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/laptops.svg')}}" alt="Laptops">
                         </div>
                         <p class="sathee-box-price">Win Laptops, Tablets & Smartwatches</p>
                     </div>
@@ -160,7 +160,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/fee.svg')}}" alt="School">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/fee.svg')}}" alt="School">
                         </div>
                         <p class="sathee-box-price">50% School Fee Waiver for Top Rankers</p>
                     </div>
@@ -170,7 +170,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/uniforms.svg')}}" alt="Uniforms">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/uniforms.svg')}}" alt="Uniforms">
                         </div>
                         <p class="sathee-box-price">Free Uniforms for Deserving Students</p>
                     </div>
@@ -180,7 +180,7 @@
                 <div class="whatnew-box-two">
                     <div class="sathee-box-ye">
                         <div class="about-item-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/classes.svg')}}" alt="Classes">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/why-participate/classes.svg')}}" alt="Classes">
                         </div>
                         <p class="sathee-box-price">Open for Classes VI to IX & XI</p>
                     </div>
@@ -208,7 +208,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 01</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/laptop.svg')}}" alt="Laptop">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/laptop.svg')}}" alt="Laptop">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Laptop</h4>
@@ -219,7 +219,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 02</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/tablet.svg')}}" alt="Tablet">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/tablet.svg')}}" alt="Tablet">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Tablet</h4>
@@ -230,7 +230,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 03</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smartphone.svg')}}" alt="Smartphone">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smartphone.svg')}}" alt="Smartphone">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Smartphone</h4>
@@ -241,7 +241,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 04</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smart-watch.svg')}}" alt="Smart Watch">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smart-watch.svg')}}" alt="Smart Watch">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Smart Watch</h4>
@@ -252,7 +252,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 05</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smart-watch2.svg')}}" alt="Smart Watch">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/smart-watch2.svg')}}" alt="Smart Watch">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">Smart Watch</h4>
@@ -263,7 +263,7 @@
                     <div class="feature-item">
                         <span class="count">Rank 06</span>
                         <div class="feature-icon">
-                            <img src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/earbuds.svg')}}" alt="6th–10th Earbuds & Gifts">
+                            <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/prizes-rewards/earbuds.svg')}}" alt="6th–10th Earbuds & Gifts">
                         </div>
                         <div class="feature-content">
                             <h4 class="feature-title">6th–10th Earbuds & Gifts</h4>
@@ -346,7 +346,7 @@
             <div class="col-lg-3">
                 <div class="scholarship-item exam-item">
                     <div class="scholarship-icon">
-                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/test-date.svg')}}" alt="Test Date">
+                        <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/test-date.svg')}}" alt="Test Date">
                     </div>
                     <h4>Test Date</h4>
                     <p>
@@ -357,7 +357,7 @@
             <div class="col-lg-3">
                 <div class="scholarship-item exam-item">
                     <div class="scholarship-icon">
-                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/time.svg')}}" alt="Time">
+                        <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/time.svg')}}" alt="Time">
                     </div>
                     <h4>Time</h4>
                     <p>
@@ -368,7 +368,7 @@
             <div class="col-lg-3">
                 <div class="scholarship-item exam-item">
                     <div class="scholarship-icon">
-                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/venue.svg')}}" alt="Venue">
+                        <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/venue.svg')}}" alt="Venue">
                     </div>
                     <h4>Venue</h4>
                     <p>
@@ -379,7 +379,7 @@
             <div class="col-lg-3">
                 <div class="scholarship-item exam-item">
                     <div class="scholarship-icon">
-                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/contact.svg')}}" alt="Contact">
+                        <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/exam-details/contact.svg')}}" alt="Contact">
                     </div>
                     <h4>Contact</h4>
                     <p>
@@ -408,7 +408,7 @@
             <div class="col-lg-6">
                 <div class="registration-process text-center">
                     <div class="qr-img">
-                        <img src="{{asset('fronted/assets/sunbeam-img/sathee/register-qr.png')}}" alt="register">
+                        <img loading="lazy" decoding="async"  src="{{asset('fronted/assets/sunbeam-img/sathee/register-qr.png')}}" alt="register">
                     </div>
                     <p>Scan the above QR code or visit 
                         <a href="{{ url('/') }}"> 

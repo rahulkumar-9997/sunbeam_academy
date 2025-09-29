@@ -1,34 +1,39 @@
 <!-- hero slider -->
-@if (!empty($data['banners']) && $data['banners']->count()>0)
-    
+@if (!empty($data['banners']) && $data['banners']->count() > 0)
     <div class="hero-section mobile-hero">
         <div class="hero-slider owl-carousel owl-theme">
-            @foreach($data['banners'] as $banner)
+            @foreach($data['banners'] as $index => $banner)
                 <div class="hero-single">
                     <div class="hero-image-container">
-                        <img src="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }}" 
-                        srcset="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }} 412w,
-                                {{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }} 824w,
-                                {{ url('/images/banner/' . $banner->desktop_img . '?w=1361&h=681&q=85') }} 1361w"
-                        sizes="(max-width: 768px) 100vw,
-                                (max-width: 1200px) 80vw,
-                                412px"
-                        alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
-                        class="hero-image" 
-                        loading="eager"
-                        width="412" 
-                        height="206">
+                        <img 
+                            src="{{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }}" 
+                            srcset="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }} 412w,
+                                    {{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }} 824w,
+                                    {{ url('/images/banner/' . $banner->desktop_img . '?w=1361&h=681&q=85') }} 1361w"
+                            sizes="(max-width: 768px) 100vw,
+                                   (max-width: 1200px) 80vw,
+                                   824px"
+                            alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
+                            class="hero-image"
+                            width="824" height="412"
+                            decoding="async"
+                            loading="{{ $index === 0 ? 'eager' : 'lazy' }}">
                     </div>
+                    
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-12 col-lg-7">
                                 <div class="hero-content">
                                     <div class="hero-content-sub">
-                                        <h6 class="hero-sub-title" data-animation="fadeInDown" data-delay=".25s">
-                                            <i class="far fa-book-open-reader"></i>
+                                        <h6 class="hero-sub-title" 
+                                            data-animation="fadeInDown" 
+                                            data-delay=".25s">
+                                            <i class="far fa-book-open-reader" aria-hidden="true"></i>
                                             {{ $banner->title ?? 'Welcome To Sunbeam Academy!' }}
                                         </h6>
-                                        <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
+                                        <h1 class="hero-title" 
+                                            data-animation="fadeInRight" 
+                                            data-delay=".50s">
                                             {!! $banner->sub_title ?? '' !!}
                                         </h1>
                                         <p data-animation="fadeInLeft" data-delay=".75s">
@@ -38,7 +43,7 @@
                                             <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                                 <a href="{{ $banner->about_more_link }}" class="theme-btn">
                                                     About More
-                                                    <i class="fas fa-arrow-right-long"></i>
+                                                    <i class="fas fa-arrow-right-long" aria-hidden="true"></i>
                                                 </a>                                            
                                             </div>
                                         @endif
@@ -49,34 +54,35 @@
                     </div>
                 </div>
             @endforeach
-           
         </div>
+
+        {{-- Notice Board --}}
         @if (!empty($data['notices']) && $data['notices']->count() > 0)
             <div class="notice-board-wrapper">
                 <div class="notice-board-container">
                     <div class="notice-board-header">
                         <div class="notice-icon">
-                            <i class="fas fa-scroll"></i>
+                            <i class="fas fa-scroll" aria-hidden="true"></i>
                         </div>
                         <h3>Latest Notice</h3>
                         <div class="notice-controls">
-                            <button class="notice-pause"><i class="fas fa-pause"></i></button>
+                            <button class="notice-pause">
+                                <i class="fas fa-pause" aria-hidden="true"></i>
+                                <span class="sr-only">Pause Notices</span>
+                            </button>
                         </div>
                     </div>
+
                     <div class="notice-board-content">
                         <ul class="notice-list">
                             @foreach ($data['notices'] as $notice)
                                 <li class="notice-item">
                                     <a href="{{ route('notices.show', $notice->slug) }}">
                                         <div class="notice-badge">{{ strtoupper($notice->notice_type) }}</div>
-                                        <div class="notice-text">
-                                            {{ $notice->title }}
-                                        </div>
-                                        @if($notice->branches->count()>0)
+                                        <div class="notice-text">{{ $notice->title }}</div>
+                                        @if($notice->branches->count() > 0)
                                             @foreach ($notice->branches as $branch)
-                                                <div class="notice-branch">
-                                                    {{ $branch->name }}
-                                                </div>
+                                                <div class="notice-branch">{{ $branch->name }}</div>
                                             @endforeach
                                         @endif
                                     </a>
@@ -84,13 +90,16 @@
                             @endforeach                    
                         </ul>
                     </div>
+
                     <div class="notice-footer">
-                        <a href="{{ route('notices.index') }}" class="view-all">View All Notices <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ route('notices.index') }}" class="view-all">
+                            View All Notices 
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         @endif
     </div>
 @endif
-
 <!-- hero slider end -->

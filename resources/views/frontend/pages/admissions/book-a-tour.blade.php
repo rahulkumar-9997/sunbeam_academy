@@ -13,7 +13,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="content-img wow fadeInLeft" data-wow-delay=".25s">
-                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="book a tour">
+                    <img src="{{asset('fronted/assets/sunbeam-img/about/about-us-page.jpg')}}" alt="book a tour" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -48,7 +48,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="step-img wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
-                    <img src="{{ asset('fronted/assets/sunbeam-img/tour-1.jpg') }}" alt="class image">
+                    <img src="{{ asset('fronted/assets/sunbeam-img/tour-1.jpg') }}" alt="class image" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-7">
                 <div class="step-img-left wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
-                    <img src="{{ asset('fronted/assets/sunbeam-img/tour-2.jpg') }}" alt="class image">
+                    <img src="{{ asset('fronted/assets/sunbeam-img/tour-2.jpg') }}" alt="class image" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="col-lg-5 col-md-5">
@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="contact-img">
-                        <img src="{{ asset('fronted/assets/img/contact/01.jpg')}}" alt="">
+                        <img src="{{ asset('fronted/assets/img/contact/01.jpg')}}" alt="" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="col-lg-7 align-self-center">
