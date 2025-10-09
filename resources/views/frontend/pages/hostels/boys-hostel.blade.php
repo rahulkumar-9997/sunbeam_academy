@@ -14,7 +14,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="content-img wow fadeInLeft" data-wow-delay=".25s">
-                    <img src="{{ asset('fronted/assets/sunbeam-img/placeholder.jpg')}}" alt="Ekalavya Hostel" loading="lazy">
+                    <img src="{{ asset('fronted/assets/sunbeam-img/ekalavya-hostel.jpg')}}" alt="Ekalavya Hostel" loading="lazy">
                 </div>
             </div>
             <div class="col-lg-7 boys-side-content">
