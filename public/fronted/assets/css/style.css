@@ -7950,7 +7950,7 @@ ul.events-academ li {
     padding-bottom: 40px;
   }
   .alumni .content-img {
-    margin-right: 0px;
+    margin-right: 5px;
   }
   .alumni .content-img::before{
     left: 30px;
@@ -8278,6 +8278,18 @@ h4.blog-para-title{
 .branchdetails p{
   text-align: center;
 }
+.boys-h-bg{
+  background: var(--theme-bg-light);
+}
+.boys-hostel-facaulities .mission-vission-item .xb-item--title{
+  font-size: 25px;
+}
+.boys-hostel-facaulities .mission-vission-item{
+  padding: 20px;
+}
+.boys-hostel-facaulities .content-list .li-flex{
+  line-height: 25px;
+}
 /*hero responsive in mobile*/
 /* Mobile View (Below 991px) */
 @media all and (max-width: 991px) {
@@ -8392,6 +8404,19 @@ h4.blog-para-title{
     padding: 10px 16px;
     font-size: 20px;
   }
+  .boys-side-content{
+    margin-top: 30px;
+  }
+  .boys-hostel-facaulities .mission-vission-item .xb-item--title{
+    font-size: 20px;
+  }
+  .footer-widget-wrapper.pt-100{
+    padding-top: 30px;
+  }
+  .boys-hostel-main.pt-120 {
+        padding-top: 50px;
+  }
+
 }
 
 
