@@ -53,8 +53,9 @@
                              <li><a href="{{ $mainDomain }}/contact-us"><i class="fas fa-caret-right"></i>Contact Us</a></li>
                              <li><a href="{{ $mainDomain }}/blog"><i class="fas fa-caret-right"></i>Blog</a></li>
                              <li><a href="{{ $mainDomain }}/admissions/rules-and-regulations"><i class="fas fa-caret-right"></i>Rules & Regulations</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Privacy policy</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Terms & Condition</a></li>
+                             <li><a href="{{ $mainDomain }}/career"><i class="fas fa-caret-right"></i>Career</a></li>
+                             <!-- <li><a href="#"><i class="fas fa-caret-right"></i>Privacy policy</a></li>
+                             <li><a href="#"><i class="fas fa-caret-right"></i>Terms & Condition</a></li> -->
                          </ul>
                      </div>
                  </div>
