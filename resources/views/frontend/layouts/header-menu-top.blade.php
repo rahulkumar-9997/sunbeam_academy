@@ -47,7 +47,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ $mainDomain }}">
-                    <img src="{{ asset('fronted/assets/sunbeam-img/logo.png') }}" alt="logo"        width="221" height="52" decoding="async" loading="lazy">
+                    <img src="{{ asset('fronted/assets/sunbeam-img/logo.png') }}" alt="logo"    width="221" height="52" decoding="async" loading="lazy">
                 </a>
                 <div class="mobile-menu-right">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -114,6 +114,9 @@
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/hostel/weekly-boarding">Weekly Boarding</a></li>
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/hostel/rules-regulations">Rules and Regulations</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ $mainDomain }}/career">Career</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ $mainDomain }}/contact-us">Contact</a>

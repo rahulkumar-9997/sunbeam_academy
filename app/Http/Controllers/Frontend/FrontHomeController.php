@@ -841,4 +841,9 @@ class FrontHomeController extends Controller
             ->firstOrFail();
         return view('frontend.pages.achievers.achievers-details', compact('achieversDetail'));
     }
+
+    public function career()
+    {
+        return view('frontend.pages.career.career');
+    }
 }
