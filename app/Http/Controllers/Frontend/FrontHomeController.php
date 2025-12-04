@@ -846,4 +846,18 @@ class FrontHomeController extends Controller
     {
         return view('frontend.pages.career.career');
     }
+
+    public function autoOpenModal(Request $request){
+        $form = '';        
+            $form = '<iframe src="https://forms.gle/XZTmoZ17AHvkWdHx7" 
+            width="100%" 
+            height="500" 
+            frameborder="0" 
+            style="border: none;">
+            </iframe>';        
+        return response()->json([
+            'message' => 'Form created successfully',
+            'form' => $form,
+        ]);
+    }
 }

@@ -127,6 +127,82 @@ $(function () {
             });
         });
     });
+    /*auto open modal close  and open */
+    var autoOpenModalForm = $('meta[name="auto-open-modal"]').attr('content');
+
+    /*
+        SET VALUE WITH EXPIRY
+    */
+    function setWithExpiry(key, value, ttl) {
+        const now = Date.now();
+        const item = {
+            value: value,
+            expiry: now + ttl
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+    }
+
+    /*
+        GET VALUE WITH EXPIRY CHECK
+    */
+    function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key);
+        if (!itemStr) return null;
+
+        try {
+            const item = JSON.parse(itemStr);
+            if (Date.now() > item.expiry) {
+                localStorage.removeItem(key);
+                return null;
+            }
+            return item.value;
+        } catch (e) {
+            localStorage.removeItem(key);
+            return null;
+        }
+    }
+    /*
+         OLD FUNCTION REPLACED WITH EXPIRY LOGIC
+    */ 
+    function loadAndShowModal() {
+        if (!getWithExpiry('autoModalClosed')) {
+            var url = autoOpenModalForm;
+            var size = 'md';
+            $.ajax({
+                url: url,
+                type: 'get',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    size: size,
+                    url: url,
+                    action: 'PageReloadModal',
+                    currentPageUrl: window.location.href
+                },
+                success: function (data) {
+                    $('#autoOpenModal .modal-render-data').html(data.form);
+                    $("#autoOpenModal .modal-dialog").addClass('modal-' + size);
+                    $("#autoOpenModal").modal('show');
+                },
+                error: function (data) {
+                    console.error('Error loading modal:', data);
+                }
+            });
+        }
+    }
+
+    /* Trigger modal if not closed recently*/
+    setTimeout(function() {
+        if (!getWithExpiry('autoModalClosed')) {
+            loadAndShowModal();
+        }
+    }, 2000);
+
+    /* CLOSE BUTTON LOGIC — store value + expiry 1 hour (3600000 ms)*/
+    $(document).on('click', '.btn-close', function() {
+        setWithExpiry('autoModalClosed', true, 3600000);
+        $("#autoOpenModal").modal('hide');
+    });
+
  });
  
 /* Function to show toast notifications (using Bootstrap 5 Toast) */

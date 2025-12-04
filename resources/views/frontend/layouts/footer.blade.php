@@ -67,7 +67,7 @@
                              <li><a href="{{ $mainDomain }}/academics/curriculum"><i class="fas fa-caret-right"></i>Curriculum</a></li>
                              <li><a href="{{ $mainDomain }}/hostel/boys-hostel"><i class="fas fa-caret-right"></i>Hostels</a></li>
                              <li><a href="{{ $mainDomain }}/classes"><i class="fas fa-caret-right"></i>Classes</a></li>
-                             <li><a href="#"><i class="fas fa-caret-right"></i>Admissions</a></li>
+                             <li><a href="https://forms.gle/XZTmoZ17AHvkWdHx7" target="_blank"><i class="fas fa-caret-right"></i>Admissions</a></li>
                              <li><a href="{{ $mainDomain }}/admissions/fee-structure"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
                              <li><a href="{{ $mainDomain }}/schlorships/elite-11"><i class="fas fa-caret-right"></i>Elite 11</a></li>
                          </ul>
@@ -141,3 +141,21 @@
      <span class="site-loader"> </span>
      <h3 class="loader-content"> Loading . . . </h3>
  </div>
+ <!--enquiry modal code-->
+<div class="modal location-modal fade theme-modal" id="autoOpenModal" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sunbeam Academy Online Admission Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="modal-render-data">
+
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--enquiry modal code-->

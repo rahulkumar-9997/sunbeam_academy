@@ -171,3 +171,4 @@ Route::prefix('hostel')->group(function () {
 });
 Route::get('clear-cache', [FrontHomeController::class, 'clearCache'])->name('clear-cache');
 Route::get('career', [FrontHomeController::class, 'career'])->name('career');
+Route::get('auto-open-modal', [FrontHomeController::class, 'autoOpenModal'])->name('auto-open-modal');

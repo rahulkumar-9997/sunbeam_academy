@@ -389,25 +389,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-6">
-                <div class="team-item wow fadeInUp" data-wow-delay="1s">
-                    <div class="team-img">
-                        <img class="w-100" src="{{asset('fronted/assets/sunbeam-img/team/duty-director.jpeg')}}" alt="thumb" loading="lazy" width="340" height="400" >
-                    </div>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-bio">
-                            <h5><a href="teacher-single.html">K K Panda</a></h5>
-                            <span>Deputy Director</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

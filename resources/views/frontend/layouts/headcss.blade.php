@@ -5,6 +5,7 @@
 <meta name="author" content="Sunbeam Academy">
 <meta name="description" content="@yield('description')">
 <meta name="keywords" content="@yield('keywords')">
+<meta name="auto-open-modal" content="{{ route('auto-open-modal') }}">
 @yield('meta')
 <title>@yield('title')</title>
 <link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
@@ -18,4 +19,12 @@
 <link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}" as="style">
 <link rel="preload" href="{{ asset('fronted/assets/css/style.css') }}" as="style">
 <link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9WCVNMMKQ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9WCVNMMKQ4');
+</script>
