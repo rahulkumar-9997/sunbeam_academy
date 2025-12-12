@@ -819,7 +819,7 @@ label {
     transition: var(--transition);
     /* text-transform: uppercase; */
     position: relative;
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 50px 50px 50px 0px;
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
