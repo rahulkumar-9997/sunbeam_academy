@@ -812,22 +812,23 @@ label {
 ======================*/
 
 .theme-btn {
-  font-size: 14px;
-  color: var(--color-white);
-  padding: 14px 20px;
-  transition: var(--transition);
-  text-transform: uppercase;
-  position: relative;
-  border-radius: 50px 50px 50px 0;
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  overflow: hidden;
-  border: none;
-  background: var(--theme-color2);
-  box-shadow: var(--box-shadow);
-  z-index: 1;
+  font-size: 18px;
+    line-height: 30px;
+    color: var(--color-white);
+    padding: 12px 15px;
+    transition: var(--transition);
+    /* text-transform: uppercase; */
+    position: relative;
+    border-radius: 50px 50px 50px 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    border: none;
+    background: var(--theme-color2);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
 }
 
 .theme-btn::before {

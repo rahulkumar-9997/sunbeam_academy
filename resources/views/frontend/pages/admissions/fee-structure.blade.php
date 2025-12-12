@@ -9,6 +9,22 @@
     </div>
 </div>
 <div class="course-area fee-structure pt-40 pb-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h4 class="mb-3">To Download the Fess  Structure of the Academic Session <span style="color:#FDA31B;">2026-27 </span></h4>
+                    <div class="career-btn">
+                        <a href="{{ asset('fronted/assets/sunbeam-img/Fee-Structure-2026-2027.pdf') }}" download class="theme-btn mt-1 w-25">
+                            Click Here
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="course-area fee-structure pt-20 pb-10">
     <div class="video-area">
         <div class="container">
             <div class="row">
@@ -31,10 +47,9 @@
                             </h5>
 
                         </div>
-                    </div>
+                    </div>                    
                 </div>
-            </div>
-
+            </div>            
         </div>
     </div>
 </div>

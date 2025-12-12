@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}" as="style">
 <link rel="preload" href="{{ asset('fronted/assets/css/style.css') }}" as="style">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}?v=1.1">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}?v=1.1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WCVNMMKQ4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
