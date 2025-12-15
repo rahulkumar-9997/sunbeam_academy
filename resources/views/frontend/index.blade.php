@@ -175,7 +175,7 @@
                         <img src="{{asset('fronted/assets/img/icon/course.svg')}}" alt="course" loading="lazy">
                     </div>
                     <div>
-                        <span class="counter" data-count="+" data-to="4000" data-speed="3000">4000</span>
+                        <span class="counter" data-count="+" data-to="7000" data-speed="3000">7000</span>
                         <h6 class="title">+ No. of Current Students </h6>
                     </div>
                 </div>

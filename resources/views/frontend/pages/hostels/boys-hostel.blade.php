@@ -9,6 +9,26 @@
         <h5 style="color:#ffffff; margin-top: 10px;">Ekalavya Hostel</h5>
     </div>
 </div>
+<div class="youtube-video-section pb-10 pt-20">
+    <div class="container">
+        <div class="youtube-video-content">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-7 col-md-12">
+                    <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+                        <iframe
+                            class="w-100 h-100 border-0"
+                            src="https://www.youtube.com/embed/_4rKIh4l2tM?autoplay=1&mute=1&loop=1&playlist=_4rKIh4l2tM&controls=0&playsinline=1&rel=0"
+                            title="YouTube video player"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="alumni boys-hostel-main pt-120 pb-80">
     <div class="container">
         <div class="row align-items-center">
@@ -50,7 +70,7 @@
             <div class="col-lg-4 mt-30">
                 <div class="mission-vission-item wow fadeInRight" data-wow-delay=".25s">
                     <h3 class="xb-item--title">Modern & Comfortable Living</h3>
-                    
+
                     <ul class="content-list mt-2">
                         <li class="li-flex">
                             <i class="fas fa-check-circle"></i>
@@ -64,7 +84,7 @@
                                 <strong>Spacious dormitories </strong> and <strong> well-ventilated rooms</strong>, designed to offer the perfect balance between personal space and community living.
                             </span>
                         </li>
-                        
+
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
@@ -91,7 +111,7 @@
                             <span>
                                 Hygienic dining facilities that promote healthy eating habits and overall well-being.
                             </span>
-                        </li>                        
+                        </li>
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
@@ -110,7 +130,7 @@
                         <li class="li-flex">
                             <i class="fas fa-check-circle"></i>
                             <span>
-                               <strong>24x7 warden supervision</strong> and constant <strong>CCTV monitoring</strong> for complete security.
+                                <strong>24x7 warden supervision</strong> and constant <strong>CCTV monitoring</strong> for complete security.
                             </span>
                         </li>
                         <li class="li-flex">
@@ -118,7 +138,7 @@
                             <span>
                                 <strong>Regulated entry and exit</strong> systems ensuring a safe and disciplined environment for every resident.
                             </span>
-                        </li>                        
+                        </li>
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
@@ -137,7 +157,7 @@
                         <li class="li-flex">
                             <i class="fas fa-check-circle"></i>
                             <span>
-                               <strong>Remedial classes</strong> for academic support and skill enhancement.
+                                <strong>Remedial classes</strong> for academic support and skill enhancement.
                             </span>
                         </li>
                         <li class="li-flex">
@@ -145,7 +165,7 @@
                             <span>
                                 <strong> Hobby classes</strong> that encourage creativity, expression, and balanced development
                             </span>
-                        </li>                        
+                        </li>
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
@@ -164,7 +184,7 @@
                         <li class="li-flex">
                             <i class="fas fa-check-circle"></i>
                             <span>
-                               <strong> Access to extra-curricular activities</strong> even beyond school hours, allowing students to continue exploring their interests.
+                                <strong> Access to extra-curricular activities</strong> even beyond school hours, allowing students to continue exploring their interests.
                             </span>
                         </li>
                         <li class="li-flex">
@@ -172,7 +192,7 @@
                             <span>
                                 World-class <strong>Cricket Academy</strong> and <strong>Shooting Range,</strong> nurturing sporting talent and instilling a spirit of excellence.
                             </span>
-                        </li>                        
+                        </li>
                     </ul>
                     <div class="xb-item--shape">
                         <div class="shape shape--1">
