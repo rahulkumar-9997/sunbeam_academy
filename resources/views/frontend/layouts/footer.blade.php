@@ -80,7 +80,7 @@
                          <ul class="footer-list">                             
                             @foreach(branch_urls() as $branch)
                             <li>
-                                <a href="{{ $branch['url'] }}" target="_blank">{{ $branch['name'] }}</a>
+                                <a href="{{ $branch['external'] ? $branch['url'] : route($branch['slug']) }}"  {{ $branch['external'] ? 'target=_blank' : '' }}>{{ $branch['name'] }}</a>
                             </li> 
                             @endforeach
                          </ul>

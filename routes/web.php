@@ -126,25 +126,22 @@ Route::prefix('schlorships')->group(function () {
 //     Route::post('/enquiry-submit', [FrontHomeController::class, 'branchEnquirySubmitForm'])->name('enquiry.submit');
 // });
 
-// Route::prefix('branches')->group(function () {
-//     Route::get('/sunbeam/academy/samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
-//     Route::get('/sunbeam/academy/durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
-//     Route::get('/sunbeam/academy/sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
-//     Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
-//     
+Route::prefix('branches')->group(function () {
+    Route::get('/sunbeam-academy-samneghat', [FrontHomeController::class, 'sunbeamAcademySamneghat'])->name('sunbeam-academy-samneghat');
+    Route::get('/sunbeam-academy-durgakund', [FrontHomeController::class, 'sunbeamAcademyDurgakund'])->name('sunbeam-academy-durgakund');
+    Route::get('/sunbeam-academy-sarainandan', [FrontHomeController::class, 'sunbeamAcademySarainandan'])->name('sunbeam-academy-sarainandan');
+    //Route::get('/sunbeam/academy/knowledge-park', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark'])->name('sunbeam-academy-knowledge-park');
+    
+});
+// Route::domain('smn.sunbeamacademy.com')->group(function () {
+//     Route::get('/', [FrontHomeController::class, 'sunbeamAcademySamneghat']);
 // });
-Route::get('/check-domain', function (\Illuminate\Http\Request $request) {
-    return 'Host: ' . $request->getHost();
-});
-Route::domain('www.sunbeamacademysmn.com')->group(function () {
-    Route::get('/', [FrontHomeController::class, 'sunbeamAcademySamneghat']);
-});
-Route::domain('www.sunbeamacademydkd.com')->group(function () {
-    Route::get('/', [FrontHomeController::class, 'sunbeamAcademyDurgakund']);
-});
-Route::domain('www.sunbeamacademysrn.com')->group(function () {
-    Route::get('/', [FrontHomeController::class, 'sunbeamAcademySarainandan']);
-});
+// Route::domain('www.sunbeamacademydkd.com')->group(function () {
+//     Route::get('/', [FrontHomeController::class, 'sunbeamAcademyDurgakund']);
+// });
+// Route::domain('www.sunbeamacademysrn.com')->group(function () {
+//     Route::get('/', [FrontHomeController::class, 'sunbeamAcademySarainandan']);
+// });
 Route::domain('www.sunbeamacademykp.com')->group(function () {
     Route::get('/', [FrontHomeController::class, 'sunbeamAcademyKnowledgePark']);
 });

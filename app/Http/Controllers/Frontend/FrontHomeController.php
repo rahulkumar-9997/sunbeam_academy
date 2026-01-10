@@ -346,6 +346,7 @@ class FrontHomeController extends Controller
     private function getBranchData($branchSlug)
     {
 		Log::info('Current Domain: ' . request()->getHost());
+		Log::info('Current Slug: ' . $branchSlug);
         $today = Carbon::today()->toDateString();
         $branch = Branch::where('slug', $branchSlug)->firstOrFail();
 
@@ -410,11 +411,8 @@ class FrontHomeController extends Controller
     public function sunbeamAcademySarainandan()
     {
         try {
-            return redirect()->away('https://sunbeamacademykp.com/');
             $branchData = $this->getBranchData('sunbeam-academy-sarainandan');
-            if ($branchData) {
-                return redirect()->away('https://sunbeamacademykp.com/');
-            }
+            return view('frontend.pages.branches.sunbeam-academy-sarainandan', $branchData);            
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             Log::error('Branch not found: sunbeam-academy-sarainandan');
             abort(404, 'Branch not found');

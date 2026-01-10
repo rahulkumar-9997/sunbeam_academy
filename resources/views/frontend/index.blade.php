@@ -20,7 +20,7 @@
                         @endphp
                         <div class="col-lg-3">
                             <div class="feature-item">
-                                <a href="{{ $branchData['url'] }}">
+                                <a href="{{ $branchData['external'] ? $branchData['url'] : route($branchData['slug']) }}"  {{ $branchData['external'] ? 'target=_blank' : '' }}>
                                     <div class="branch-feature">
                                         <h3>
                                             {{ $branch->name }}

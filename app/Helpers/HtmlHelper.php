@@ -16,23 +16,27 @@ if (!function_exists('branch_urls')) {
         return [
             'samneghat' => [
                 'name' => 'Sunbeam Academy Samneghat',
-                'url' => 'https://www.sunbeamacademysmn.com/',
-                'slug' => 'sunbeam-academy-samneghat'
+                // 'url' => 'https://www.sunbeamacademysmn.com/',
+                'slug' => 'sunbeam-academy-samneghat',
+                'external' => false,
             ],
             'durgakund' => [
                 'name' => 'Sunbeam Academy Durgakund',
-                'url' => 'https://www.sunbeamacademydkd.com/',
-                'slug' => 'sunbeam-academy-durgakund'
+                // 'url' => 'https://www.sunbeamacademydkd.com/',
+                'slug' => 'sunbeam-academy-durgakund',
+                'external' => false,
             ],
             'sarainandan' => [
                 'name' => 'Sunbeam Academy Sarainandan', 
-                'url' => 'https://www.sunbeamacademysrn.com/',
-                'slug' => 'sunbeam-academy-sarainandan'
+                // 'url' => 'https://www.sunbeamacademysrn.com/',
+                'slug' => 'sunbeam-academy-sarainandan',
+                'external' => false,
             ],
             'knowledge-park' => [
                 'name' => 'Sunbeam Academy Knowledge Park',
                 'url' => 'https://sunbeamacademykp.com/',
-                'slug' => 'sunbeam-academy-knowledge-park'
+                'slug' => 'sunbeam-academy-knowledge-park',
+                'external' => true,
             ]
         ];
     }

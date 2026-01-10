@@ -64,7 +64,7 @@
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Branches</a>
                             <ul class="dropdown-menu fade-down">
                                 @foreach(branch_urls() as $branch)
-                                <li><a class="dropdown-item" href="{{ $branch['url'] }}" target="_blank">{{ $branch['name'] }}</a></li>
+                                <li><a class="dropdown-item" href="{{ $branch['external'] ? $branch['url'] : route($branch['slug']) }}"  {{ $branch['external'] ? 'target=_blank' : '' }}>{{ $branch['name'] }}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -89,7 +89,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Scholarships</a>
                             <ul class="dropdown-menu fade-down">
-                                <li><a class="dropdown-item" href="{{ $mainDomain }}/schlorships/elite-11">Elite 11</a></li>
+                                <!--<li><a class="dropdown-item" href="{{ $mainDomain }}/schlorships/elite-11">Elite 11</a></li>-->
+								<li><a class="dropdown-item" href="https://elite11.co.in/Elite11_.aspx" target="_blank">Elite 11</a></li>
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/schlorships/sathee">Sathee</a></li>
                             </ul>
                         </li>

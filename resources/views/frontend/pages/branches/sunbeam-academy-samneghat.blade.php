@@ -98,7 +98,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-8">
+						<!--<div class="col-md-8">
 							<h3>Principal’s</h3>
 							<strong>Dr. K.K. Panda</strong>
 							<p class="mt-3">
@@ -109,7 +109,7 @@
 							<div class="team-details-social">
 								<a href="#"><i class="fab fa-linkedin-in"></i></a>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
