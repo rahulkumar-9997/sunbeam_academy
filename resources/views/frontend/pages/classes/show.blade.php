@@ -1,10 +1,16 @@
 @extends('frontend.layouts.master')
-@section('title', $classes->title . ' | Sunbeam Academy')
-@section('description', Str::limit(strip_tags($classes->description), 160))
+@section('title', ($classes->meta_title ?: $classes->title))
+@section('description',
+    Str::limit(
+        strip_tags($classes->meta_description ?: $classes->description),
+        160
+    )
+)
+
 @section('main-content')
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">{{ $classes->title }}</h2>
+        <h1 class="breadcrumb-title">{{ $classes->title }}</h1>
     </div>
 </div>
 <div class="course-single-area classes-details">

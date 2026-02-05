@@ -1,12 +1,37 @@
 @extends('frontend.layouts.master')
-@section('title', 'Disclosure - ' . $branchDisclosure->name)
-@section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
-@section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
+@php
+    $slug = $branchDisclosure->slug;
+    $seo = [
+        'sunbeam-academy-durgakund' => [
+            'title' => 'Mandatory Public Disclosure | Sunbeam Academy Durgakund',
+            'description' => 'Browse information on Sunbeam Academy Durgakund at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+        ],
+
+        'sunbeam-academy-samneghat' => [
+            'title' => 'Mandatory Public Disclosure | Sunbeam Academy Samneghat',
+            'description' => 'Check official updates for Sunbeam Academy Samneghat at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+        ],
+
+        'sunbeam-academy-sarainandan' => [
+            'title' => 'Sunbeam Academy Sarainandan | Mandatory Public Disclosure ',
+            'description' => 'Access complete details of Sunbeam Academy Sarainandan at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+        ],
+    ];
+
+    $metaTitle = $seo[$slug]['title']
+        ?? ('Disclosure - ' . $branchDisclosure->name);
+
+    $metaDescription = $seo[$slug]['description']
+        ?? 'Let a child become an independent learner who is morally strong and environmentally aware.';
+@endphp
+@section('title', $metaTitle)
+@section('description', $metaDescription)
+<!-- @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective') -->
 @section('main-content')
 
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">{{ $branchDisclosure->name }} - Disclosure</h2>
+        <h1 class="breadcrumb-title">{{ $branchDisclosure->name }} - Disclosure</h1>
     </div>
 </div>
 <!-- breadcrumb end -->

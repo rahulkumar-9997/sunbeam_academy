@@ -14,9 +14,7 @@
         </div>
 
         <div class="page-btn">
-            <a href="{{ route('manage-blog.index') }}"
-                data-bs-toggle="tooltip"
-                title="Back to Previous Page"
+            <a href="{{ route('manage-blog.index') }}" data-bs-toggle="tooltip" title="Back to Previous Page"
                 class="btn btn-secondary">
                 <i class="ti ti-arrow-left me-1"></i>
                 Back to Previous Page
@@ -39,8 +37,8 @@
                     <!-- Basic Blog Info -->
                     <div class="col-md-4 mb-3">
                         <label for="title" class="form-label">Title *</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                            name="title" id="title" value="{{ old('title', $blog->title) }}">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                            id="title" value="{{ old('title', $blog->title) }}">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
@@ -52,8 +50,8 @@
                         @if($blog->main_image)
                         <div class="mt-2">
                             <small>Current Image:</small>
-                            <img src="{{ asset('upload/blogs/' . $blog->main_image) }}"
-                                alt="Current Image" style="max-width: 100px; display: block;">
+                            <img src="{{ asset('upload/blogs/' . $blog->main_image) }}" alt="Current Image"
+                                style="max-width: 100px; display: block;">
                         </div>
                         @endif
                     </div>
@@ -74,8 +72,8 @@
 
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
-                        <textarea id="summernote" name="description" rows="3"
-                            class="form-control @error('description') is-invalid @enderror">
+                        <textarea name="description" rows="3"
+                            class="form-control editor4 @error('description') is-invalid @enderror">
                         {{ old('description', $blog->description) }}
                         </textarea>
                         @error('description')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -83,8 +81,8 @@
 
                     <div class="mb-3 col-md-6">
                         <div class="form-check form-switch mt-4">
-                            <input class="form-check-input" value="1" type="checkbox" id="status"
-                                name="status" {{ old('status', $blog->status) ? 'checked' : '' }}>
+                            <input class="form-check-input" value="1" type="checkbox" id="status" name="status"
+                                {{ old('status', $blog->status) ? 'checked' : '' }}>
                             <label class="form-check-label" for="status">Status</label>
                         </div>
                     </div>
@@ -105,7 +103,8 @@
                                     <th>
                                         <div class="d-flex justify-content-between">
                                             <span>Paragraph Description</span>
-                                            <button type="button" class="btn btn-primary btn-sm add-more-blog-paragraphs">
+                                            <button type="button"
+                                                class="btn btn-primary btn-sm add-more-blog-paragraphs">
                                                 Add More
                                             </button>
                                         </div>
@@ -118,17 +117,20 @@
                                     <input type="hidden" name="paragraphs_id[]"
                                         value="{{ $paragraph instanceof App\Models\BlogParagraph ? $paragraph->id : '' }}">
                                     <td>
-                                        <input type="text" name="paragraphs_title[]"
-                                            class="form-control @error(" paragraphs_title.$index") is-invalid @enderror"
+                                        <input type="text" name="paragraphs_title[]" class="form-control @error("
+                                            paragraphs_title.$index") is-invalid @enderror"
                                             value="{{ old("paragraphs_title.$index", $paragraph->paragraph_title ?? $paragraph['title'] ?? '') }}">
-                                        @error("paragraphs_title.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        @error("paragraphs_title.$index")<div class="invalid-feedback">{{ $message }}
+                                        </div>@enderror
                                     </td>
                                     <td>
-                                        <input type="file" name="paragraphs_image_file[]"
-                                            class="form-control @error(" paragraphs_image_file.$index") is-invalid @enderror">
-                                        @error("paragraphs_image_file.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        <input type="file" name="paragraphs_image_file[]" class="form-control @error("
+                                            paragraphs_image_file.$index") is-invalid @enderror">
+                                        @error("paragraphs_image_file.$index")<div class="invalid-feedback">
+                                            {{ $message }}</div>@enderror
 
-                                        @if(($paragraph instanceof App\Models\BlogParagraph && $paragraph->paragraph_image) ||
+                                        @if(($paragraph instanceof App\Models\BlogParagraph &&
+                                        $paragraph->paragraph_image) ||
                                         (is_array($paragraph) && isset($paragraph['image_preview'])))
                                         <div class="mt-2">
                                             <small>Current Image:</small>
@@ -139,7 +141,8 @@
                                     </td>
                                     <td>
                                         <textarea name="paragraphs_description[]" rows="3"
-                                            class="form-control editor_class_multiple @error(" paragraphs_description.$index") is-invalid @enderror">
+                                            class="form-control editor_class_multiple @error("
+                                            paragraphs_description.$index") is-invalid @enderror">
                                         {{ old("paragraphs_description.$index", $paragraph->paragraph_description ?? $paragraph['description'] ?? '') }}
                                         </textarea>
                                         @if($index > 0)
@@ -147,7 +150,8 @@
                                             <i class="ti ti-trash"></i>
                                         </button>
                                         @endif
-                                        @error("paragraphs_description.$index")<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        @error("paragraphs_description.$index")<div class="invalid-feedback">
+                                            {{ $message }}</div>@enderror
                                     </td>
                                 </tr>
                                 @endforeach
@@ -174,86 +178,58 @@
 <!-- modal--->
 @endsection
 @push('scripts')
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+
 <script>
+    function initCKEditor4() {
+        document.querySelectorAll('.editor4').forEach(function(el) {
+            if (!el.id) {
+                el.id = 'editor_' + Math.random().toString(36).substr(2, 9);
+            }
+            if (!CKEDITOR.instances[el.id]) {
+                CKEDITOR.replace(el.id, {
+                    removePlugins: 'exportpdf',
+                    height: 150
+                });
+            }
+        });
+    }
     $(document).ready(function() {
-        initSummernote();
+        initCKEditor4();
         $('.add-more-blog-paragraphs').on('click', function() {
             let newRow = `
-            <tr>
-                <td>
-                    <input type="text" name="paragraphs_title[]" class="form-control" placeholder="Enter Paragraph Title">
-                </td>
-                <td>
-                    <input type="file" name="paragraphs_image_file[]" class="form-control">
-                </td>
-                <td>
-                    <div>
-                        <textarea name="paragraphs_description[]" rows="3" class="form-control editor_class_multiple"></textarea>
-                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">
-                            <i class="ti ti-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `;
+                <tr>
+                    <td>
+                        <input type="text" name="paragraphs_title[]" class="form-control" placeholder="Enter Paragraph Title">
+                    </td>
+                    <td>
+                        <input type="file" name="paragraphs_image_file[]" class="form-control">
+                    </td>
+                    <td>
+                        <div>
+                            <textarea name="paragraphs_description[]" rows="3" class="form-control editor4"></textarea>
+                            <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">
+                                <i class="ti ti-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
             $('.blog-paragraph-table tbody').append(newRow);
-            initSummernote();
+            initCKEditor4();
         });
         $(document).on('click', '.remove-paragraph', function() {
-            $(this).closest('tr').find('.editor_class_multiple').summernote('destroy');
+            let textarea = $(this).closest('tr').find('.editor_class_multiple')[0];
+            if (textarea && textarea.id && CKEDITOR.instances[textarea.id]) {
+                CKEDITOR.instances[textarea.id].destroy(true);
+            }
             $(this).closest('tr').remove();
         });
-    });
-</script>
-<script>
-    $(document).ready(function() {
         $('.select2').select2({
             placeholder: "Select Notice Type",
             width: '100%'
         });
     });
-
-    function initSummernote() {
-        $('.editor_class_multiple').not('.note-editor').summernote({
-            height: 150,
-            minHeight: null,
-            maxHeight: null,
-            focus: false,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontname', ['fontname']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video', 'hr']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ],
-            prettifyHtml: false,
-            codeviewFilter: true,
-            codeviewIframeFilter: true,
-            styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-            callbacks: {
-                onPaste: function(e) {
-                    var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
-                    var pastedData = clipboardData.getData('Text/html');
-                    if (pastedData) {
-                        e.preventDefault();
-                        var tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = pastedData;
-                        var elementsWithStyle = tempDiv.querySelectorAll('[style]');
-                        elementsWithStyle.forEach(function(el) {
-                            el.removeAttribute('style');
-                        });
-                        var elementsWithClass = tempDiv.querySelectorAll('[class]');
-                        elementsWithClass.forEach(function(el) {
-                            el.removeAttribute('class');
-                        });
-                        document.execCommand('insertHTML', false, tempDiv.innerHTML);
-                    }
-                }
-            }
-        });
-    }
 </script>
+
 @endpush

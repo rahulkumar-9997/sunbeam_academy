@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Sarainandan')
-@section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
-@section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
+@section('title','Sunbeam Academy Sarainandan | CBSE School in Varanasi')
+@section('description', 'Find details on Sunbeam Academy Sarainandan at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.')
+<!-- @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective') -->
 @section('main-content')
 <!--===== HERO AREA STARTS =======-->
 <div class="hero1-section-area sarainandan-hero">

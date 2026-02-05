@@ -43,6 +43,8 @@ class NoticeBoardController extends Controller
             'image_file' => 'nullable|array|max:20',
             'image_file.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:6144',
             'status' => 'nullable|boolean',
+            'meta_title'       => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
         ],[
             'branches.required' => 'Please select at least one branch',
             'image_file.max' => 'You can upload maximum 20 images',
@@ -76,6 +78,8 @@ class NoticeBoardController extends Controller
                 'page_link' => $data['page_link'] ?? null,
                 'file' => $fileName,
                 'status' => $request->has('status') ? 1 : 0,
+                'meta_title'       => $data['meta_title'],
+                'meta_description' => $data['meta_description'],
                 'user_id' => Auth::check() ? Auth::user()->id : null,
             ]);
             foreach ($request->branches as $branchId) {
@@ -133,6 +137,8 @@ class NoticeBoardController extends Controller
             'image_file' => 'nullable|array|max:20',
             'image_file.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:6144',
             'status' => 'nullable|boolean',
+            'meta_title'       => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
         ],[
             'branches.required' => 'Please select at least one branch',
             'image_file.max' => 'You can upload maximum 20 images',
@@ -176,6 +182,8 @@ class NoticeBoardController extends Controller
                 'page_link' => $data['page_link'] ?? null,
                 'file' => $fileName,
                 'status' => $request->has('status') ? 1 : 0,
+                'meta_title' => $data['meta_title'],
+                'meta_description' => $data['meta_description'],
                 'user_id' => Auth::id(),
             ]);
             $noticeBoard->branches()->sync($request->branches);

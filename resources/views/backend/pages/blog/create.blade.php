@@ -57,7 +57,7 @@
                         @endif
                     </div>
 
-                    <div class="col-md- mb-3">
+                    <div class="col-md-4 mb-3">
                         <label for="branches" class="form-label">Select Branches *</label>
                         <select class="form-control select2 @error('branches') is-invalid @enderror" multiple
                             name="branches[]" id="branches" data-placeholder="Select Branches">
@@ -75,8 +75,8 @@
 
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
-                        <textarea id="summernote" name="description" rows="3"
-                            class="form-control @error('description') is-invalid @enderror">
+                        <textarea name="description" rows="3"
+                            class="form-control ckeditor4 @error('description') is-invalid @enderror">
                         {{ old('description', '') }}
                         </textarea>
                         @error('description')
@@ -140,7 +140,7 @@
                                     <td>
                                         <div class="d-flex gap-2">
                                             <textarea name="paragraphs_description[]" rows="3"
-                                                class="form-control editor_class_multiple @error('paragraphs_description.'.$i) is-invalid @enderror">
+                                                class="form-control ckeditor4 @error('paragraphs_description.'.$i) is-invalid @enderror">
                                             {{ old('paragraphs_description.'.$i, '') }}
                                             </textarea>
                                             @if($i > 0)
@@ -177,86 +177,59 @@
 <!-- modal--->
 @endsection
 @push('scripts')
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
 <script>
-    $(document).ready(function() {
-        initSummernote();
-        $('.add-more-blog-paragraphs').on('click', function() {
-            let newRow = `
-            <tr>
-                <td>
-                    <input type="text" name="paragraphs_title[]" class="form-control" placeholder="Enter Paragraph Title">
-                </td>
-                <td>
-                    <input type="file" name="paragraphs_image_file[]" class="form-control">
-                </td>
-                <td>
-                    <div>
-                        <textarea name="paragraphs_description[]" rows="3" class="form-control editor_class_multiple"></textarea>
-                        <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">
-                            <i class="ti ti-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `;
-            $('.blog-paragraph-table tbody').append(newRow);
-            initSummernote();
+    function initCKEditor4() {
+        document.querySelectorAll('.editor_class_multiple').forEach(function(el) {
+            if (!el.getAttribute('data-ckeditor')) {
+                CKEDITOR.replace(el, {
+                    removePlugins: 'exportpdf',
+                    height: 150
+                });
+                el.setAttribute('data-ckeditor', '1');
+            }
         });
-        $(document).on('click', '.remove-paragraph', function() {
-            $(this).closest('tr').find('.editor_class_multiple').summernote('destroy');
-            $(this).closest('tr').remove();
+    }
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
         });
     });
-</script>
-<script>
     $(document).ready(function() {
+        initCKEditor4();
+        $('.add-more-blog-paragraphs').on('click', function() {
+            let newRow = `
+                <tr>
+                    <td>
+                        <input type="text" name="paragraphs_title[]" class="form-control" placeholder="Enter Paragraph Title">
+                    </td>
+                    <td>
+                        <input type="file" name="paragraphs_image_file[]" class="form-control">
+                    </td>
+                    <td>
+                        <div>
+                            <textarea name="paragraphs_description[]" rows="3" class="form-control editor_class_multiple"></textarea>
+                            <button type="button" class="btn btn-danger btn-sm remove-paragraph mt-2">
+                                <i class="ti ti-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            $('.blog-paragraph-table tbody').append(newRow);
+            initCKEditor4();
+        });
+        $(document).on('click', '.remove-paragraph', function() {
+            let textarea = $(this).closest('tr').find('.editor_class_multiple')[0];
+            if (textarea && textarea.id && CKEDITOR.instances[textarea.id]) {
+                CKEDITOR.instances[textarea.id].destroy(true);
+            }
+            $(this).closest('tr').remove();
+        });
         $('.select2').select2({
             placeholder: "Select Notice Type",
             width: '100%'
         });
     });
-
-    function initSummernote() {
-        $('.editor_class_multiple').not('.note-editor').summernote({
-            height: 150,
-            minHeight: null,
-            maxHeight: null,
-            focus: false,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontname', ['fontname']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video', 'hr']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ],
-            prettifyHtml: false,
-            codeviewFilter: true,
-            codeviewIframeFilter: true,
-            styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-            callbacks: {
-                onPaste: function(e) {
-                    var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
-                    var pastedData = clipboardData.getData('Text/html');
-                    if (pastedData) {
-                        e.preventDefault();
-                        var tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = pastedData;
-                        var elementsWithStyle = tempDiv.querySelectorAll('[style]');
-                        elementsWithStyle.forEach(function(el) {
-                            el.removeAttribute('style');
-                        });
-                        var elementsWithClass = tempDiv.querySelectorAll('[class]');
-                        elementsWithClass.forEach(function(el) {
-                            el.removeAttribute('class');
-                        });
-                        document.execCommand('insertHTML', false, tempDiv.innerHTML);
-                    }
-                }
-            }
-        });
-    }
 </script>
 @endpush

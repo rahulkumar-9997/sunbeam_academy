@@ -40487,9 +40487,9 @@ input:checked + .slider:before {
   font-family: "tabler-icons";
 }
 
-textarea {
+/* textarea {
   resize: none;
-}
+} */
 
 .localization-info .setting-info {
   margin-bottom: 20px;
@@ -46057,5 +46057,9 @@ span.flatpickr-weekday {
     transform: rotate(-360deg);
   }
 }
-
+/*ckeditor display*/
+.cke_notifications_area{
+  display: none;
+}
+/*ckeditor display*/
 /*# sourceMappingURL=style.css.map */

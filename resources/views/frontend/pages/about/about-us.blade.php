@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - About us')
-@section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
-@section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
+@section('title','Sunbeam Academy Varanasi CBSE School Campus | About Us')
+@section('description', 'Explore About Us at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.')
+<!-- @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective') -->
 @section('main-content')
 <!-- breadcrumb -->
 <!-- <div class="site-breadcrumb bread-head">
@@ -12,7 +12,7 @@
 </div> -->
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">About Us</h2>
+        <h1 class="breadcrumb-title">About Us</h1>
     </div>
 </div>
 <!-- breadcrumb end -->

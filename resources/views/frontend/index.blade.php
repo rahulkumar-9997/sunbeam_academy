@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Best School in Varanasi')
-@section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
-@section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
+@section('title','Sunbeam Academy | Top CBSE School in Varanasi')
+@section('description', 'Discover Sunbeam Academy Varanasi offering CBSE education, modern facilities, holistic learning, and student-centered growth.')
+<!-- @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective') -->
 @section('main-content')
 @include('frontend.layouts.banner-top')
 @php
@@ -383,7 +383,7 @@
                     </div>
                     <div class="team-content">
                         <div class="team-bio">
-                            <h5><a href="teacher-single.html">Rohan Madhok</a></h5>
+                            <h5><a href="#">Rohan Madhok</a></h5>
                             <span>CEO</span>
                         </div>
                     </div>

@@ -8,6 +8,7 @@
 <meta name="auto-open-modal" content="{{ route('auto-open-modal') }}">
 @yield('meta')
 <title>@yield('title')</title>
+<link rel="canonical" href="{{ url()->current() }}" />
 <link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
 <!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}"> -->
 <!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}"> -->

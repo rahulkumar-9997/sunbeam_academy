@@ -1,11 +1,11 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Fee Structure')
-@section('description', 'Let a child become an independent learner who is morally strong and environmentally aware.')
-@section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective')
+@section('title','Fee Structure at Sunbeam Academy Varanasi CBSE School')
+@section('description', 'Get insights into Fee Structure at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.')
+<!-- @section('keywords', 'Sunbeam Academy, Samneghat Varanasi, Experienced Teachers, Global Perspective,Technology Perspective') -->
 @section('main-content')
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">Fee Structure</h2>
+        <h1 class="breadcrumb-title">Fee Structure</h1>
     </div>
 </div>
 <div class="course-area fee-structure pt-40 pb-10">
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center">
-                    <h4 class="mb-3">To Download the Fess  Structure of the Academic Session <span style="color:#FDA31B;">2026-27 </span></h4>
+                    <h2 class="mb-3 text-22">To Download the Fess  Structure of the Academic Session <span style="color:#FDA31B;">2026-27 </span></h2>
                     <div class="career-btn">
                         <a href="{{ asset('fronted/assets/sunbeam-img/Fee-Structure-2026-2027.pdf') }}" download class="theme-btn mt-1">
                             Click Here

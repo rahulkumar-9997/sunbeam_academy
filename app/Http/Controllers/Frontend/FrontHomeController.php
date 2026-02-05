@@ -618,31 +618,54 @@ class FrontHomeController extends Controller
     public function noticeList(Request $request, $branch = null)
     {
         $today = Carbon::today()->toDateString();
+        $metaTitle = 'Notices at Sunbeam Academy Varanasi CBSE School Campus';
+        $metaDescription = 'Get insights into Notices at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.';
         if ($branch) {
             $branch = Branch::where('slug', $branch)->firstOrFail();
             $branchSlug = $branch->slug;
+            $seo = [
+                'sunbeam-academy-durgakund' => [
+                    'title' => 'Sunbeam Academy Durgakund Notices & Announcements',
+                    'description' => 'Find details on Sunbeam Academy Durgakund at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+                ],
+
+                'sunbeam-academy-samneghat' => [
+                    'title' => 'Sunbeam Academy Samneghat Notices & Announcements',
+                    'description' => 'Read updates on Sunbeam Academy Samneghat at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+                ],
+
+                'sunbeam-academy-sarainandan' => [
+                    'title' => 'Sunbeam Academy Sarainandan Notices & Announcements',
+                    'description' => 'Understand Sunbeam Academy Sarainandan at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.'
+                ],
+            ];
+            if (isset($seo[$branchSlug])) {
+                $metaTitle = $seo[$branchSlug]['title'];
+                $metaDescription = $seo[$branchSlug]['description'];
+            }
             $data['notices'] = NoticeBoard::whereHas('branches', function ($query) use ($branchSlug) {
-                $query->where('slug', $branchSlug);
-            })
+                    $query->where('slug', $branchSlug);
+                })
                 ->where('status', 1)
                 ->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today)
                 ->with('branches')
                 ->orderBy('created_at', 'desc')
-                ->select('id', 'title', 'slug', 'notice_type', 'created_at')
+                ->select('id', 'title', 'slug', 'notice_type', 'created_at', 'meta_title', 'meta_description')
                 ->get();
-            return view('frontend.pages.notice-board.index', compact('data'));
+            return view('frontend.pages.notice-board.index', compact('data', 'metaTitle', 'metaDescription'));
         }
+
         $data['notices'] = NoticeBoard::with('branches')
             ->where('status', 1)
             ->where('start_date', '<=', $today)
             ->where('end_date', '>=', $today)
             ->orderBy('created_at', 'desc')
-            ->select('id', 'title', 'slug', 'notice_type', 'created_at')
+            ->select('id', 'title', 'slug', 'notice_type', 'created_at', 'meta_title', 'meta_description')
             ->get();
-        //return response()->json($data['notices']);
-        return view('frontend.pages.notice-board.index', compact('data'));
+        return view('frontend.pages.notice-board.index', compact('data', 'metaTitle', 'metaDescription'));
     }
+
 
     public function noticeDetails(Request $request, $slug)
     {
@@ -658,7 +681,7 @@ class FrontHomeController extends Controller
     {
         $data['classes'] = ClassModel::with(['branches'])
             ->where('status', 1)
-            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->select('title', 'slug', 'heading_name', 'meta_title', 'meta_description', 'main_image', 'description', 'user_id')
             ->latest()
             ->get();
         return view('frontend.pages.classes.index', compact('data'));
@@ -669,7 +692,7 @@ class FrontHomeController extends Controller
         $classes = ClassModel::with(['branches'])
             ->where('status', 1)
             ->where('slug', $slug)
-            ->select('title', 'slug', 'heading_name', 'main_image', 'description', 'user_id')
+            ->select('title', 'slug', 'heading_name', 'meta_title', 'meta_description', 'main_image', 'description', 'user_id')
             ->firstOrFail();
         return view('frontend.pages.classes.show', compact('classes'));
     }
@@ -775,6 +798,7 @@ class FrontHomeController extends Controller
         if (!$branchDisclosure) {
             abort(404, 'Branch not found');
         }
+        
         //return response()->json($branchDisclosure);
         return view('frontend.pages.disclosure.list', [
             'branchDisclosure' => $branchDisclosure

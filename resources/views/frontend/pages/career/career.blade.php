@@ -1,10 +1,10 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Career')
-@section('description', 'Career')
+@section('title','Careers at Sunbeam Academy | Teaching & Staff Jobs')
+@section('description', 'Browse information on Career at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.')
 @section('main-content')
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">Career</h2>
+        <h1 class="breadcrumb-title">Career</h1>
     </div>
 </div>
 <div class="department-area pt-50 pb-20 sathee-area">

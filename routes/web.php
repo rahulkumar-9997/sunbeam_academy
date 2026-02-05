@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\OurAlumniController;
 use App\Http\Controllers\Backend\AchieversController;
 
 use App\Http\Controllers\Frontend\FrontHomeController;
+use App\Http\Controllers\Frontend\SiteMapController;
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm']);
@@ -169,3 +170,4 @@ Route::prefix('hostel')->group(function () {
 Route::get('clear-cache', [FrontHomeController::class, 'clearCache'])->name('clear-cache');
 Route::get('career', [FrontHomeController::class, 'career'])->name('career');
 Route::get('auto-open-modal', [FrontHomeController::class, 'autoOpenModal'])->name('auto-open-modal');
+Route::get('/sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap.xml');

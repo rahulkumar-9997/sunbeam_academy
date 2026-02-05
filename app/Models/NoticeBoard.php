@@ -10,6 +10,8 @@ class NoticeBoard extends Model
     protected $fillable = [
         'title',
         'page_heading',
+        'meta_title', 
+        'meta_description', 
         'slug',
         'notice_type',
         'description',

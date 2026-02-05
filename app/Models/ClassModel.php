@@ -11,6 +11,8 @@ class ClassModel extends Model
         'title',
         'slug',
         'heading_name',
+        'meta_title',
+        'meta_description',
         'main_image',
         'description',
         'status',

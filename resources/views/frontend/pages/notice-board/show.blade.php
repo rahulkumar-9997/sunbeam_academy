@@ -1,7 +1,9 @@
 @php
-$metaTitle = $notice->title . ' | Sunbeam Academy';
-$metaDesc = $notice->description;
-$metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
+$metaTitle = ($notice->meta_title ?: $notice->title);
+$metaDescription = \Illuminate\Support\Str::limit(
+    strip_tags($notice->meta_description ?: $notice->description),
+    160
+);
 @endphp
 @extends('frontend.layouts.master')
 @section('title', $metaTitle)
@@ -10,7 +12,7 @@ $metaDescription = \Illuminate\Support\Str::limit(strip_tags($metaDesc), 160);
 
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">{{ $notice->title }}</h2>
+        <h1 class="breadcrumb-title">{{ $notice->title }}</h1>
     </div>
 </div>
 <div class="notice-area notice-py">

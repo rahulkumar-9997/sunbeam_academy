@@ -1,10 +1,10 @@
 @extends('frontend.layouts.master')
-@section('title','Sunbeam Academy - Sathee')
-@section('description', 'Sunbeam Academy Talent Hunt Entrance Examination, India’s Biggest Talent Hunt for School Students')
+@section('title','Sathee at Sunbeam Academy Varanasi |CBSE School')
+@section('description', 'Know more about Sathee at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.')
 @section('main-content')
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">Sunbeam Academy Talent Hunt Entrance Examination</h2>
+        <h1 class="breadcrumb-title">Sunbeam Academy Talent Hunt Entrance Examination</h1>
     </div>
 </div>
 <div class="department-area pt-50 pb-20 sathee-area">

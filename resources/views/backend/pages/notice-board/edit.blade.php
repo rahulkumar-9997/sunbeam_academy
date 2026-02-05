@@ -136,6 +136,34 @@
                             <label class="form-check-label" for="status">Status</label>
                         </div>
                     </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="meta_title" class="form-label">Meta Title</label>
+                        <input
+                            type="text"
+                            class="form-control @error('meta_title') is-invalid @enderror"
+                            name="meta_title"
+                            id="meta_title"
+                            value="{{ old('meta_title', $notice_board_row->meta_title ?? '') }}">
+
+                        @error('meta_title')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="meta_description" class="form-label">Meta Description</label>
+
+                        <textarea
+                            class="form-control  @error('meta_description') is-invalid @enderror"
+                            name="meta_description"
+                            id="meta_description"
+                            rows="3">{{ old('meta_description', $notice_board_row->meta_description ?? '') }}</textarea>
+
+                        @error('meta_description')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     @if($notice_board_row->noticeImages->count() > 0)
                     <div class="col-lg-12">
                         <div class="mt-3">
@@ -158,8 +186,8 @@
                     @endif
                     <div class="col-md-12 mb-3">
                         <label for="summernote" class="form-label">Description *</label>
-                        <textarea id="summernote" name="description" rows="3"
-                            class="form-control @error('description') is-invalid @enderror">{{ old('description', $notice_board_row->description) }}</textarea>
+                        <textarea name="description" rows="3"
+                            class="form-control ckeditor4 @error('description') is-invalid @enderror">{{ old('description', $notice_board_row->description) }}</textarea>
                         @error('description')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -182,6 +210,14 @@
 <!-- modal--->
 @endsection
 @push('scripts')
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+<script>
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
+        });
+    });
+</script>
 <script src="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <script>
     $(function() {

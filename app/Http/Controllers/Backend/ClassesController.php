@@ -30,6 +30,8 @@ class ClassesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'heading_name' => 'required|string|max:255',
+            'meta_title'       => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
             'main_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:6144',
             'description' => 'required|string',
             'branches' => 'required|array',
@@ -59,6 +61,8 @@ class ClassesController extends Controller
             $class = ClassModel::create([
                 'title'         => $request->title,
                 'heading_name'  => $request->heading_name,
+                'meta_title'       => $request->meta_title,
+                'meta_description' => $request->meta_description, 
                 'main_image'    => $imageFileName,
                 'description'   => $request->description,
                 'status'        => $request->has('status') ? 1 : 0,
@@ -66,7 +70,6 @@ class ClassesController extends Controller
             ]);
             $class->branches()->attach($request->branches);
             DB::commit();
-
             return redirect()->route('manage-classes')->with('success', 'Class created successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
@@ -89,6 +92,8 @@ class ClassesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'heading_name' => 'required|string|max:255',
+            'meta_title'       => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:6144',
             'description' => 'required|string',
             'branches' => 'required|array',
@@ -122,6 +127,8 @@ class ClassesController extends Controller
             $class->update([
                 'title'         => $request->title,
                 'heading_name'  => $request->heading_name,
+                'meta_title'       => $request->meta_title,
+                'meta_description' => $request->meta_description,
                 'main_image'    => $imageFileName,
                 'description'   => $request->description,
                 'status'        => $request->has('status') ? 1 : 0,
