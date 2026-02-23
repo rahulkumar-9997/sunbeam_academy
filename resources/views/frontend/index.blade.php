@@ -486,42 +486,38 @@
         <div class="row popup-gallery display-gallery-data-by-ajax">
             @foreach($data['album'] as $index => $item)
             @php
-            $delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
+                $delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
+                $imagePath = null;
+                if($item->image){
+                    $imagePath = 'images/album/'.$item->image;
+                }elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file){
+                    $imagePath = 'upload/album/gallery/'.$item->galleries->first()->image_file;
+                }else{
+                    $imagePath = 'images/placeholder.webp';
+                }
             @endphp
             <div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
                 <div class="gallery-item home-album-item">
-                    <a href="{{ route('album.home', ['id' => $item->id]) . '?action=frontend_data&type=album&albumid=' . $item->id }}" class="home-album-ajax">
-                        @if($item->image)
+                    <a href="{{ route('album.home', ['id' => $item->id]) }}?action=frontend_data&type=album&albumid={{ $item->id }}"
+                    class="home-album-ajax">
                         <div class="gallery-img">
-                            <img src="{{ asset('upload/album/'.$item->image) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
+                            <picture>
+                                <source
+                                    srcset="{{ asset($imagePath) }}?w=460&h=370&q=80&fm=webp"
+                                    type="image/webp">
+                                <img
+                                    src="{{ asset($imagePath) }}?w=460&h=370&q=80"
+                                    alt="{{ $item->title }}"
+                                    width="360"
+                                    height="270"
+                                    class="img-fluid gallery-thumb"
+                                    loading="lazy"
+                                    decoding="async">
+                            </picture>
                         </div>
                         <div class="gal-album-title text-center">
                             <h5>{{ $item->title }}</h5>
                         </div>
-                        {{-- If no album image, check for gallery images --}}
-                        @elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file)
-                        <div class="gallery-img">
-                            <img src="{{ asset('upload/album/gallery/'.$item->galleries->first()->image_file) }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
-                        </div>
-                        <div class="gal-album-title text-center">
-                            <h5>{{ $item->title }}</h5>
-                        </div>
-                        @else
-                        <div class="gallery-img">
-                            <img src="{{ asset('path/to/placeholder.jpg') }}" alt="{{ $item->title }}" class="img-fluid" loading="lazy" decoding="async">
-                        </div>
-                        <div class="gal-album-title text-center">
-                            <h5>{{ $item->title }}</h5>
-                        </div>
-                        @endif
-                        {{-- Show photo count if available --}}
-                        <!-- @if($item->galleries->count() > 0)
-                        <div class="gallery-content-count">
-                            <span class="badge bg-primary">
-                                {{ $item->galleries->count() }} {{ ($item->galleries->count() > 1) ? 'photos' : 'photo' }}
-                            </span>
-                        </div>
-                        @endif -->
                     </a>
                 </div>
             </div>

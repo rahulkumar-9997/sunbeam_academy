@@ -10,17 +10,16 @@
 <title>@yield('title')</title>
 <link rel="canonical" href="{{ url()->current() }}" />
 <link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
-<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}"> -->
-<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}"> -->
+<link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
 <!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/animate.min.css')}}"> -->
-<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}"> -->
-<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}"> -->
+<link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}" as="style">
-<link rel="preload" href="{{ asset('fronted/assets/css/style.css') }}" as="style">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}?v=1.1">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}?v=1.1">
+<!-- <link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}?v={{ env('ASSET_VERSION', '1.0') }}" as="style">
+<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}?v={{ env('ASSET_VERSION', '1.0') }}"> -->
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WCVNMMKQ4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

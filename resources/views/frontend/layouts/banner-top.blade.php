@@ -3,23 +3,38 @@
     <div class="hero-section mobile-hero">
         <div class="hero-slider owl-carousel owl-theme">
             @foreach($data['banners'] as $index => $banner)
+                @php
+                    $headingLevel = min($index + 1, 6);
+                    $desktopImg = url('/images/banner/' . $banner->desktop_img);
+                    $mobileImg = url('/images/banner/' . ($banner->mobile_img ?? $banner->desktop_img));
+                @endphp
                 <div class="hero-single">
                     <div class="hero-image-container">
-                        <img 
-                            src="{{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }}" 
-                            srcset="{{ url('/images/banner/' . $banner->desktop_img . '?w=412&h=206&q=85') }} 412w,
-                                    {{ url('/images/banner/' . $banner->desktop_img . '?w=824&h=412&q=85') }} 824w,
-                                    {{ url('/images/banner/' . $banner->desktop_img . '?w=1361&h=681&q=85') }} 1361w"
-                            sizes="(max-width: 768px) 100vw,
-                                   (max-width: 1200px) 80vw,
-                                   824px"
-                            alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
-                            class="hero-image"
-                            width="824" height="412"
-                            decoding="async"
-                            loading="{{ $index === 0 ? 'eager' : 'lazy' }}">
-                    </div>
-                    
+                        <picture>
+                            {{-- Mobile image (smaller file size) --}}
+                            <source 
+                                media="(max-width: 768px)"
+                                srcset="{{ $mobileImg }}?w=412&h=206&q=80 1x,
+                                        {{ $mobileImg }}?w=824&h=412&q=80 2x"
+                                type="image/jpeg">                            
+                            {{-- Desktop image --}}
+                            <source 
+                                media="(min-width: 769px)"
+                                srcset="{{ $desktopImg }}?w=824&h=412&q=80 1x,
+                                        {{ $desktopImg }}?w=1361&h=681&q=80 2x"
+                                type="image/jpeg"> 
+                            <img 
+                                src="{{ $desktopImg }}?w=824&h=412&q=80"
+                                alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
+                                class="hero-image"
+                                width="824" 
+                                height="412"
+                                decoding="async"
+                                fetchpriority="{{ $index === 0 ? 'high' : 'low' }}"
+                                loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
+                                onload="this.style.opacity='1'">
+                        </picture>
+                    </div>                    
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-md-12 col-lg-7">
@@ -31,11 +46,11 @@
                                             <i class="far fa-book-open-reader" aria-hidden="true"></i>
                                             {{ $banner->title ?? 'Welcome To Sunbeam Academy!' }}
                                         </h6>
-                                        <h1 class="hero-title" 
+                                        <h{{ $headingLevel }} class="hero-title" 
                                             data-animation="fadeInRight" 
                                             data-delay=".50s">
                                             {!! $banner->sub_title ?? '' !!}
-                                        </h1>
+                                        </h{{ $headingLevel }}>
                                         <p data-animation="fadeInLeft" data-delay=".75s">
                                             {{ $banner->short_content ?? '' }}
                                         </p>
