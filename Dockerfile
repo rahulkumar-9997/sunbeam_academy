@@ -27,8 +27,8 @@ COPY . .
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port 10000
-EXPOSE 10000
+# Expose the port (optional, Render handles this automatically)
+EXPOSE 8080
 
-# Start the Laravel application
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
+# Start the Laravel application on Render's $PORT
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-8080}"]
