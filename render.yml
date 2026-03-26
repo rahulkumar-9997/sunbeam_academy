@@ -1,21 +1,16 @@
 services:
   - type: web
     name: sunbeam-academy
-    runtime: php
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      php artisan config:cache
-      php artisan route:cache
-      php artisan view:cache
-    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    runtime: image
+    repo: https://github.com/yourusername/sunbeam-academy
+    plan: free
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_ENV
         value: production
-      - key: APP_KEY
-        sync: false
       - key: APP_DEBUG
         value: false
-      - key: LOG_CHANNEL
-        value: stderr
-      - key: PORT
-        value: 8080
+      - key: APP_URL
+        value: https://sunbeam-academy.onrender.com
+      - key: APP_KEY
+        sync: false

@@ -1,39 +1,31 @@
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
-# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
+    nginx \
     curl \
+    unzip \
     libpng-dev \
     libonig-dev \
-    libxml2-dev \
     libzip-dev \
-    zip \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install pdo_mysql mbstring gd zip
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
-
-# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set the working directory
 WORKDIR /var/www/html
 
-# Copy the Laravel project files
 COPY . .
 
-# Install Laravel dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader \
+    && php artisan key:generate \
+    && php artisan config:cache \
+    && php artisan route:cache \
+    && php artisan view:cache
 
-# Set permissions
+COPY docker/nginx.conf /etc/nginx/sites-enabled/default
+
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Expose the port
-EXPOSE $PORT
+EXPOSE 80
 
-# Start the Laravel application
-CMD ["sh", "-c", "php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan serve --host=0.0.0.0 --port=${PORT}"]
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
