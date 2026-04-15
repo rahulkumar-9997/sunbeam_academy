@@ -219,7 +219,7 @@
 <!-- counter area end -->
 <!-- course-area -->
 @if (!empty($data['classes']) && $data['classes']->count() > 0)
-<div class="course-area pt-120 pb-50">
+<div class="course-area pt-60 pb-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
@@ -470,7 +470,7 @@
 <!-- choose-area end -->
 <!-- gallery-area -->
 @if (!empty($data['album']) && $data['album']->count() > 0)
-<div class="gallery-area py-120">
+<div class="gallery-area py-80">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">

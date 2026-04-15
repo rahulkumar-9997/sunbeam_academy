@@ -6695,7 +6695,7 @@ label {
 }
 
 .home-feature .feature-item:hover {
-  background: linear-gradient(145deg, #fda31b 3.03%, #fda31b 27.62%, #116f5f 76.39%, #126f60 112.44%)
+  background: #116e63;
 }
 
 .home-feature .feature-item:hover h3,
