@@ -63,19 +63,16 @@
                     </p>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 To Give knowledge that can help a child to hold his head high with self-esteem in the future.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 Impart knowledge which can provide his Hand a decent livelihood.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 To fill the children’s hearts with compassion and sensibilities towards society and the Nation.
                             </span>
@@ -99,19 +96,16 @@
                     </p>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 Values of honesty, compassion, tolerance, and respect for others.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 Development of democratic and secular values.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 Respect for our country's rich and varied heritage and a sense of national pride.
                             </span>

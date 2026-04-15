@@ -489,14 +489,14 @@
                 $delay = ($index % 3 == 0) ? '.25s' : (($index % 3 == 1) ? '.50s' : '.75s');
                 $imagePath = null;
                 if($item->image){
-                    $imagePath = 'images/album/'.$item->image;
+                    $imagePath = 'upload/album/'.$item->image;
                 }elseif($item->galleries->isNotEmpty() && $item->galleries->first()->image_file){
                     $imagePath = 'upload/album/gallery/'.$item->galleries->first()->image_file;
                 }else{
                     $imagePath = 'images/placeholder.webp';
                 }
             @endphp
-            <div class="col-md-4 wow fadeInUp" data-wow-delay="{{ $delay }}">
+            <div class="col-md-4 wow fadeInUp">
                 <div class="gallery-item home-album-item">
                     <a href="{{ route('album.home', ['id' => $item->id]) }}?action=frontend_data&type=album&albumid={{ $item->id }}"
                     class="home-album-ajax">

@@ -9,7 +9,7 @@
         <h5 style="color:#ffffff; margin-top: 10px;">Ekalavya Hostel</h5>
     </div>
 </div>
-<div class="youtube-video-section pb-10 pt-20">
+<div class="youtube-video-section pt-50 pb-30">
     <div class="container">
         <div class="youtube-video-content">
             <div class="row justify-content-md-center">
@@ -73,13 +73,11 @@
 
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong>Air-conditioned hostels,</strong> ensuring privacy, comfort, and a homely atmosphere.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong>Spacious dormitories </strong> and <strong> well-ventilated rooms</strong>, designed to offer the perfect balance between personal space and community living.
                             </span>
@@ -101,13 +99,11 @@
                     <h3 class="xb-item--title">Nutritious Dining Experience</h3>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 A <strong>mess with all modern amenities</strong> serving wholesome, balanced, and delicious meals.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 Hygienic dining facilities that promote healthy eating habits and overall well-being.
                             </span>
@@ -128,13 +124,11 @@
                     <h3 class="xb-item--title">Safety & Supervision</h3>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong>24x7 warden supervision</strong> and constant <strong>CCTV monitoring</strong> for complete security.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong>Regulated entry and exit</strong> systems ensuring a safe and disciplined environment for every resident.
                             </span>
@@ -155,13 +149,11 @@
                     <h3 class="xb-item--title">Academic & Personal Growth</h3>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong>Remedial classes</strong> for academic support and skill enhancement.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong> Hobby classes</strong> that encourage creativity, expression, and balanced development
                             </span>
@@ -182,13 +174,11 @@
                     <h3 class="xb-item--title">Beyond the Classroom</h3>
                     <ul class="content-list mt-2">
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 <strong> Access to extra-curricular activities</strong> even beyond school hours, allowing students to continue exploring their interests.
                             </span>
                         </li>
                         <li class="li-flex">
-                            <i class="fas fa-check-circle"></i>
                             <span>
                                 World-class <strong>Cricket Academy</strong> and <strong>Shooting Range,</strong> nurturing sporting talent and instilling a spirit of excellence.
                             </span>
