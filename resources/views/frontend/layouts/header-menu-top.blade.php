@@ -47,7 +47,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ $mainDomain }}">
-                    <img src="{{ asset('fronted/assets/sunbeam-img/logo.png') }}" alt="logo"    width="221" height="52" decoding="async" loading="lazy">
+                    <img src="{{ asset('fronted/assets/sunbeam-img/logo.png') }}" alt="logo"    width="221" height="52" decoding="async" loading="eager">
                 </a>
                 <div class="mobile-menu-right">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

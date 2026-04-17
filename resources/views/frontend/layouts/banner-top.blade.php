@@ -14,25 +14,29 @@
                             {{-- Mobile image (smaller file size) --}}
                             <source 
                                 media="(max-width: 768px)"
-                                srcset="{{ $mobileImg }}?w=412&h=206&q=80 1x,
-                                        {{ $mobileImg }}?w=824&h=412&q=80 2x"
-                                type="image/jpeg">                            
+                                srcset="
+                                        {{ $mobileImg }}?w=360&q=60 360w,
+                                        {{ $mobileImg }}?w=720&q=60 720w"
+                                    sizes="100vw"
+                                type="image/webp">                            
                             {{-- Desktop image --}}
                             <source 
                                 media="(min-width: 769px)"
-                                srcset="{{ $desktopImg }}?w=824&h=412&q=80 1x,
-                                        {{ $desktopImg }}?w=1361&h=681&q=80 2x"
-                                type="image/jpeg"> 
+                                srcset="
+                                    {{ $desktopImg }}?w=824&q=70 824w,
+                                    {{ $desktopImg }}?w=1200&q=70 1200w"
+                                sizes="100vw"
+                                type="image/webp"> 
                             <img 
-                                src="{{ $desktopImg }}?w=824&h=412&q=80"
+                                src="{{ $desktopImg }}?w=720&q=70"
                                 alt="{{ $banner->title ?? 'Sunbeam Academy Banner' }}" 
                                 class="hero-image"
                                 width="824" 
                                 height="412"
                                 decoding="async"
-                                fetchpriority="{{ $index === 0 ? 'high' : 'low' }}"
-                                loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
-                                onload="this.style.opacity='1'">
+                                fetchpriority="high"
+                                loading="eager"
+                                decoding="async">
                         </picture>
                     </div>                    
                     <div class="container">

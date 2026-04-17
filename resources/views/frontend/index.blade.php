@@ -61,19 +61,24 @@
                 <div class="announcement-item h-100">
                     <div class="announcement-img-container">
                         <a href="{{ asset('upload/announcement/' . $announcement->image) }}" class="popup-img d-block">
-                            <img src="{{ url('/images/announcement/' . $announcement->image . '?w=400&h=400&q=85') }}" 
-                                 srcset="{{ url('/images/announcement/' . $announcement->image . '?w=400&h=400&q=85') }} 400w,
-                                         {{ url('/images/announcement/' . $announcement->image . '?w=200&h=133&q=85') }} 200w,
-                                         {{ url('/images/announcement/' . $announcement->image . '?w=366&h=244&q=85') }} 366w"
-                                 sizes="(max-width: 576px) calc(100vw - 30px),
-                                        (max-width: 768px) calc(50vw - 30px),
-                                        400px"
-                                 alt="{{ $announcement->title }}" 
-                                 class="announcement-image img-fluid" 
-                                 loading="lazy"
-                                 width="400" 
-                                 height="400">
-                        </a>
+                            <img 
+                                src="{{ url('/images/announcement/' . $announcement->image . '?w=400&q=60') }}"                                 
+                                srcset="
+                                    {{ url('/images/announcement/' . $announcement->image . '?w=200&q=60') }} 200w,
+                                    {{ url('/images/announcement/' . $announcement->image . '?w=400&q=60') }} 400w,
+                                    {{ url('/images/announcement/' . $announcement->image . '?w=600&q=60') }} 600w
+                                "
+                                sizes="(max-width: 576px) 100vw,
+                                    (max-width: 768px) 50vw,
+                                    400px"
+                                alt="{{ $announcement->title }}" 
+                                class="announcement-image img-fluid" 
+                                loading="lazy"
+                                decoding="async"
+                                width="400" 
+                                height="auto"
+                            >
+                            </a>
                     </div>
                 </div>
             </div>
@@ -91,7 +96,7 @@
                     <div class="about-img">
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <img class="img-1" src="{{asset('fronted/assets/sunbeam-img/about/about-6.jpg')}}" alt="img" loading="lazy">
+                                <img class="img-1" src="{{asset('fronted/assets/sunbeam-img/about/about-6.webp')}}" alt="img" loading="lazy">
                                 <div class="about-experience mt-4">
                                     <div class="about-experience-icon">
                                         <img src="{{asset('fronted/assets/img/icon/exchange-idea.svg')}}" alt="img" loading="lazy">
@@ -100,8 +105,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mobile-center">
-                                <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.jpg')}}" alt="img" loading="lazy">
-                                <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.jpg')}}" alt="img" loading="lazy">
+                                <img class="img-2" src="{{asset('fronted/assets/sunbeam-img/about/about-7.webp')}}" alt="img" loading="lazy">
+                                <img class="img-3 mt-4" src="{{asset('fronted/assets/sunbeam-img/about/about-1.webp')}}" alt="img" loading="lazy">
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
 @section('main-content')
 <div class="site-breadcrumb bread-head" style="background: url({{ asset('fronted/assets/sunbeam-img/breadcrumb/banner-1.jpg') }})">
     <div class="container">
-        <h2 class="breadcrumb-title">Stem Labs</h2>
+        <h1 class="breadcrumb-title">Stem Labs</h1>
     </div>
 </div>
 

@@ -620,6 +620,11 @@ class FrontHomeController extends Controller
         $today = Carbon::today()->toDateString();
         $metaTitle = 'Notices at Sunbeam Academy Varanasi CBSE School Campus';
         $metaDescription = 'Get insights into Notices at Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.';
+        if($branch){
+            $metaTitle = 'Notices at ' . Str::title(str_replace('-', ' ', $branch)) . ' - CBSE School Campus';
+            $metaDescription = 'Get insights into Notices at ' . Str::title(str_replace('-', ' ', $branch)) . ' - Sunbeam Academy Varanasi, covering academics, activities, facilities, and student development.';
+        }
+        
         if ($branch) {
             $branch = Branch::where('slug', $branch)->firstOrFail();
             $branchSlug = $branch->slug;

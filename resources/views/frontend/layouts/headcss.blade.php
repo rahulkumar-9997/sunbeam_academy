@@ -8,18 +8,20 @@
 <meta name="auto-open-modal" content="{{ route('auto-open-modal') }}">
 @yield('meta')
 <title>@yield('title')</title>
-<link rel="canonical" href="{{ url()->current() }}" />
-<link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
-<!-- <link rel="stylesheet" href="{{asset('fronted/assets/css/animate.min.css')}}"> -->
-<link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- <link rel="preload" href="{{ asset('fronted/assets/css/minify.css') }}?v={{ env('ASSET_VERSION', '1.0') }}" as="style">
-<link rel="stylesheet" href="{{asset('fronted/assets/css/minify.css')}}?v={{ env('ASSET_VERSION', '1.0') }}"> -->
-<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}?v={{ env('ASSET_VERSION', '1.0') }}">
+<link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="canonical" href="{{ url()->current() }}" />
+<link rel="icon" type="image/x-icon" href="{{asset('fronted/assets/sunbeam-img/fav-icon.png')}}">
+<link rel="preload" href="{{asset('fronted/assets/css/bootstrap.min.css')}}" as="style"/>
+<link rel="preload" href="{{asset('fronted/assets/css/style-2.css')}}" as="style"/>
+<link rel="preload" href="{{asset('fronted/assets/css/all-fontawesome.min.css')}}" as="style" onload="this.rel='stylesheet'"/>
+<link rel="stylesheet" href="{{asset('fronted/assets/css/owl.carousel.min.css')}}" media="print" onload="this.media='all'"/>
+
+<link rel="stylesheet" href="{{asset('fronted/assets/css/magnific-popup.min.css')}}" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="{{asset('fronted/assets/css/bootstrap.min.css')}}?v={{ env('ASSET_VERSION', '1.0') }}"/>
+<link rel="stylesheet" href="{{asset('fronted/assets/css/style-2.css')}}?v={{ env('ASSET_VERSION', '1.0') }}"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WCVNMMKQ4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

@@ -22,9 +22,9 @@ $metaDescription = \Illuminate\Support\Str::limit(
                 <div class="eventdetails">
                     <div class="events-boder ng-scope">
                         <div class="eventdetails2">
-                            <h1 class="ng-binding">
+                            <h2 class="ng-binding">
                                 {{ $notice->page_heading ?: $notice->title }}
-                            </h1>
+                            </h2>
                             <!-- <div class="events-bg">
                                 <span class="ng-binding"><strong>Date: </strong>
                                  {{ \Carbon\Carbon::parse($notice->start_date)->format('D, d M Y') }}, 
@@ -40,7 +40,7 @@ $metaDescription = \Illuminate\Support\Str::limit(
                                 </a>
                             </div>
                             @endif
-                            <div class="notice-content mt-4">
+                            <div class="notice-content mt-2">
                                 {!! $notice->description !!}
                             </div>
                             @if($notice->page_link)
