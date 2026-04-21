@@ -80,7 +80,9 @@ Table of contents
 /*====================
 2. Theme variables
 ======================*/
-
+@font-face {
+  font-display: swap;
+}
 :root {
   --body-font: 'Roboto', sans-serif;
   --heading-font: 'Yantramanav', sans-serif;
