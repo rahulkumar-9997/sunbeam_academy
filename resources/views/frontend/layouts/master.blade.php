@@ -3,7 +3,7 @@
 	<head>
 		@include('frontend.layouts.headcss')	
 	</head>
-    <body>
+    <body class="loaded-fonts">
 		@include('frontend.layouts.header-menu-top')
 		<main class="main">
 			@yield('main-content')
