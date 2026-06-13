@@ -69,7 +69,7 @@
                              <li><a href="{{ $mainDomain }}/classes"><i class="fas fa-caret-right"></i>Classes</a></li>
                              <li><a href="https://forms.gle/XZTmoZ17AHvkWdHx7" target="_blank"><i class="fas fa-caret-right"></i>Admissions</a></li>
                              <li><a href="{{ $mainDomain }}/admissions/fee-structure"><i class="fas fa-caret-right"></i>Fees Rule</a></li>
-                             <li><a href="{{ $mainDomain }}/schlorships/elite-11"><i class="fas fa-caret-right"></i>Elite 11</a></li>
+                             <li><a href="https://elite11.co.in/Elite11_.aspx" target="_blank"><i class="fas fa-caret-right"></i>Elite 11</a></li>
                          </ul>
                      </div>
                  </div>

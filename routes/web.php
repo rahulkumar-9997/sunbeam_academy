@@ -105,7 +105,7 @@ Route::prefix('academics')->group(function () {
     Route::get('/school-levels', [FrontHomeController::class, 'schoolLevels'])->name('school-levels');
     Route::get('/holistic-educational-approach', [FrontHomeController::class, 'holisticEducationalApproach'])->name('holistic-educational-approach');
     Route::get('/academic-support-programs', [FrontHomeController::class, 'academicSupportPrograms'])->name('academic-support-programs');
-    Route::get('/day-bording-in-house', [FrontHomeController::class, 'dayBordingHouse'])->name('day-bording-in-house');
+    Route::get('/day-boarding-in-house', [FrontHomeController::class, 'dayBordingHouse'])->name('day-boarding-in-house');
 });
 
 Route::prefix('admissions')->group(function () {
@@ -114,7 +114,7 @@ Route::prefix('admissions')->group(function () {
     Route::get('/rules-and-regulations', [FrontHomeController::class, 'rulesAndRegulations'])->name('rules-and-regulations');
 });
 
-Route::prefix('schlorships')->group(function () {
+Route::prefix('scholarships')->group(function () {
     Route::get('/elite-11', [FrontHomeController::class, 'elite11'])->name('elite-11');
     Route::get('/sathee', [FrontHomeController::class, 'sathee'])->name('sathee');
 });

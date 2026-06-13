@@ -40,7 +40,7 @@ class SiteMapController extends Controller
             'school-levels' => '0.8',
             'holistic-educational-approach' => '0.8',
             'academic-support-programs' => '0.8',
-            'day-bording-in-house' => '0.8',
+            'day-boarding-in-house' => '0.8',
             'book-a-tour' => '0.8',
             'fee-structure' => '0.8',
             'rules-and-regulations' => '0.8',

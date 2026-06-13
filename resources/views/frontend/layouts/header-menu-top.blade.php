@@ -75,7 +75,7 @@
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/academics/school-levels">School Levels</a></li>
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/academics/holistic-educational-approach">Holistic Educational Approach</a></li>
                                 <li><a class="dropdown-item" href="{{ $mainDomain }}/academics/academic-support-programs">Academic Support Programs</a></li>
-                                <li><a class="dropdown-item" href="{{ $mainDomain }}/academics/day-bording-in-house">Day Bording in-house Coaching</a></li>
+                                <li><a class="dropdown-item" href="{{ $mainDomain }}/academics/day-boarding-in-house">Day Bording in-house Coaching</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -91,7 +91,7 @@
                             <ul class="dropdown-menu fade-down">
                                 <!--<li><a class="dropdown-item" href="{{ $mainDomain }}/schlorships/elite-11">Elite 11</a></li>-->
 								<li><a class="dropdown-item" href="https://elite11.co.in/Elite11_.aspx" target="_blank">Elite 11</a></li>
-                                <li><a class="dropdown-item" href="{{ $mainDomain }}/schlorships/sathee">Sathee</a></li>
+                                <li><a class="dropdown-item" href="{{ $mainDomain }}/scholarships/sathee">Sathee</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
